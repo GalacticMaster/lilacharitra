@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leela Charitra</title>
+	<style>
+		h1 {
+			font-size: 80px;
+			text-align: center;
+			}
+
+		h2 {
+			font-size: 30px;
+			}
+
+		p {
+			font-size: 14px;
+}
+</style>
+</head>
+<body>
+<h1 style="color:Tomato;"><i>लीळाचरित्र</i></h1>
+<h2 style = "text-align: center;">श्री परेशाए नम: ॥</h2>
+<h2 style = "text-align: center;">पूर्वार्ध </h2>
+<div class="main">
+		<button id="next">Next: </button>
+		<div id="myHTMLWrapper">
+		</div>
+<div class="main">
+	<button id="previes">previes: </button>
+</div>
+<div class="main">
+		<input type="text" id="myText" placeholder="Search.." name="search" value="">
+		<button id="search">search</button>
+		<div id="myHTMLWrapper">
+		</div>
+</div>
+<h2><a href="https://galacticmaster.github.io/lilacharitra/Sthan_suchi.html">Sthan Suchi</a></h2>
+<script type="module">
+import data from 'http://127.0.0.1:8000/purvardh.json' assert { type: 'json' };
+function Func() {
+					fetch("http://127.0.0.1:8000/purvardh.json")
+						.then((res) => {
+						return res.json();
+					})
+					.then((data) => console.log(data));
+				}
+let jsonStr = JSON.stringify(data);
+				const my_test = JSON.parse(jsonStr);
+				console.log(my_test);
+var button = document.getElementById("next");
+var button1 = document.getElementById("previes");
+var button2 = document.getElementById("search"),
+ 
+count = 0;
+
+button.onclick = function() 
+{
+  var wrapper = document.getElementById("myHTMLWrapper");
+  var myHTML = '';
+						count += 1;
+						button.innerHTML = "Next: " + count;
+						console.log(count);
+						wrapper.innerHTML = myHTML
+								var wrapper = document.getElementById("myHTMLWrapper");
+						var myHTML = '';
+						let jsonStr = JSON.stringify(data);
+						const my_test = JSON.parse(jsonStr);
+						//console.log(my_test.purvardh[1].Aadi);
+						//console.log(my_test.purvardh[1].Aadi);
+
+						var json = my_test.purvardh;
+						console.log(json)
+						console.log(json[count].Aadi);
+						//console.log(json.length);
+						let Aadi = json[count].Aadi;
+						console.log(Aadi);
+						myHTML += '<h2> Aadi # ' + (json[count].Aadi) + '</h2>';
+						myHTML += '<h3> vyakti # ' + (json[count].vyakti) + '</h3>';
+						myHTML += '<h3> avyav # ' + (json[count].avyav) + '</h3>';
+						myHTML += '<p>Lila #' + (json[count].Lila) + '</p>';
+						wrapper.innerHTML = myHTML
+};
+button1.onclick = function() 
+{
+  var wrapper = document.getElementById("myHTMLWrapper");
+  var myHTML = '';
+						count -= 1;
+						button.innerHTML = "Next: " + count;
+						console.log(count);
+						wrapper.innerHTML = myHTML
+								var wrapper = document.getElementById("myHTMLWrapper");
+						var myHTML = '';
+						let jsonStr = JSON.stringify(data);
+						const my_test = JSON.parse(jsonStr);
+						//console.log(my_test.purvardh[1].Aadi);
+						//console.log(my_test.purvardh[1].Aadi);
+
+						var json = my_test.purvardh;
+						console.log(json[count].Aadi);
+						//console.log(json.length);
+						let Aadi = json[count].Aadi;
+						console.log(Aadi);
+						myHTML += '<h2> Aadi # ' + (json[count].Aadi) + '</h2>';
+						myHTML += '<h3> vyakti # ' + (json[count].vyakti) + '</h3>';
+						myHTML += '<h3> avyav # ' + (json[count].avyav) + '</h3>';
+						myHTML += '<p>Lila #' + (json[count].Lila) + '</p>';
+						wrapper.innerHTML = myHTML
+};
+button2.onclick = function() {
+  button2.innerHTML = "search" + count;
+  var wrapper = document.getElementById("myHTMLWrapper");
+				var myHTML = '';
+				function Func() {
+					fetch("./main_1.json")
+						.then((res) => {
+						return res.json();
+					})
+					.then((data) => console.log(data));
+				}
+
+				let jsonStr = JSON.stringify(data);
+				const my_test = JSON.parse(jsonStr);
+				//console.log(my_test.purvardh[1].Aadi);
+				//console.log(my_test.purvardh[1].Aadi);
+
+				var json = my_test.purvardh;
+				let search_field = document.getElementById("myText").value;
+				console.log(search_field);
+				for (let i = 0; i < json.length; i++)
+				{
+					//console.log(json[i].Aadi);
+					let Aadi = json[i].Aadi;
+					let Lila = json[i].Lila;
+					let Lila_eng = json[i].eng_lila;
+					let result = Lila.includes(search_field);
+					let result_eng = Lila_eng.includes(search_field);
+					if (result){
+					myHTML += '<h3> Aadi # ' + (json[i].Aadi) + '</h3>'
+					myHTML += '<p>Lila # ' + (json[i].Lila) + '</p>'
+					console.log(result);
+					}
+					else if (result_eng){
+
+					myHTML += '<h3> Aadi # ' + (json[i].Aadi) + '</h3>'
+					myHTML += '<p>Lila # ' + (json[i].Lila) + '</p>'
+					}
+					else{
+					console.log("nothing found");
+					}
+					//myHTML += '<h1> Aadi #' + (json[i].Aadi) + '</h1>';
+					//myHTML += '<p>Lila #' + (json[i].Lila) + '</p>';
+				}
+				wrapper.innerHTML = myHTML
+
+};
+</script>
+</body>
+</html>
