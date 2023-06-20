@@ -142,19 +142,18 @@ button2.onclick = function() {
 					let result_eng = Lila_eng.includes(search_field);
 					if (result){
 					myHTML += '<h3> Aadi # ' + (json[i].Aadi) + '</h3>'
-					myHTML += '<p>Lila # ' + (json[i].Lila) + '</p>'
 					myHTML += '<h3> vyakti # ' + (json[i].vyakti) + '</h3>';
 					myHTML += '<h3> avyav # ' + (json[i].avyav) + '</h3>';
+					myHTML += '<p>Lila # ' + (json[i].Lila) + '</p>'
 					myHTML += '<p>Lila #' + (json[i].eng_lila) + '</p>';
 					myHTML += '<p>Lila #' + (json[i].Tip) + '</p>';
 					console.log(result);
 					}
 					else if (result_eng){
-
 					myHTML += '<h3> Aadi # ' + (json[i].Aadi) + '</h3>'
-					myHTML += '<p>Lila # ' + (json[i].Lila) + '</p>'
 					myHTML += '<h3> vyakti # ' + (json[i].vyakti) + '</h3>';
 					myHTML += '<h3> avyav # ' + (json[i].avyav) + '</h3>';
+					myHTML += '<p>Lila # ' + (json[i].Lila) + '</p>'
 					myHTML += '<p>Lila #' + (json[i].eng_lila) + '</p>';
 					myHTML += '<p>Lila #' + (json[i].Tip) + '</p>';
 					}
