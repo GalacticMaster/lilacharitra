@@ -36,6 +36,8 @@
 		<div id="myHTMLWrapper">
 		</div>
 </div>
+<h2><a href="https://galacticmaster.github.io/lilacharitra/purvardh.html">पूर्वार्ध</a></h2>
+<h2><a href="https://galacticmaster.github.io/lilacharitra/utarardh.html"> उत्तरार्ध</a></h2>
 <h2><a href="https://galacticmaster.github.io/lilacharitra/Sthan_suchi.html">Sthan Suchi</a></h2>
 <script type="module">
 import data from 'https://galacticmaster.github.io/lilacharitra/main_1.json' assert { type: 'json' };
@@ -80,8 +82,6 @@ button.onclick = function()
 						myHTML += '<h3> vyakti # ' + (json[count].vyakti) + '</h3>';
 						myHTML += '<h3> avyav # ' + (json[count].avyav) + '</h3>';
 						myHTML += '<p>Lila #' + (json[count].Lila) + '</p>';
-						myHTML += '<p>Lila #' + (json[count].eng_lila) + '</p>';
-						myHTML += '<p>Tip #' + (json[count].Tip) + '</p>';
 						wrapper.innerHTML = myHTML
 };
 button1.onclick = function() 
@@ -108,8 +108,6 @@ button1.onclick = function()
 						myHTML += '<h3> vyakti # ' + (json[count].vyakti) + '</h3>';
 						myHTML += '<h3> avyav # ' + (json[count].avyav) + '</h3>';
 						myHTML += '<p>Lila #' + (json[count].Lila) + '</p>';
-						myHTML += '<p>Lila #' + (json[count].eng_lila) + '</p>';
-						myHTML += '<p>Tip #' + (json[count].Tip) + '</p>';
 						wrapper.innerHTML = myHTML
 };
 button2.onclick = function() {
@@ -142,24 +140,19 @@ button2.onclick = function() {
 					let result_eng = Lila_eng.includes(search_field);
 					if (result){
 					myHTML += '<h3> Aadi # ' + (json[i].Aadi) + '</h3>'
-					myHTML += '<h3> vyakti # ' + (json[i].vyakti) + '</h3>';
-					myHTML += '<h3> avyav # ' + (json[i].avyav) + '</h3>';
 					myHTML += '<p>Lila # ' + (json[i].Lila) + '</p>'
-					myHTML += '<p>Lila #' + (json[i].eng_lila) + '</p>';
-					myHTML += '<p>Tip #' + (json[i].Tip) + '</p>';
 					console.log(result);
 					}
 					else if (result_eng){
+
 					myHTML += '<h3> Aadi # ' + (json[i].Aadi) + '</h3>'
-					myHTML += '<h3> vyakti # ' + (json[i].vyakti) + '</h3>';
-					myHTML += '<h3> avyav # ' + (json[i].avyav) + '</h3>';
 					myHTML += '<p>Lila # ' + (json[i].Lila) + '</p>'
-					myHTML += '<p>Lila #' + (json[i].eng_lila) + '</p>';
-					myHTML += '<p>Tip #' + (json[i].Tip) + '</p>';
 					}
 					else{
 					console.log("nothing found");
 					}
+					//myHTML += '<h1> Aadi #' + (json[i].Aadi) + '</h1>';
+					//myHTML += '<p>Lila #' + (json[i].Lila) + '</p>';
 				}
 				wrapper.innerHTML = myHTML
 
