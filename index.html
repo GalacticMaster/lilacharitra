@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leela Charitra</title>
+	<style>
+		h1 {
+			font-size: 80px;
+			text-align: center;
+			}
+
+		h2 {
+			font-size: 30px;
+			}
+
+		p {
+			font-size: 14px;
+}
+</style>
+</head>
+<body>
+<h1 style="color:Tomato;"><i>लीळाचरित्र</i></h1>
+<h2 style = "text-align: center;">श्री परेशाए नम: ॥</h2>
+<div class="main">
+		<button id="next">Next: </button>
+		<div id="myHTMLWrapper">
+		</div>
+	<div class="main">
+		<button id="previes">previes: </button>
+	</div>
+	<div class="main">
+		<input type="text" id="myText" placeholder="Search.." name="search" value="">
+		<button id="search">search</button>
+		<div id="myHTMLWrapper">
+		</div>
+	</div>
+<h2><a href="http://127.0.0.1:8000/sthan_suchi.html">Sthan Suchi</a></h2>
+<script type="module">
+  import data from 'http://127.0.0.1:8000/main_1.json' assert { type: 'json' };
+				function Func() {
+					fetch("./main_1.json")
+						.then((res) => {
+						return res.json();
+					})
+					.then((data) => console.log(data));
+				}
+
+let jsonStr = JSON.stringify(data);
+const my_test = JSON.parse(jsonStr);
+console.log(my_test.purvardh[1].Aadi);
+//console.log(my_test.purvardh[1].Aadi);
+
+var json = my_test.purvardh;
+console.log(json[count].Aadi);
+//console.log(json.length);
+let Aadi = json[count].Aadi;
+var button = document.getElementById("next");
+var button1 = document.getElementById("previes");
+var button2 = document.getElementById("search"),
+ 
+count = 0;
+
+button.onclick = function() 
+{
+						count += 1;
+						button.innerHTML = "Next: " + count;
+						console.log(count);
+						var wrapper = document.getElementById("myHTMLWrapper");
+						var myHTML = '';
+						let jsonStr = JSON.stringify(data);
+						const my_test = JSON.parse(jsonStr);
+						//console.log(my_test.purvardh[1].Aadi);
+						//console.log(my_test.purvardh[1].Aadi);
+
+						var json = my_test.purvardh;
+						console.log(json[count].Aadi);
+						//console.log(json.length);
+						let Aadi = json[count].Aadi;
+						console.log(Aadi);
+						myHTML += '<h1> Aadi # ' + (json[count].Aadi) + '</h1>';
+						myHTML += '<h3> vyakti # ' + (json[count].vyakti) + '</h3>';
+						myHTML += '<h3> avyav # ' + (json[count].avyav) + '</h3>';
+						myHTML += '<p>Lila #' + (json[count].Lila) + '</p>';
+						wrapper.innerHTML = myHTML
+};  
+</body>
+</html>
