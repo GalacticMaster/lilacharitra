@@ -153,6 +153,7 @@ button2.onclick = function() {
 					let Lila_eng = json[i].eng_lila;
 					let result = Lila.includes(search_field);
 					let result_eng = Lila_eng.includes(search_field);
+					let result_ID = lila_ID.includes(search_field);
 					if (result){
 						myHTML += '<h2> Lila ID  # ' + (json[i].lila_ID) + '</h2>';
 						myHTML += '<h2 style="color:DodgerBlue;"> Aadi # ' + (json[i].Aadi) + '</h2>';
@@ -164,6 +165,15 @@ button2.onclick = function() {
 					console.log(result);
 					}
 					else if (result_eng){
+
+						myHTML += '<h2> Lila ID  # ' + (json[i].lila_ID) + '</h2>';
+						myHTML += '<h2 style="color:DodgerBlue;"> Aadi # ' + (json[i].Aadi) + '</h2>';
+						myHTML += '<h3> vyakti # ' + (json[i].vyakti) + '</h3>';
+						myHTML += '<h3> avyav # ' + (json[i].avyav) + '</h3>';
+						myHTML += '<p">Lila #' + (json[i].Lila) + '</p>';
+						myHTML += '<p">Lila_english #' + (json[i].eng_lila) + '</p>';
+						myHTML += '<p">Tip #' + (json[i].Tip) + '</p>';
+					}else if (result_ID){
 
 						myHTML += '<h2> Lila ID  # ' + (json[i].lila_ID) + '</h2>';
 						myHTML += '<h2 style="color:DodgerBlue;"> Aadi # ' + (json[i].Aadi) + '</h2>';
