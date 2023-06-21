@@ -13,11 +13,21 @@
 
 		h2 {
 			font-size: 30px;
+			font-weight: 600;
+			text-align: center;
+			color: #000;
+			line-height: normal;
+            		margin-bottom: 0;
 			}
 
 		p {
 			font-size: 14px;
-}
+			font-weight: 600;
+			text-align: center;
+			color: #000;
+			line-height: normal;
+			margin-bottom: 0;
+		}
 </style>
 </head>
 <body>
@@ -81,9 +91,9 @@ button.onclick = function()
 						myHTML += '<h2 style="color:DodgerBlue;"> Aadi # ' + (json[count].Aadi) + '</h2>';
 						myHTML += '<h3> vyakti # ' + (json[count].vyakti) + '</h3>';
 						myHTML += '<h3> avyav # ' + (json[count].avyav) + '</h3>';
-						myHTML += '<p style="color:MediumSeaGreen;">Lila #' + (json[count].Lila) + '</p>';
-						myHTML += '<p style="color:MediumSeaGreen;">Lila_english #' + (json[count].eng_lila) + '</p>';
-						myHTML += '<p style="color:MediumSeaGreen;">Tip #' + (json[count].Tip) + '</p>';
+						myHTML += '<p">Lila #' + (json[count].Lila) + '</p>';
+						myHTML += '<p">Lila_english #' + (json[count].eng_lila) + '</p>';
+						myHTML += '<p">Tip #' + (json[count].Tip) + '</p>';
 						wrapper.innerHTML = myHTML
 };
 button1.onclick = function() 
@@ -110,9 +120,9 @@ button1.onclick = function()
 						myHTML += '<h2 style="color:DodgerBlue;"> Aadi # ' + (json[count].Aadi) + '</h2>';
 						myHTML += '<h3> vyakti # ' + (json[count].vyakti) + '</h3>';
 						myHTML += '<h3> avyav # ' + (json[count].avyav) + '</h3>';
-						myHTML += '<p style="color:MediumSeaGreen;">Lila #' + (json[count].Lila) + '</p>';
-						myHTML += '<p style="color:MediumSeaGreen;">Lila_english #' + (json[count].eng_lila) + '</p>';
-						myHTML += '<p style="color:MediumSeaGreen;">Tip #' + (json[count].Tip) + '</p>';
+						myHTML += '<p">Lila #' + (json[count].Lila) + '</p>';
+						myHTML += '<p">Lila_english #' + (json[count].eng_lila) + '</p>';
+						myHTML += '<p">Tip #' + (json[count].Tip) + '</p>';
 						wrapper.innerHTML = myHTML
 };
 button2.onclick = function() {
@@ -148,9 +158,9 @@ button2.onclick = function() {
 						myHTML += '<h2 style="color:DodgerBlue;"> Aadi # ' + (json[i].Aadi) + '</h2>';
 						myHTML += '<h3> vyakti # ' + (json[i].vyakti) + '</h3>';
 						myHTML += '<h3> avyav # ' + (json[i].avyav) + '</h3>';
-						myHTML += '<p style="color:MediumSeaGreen;">Lila #' + (json[i].Lila) + '</p>';
-						myHTML += '<p style="color:MediumSeaGreen;">Lila_english #' + (json[i].eng_lila) + '</p>';
-						myHTML += '<p style="color:MediumSeaGreen;">Tip #' + (json[i].Tip) + '</p>';
+						myHTML += '<p">Lila #' + (json[i].Lila) + '</p>';
+						myHTML += '<p">Lila_english #' + (json[i].eng_lila) + '</p>';
+						myHTML += '<p">Tip #' + (json[i].Tip) + '</p>';
 					console.log(result);
 					}
 					else if (result_eng){
@@ -159,9 +169,9 @@ button2.onclick = function() {
 						myHTML += '<h2 style="color:DodgerBlue;"> Aadi # ' + (json[i].Aadi) + '</h2>';
 						myHTML += '<h3> vyakti # ' + (json[i].vyakti) + '</h3>';
 						myHTML += '<h3> avyav # ' + (json[i].avyav) + '</h3>';
-						myHTML += '<p style="color:MediumSeaGreen;">Lila #' + (json[i].Lila) + '</p>';
-						myHTML += '<p style="color:MediumSeaGreen;">Lila_english #' + (json[i].eng_lila) + '</p>';
-						myHTML += '<p style="color:MediumSeaGreen;">Tip #' + (json[i].Tip) + '</p>';
+						myHTML += '<p">Lila #' + (json[i].Lila) + '</p>';
+						myHTML += '<p">Lila_english #' + (json[i].eng_lila) + '</p>';
+						myHTML += '<p">Tip #' + (json[i].Tip) + '</p>';
 					}
 					else{
 					console.log("nothing found");
