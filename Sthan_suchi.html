@@ -6,17 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leela Charitra</title>
 		<style>
-		h1 {
+h1 {
 			font-size: 80px;
 			text-align: center;
 			}
 
 		h2 {
 			font-size: 30px;
+			font-weight: 600;
+			text-align: center;
+			color: #000;
+			line-height: normal;
+            		margin-bottom: 0;
 			}
 
 		p {
-			font-size: 18px;
+			font-size: 14px;
+			font-weight: 600;
+			text-align: center;
+			color: #000;
+			line-height: normal;
+			margin-bottom: 0;
+		}
 }
 </style>
 </head>
@@ -165,7 +176,7 @@ console.log(search_field);
 					console.log(result);
 					if (result){
 					myHTML += '<h3 style="color:DodgerBlue;">' + (json[i].Aadi) + '</h3>'
-					myHTML += '<p style="color:MediumSeaGreen;">' + (json[i].Lila) + '</p>'
+					myHTML += '<p>' + (json[i].Lila) + '</p>'
 
 					console.log(result);
 					}
