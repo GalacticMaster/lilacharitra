@@ -151,9 +151,10 @@ button2.onclick = function() {
 					let Aadi = json[i].Aadi;
 					let Lila = json[i].Lila;
 					let Lila_eng = json[i].eng_lila;
+					let Lila_ID = json[i].lila_ID;
 					let result = Lila.includes(search_field);
 					let result_eng = Lila_eng.includes(search_field);
-					let result_ID = lila_ID.includes(search_field);
+					let result_ID = Lila_ID.includes(search_field);
 					if (result){
 						myHTML += '<h2> Lila ID  # ' + (json[i].lila_ID) + '</h2>';
 						myHTML += '<h2 style="color:DodgerBlue;"> Aadi # ' + (json[i].Aadi) + '</h2>';
