@@ -7,6 +7,8 @@
    	 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://pagination.js.org/dist/2.1.4/pagination.min.js"></script>
 <link rel="stylesheet" href="https://pagination.js.org/dist/2.1.4/pagination.css"/> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 body {
   margin: 0;
@@ -75,6 +77,19 @@ h1 {
 		p {
 			font-size: 18px;
 }
+  #result {
+   position: absolute;
+   width: 100%;
+   max-width:870px;
+   cursor: pointer;
+   overflow-y: auto;
+   max-height: 400px;
+   box-sizing: border-box;
+   z-index: 1001;
+  }
+  .link-class:hover{
+   background-color:#f1f1f1;
+  }
 </style>
 </head>
 <body>
@@ -92,12 +107,26 @@ h1 {
 	<h2 style = "text-align: center;">॥ श्री परेशाए नम: ॥</h2>
 	<ul><li> Please click on पूर्वार्ध to access पूर्वार्ध Leela</li></ul>
 	<ul><li> Please click on उत्तरार्ध to access उत्तरार्ध Leela</li></ul>
+<div class="container" style="width:900px;">
+   <h2 align="center">Search words withing lila and Aadi to read lila live (Use English or Marthi search text)</h2>
+   <h3 align="center">Lial Charitra</h3>   
+   <br /><br />
+   <div align="center">
+    <input type="text" name="searchp" id="searchp" placeholder="Search Aadi and Lila for Purvardh" class="form-control" />
+	<input type="text" name="searchu" id="searchu" placeholder="Search Aadi and Lila for Utarardh" class="form-control" />
+   </div>
+   <ul class="list-group" id="resultp"></ul>
+   <ul class="list-group" id="resultu"></ul>
+   <br />
+</div>
 </div>
 
 <div id="purvardh" class="content">
 	<h1 style="color:Tomato;">पूर्वार्ध</h1>
 			<div class="wrapper">
 		</div>
+<embed src="https://galacticmaster.github.io/lilacharitra/PURVARDH%20SHABDARTH.pdf" width="500" height="375" 
+ type="application/pdf">
 
 </div>
 
@@ -105,6 +134,8 @@ h1 {
 	<h1 style="color:Tomato;">उत्तरार्ध</h1>
 		<div class="wrapper">
 		</div>
+<embed src="https://galacticmaster.github.io/lilacharitra/UTTARARDH%20SHABDARTH.pdf" width="1000" height="375" 
+ type="application/pdf">
 </div>
 
 <div id="Sthan_such" class="content">
@@ -128,6 +159,7 @@ h1 {
 									  pageSize: 1, // put how many items per page you want
 									  showGoInput: true,
 									  showGoButton: true,
+									  className: 'paginationjs-theme-red',
 									  callback: function(data, pagination) {
 										  // data will be chunk of your data (json.Product) per page
 										  // that you need to display
@@ -137,6 +169,7 @@ h1 {
 										  console.log(f);
 											 $('#purvardh .wrapper').append('<h2>' + f.Aadi + '</h2>');
 											 $('#purvardh .wrapper').append('<p>' + f.Lila + '</p>');
+											 $('#purvardh .wrapper').append('<p>' + f.Tip + '</p>');
 											  });
 											}
 										   });
@@ -163,13 +196,65 @@ h1 {
 										  console.log(f);
 											 $('#utarardh .wrapper').append('<h2>' + f.Aadi + '</h2>');
 											 $('#utarardh .wrapper').append('<p>' + f.Lila + '</p>');
+											 $('#utarardh .wrapper').append('<p>' + f.Tip + '</p>');
 											  });
 											}
 										   });
 
 				});
 			});
+$(document).ready(function(){
+ $.ajaxSetup({ cache: false });
+ $('#searchp').keyup(function(){
+  $('#resultp').html('');
+  $('#statep').val('');
+  var searchField = $('#searchp').val();
+  var expression = new RegExp(searchField, "i");
+  $.getJSON('https://galacticmaster.github.io/lilacharitra/purvardh.json', function(data) {
+  //console.log(data);
+   $.each(data.purvardh, function(key, value){
+    if (value.Aadi.search(expression) != -1 || value.Lila.search(expression) != -1)
+    {
+     $('#resultp').append('<li class="list-group-item link-class">'+value.Aadi+'|'+value.Lila+' | <span class="text-muted">'+value.Tip+'</span></li>');
+	 var test = $('#resultp')
+	 console.log(test);
+    }
+   });   
+  });
+ });
+ 
+ $('#resultp').on('click', 'li', function() {
+  var click_text = $(this).text().split('|');
+  $('#searchp').val($.trim(click_text[0]));
+  $("#resultp").html('');
+ });
+});
 
+$(document).ready(function(){
+ $.ajaxSetup({ cache: false });
+ $('#searchu').keyup(function(){
+  $('#resultu').html('');
+  $('#stateu').val('');
+  var searchField = $('#searchu').val();
+  var expression = new RegExp(searchField, "i");
+  $.getJSON('https://galacticmaster.github.io/lilacharitra/utarardh.json', function(data) {
+  //console.log(data);
+   $.each(data.utarardh, function(key, value){
+    if (value.Aadi.search(expression) != -1 || value.Lila.search(expression) != -1)
+    {
+     $('#resultu').append('<li class="list-group-item link-class">'+value.Aadi+'|'+value.Lila+' | <span class="text-muted">'+value.Tip+'</span></li>');
+	 console.log($('#result'));
+    }
+   });   
+  });
+ });
+ 
+ $('#resultu').on('click', 'li', function() {
+  var click_text = $(this).text().split('|');
+  $('#searchu').val($.trim(click_text[0]));
+  $("#resultu").html('');
+ });
+});
 
       </script>
 </body>
