@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
    	 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://pagination.js.org/dist/2.1.4/pagination.min.js"></script>
 <link rel="stylesheet" href="https://pagination.js.org/dist/2.1.4/pagination.css"/> 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <style>
 body {
   margin: 0;
@@ -100,6 +100,7 @@ h1 {
   <a href="#purvardh">पूर्वार्ध</a>
   <a href="#utarardh">उत्तरार्ध</a>
   <a href="#Sthan_such">Sthan_such</a>
+  <a href="http://127.0.0.1:8000/mg.html">मुर्तिज्ञान</a>
 </div>
 
 
@@ -108,13 +109,12 @@ h1 {
 	<h2 style = "text-align: center;">॥ श्री परेशाए नम: ॥</h2>
 	<ul><li> Please click on पूर्वार्ध to access पूर्वार्ध Leela</li></ul>
 	<ul><li> Please click on उत्तरार्ध to access उत्तरार्ध Leela</li></ul>
-<div class="container" style="width:300px;">
-   <h2 align="center">Search words withing lila and Aadi to read lila live (Use English or Marthi search text)</h2>
-   <h3 align="center">Lial Charitra</h3>   
+<div class="container" style="width:500px;">
+   <h2>Search words withing lila and Aadi(Use English or Marthi search text)</h2>
    <br /><br />
    <div align="center">
-    <input type="text" name="searchp" id="searchp" placeholder="Search Aadi and Lila for Purvardh" class="form-control" />
-<input type="text" name="searchu" id="searchu" placeholder="Search Aadi and Lila for Utarardh" class="form-control" />
+    <input type="text" name="searchp" id="searchp" placeholder="Search Aadi and Lila for Purvardh" class="form-control"/>
+	<input type="text" name="searchu" id="searchu" placeholder="Search Aadi and Lila for Utarardh" class="form-control" />
    </div>
    <ul class="list-group" id="resultp"></ul>
    <ul class="list-group" id="resultu"></ul>
@@ -126,7 +126,7 @@ h1 {
 	<h1 style="color:Tomato;">पूर्वार्ध</h1>
 			<div class="wrapper">
 		</div>
-<embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://galacticmaster.github.io/lilacharitra/PURVARDH%20SHABDARTH.pdf" width="300" height="375" 
+<embed src="https://galacticmaster.github.io/lilacharitra/PURVARDH%20SHABDARTH.pdf" width="500" height="375" 
  type="application/pdf">
 
 </div>
@@ -135,7 +135,7 @@ h1 {
 	<h1 style="color:Tomato;">उत्तरार्ध</h1>
 		<div class="wrapper">
 		</div>
-<embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://galacticmaster.github.io/lilacharitra/UTTARARDH%20SHABDARTH.pdf" width="1000" height="375" 
+<embed src="https://galacticmaster.github.io/lilacharitra/UTTARARDH%20SHABDARTH.pdf" width="1000" height="375" 
  type="application/pdf">
 </div>
 
@@ -166,8 +166,8 @@ h1 {
 										  // that you need to display
 										  var wrapper = $('#purvardh .wrapper').empty();
 										  $.each(data, function (i, f) {
-										  console.log(i);
-										  console.log(f);
+										  //console.log(i);
+										  //console.log(f);
 											 $('#purvardh .wrapper').append('<h2>' + f.Aadi + '</h2>');
 											 $('#purvardh .wrapper').append('<p>' + f.Lila + '</p>');
 											 $('#purvardh .wrapper').append('<p>' + f.Tip + '</p>');
@@ -193,8 +193,8 @@ h1 {
 										  // that you need to display
 										  var wrapper = $('#utarardh .wrapper').empty();
 										  $.each(data, function (i, f) {
-										  console.log(i);
-										  console.log(f);
+										  //console.log(i);
+										  //console.log(f);
 											 $('#utarardh .wrapper').append('<h2>' + f.Aadi + '</h2>');
 											 $('#utarardh .wrapper').append('<p>' + f.Lila + '</p>');
 											 $('#utarardh .wrapper').append('<p>' + f.Tip + '</p>');
@@ -214,11 +214,11 @@ $(document).ready(function(){
   $.getJSON('https://galacticmaster.github.io/lilacharitra/purvardh.json', function(data) {
   //console.log(data);
    $.each(data.purvardh, function(key, value){
-    if (value.Aadi.search(expression) != -1 || value.Lila.search(expression) != -1)
+    if (value.Aadi.search(expression) != -1 || value.Lila.search(expression) != -1 || value.eng_lila.search(expression) != -1)
     {
      $('#resultp').append('<li class="list-group-item link-class">'+value.Aadi+'|'+value.Lila+' | <span class="text-muted">'+value.Tip+'</span></li>');
 	 var test = $('#resultp')
-	 console.log(test);
+	 //console.log(test);
     }
    });   
   });
@@ -241,10 +241,10 @@ $(document).ready(function(){
   $.getJSON('https://galacticmaster.github.io/lilacharitra/utarardh.json', function(data) {
   //console.log(data);
    $.each(data.utarardh, function(key, value){
-    if (value.Aadi.search(expression) != -1 || value.Lila.search(expression) != -1)
+    if (value.Aadi.search(expression) != -1 || value.Lila.search(expression) != -1 || value.eng_lila.search(expression) != -1 || value.lila_ID.search(expression) != -1)
     {
      $('#resultu').append('<li class="list-group-item link-class">'+value.Aadi+'|'+value.Lila+' | <span class="text-muted">'+value.Tip+'</span></li>');
-	 console.log($('#result'));
+	 //console.log($('#result'));
     }
    });   
   });
