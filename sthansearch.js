@@ -123,7 +123,6 @@ document.getElementById("रिध्दपूर").onclick = function() {Sthan_
 document.getElementById("बेलोरा, अमरावती").onclick = function() {Sthan_search("बेलोरा, अमरावती")};
 document.getElementById("टाकरखेडा, अमरावती").onclick = function() {Sthan_search("टाकरखेडा, अमरावती")};
 document.getElementById("आष्टी, अमरावती").onclick = function() {Sthan_search("आष्टी, अमरावती")};
-document.getElementById("मानां माणकेश्वरीं वस्ति ॥)\xa0*\xa0(वाठोडा, अमरावती").onclick = function() {Sthan_search("मानां माणकेश्वरीं वस्ति ॥)\xa0*\xa0(वाठोडा, अमरावती")};
 document.getElementById("मंगरूळपीर, वाशिम").onclick = function() {Sthan_search("मंगरूळपीर, वाशिम")};
 document.getElementById("शेंदुरजन, बुलढाणा").onclick = function() {Sthan_search("शेंदुरजन, बुलढाणा")};
 document.getElementById("डोड्रा, बुलढाणा").onclick = function() {Sthan_search("डोड्रा, बुलढाणा")};
