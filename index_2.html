@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   	 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://pagination.js.org/dist/2.1.4/pagination.min.js"></script>
+<link rel="stylesheet" href="https://pagination.js.org/dist/2.1.4/pagination.css"/> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<style>
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #aa2b04;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  overflow:hidden;
+  height: 1%;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+		h1 {
+			font-size: 80px;
+			text-align: center;
+			}
+
+		h2 {
+			font-size: 30px;
+			}
+
+		p {
+			font-size: 18px;
+}
+  #result {
+   position: absolute;
+   width: 100%;
+   max-width:870px;
+   cursor: pointer;
+   overflow-y: auto;
+   max-height: 400px;
+   box-sizing: border-box;
+   z-index: 1001;
+  }
+  .link-class:hover{
+   background-color:#f1f1f1;
+  }
+</style>
+
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header">
+    <h1 style="color:Tomato;font-size: 80px"><i>लीळाचरित्र</i></h1>
+	<h2 style = "text-align: center;font-size: 30px">॥ श्री परेशाए नम: ॥</h2>
+</div>
+
+  <div data-role="main" class="ui-content">
+    <a href="#pagetwo" data-transition="slide">Slide to पूर्वार्ध</a>
+  </div>
+    <div data-role="main" class="ui-content">
+    <a href="#pagethree" data-transition="slide">Slide to उत्तरार्ध</a>
+  </div>
+  <div data-role="main" class="ui-content">
+    <a href="#pagefour" data-transition="slide">Slide to पूर्वार्ध + उत्तरार्ध</a>
+  </div>
+
+  <div data-role="footer">
+    <h1>Footer Text</h1>
+  </div>
+</div> 
+
+<div data-role="page"  id="pagetwo">
+  <div data-role="header">
+    <h1>Welcome To पूर्वार्ध</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+	<div id="purvardh" class="content" style="text-align: center">
+		<h1 style="color:Tomato;text-align: center;font-size: 30px">पूर्वार्ध</h1>
+			<div class="wrapper">
+			</div>
+	</div>
+    <a href="#pageone" data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>
+  </div>
+
+  <div data-role="footer">
+    <h1>Footer Text</h1>
+  </div>
+</div>
+
+<div data-role="page"  id="pagethree">
+  <div data-role="header">
+    <h1>Welcome To उत्तरार्ध</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+	<div id="utarardh" class="content" style="text-align: center">
+		<h1 style="color:Tomato;text-align: center;font-size: 30px">उत्तरार्ध</h1>
+			<div class="wrapper">
+			</div>
+	</div>
+    <a href="#pageone" data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>
+  </div>
+
+  <div data-role="footer">
+    <h1>Footer Text</h1>
+  </div>
+</div>
+
+<div data-role="page"  id="pagefour">
+  <div data-role="header">
+    <h1>Welcome To पूर्वार्ध + उत्तरार्ध</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+	<div id="fullch" class="content" style="text-align: center">
+		<h1 style="color:Tomato;text-align: center;font-size: 30px">पूर्वार्ध + उत्तरार्ध</h1>
+			<div class="wrapper">
+			</div>
+	</div>
+    <a href="#pageone" data-transition="slide" data-direction="reverse">Slide to Home Page</a>
+  </div>
+
+  <div data-role="footer">
+    <h1>Footer Text</h1>
+  </div>
+</div>
+
+</body>
+</html>
+<script>
+
+
+function pages(pname,data){
+$(pname).pagination({ // you call the plugin							
+									  dataSource: data, // pass all the data									  
+									  pageSize: 1, // put how many items per page you want
+									  showGoInput: true,
+									  showGoButton: true,
+									  showSizeChanger: true,
+									  className: 'paginationjs-theme-red',
+									  callback: function(data, pagination) {
+										  // data will be chunk of your data (json.Product) per page
+										  // that you need to display
+										  var wrapper = $(pname+' .wrapper').empty();
+										  $.each(data, function (i, f) {
+										  //console.log(i);
+										  //console.log(f);
+											 $(pname+' .wrapper').append('<h2>' + f.Aadi + '</h2>');
+											 $(pname+' .wrapper').append('<p>' + f.Lila + '</p>');
+											 $(pname+' .wrapper').append('<p>' + f.Tip + '</p>');
+											  });
+											}
+										   });
+}
+
+
+
+
+lila('#purvardh','https://galacticmaster.github.io/lilacharitra/purvardh.json')
+lila('#utarardh','https://galacticmaster.github.io/lilacharitra/utarardh.json')
+lila('#fullch','https://galacticmaster.github.io/lilacharitra/fullch.json')
+
+
+
+function lila(pname,url){
+console.log(pname)
+//console.log(url)
+$(document).ready(function() {
+
+if (pname == '#purvardh')
+			{
+			$.getJSON('https://galacticmaster.github.io/lilacharitra/purvardh.json', function(jd)
+			{
+			let srcdata = jd.purvardh;
+			pages(pname,srcdata);
+			})
+			}
+else if (pname == '#utarardh')
+			{
+			$.getJSON('https://galacticmaster.github.io/lilacharitra/utarardh.json', function(jd)
+			{
+			let srcdata = jd.utarardh;
+			pages(pname,srcdata);
+			})
+			}
+else if (pname == '#fullch')
+			{
+			$.getJSON('https://galacticmaster.github.io/lilacharitra/fullch.json', function(jd)
+			{
+			let srcdata = jd.main;
+			pages(pname,srcdata);
+			})
+			}
+});
+}
+</script>
