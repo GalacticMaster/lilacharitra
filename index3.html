@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   	 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://pagination.js.org/dist/2.1.4/pagination.min.js"></script>
+<link rel="stylesheet" href="https://pagination.js.org/dist/2.1.4/pagination.css"/> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="module" src="http://127.0.0.1:8000/sthansearch.js"</script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<style>
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #aa2b04;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  overflow:hidden;
+  height: 1%;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+		h1 {
+			font-size: 80px;
+			text-align: center;
+			}
+
+		h2 {
+			font-size: 30px;
+			}
+
+		p {
+			font-size: 18px;
+}
+  #result {
+   position: absolute;
+   width: 100%;
+   max-width:870px;
+   cursor: pointer;
+   overflow-y: auto;
+   max-height: 400px;
+   box-sizing: border-box;
+   z-index: 1001;
+  }
+  .link-class:hover{
+   background-color:#f1f1f1;
+  }
+</style>
+
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header">
+    <h1 style="color:Tomato;font-size: 50px"><i>लीळाचरित्र</i></h1>
+	<h2 style = "text-align: center;font-size: 30px">॥ श्री परेशाए नम: ॥</h2>
+</div>
+
+  <div data-role="main" class="ui-content">
+    <a href="#pagetwo" data-transition="slide">Slide to पूर्वार्ध</a>
+  </div>
+    <div data-role="main" class="ui-content">
+    <a href="#pagethree" data-transition="slide">Slide to उत्तरार्ध</a>
+  </div>
+  <div data-role="main" class="ui-content">
+    <a href="#pagefour" data-transition="slide">Slide to पूर्वार्ध + उत्तरार्ध</a>
+  </div>
+    <div data-role="main" class="ui-content">
+    <a href="#pagefive" data-transition="slide">Slide to Sthan_suchi</a>
+  </div>
+
+  <div data-role="footer">
+    <h1>Footer Text</h1>
+  </div>
+</div> 
+
+<div data-role="page"  id="pagetwo">
+  <div data-role="header">
+    <h1>Welcome To पूर्वार्ध</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+	<div id="purvardh" class="content" style="text-align: center">
+		<h1 style="color:Tomato;text-align: center;font-size: 30px">पूर्वार्ध</h1>
+			<div class="wrapper">
+			</div>
+	</div>
+    <a href="#pageone" data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>
+  </div>
+
+  <div data-role="footer">
+    <h1>Footer Text</h1>
+  </div>
+</div>
+
+<div data-role="page"  id="pagethree">
+  <div data-role="header">
+    <h1>Welcome To उत्तरार्ध</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+	<div id="utarardh" class="content" style="text-align: center">
+		<h1 style="color:Tomato;text-align: center;font-size: 30px">उत्तरार्ध</h1>
+			<div class="wrapper">
+			</div>
+	</div>
+    <a href="#pageone" data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>
+  </div>
+
+  <div data-role="footer">
+    <h1>Footer Text</h1>
+  </div>
+</div>
+
+<div data-role="page"  id="pagefour">
+  <div data-role="header">
+    <h1>Welcome To पूर्वार्ध + उत्तरार्ध</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+	<div id="fullch" class="content" style="text-align: center">
+		<h1 style="color:Tomato;text-align: center;font-size: 30px">पूर्वार्ध + उत्तरार्ध</h1>
+			<div class="wrapper">
+			</div>
+	</div>
+    <a href="#pageone" data-transition="slide" data-direction="reverse">Slide to Home Page</a>
+  </div>
+
+  <div data-role="footer">
+    <h1>Footer Text</h1>
+  </div>
+</div>
+
+<div data-role="page"  id="pagefive">
+  <div data-role="header">
+    <h1>Welcome To Sthan_suchi</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+	<div id="sthan" class="content" style="text-align: center">
+		<h1 style="color:Tomato;text-align: center;font-size: 30px">Sthan Suchi</h1>
+			<div class="wrapper">
+			</div>
+
+
+<h2><a id="भरूच, गुजरात" value="भरूच, गुजरात" href="#pagesix" data-transition="slide">भरूच, गुजरात</a></h2>
+<h2><a id="रिद्धपूर" value="रिद्धपूर" href="#pagesix" data-transition="slide">रिद्धपूर</a></h2>
+<h2><a id="सालबर्डी, अमरावती" value="सालबर्डी, अमरावती" href="#pagesix" data-transition="slide">सालबर्डी, अमरावती</a></h2>
+<h2><a id="काटोल, नागपूर" value="काटोल, नागपूर" href="#pagesix" data-transition="slide">काटोल, नागपूर</a></h2>
+<h2><a id="आंध्रप्रदेश" value="आंध्रप्रदेश" href="#pagesix" data-transition="slide">आंध्रप्रदेश</a></h2>
+<h2><a id="पोहिचा देव, बीड" value="पोहिचा देव, बीड" href="#pagesix" data-transition="slide">पोहिचा देव, बीड</a></h2>
+<h2><a id="ओरंगल, आंध्रप्रदेश" value="ओरंगल, आंध्रप्रदेश" href="#pagesix" data-transition="slide">ओरंगल, आंध्रप्रदेश</a></h2>
+<h2><a id="डाकराम सुकळी, गोंदिया" value="डाकराम सुकळी, गोंदिया" href="#pagesix" data-transition="slide">डाकराम सुकळी, गोंदिया</a></h2>
+<h2><a id="रिध्दपूर, अमरावती" value="रिध्दपूर, अमरावती" href="#pagesix" data-transition="slide">रिध्दपूर, अमरावती</a></h2>
+<h2><a id="काटसुर, अमरावती" value="काटसुर, अमरावती" href="#pagesix" data-transition="slide">काटसुर, अमरावती</a></h2>
+<h2><a id="विंद्य पर्वत" value="विंद्य पर्वत" href="#pagesix" data-transition="slide">विंद्य पर्वत</a></h2>
+<h2><a id="सालबर्डी" value="सालबर्डी" href="#pagesix" data-transition="slide">सालबर्डी</a></h2>
+<h2><a id="शेंदूरजन, बुलढाणा" value="शेंदूरजन, बुलढाणा" href="#pagesix" data-transition="slide">शेंदूरजन, बुलढाणा</a></h2>
+<h2><a id="रामटेक, नागपूर" value="रामटेक, नागपूर" href="#pagesix" data-transition="slide">रामटेक, नागपूर</a></h2>
+<h2><a id="मनसर, नाग्पूर" value="मनसर, नाग्पूर" href="#pagesix" data-transition="slide">मनसर, नाग्पूर</a></h2>
+<h2><a id="भंडारा" value="भंडारा" href="#pagesix" data-transition="slide">भंडारा</a></h2>
+<h2><a id="मौदा, नागपूर" value="मौदा, नागपूर" href="#pagesix" data-transition="slide">मौदा, नागपूर</a></h2>
+<h2><a id="अचलपूर, अमरावती" value="अचलपूर, अमरावती" href="#pagesix" data-transition="slide">अचलपूर, अमरावती</a></h2>
+<h2><a id="नांदेड" value="नांदेड" href="#pagesix" data-transition="slide">नांदेड</a></h2>
+<h2><a id="नाळेश्वर, गोपळचावडी, लिंबगाव, नांदेड" value="नाळेश्वर, गोपळचावडी, लिंबगाव, नांदेड" href="#pagesix" data-transition="slide">नाळेश्वर, गोपळचावडी, लिंबगाव, नांदेड</a></h2>
+<h2><a id="गोपचोंडी, उखऊउज चखऊउ, नांदेड" value="गोपचोंडी, उखऊउज चखऊउ, नांदेड href="#pagesix" data-transition="slide"">गोपचोंडी, उखऊउज चखऊउ, नांदेड</a></h2>
+<h2><a id="लोणार, बुलढाणा" value="लोणार, बुलढाणा" href="#pagesix" data-transition="slide">लोणार, बुलढाणा</a></h2>
+<h2><a id="हरनाळा, राहेर नांदेड" value="हरनाळा, राहेर नांदेड" href="#pagesix" data-transition="slide">हरनाळा, राहेर नांदेड</a></h2>
+<h2><a id="झाडी, विदर्भ प्रदेश" value="झाडी, विदर्भ प्रदेश" href="#pagesix" data-transition="slide">झाडी, विदर्भ प्रदेश</a></h2>
+<h2><a id="काकडा, अचलपूर, अमरावती" value="काकडा, अचलपूर, अमरावती" href="#pagesix" data-transition="slide">काकडा, अचलपूर, अमरावती</a></h2>
+<h2><a id="वडनेरभुजंग, अचलपूर, अमरावती" value="वडनेरभुजंग, अचलपूर, अमरावती" href="#pagesix" data-transition="slide">वडनेरभुजंग, अचलपूर, अमरावती</a></h2>
+<h2><a id="वडनेर भुजंग, अचलपूर, अमरावती" value="वडनेर भुजंग, अचलपूर, अमरावती" href="#pagesix" data-transition="slide">वडनेर भुजंग, अचलपूर, अमरावती</a></h2>
+<h2><a id="असदपूर, अचलपूर, अमरावती" value="असदपूर, अचलपूर, अमरावती" href="#pagesix" data-transition="slide">असदपूर, अचलपूर, अमरावती</a></h2>
+<h2><a id="पातुर, अकोला" value="पातुर, अकोला" href="#pagesix" data-transition="slide">पातुर, अकोला</a></h2>
+<h2><a id="आलेगाव, आकोला" value="आलेगाव, आकोला href="#pagesix" data-transition="slide"">आलेगाव, आकोला</a></h2>
+<h2><a id="घटाळी, पातुर, अकोला" value="घटाळी, पातुर, अकोला" href="#pagesix" data-transition="slide">घटाळी, पातुर, अकोला</a></h2>
+<h2><a id="इसवी, मेहकर, बुलढाणा" value="इसवी, मेहकर, बुलढाणा" href="#pagesix" data-transition="slide">इसवी, मेहकर, बुलढाणा</a></h2>
+<h2><a id="अंजनी बु, मेहकर, बुलढाणा" value="अंजनी बु, मेहकर, बुलढाणा" href="#pagesix" data-transition="slide">अंजनी बु, मेहकर, बुलढाणा</a></h2>
+<h2><a id="मेहकर, बुलढाणा" value="मेहकर, बुलढाणा" href="#pagesix" data-transition="slide">मेहकर, बुलढाणा</a></h2>
+<h2><a id="लोणार" value="लोणार" href="#pagesix" data-transition="slide">लोणार</a></h2>
+<h2><a id="रामसगाव, जालना" value="रामसगाव, जालना" href="#pagesix" data-transition="slide">रामसगाव, जालना</a></h2>
+<h2><a id="पैठण, औरंगाबाद" value="पैठण, औरंगाबाद" href="#pagesix" data-transition="slide">पैठण, औरंगाबाद</a></h2>
+<h2><a id="रहाटगाव, पैठण" value="रहाटगाव, पैठण" href="#pagesix" data-transition="slide">रहाटगाव, पैठण</a></h2>
+<h2><a id="कडेठाण, पैठण" value="कडेठाण, पैठण" href="#pagesix" data-transition="slide">कडेठाण, पैठण</a></h2>
+<h2><a id="राजूर, भोकरदन, जालना" value="राजूर, भोकरदन, जालना" href="#pagesix" data-transition="slide">राजूर, भोकरदन, जालना</a></h2>
+<h2><a id="सेंदुर्जनि, बुलढाणा" value="सेंदुर्जनि, बुलढाणा" href="#pagesix" data-transition="slide">सेंदुर्जनि, बुलढाणा</a></h2>
+<h2><a id="आलेगाव, अकोला" value="आलेगाव, अकोला" href="#pagesix" data-transition="slide">आलेगाव, अकोला</a></h2>
+<h2><a id="बार्शी टाकळी, अकोला" value="बार्शी टाकळी, अकोला" href="#pagesix" data-transition="slide">बार्शी टाकळी, अकोला</a></h2>
+<h2><a id="येळवण, अकोला" value="येळवण, अकोला" href="#pagesix" data-transition="slide">येळवण, अकोला</a></h2>
+<h2><a id="लाखपुरी, अकोला" value="लाखपुरी, अकोला" href="#pagesix" data-transition="slide">लाखपुरी, अकोला</a></h2>
+<h2><a id="शिंगणापूर, अमरावती" value="शिंगणापूर, अमरावती" href="#pagesix" data-transition="slide">शिंगणापूर, अमरावती</a></h2>
+<h2><a id="खोलापूर, अमरावति" value="खोलापूर, अमरावति" href="#pagesix" data-transition="slide">खोलापूर, अमरावति</a></h2>
+<h2><a id="वाकी, अमरावती" value="वाकी, अमरावती" href="#pagesix" data-transition="slide">वाकी, अमरावती</a></h2>
+<h2><a id="थूगांव, अमरावती" value="थूगांव, अमरावती" href="#pagesix" data-transition="slide">थूगांव, अमरावती</a></h2>
+<h2><a id="रामा, अमरावती" value="रामा, अमरावती" href="#pagesix" data-transition="slide">रामा, अमरावती</a></h2>
+<h2><a id="साऊर, अमरावती" value="साऊर, अमरावती" href="#pagesix" data-transition="slide">साऊर, अमरावती</a></h2>
+<h2><a id="तळवेल, अमरावती" value="तळवेल, अमरावती" href="#pagesix" data-transition="slide">तळवेल, अमरावती</a></h2>
+<h2><a id="खराटा, अमरावती" value="खराटा, अमरावती" href="#pagesix" data-transition="slide">खराटा, अमरावती</a></h2>
+<h2><a id="रिध्दपूर" value="रिध्दपूर" href="#pagesix" data-transition="slide">रिध्दपूर</a></h2>
+<h2><a id="बेलोरा, अमरावती" value="बेलोरा, अमरावती" href="#pagesix" data-transition="slide">बेलोरा, अमरावती</a></h2>
+<h2><a id="टाकरखेडा, अमरावती" value="टाकरखेडा, अमरावती href="#pagesix" data-transition="slide">टाकरखेडा, अमरावती</a></h2>
+<h2><a id="आष्टी, अमरावती" value="आष्टी, अमरावती" href="#pagesix" data-transition="slide">आष्टी, अमरावती</a></h2>
+<h2><a id="मानां माणकेश्वरीं वस्ति ॥)\xa0*\xa0(वाठोडा, अमरावती" value="मानां माणकेश्वरीं वस्ति ॥)\xa0*\xa0(वाठोडा, अमरावती" href="#pagesix" data-transition="slide">मानां माणकेश्वरीं वस्ति ॥)\xa0*\xa0(वाठोडा, अमरावती</a></h2>
+<h2><a id="मंगरूळपीर, वाशिम" value="मंगरूळपीर, वाशिम" href="#pagesix" data-transition="slide">मंगरूळपीर, वाशिम</a></h2>
+<h2><a id="शेंदुरजन, बुलढाणा" value="शेंदुरजन, बुलढाणा" href="#pagesix" data-transition="slide">शेंदुरजन, बुलढाणा</a></h2>
+<h2><a id="डोड्रा, बुलढाणा" value="डोड्रा, बुलढाणा" href="#pagesix" data-transition="slide">डोड्रा, बुलढाणा</a></h2>
+<h2><a id="फुलंब्री, औरंगाबाद" value="फुलंब्री, औरंगाबाद" href="#pagesix" data-transition="slide">फुलंब्री, औरंगाबाद</a></h2>
+<h2><a id="गदाना, औरंगाबाद" value="गदाना, औरंगाबाद" href="#pagesix" data-transition="slide">गदाना, औरंगाबाद</a></h2>
+<h2><a id="वेरुळ, औरंगाबाद" value="वेरुळ, औरंगाबाद" href="#pagesix" data-transition="slide">वेरुळ, औरंगाबाद</a></h2>
+<h2><a id="माटेगांव, औरंगाबाद" value="माटेगांव, औरंगाबाद" href="#pagesix" data-transition="slide">माटेगांव, औरंगाबाद</a></h2>
+<h2><a id="विटखेडा, औरंगाबाद" value="विटखेडा, औरंगाबाद" href="#pagesix" data-transition="slide">विटखेडा, औरंगाबाद</a></h2>
+<h2><a id="लासुर, औरंगाबाद" value="लासुर, औरंगाबाद" href="#pagesix" data-transition="slide">लासुर, औरंगाबाद</a></h2>
+<h2><a id="घोगरगाव, अहमदनगर" value="घोगरगाव, अहमदनगर" href="#pagesix" data-transition="slide">घोगरगाव, अहमदनगर</a></h2>
+<h2><a id="डोमेग्राम" value="डोमेग्राम" href="#pagesix" data-transition="slide">डोमेग्राम</a></h2>
+<h2><a id="खोपडी, सिन्नर" value="खोपडी, सिन्नर" href="#pagesix" data-transition="slide">खोपडी, सिन्नर</a></h2>
+<h2><a id="खोपडी, सिन्नर, नाशिक" value="खोपडी, सिन्नर, नाशिक" href="#pagesix" data-transition="slide">खोपडी, सिन्नर, नाशिक</a></h2>
+<h2><a id="सिन्नर, नाशिक" value="सिन्नर, नाशिक" href="#pagesix" data-transition="slide">सिन्नर, नाशिक</a></h2>
+<h2><a id="नाशिक" value="नाशिक" href="#pagesix" data-transition="slide">नाशिक</a></h2>
+<h2><a id="गंगापूर नाशिक" value="गंगापूर नाशिक" href="#pagesix" data-transition="slide">गंगापूर नाशिक</a></h2>
+<h2><a id="त्र्यंबकेश्वर, नाशिक" value="त्र्यंबकेश्वर, नाशिक" href="#pagesix" data-transition="slide">त्र्यंबकेश्वर, नाशिक</a></h2>
+<h2><a id="ब्रह्मगिरी, नाशिक" value="ब्रह्मगिरी, नाशिक" href="#pagesix" data-transition="slide">ब्रह्मगिरी, नाशिक</a></h2>
+<h2><a id="अंजनेरी, नाशिक" value="अंजनेरी, नाशिक" href="#pagesix" data-transition="slide">अंजनेरी, नाशिक</a></h2>
+<h2><a id="पंचवटी, नाशिक" value="पंचवटी, नाशिक" href="#pagesix" data-transition="slide">पंचवटी, नाशिक</a></h2>
+<h2><a id="चौरंगी, नाशिक" value="चौरंगी, नाशिक" href="#pagesix" data-transition="slide">चौरंगी, नाशिक</a></h2>
+<h2><a id="आडगाव, नाशिक" value="आडगाव, नाशिक" href="#pagesix" data-transition="slide">आडगाव, नाशिक</a></h2>
+<h2><a id="मौजे सुकिणे, नाशिक" value="मौजे सुकिणे, नाशिक" href="#pagesix" data-transition="slide">मौजे सुकिणे, नाशिक</a></h2>
+<h2><a id="निफाड, नाशिक" value="निफाड, नाशिक" href="#pagesix" data-transition="slide">निफाड, नाशिक</a></h2>
+<h2><a id="शिवरे, नाशिक" value="शिवरे, नाशिक" href="#pagesix" data-transition="slide">शिवरे, नाशिक</a></h2>
+<h2><a id="नांदुर, नाशिक" value="नांदुर, नाशिक" href="#pagesix" data-transition="slide">नांदुर, नाशिक</a></h2>
+<h2><a id="मद्यमेश्वर, नाशिक" value="मद्यमेश्वर, नाशिक" href="#pagesix" data-transition="slide">मद्यमेश्वर, नाशिक</a></h2>
+<h2><a id="नांदुर,\xa0नाशिक" value="नांदुर,\xa0नाशिक" href="#pagesix" data-transition="slide">नांदुर,\xa0नाशिक</a></h2>
+<h2><a id="कानळस, नाशिक" value="कानळस, नाशिक" href="#pagesix" data-transition="slide">कानळस, नाशिक</a></h2>
+<h2><a id="चास नळी, अहमदनगर" value="चास नळी, अहमदनगर" href="#pagesix" data-transition="slide">चास नळी, अहमदनगर</a></h2>
+<h2><a id="सुरेगाव सांगवी, अहमदनगर" value="सुरेगाव सांगवी, अहमदनगर" href="#pagesix" data-transition="slide">सुरेगाव सांगवी, अहमदनगर</a></h2>
+<h2><a id="संवत्सर,\xa0अहमदनगर" value="संवत्सर,\xa0अहमदनगर" href="#pagesix" data-transition="slide">संवत्सर,\xa0अहमदनगर</a></h2>
+<h2><a id="कोकमठाण, अहमदनगर" value="कोकमठाण, अहमदनगर" href="#pagesix" data-transition="slide">कोकमठाण, अहमदनगर</a></h2>
+<h2><a id="पुणतांबा, अहमदनगर" value="पुणतांबा, अहमदनगर" href="#pagesix" data-transition="slide">पुणतांबा, अहमदनगर</a></h2>
+<h2><a id="नाउर, अहमदनगर" value="नाउर, अहमदनगर" href="#pagesix" data-transition="slide">नाउर, अहमदनगर</a></h2>
+<h2><a id="नायगाव, अहमदनगर" value="नायगाव, अहमदनगर" href="#pagesix" data-transition="slide">नायगाव, अहमदनगर</a></h2>
+<h2><a id="हिंगोणी, औरंगाबाद" value="हिंगोणी, औरंगाबाद" href="#pagesix" data-transition="slide">हिंगोणी, औरंगाबाद</a></h2>
+<h2><a id="पुरणगाव, औरंगाबाद" value="पुरणगाव, औरंगाबाद" href="#pagesix" data-transition="slide">पुरणगाव, औरंगाबाद</a></h2>
+<h2><a id="सावखेड गंगा, औरंगाबाद" value="सावखेड गंगा, औरंगाबाद" href="#pagesix" data-transition="slide">सावखेड गंगा, औरंगाबाद</a></h2>
+<h2><a id="वांजरगाव, औरंगाबाद" value="वांजरगाव, औरंगाबाद" href="#pagesix" data-transition="slide">वांजरगाव, औरंगाबाद</a></h2>
+<h2><a id="चांदेगाव,\xa0औरंगाबाद" value="चांदेगाव,\xa0औरंगाबाद" href="#pagesix" data-transition="slide">चांदेगाव,\xa0औरंगाबाद</a></h2>
+<h2><a id="नागमठाण, औरंगाबाद" value="नागमठाण, औरंगाबाद" href="#pagesix" data-transition="slide">नागमठाण, औरंगाबाद</a></h2>
+<h2><a id="हमरापूर, औरंगाबाद" value="हमरापूर, औरंगाबाद" href="#pagesix" data-transition="slide">हमरापूर, औरंगाबाद</a></h2>
+<h2><a id="बाजाठाणा, औरंगाबाद" value="बाजाठाणा, औरंगाबाद" href="#pagesix" data-transition="slide">बाजाठाणा, औरंगाबाद</a></h2>
+<h2><a id="बीड" value="बीड" href="#pagesix" data-transition="slide">बीड</a></h2>
+<h2><a id="पाली, बीड" value="पाली, बीड" href="#pagesix" data-transition="slide">पाली, बीड</a></h2>
+<h2><a id="पोहिचादेव, बीड" value="पोहिचादेव, बीड" href="#pagesix" data-transition="slide">पोहिचादेव, बीड</a></h2>
+<h2><a id="लिंबागणेश, बीड" value="लिंबागणेश, बीड" href="#pagesix" data-transition="slide">लिंबागणेश, बीड</a></h2>
+<h2><a id="पाटोदा, बीड" value="पाटोदा, बीड" href="#pagesix" data-transition="slide">पाटोदा, बीड</a></h2>
+<h2><a id="साकत, अहमदनगर" value="साकत, अहमदनगर" href="#pagesix" data-transition="slide">साकत, अहमदनगर</a></h2>
+<h2><a id="सौताडा, अहमदनगर" value="सौताडा, अहमदनगर" href="#pagesix" data-transition="slide">सौताडा, अहमदनगर</a></h2>
+<h2><a id="मातकुळी वनदेव, बीड" value="मातकुळी वनदेव, बीड" href="#pagesix" data-transition="slide">मातकुळी वनदेव, बीड</a></h2>
+<h2><a id="मातकुळी, बीड" value="मातकुळी, बीड" href="#pagesix" data-transition="slide">मातकुळी, बीड</a></h2>
+<h2><a id="आष्टी, बीड" value="आष्टी, बीड" href="#pagesix" data-transition="slide">आष्टी, बीड</a></h2>
+<h2><a id="शिराळ, बीड" value="शिराळ, बीड" href="#pagesix" data-transition="slide">शिराळ, बीड</a></h2>
+<h2><a id="वाकी, बीड" value="वाकी, बीड" href="#pagesix" data-transition="slide">वाकी, बीड</a></h2>
+<h2><a id="मिरजगाव, अहमदनगर" value="मिरजगाव, अहमदनगर" href="#pagesix" data-transition="slide">मिरजगाव, अहमदनगर</a></h2>
+<h2><a id="मांडवगण, अहमदनगर" value="मांडवगण, अहमदनगर" href="#pagesix" data-transition="slide">मांडवगण, अहमदनगर</a></h2>
+<h2><a id="अरणगाव, अहमदनगर" value="अरणगाव, अहमदनगर" href="#pagesix" data-transition="slide">अरणगाव, अहमदनगर</a></h2>
+<h2><a id="भिंगार, अहमदनगर" value="भिंगार, अहमदनगर" href="#pagesix" data-transition="slide">भिंगार, अहमदनगर</a></h2>
+<h2><a id="शेंडी, अहमदनगर" value="शेंडी, अहमदनगर" href="#pagesix" data-transition="slide">शेंडी, अहमदनगर</a></h2>
+<h2><a id="पिंपळगाव माळवी, अहमदनगर" value="पिंपळगाव माळवी, अहमदनगर" href="#pagesix" data-transition="slide">पिंपळगाव माळवी, अहमदनगर</a></h2>
+<h2><a id="डोंगरगण, अहमदनगर" value="डोंगरगण, अहमदनगर" href="#pagesix" data-transition="slide">डोंगरगण, अहमदनगर</a></h2>
+<h2><a id="वांबोरी, अहमदनगर" value="वांबोरी, अहमदनगर" href="#pagesix" data-transition="slide">वांबोरी, अहमदनगर</a></h2>
+<h2><a id="सोनई, अहमदनगर" value="सोनई, अहमदनगर" href="#pagesix" data-transition="slide">सोनई, अहमदनगर</a></h2>
+<h2><a id="कानडगाव, औरंगाबाद" value="कानडगाव, औरंगाबाद" href="#pagesix" data-transition="slide">कानडगाव, औरंगाबाद</a></h2>
+<h2><a id="गंगापूर, औरंगाबाद" value="गंगापूर, औरंगाबाद" href="#pagesix" data-transition="slide">गंगापूर, औरंगाबाद</a></h2>
+<h2><a id="फुलशिवरा, औरंगाबाद" value="फुलशिवरा, औरंगाबाद" href="#pagesix" data-transition="slide">फुलशिवरा, औरंगाबाद</a></h2>
+<h2><a id="हातनुर, औरंगाबाद" value="हातनुर, औरंगाबाद" href="#pagesix" data-transition="slide">हातनुर, औरंगाबाद</a></h2>
+<h2><a id="कन्नड, औरंगाबाद" value="कन्नड, औरंगाबाद" href="#pagesix" data-transition="slide">कन्नड, औरंगाबाद</a></h2>
+<h2><a id="सायगव्हाण,\xa0औरंगाबाद" value="सायगव्हाण,\xa0औरंगाबाद" href="#pagesix" data-transition="slide">सायगव्हाण,\xa0औरंगाबाद</a></h2>
+<h2><a id="वाघळी, जळगाव" value="वाघळी, जळगाव" href="#pagesix" data-transition="slide">वाघळी, जळगाव</a></h2>
+<h2><a id="कनाशी, जळगाव" value="कनाशी, जळगाव" href="#pagesix" data-transition="slide">कनाशी, जळगाव</a></h2>
+<h2><a id="भडगाव, जळगाव" value="भडगाव, जळगाव" href="#pagesix" data-transition="slide">भडगाव, जळगाव</a></h2>
+<h2><a id="पाचोरा, जळगाव" value="पाचोरा, जळगाव" href="#pagesix" data-transition="slide">पाचोरा, जळगाव</a></h2>
+<h2><a id="शेंदुर्णी, जळगाव" value="शेंदुर्णी, जळगाव" href="#pagesix" data-transition="slide">शेंदुर्णी, जळगाव</a></h2>
+<h2><a id="चांगदेव, जळगाव" value="चांगदेव, जळगाव" href="#pagesix" data-transition="slide">चांगदेव, जळगाव</a></h2>
+<h2><a id="सावळदबारा, औरंगाबाद" value="सावळदबारा, औरंगाबाद" href="#pagesix" data-transition="slide">सावळदबारा, औरंगाबाद</a></h2>
+<h2><a id="वालसांगवी, जालना" value="वालसांगवी, जालना" href="#pagesix" data-transition="slide">वालसांगवी, जालना</a></h2>
+<h2><a id="पद्मावती, जालना" value="पद्मावती, जालना" href="#pagesix" data-transition="slide">पद्मावती, जालना</a></h2>
+<h2><a id="पिंपळगाव रेणुकाइ, जालना" value="पिंपळगाव रेणुकाइ, जालना" href="#pagesix" data-transition="slide">पिंपळगाव रेणुकाइ, जालना</a></h2>
+<h2><a id="बोकरदन, जालना" value="बोकरदन, जालना" href="#pagesix" data-transition="slide">बोकरदन, जालना</a></h2>
+<h2><a id="सिल्लोड, औरंगाबाद" value="सिल्लोड, औरंगाबाद" href="#pagesix" data-transition="slide">सिल्लोड, औरंगाबाद</a></h2>
+<h2><a id="आन्वा, जालना" value="आन्वा, जालना" href="#pagesix" data-transition="slide">आन्वा, जालना</a></h2>
+<h2><a id="चारनेर, औरंगाबाद" value="चारनेर, औरंगाबाद" href="#pagesix" data-transition="slide">चारनेर, औरंगाबाद</a></h2>
+<h2><a id="करंजखेड, औरंगाबाद" value="करंजखेड, औरंगाबाद" href="#pagesix" data-transition="slide">करंजखेड, औरंगाबाद</a></h2>
+<h2><a id="दाभाडी, जालना" value="दाभाडी, जालना" href="#pagesix" data-transition="slide">दाभाडी, जालना</a></h2>
+<h2><a id="जालना" value="जालना" href="#pagesix" data-transition="slide">जालना</a></h2>
+<h2><a id="काजळा, जालना" value="काजळा, जालना" href="#pagesix" data-transition="slide">काजळा, जालना</a></h2>
+<h2><a id="नागाविहिर, जालना" value="नागाविहिर, जालना" href="#pagesix" data-transition="slide">नागाविहिर, जालना</a></h2>
+<h2><a id="खनेपुरी, जालना" value="खनेपुरी, जालना" href="#pagesix" data-transition="slide">खनेपुरी, जालना</a></h2>
+<h2><a id="भाटेपुरी, जालना" value="भाटेपुरी, जालना" href="#pagesix" data-transition="slide">भाटेपुरी, जालना</a></h2>
+<h2><a id="अहेरमल ढाकेफळ, जालना" value="अहेरमल ढाकेफळ, जालना" href="#pagesix" data-transition="slide">अहेरमल ढाकेफळ, जालना</a></h2>
+<h2><a id="ढाकेफळ, जालना" value="ढाकेफळ, जालना" href="#pagesix" data-transition="slide">ढाकेफळ, जालना</a></h2>
+<h2><a id="जोगळदेवी, जालना" value="जोगळदेवी, जालना" href="#pagesix" data-transition="slide">जोगळदेवी, जालना</a></h2>
+<h2><a id="बोरी नदी, साडेगाव मार्गी, जालना" value="बोरी नदी, साडेगाव मार्गी, जालना" href="#pagesix" data-transition="slide">बोरी नदी, साडेगाव मार्गी, जालना</a></h2>
+<h2><a id="साडेगाव, जालना" value="साडेगाव, जालना" href="#pagesix" data-transition="slide">साडेगाव, जालना</a></h2>
+<h2><a id="पापविनाशनी, पांढरी, बीड" value="पापविनाशनी, पांढरी, बीड" href="#pagesix" data-transition="slide">पापविनाशनी, पांढरी, बीड</a></h2>
+<h2><a id="मिरगाव, बीड" value="मिरगाव, बीड" href="#pagesix" data-transition="slide">मिरगाव, बीड</a></h2>
+<h2><a id="संगमजळगाव, बीड" value="संगमजळगाव, बीड" href="#pagesix" data-transition="slide">संगमजळगाव, बीड</a></h2>
+<h2><a id="आगरनांदुर, बीड" value="आगरनांदुर, बीड" href="#pagesix" data-transition="slide">आगरनांदुर, बीड</a></h2>
+<h2><a id="गेवराई, बीड" value="गेवराई, बीड" href="#pagesix" data-transition="slide">गेवराई, बीड</a></h2>
+<h2><a id="बागपिंपळगाव, बीड" value="बागपिंपळगाव, बीड" href="#pagesix" data-transition="slide">बागपिंपळगाव, बीड</a></h2>
+<h2><a id="खामगाव, बीड" value="खामगाव, बीड" href="#pagesix" data-transition="slide">खामगाव, बीड</a></h2>
+<h2><a id="शहगड, जालना" value="शहगड, जालना" href="#pagesix" data-transition="slide">शहगड, जालना</a></h2>
+<h2><a id="गांधारी, जालना" value="गांधारी, जालना" href="#pagesix" data-transition="slide">गांधारी, जालना</a></h2>
+<h2><a id="डोमलगाव, जालना" value="डोमलगाव, जालना" href="#pagesix" data-transition="slide">डोमलगाव, जालना</a></h2>
+<h2><a id="साष्टीपिंपळगाव, जालना" value="साष्टीपिंपळगाव, जालना" href="#pagesix" data-transition="slide">साष्टीपिंपळगाव, जालना</a></h2>
+<h2><a id="आपेगाव, जालना" value="आपेगाव, जालना" href="#pagesix" data-transition="slide">आपेगाव, जालना</a></h2>
+<h2><a id="विज्ञानेश्वर, आपेगाव, जालना" value="विज्ञानेश्वर, आपेगाव, जालना" href="#pagesix" data-transition="slide">विज्ञानेश्वर, आपेगाव, जालना</a></h2>
+<h2><a id="बळेगाव, जालना" value="बळेगाव, जालना" href="#pagesix" data-transition="slide">बळेगाव, जालना</a></h2>
+<h2><a id="पांचाळेश्वर, जालना" value="पांचाळेश्वर, जालना" href="#pagesix" data-transition="slide">पांचाळेश्वर, जालना</a></h2>
+<h2><a id="हिरडपुरी, औरंगाबाद" value="हिरडपुरी, औरंगाबाद" href="#pagesix" data-transition="slide">हिरडपुरी, औरंगाबाद</a></h2>
+<h2><a id="आंगलेगव्हाण, हिरडपुरी, औरंगाबाद" value="आंगलेगव्हाण, हिरडपुरी, औरंगाबाद" href="#pagesix" data-transition="slide">आंगलेगव्हाण, हिरडपुरी, औरंगाबाद</a></h2>
+<h2><a id="नवगाव, औरंगाबाद" value="नवगाव, औरंगाबाद" href="#pagesix" data-transition="slide">नवगाव, औरंगाबाद</a></h2>
+<h2><a id="मायगाव, औरंगाबाद" value="मायगाव, औरंगाबाद" href="#pagesix" data-transition="slide">मायगाव, औरंगाबाद</a></h2>
+<h2><a id="वडवाडी, औरंगाबाद" value="वडवाडी, औरंगाबाद" href="#pagesix" data-transition="slide">वडवाडी, औरंगाबाद</a></h2>
+<h2><a id="पैठण मार्गी" value="पैठण मार्गी" href="#pagesix" data-transition="slide">पैठण मार्गी</a></h2>
+<h2><a id="पिंपळवाडी, पैठण" value="पिंपळवाडी, पैठण" href="#pagesix" data-transition="slide">पिंपळवाडी, पैठण</a></h2>
+<h2><a id="सेवता, पैठण" value="सेवता, पैठण" href="#pagesix" data-transition="slide">सेवता, पैठण</a></h2>
+<h2><a id="जोगेश्वरी, पैठण" value="जोगेश्वरी, पैठण" href="#pagesix" data-transition="slide">जोगेश्वरी, पैठण</a></h2>
+<h2><a id="संगमेश्वर, नेवासा, अहमदनगर" value="संगमेश्वर, नेवासा, अहमदनगर" href="#pagesix" data-transition="slide">संगमेश्वर, नेवासा, अहमदनगर</a></h2>
+
+
+	
+<h3><a id="खडकुली" href="#pagesix" data-transition="slide">खडकुली</a></h3>
+<h3><a id="शेवता / तारुपिंपळ्वाडी, पैठण" href="#pagesix" data-transition="slide" value="शेवता / तारुपिंपळ्वाडी, पैठण">शेवता / तारुपिंपळ्वाडी, पैठण</a></h3>
+<h3><a id="पैठण" href="#pagesix" data-transition="slide" value="पैठण">पैठण</a></h3>
+<h3><a id="छिन्नापापी" href="#pagesix" value="छिन्नापापी">छिन्नापापी</a></h3>
+<h3><a id="डोमेग्राम" href="#pagesix" value="डोमेग्राम">डोमेग्राम</a></h3>
+<h3><a id="देइगाव, गंगापूर, औरंगाबाद" href="#pagesix" value="देइगाव, गंगापूर, औरंगाबाद">देइगाव, गंगापूर, औरंगाबाद</a></h3>
+<h3><a id="वैजापूर, औरंगाबाद" href="#pagesix" value="वैजापूर, औरंगाबाद">वैजापूर, औरंगाबाद</a></h3>
+<h3><a id="टाकळीभान, नेवासा, अहमदनगर" href="#pagesix" value="टाकळीभान, नेवासा, अहमदनगर">टाकळीभान, नेवासा, अहमदनगर</a></h3>
+<h3><a id="घोगरगाव, नेवसा, अहमदनगर" href="#pagesix" value="घोगरगाव, नेवसा, अहमदनगर">घोगरगाव, नेवसा, अहमदनगर</a></h3>
+<h3><a id="बेलपिंपळगाव, नेवसा, अहमदनगर" href="#pagesix" value="बेलपिंपळगाव, नेवसा, अहमदनगर">बेलपिंपळगाव, नेवसा, अहमदनगर</a></h3>
+<h3><a id="बेलपिंपळगाव ते नेवसा मार्गी" href="#pagesix" value="बेलपिंपळगाव ते नेवसा मार्गी">बेलपिंपळगाव ते नेवसा मार्गी</a></h3>
+<h3><a id="नेवसा, अहमदनगर" href="#pagesix" value="नेवसा, अहमदनगर">नेवसा, अहमदनगर</a></h3>
+<h3><a id="मिरी,पाथर्डी, अहमदनगर" href="#pagesix" value="मिरी,पाथर्डी, अहमदनगर">मिरी,पाथर्डी, अहमदनगर</a></h3>
+<h3><a id="खांडगाव, लोहसर, पाथर्डी" href="#pagesix" value="खांडगाव, लोहसर, पाथर्डी">खांडगाव, लोहसर, पाथर्डी</a></h3>
+<h3><a id="केळीपिंपळगाव, आष्टी, बीड" href="#pagesix" value="केळीपिंपळगाव, आष्टी, बीड">केळीपिंपळगाव, आष्टी, बीड</a></h3>
+<h3><a id="चिचोंडी(पाटील), अहमदनगर" href="#pagesix" value="चिचोंडी(पाटील), अहमदनगर">चिचोंडी(पाटील), अहमदनगर</a></h3>
+<h3><a id="मढपिंपरी, अहमदनगर" href="#pagesix" value="मढपिंपरी, अहमदनगर">मढपिंपरी, अहमदनगर</a></h3>
+<h3><a id="वाकी, आष्टी, बीड" href="#pagesix" value="वाकी, आष्टी, बीड">वाकी, आष्टी, बीड</a></h3>
+<h3><a id="पारेगाव, आष्टी, बीड" href="#pagesix" value="पारेगाव, आष्टी, बीड">पारेगाव, आष्टी, बीड</a></h3>
+<h3><a id="मिरजगाव, कर्जत, अहमदनगर" href="#pagesix" value="मिरजगाव, कर्जत, अहमदनगर">मिरजगाव, कर्जत, अहमदनगर</a></h3>
+<h3><a id="मंडनगाव, श्रीगोंदा, अहमदनगर" href="#pagesix" value="मंडनगाव, श्रीगोंदा, अहमदनगर">मंडनगाव, श्रीगोंदा, अहमदनगर</a></h3>
+<h3><a id="अरणगाव, अहमदनगर" href="#pagesix" value="अरणगाव, अहमदनगर">अरणगाव, अहमदनगर</a></h3>
+<h3><a id="भिंगार, अहमदनगर" href="#pagesix" value="भिंगार, अहमदनगर">भिंगार, अहमदनगर</a></h3>
+<h3><a id="नेप्ती, अहमदनगर" href="#pagesix" value="नेप्ती, अहमदनगर">नेप्ती, अहमदनगर</a></h3>
+<h3><a id="पारनेर, अहमदनगर" href="#pagesix" value="पारनेर, अहमदनगर">पारनेर, अहमदनगर</a></h3>
+<h3><a id="लोणी, अहमदनगर" href="#pagesix" value="लोणी, अहमदनगर">लोणी, अहमदनगर</a></h3>
+<h3><a id="जामगाव, पारनेर, अहमदनगर" href="#pagesix" value="जामगाव, पारनेर, अहमदनगर">जामगाव, पारनेर, अहमदनगर</a></h3>
+<h3><a id="नागापूर, अहमदनगर" href="#pagesix" value="नागापूर, अहमदनगर">नागापूर, अहमदनगर</a></h3>
+<h3><a id="वांबोरी, राहुरी, अहमदनगर" href="#pagesix" value="वांबोरी, राहुरी, अहमदनगर">वांबोरी, राहुरी, अहमदनगर</a></h3>
+<h3><a id="आव्हाणे बु॥, शेवगाव, अहमदनगर" href="#pagesix" value="आव्हाणे बु॥, शेवगाव, अहमदनगर">आव्हाणे बु॥, शेवगाव, अहमदनगर</a></h3>
+<h3><a id="ममदापूर/बगडी, गंगापूर, औरंगाबाद" href="#pagesix" value="ममदापूर/बगडी, गंगापूर, औरंगाबाद">ममदापूर/बगडी, गंगापूर, औरंगाबाद</a></h3>
+<h3><a id="नेवरगाव, गंगापूर, औरंगाबाद" href="#pagesix" value="नेवरगाव, गंगापूर, औरंगाबाद">नेवरगाव, गंगापूर, औरंगाबाद</a></h3>
+<h3><a id="सुरेगाव, नेवासा, अहमदनगर" href="#pagesix" value="सुरेगाव, नेवासा, अहमदनगर">सुरेगाव, नेवासा, अहमदनगर</a></h3>
+<h3><a id="गळनिंब" href="#pagesix" value="गळनिंब">गळनिंब</a></h3>
+<h3><a id="दुसरे गळनिंब, नेवासा, अहमदनगर" href="#pagesix" value="दुसरे गळनिंब, नेवासा, अहमदनगर">दुसरे गळनिंब, नेवासा, अहमदनगर</a></h3>
+<h3><a id="वरखेड, नेवासा, अहमदनगर" href="#pagesix" value="वरखेड, नेवासा, अहमदनगर">वरखेड, नेवासा, अहमदनगर</a></h3>
+<h3><a id="चाफडगाव, नेवासा, अहमदनगर" href="#pagesix" value="चाफडगाव, नेवासा, अहमदनगर">चाफडगाव, नेवासा, अहमदनगर</a></h3>
+<h3><a id="जळगाव, पाथर्डी, अहमदनगर" href="#pagesix" value="जळगाव, पाथर्डी, अहमदनगर">जळगाव, पाथर्डी, अहमदनगर</a></h3>
+<h3><a id="नागलवाडी, शेवगाव, अहमदनगर" href="#pagesix" value="नागलवाडी, शेवगाव, अहमदनगर">नागलवाडी, शेवगाव, अहमदनगर</a></h3>
+<h3><a id="चकलांबा, गेवराई, बीड" href="#pagesix" value="चकलांबा, गेवराई, बीड">चकलांबा, गेवराई, बीड</a></h3>
+<h3><a id="शेकटा, गेवराई, बीड" href="#pagesix" value="शेकटा, गेवराई, बीड">शेकटा, गेवराई, बीड</a></h3>
+<h3><a id="पारगाव(घोगस), गेवराई, बीड" href="#pagesix" value="पारगाव(घोगस), गेवराई, बीड">पारगाव(घोगस), गेवराई, बीड</a></h3>
+<h3><a id="खरवंडी(कासार), पाथर्डी, अहमदनगर" href="#pagesix" value="खरवंडी(कासार), पाथर्डी, अहमदनगर">खरवंडी(कासार), पाथर्डी, अहमदनगर</a></h3>
+<h3><a id="भेटीचा वड, पाथर्डी, अहमदनगर" href="#pagesix" value="भेटीचा वड, पाथर्डी, अहमदनगर">भेटीचा वड, पाथर्डी, अहमदनगर</a></h3>
+<h3><a id="येळी, पाथर्डी, अहमदनगर" href="#pagesix" value="येळी, पाथर्डी, अहमदनगर">येळी, पाथर्डी, अहमदनगर</a></h3>
+<h3><a id="येळीमार्गी, पाथर्डी, अहमदनगर" href="#pagesix" value="येळीमार्गी, पाथर्डी, अहमदनगर">येळीमार्गी, पाथर्डी, अहमदनगर</a></h3>
+<h3><a id="भोकर, श्रीरामपुर, अहमदनगर" href="#pagesix" value="भोकर, श्रीरामपुर, अहमदनगर">भोकर, श्रीरामपुर, अहमदनगर</a></h3>
+<h3><a id="बेलापूर, श्रीरामपुर, अहमदनगर" href="#pagesix" value="बेलापूर, श्रीरामपुर, अहमदनगर">बेलापूर, श्रीरामपुर, अहमदनगर</a></h3>
+	
+
+	</div>
+    <a href="#pageone" data-transition="slide" data-direction="reverse">Slide to Home Page</a>
+  </div>
+
+  <div data-role="footer">
+    <h1>Footer Text</h1>
+  </div>
+</div>
+
+<div data-role="page" data-theme="a" id="pagesix">
+        
+    </div>
+
+</body>
+</html>
