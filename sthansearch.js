@@ -454,7 +454,7 @@ document.getElementById("Gayan Nishedh").onclick = function() {bhavsmran("Gayan 
 
 function bhavsmran(search_text){
 console.log(search_text);
-$.getJSON('https://galacticmaster.github.io/lilacharitra/', function(jd)
+$.getJSON('https://galacticmaster.github.io/lilacharitra/person.json', function(jd)
 	{var json = jd.main
 				let search_field = search_text;
 				var myHTML = "";
