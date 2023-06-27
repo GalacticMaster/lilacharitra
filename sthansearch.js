@@ -150,11 +150,9 @@ document.getElementById("निफाड, नाशिक").onclick = function()
 document.getElementById("शिवरे, नाशिक").onclick = function() {Sthan_search("शिवरे, नाशिक")};
 document.getElementById("नांदुर, नाशिक").onclick = function() {Sthan_search("नांदुर, नाशिक")};
 document.getElementById("मद्यमेश्वर, नाशिक").onclick = function() {Sthan_search("मद्यमेश्वर, नाशिक")};
-document.getElementById("नांदुर,\xa0नाशिक").onclick = function() {Sthan_search("नांदुर,\xa0नाशिक")};
 document.getElementById("कानळस, नाशिक").onclick = function() {Sthan_search("कानळस, नाशिक")};
 document.getElementById("चास नळी, अहमदनगर").onclick = function() {Sthan_search("चास नळी, अहमदनगर")};
 document.getElementById("सुरेगाव सांगवी, अहमदनगर").onclick = function() {Sthan_search("सुरेगाव सांगवी, अहमदनगर")};
-document.getElementById("संवत्सर,\xa0अहमदनगर").onclick = function() {Sthan_search("संवत्सर,\xa0अहमदनगर")};
 document.getElementById("कोकमठाण, अहमदनगर").onclick = function() {Sthan_search("कोकमठाण, अहमदनगर")};
 document.getElementById("पुणतांबा, अहमदनगर").onclick = function() {Sthan_search("पुणतांबा, अहमदनगर")};
 document.getElementById("नाउर, अहमदनगर").onclick = function() {Sthan_search("नाउर, अहमदनगर")};
@@ -163,7 +161,6 @@ document.getElementById("हिंगोणी, औरंगाबाद").oncli
 document.getElementById("पुरणगाव, औरंगाबाद").onclick = function() {Sthan_search("पुरणगाव, औरंगाबाद")};
 document.getElementById("सावखेड गंगा, औरंगाबाद").onclick = function() {Sthan_search("सावखेड गंगा, औरंगाबाद")};
 document.getElementById("वांजरगाव, औरंगाबाद").onclick = function() {Sthan_search("वांजरगाव, औरंगाबाद")};
-document.getElementById("चांदेगाव,\xa0औरंगाबाद").onclick = function() {Sthan_search("चांदेगाव,\xa0औरंगाबाद")};
 document.getElementById("नागमठाण, औरंगाबाद").onclick = function() {Sthan_search("नागमठाण, औरंगाबाद")};
 document.getElementById("हमरापूर, औरंगाबाद").onclick = function() {Sthan_search("हमरापूर, औरंगाबाद")};
 document.getElementById("बाजाठाणा, औरंगाबाद").onclick = function() {Sthan_search("बाजाठाणा, औरंगाबाद")};
@@ -193,7 +190,6 @@ document.getElementById("गंगापूर, औरंगाबाद").oncli
 document.getElementById("फुलशिवरा, औरंगाबाद").onclick = function() {Sthan_search("फुलशिवरा, औरंगाबाद")};
 document.getElementById("हातनुर, औरंगाबाद").onclick = function() {Sthan_search("हातनुर, औरंगाबाद")};
 document.getElementById("कन्नड, औरंगाबाद").onclick = function() {Sthan_search("कन्नड, औरंगाबाद")};
-document.getElementById("सायगव्हाण,\xa0औरंगाबाद").onclick = function() {Sthan_search("सायगव्हाण,\xa0औरंगाबाद")};
 document.getElementById("वाघळी, जळगाव").onclick = function() {Sthan_search("वाघळी, जळगाव")};
 document.getElementById("कनाशी, जळगाव").onclick = function() {Sthan_search("कनाशी, जळगाव")};
 document.getElementById("भडगाव, जळगाव").onclick = function() {Sthan_search("भडगाव, जळगाव")};
