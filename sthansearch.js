@@ -336,3 +336,152 @@ function findElementID() {
 }
 findElementID()
 */
+/** Bhavsmran function **/
+
+document.getElementById("Shrimurti").onclick = function() {bhavsmran("Shrimurti")};
+document.getElementById("Shricharan").onclick = function() {bhavsmran("Shricharan")};
+document.getElementById("Charnodak").onclick = function() {bhavsmran("Charnodak")};
+document.getElementById("Tulsi Vahane").onclick = function() {bhavsmran("Tulsi Vahane")};
+document.getElementById("Gati").onclick = function() {bhavsmran("Gati")};
+document.getElementById("Lavlavuni").onclick = function() {bhavsmran("Lavlavuni")};
+document.getElementById("Shri Charnicha Angutha").onclick = function() {bhavsmran("Shri Charnicha Angutha")};
+document.getElementById("Janu Vibhag").onclick = function() {bhavsmran("Janu Vibhag")};
+document.getElementById("Gudage").onclick = function() {bhavsmran("Gudage")};
+document.getElementById("Mandia").onclick = function() {bhavsmran("Mandia")};
+document.getElementById("Jagan Pradeshu").onclick = function() {bhavsmran("Jagan Pradeshu")};
+document.getElementById("Udar").onclick = function() {bhavsmran("Udar")};
+document.getElementById("Vaksh Sthal").onclick = function() {bhavsmran("Vaksh Sthal")};
+document.getElementById("Kshemalingan").onclick = function() {bhavsmran("Kshemalingan")};
+document.getElementById("Bhatobas Kshemalingan").onclick = function() {bhavsmran("Bhatobas Kshemalingan")};
+document.getElementById("Mahadaisa Kshemalingan").onclick = function() {bhavsmran("Mahadaisa Kshemalingan")};
+document.getElementById("Avusa Khemalingan").onclick = function() {bhavsmran("Avusa Khemalingan")};
+document.getElementById("Upadhya Khsem…").onclick = function() {bhavsmran("Upadhya Khsem…")};
+document.getElementById("Dadosa Kshem…").onclick = function() {bhavsmran("Dadosa Kshem…")};
+document.getElementById("Bahupradesh").onclick = function() {bhavsmran("Bahupradesh")};
+document.getElementById("Shrikar kamal").onclick = function() {bhavsmran("Shrikar kamal")};
+document.getElementById("Shrikare Dakhavane").onclick = function() {bhavsmran("Shrikare Dakhavane")};
+document.getElementById("shrikare spashane").onclick = function() {bhavsmran("shrikare spashane")};
+document.getElementById("kaandyavari shrikar ghaalane").onclick = function() {bhavsmran("kaandyavari shrikar ghaalane")};
+document.getElementById("pati sparshane").onclick = function() {bhavsmran("pati sparshane")};
+document.getElementById("pativari shrikaru dene").onclick = function() {bhavsmran("pativari shrikaru dene")};
+document.getElementById("shrikare anukaar").onclick = function() {bhavsmran("shrikare anukaar")};
+document.getElementById("Angulia").onclick = function() {bhavsmran("Angulia")};
+document.getElementById("Shrikar… Anguliecha anukar").onclick = function() {bhavsmran("Shrikar… Anguliecha anukar")};
+document.getElementById("Angutha").onclick = function() {bhavsmran("Angutha")};
+document.getElementById("Karanguli").onclick = function() {bhavsmran("Karanguli")};
+document.getElementById("Shrikanth").onclick = function() {bhavsmran("Shrikanth")};
+document.getElementById("Hanuvathi").onclick = function() {bhavsmran("Hanuvathi")};
+document.getElementById("ShriMukh").onclick = function() {bhavsmran("ShriMukh")};
+document.getElementById("Ikhit Hasya").onclick = function() {bhavsmran("Ikhit Hasya")};
+document.getElementById("Hasya Swikar").onclick = function() {bhavsmran("Hasya Swikar")};
+document.getElementById("Harsh Swikar").onclick = function() {bhavsmran("Harsh Swikar")};
+document.getElementById("Tali Vajavane").onclick = function() {bhavsmran("Tali Vajavane")};
+document.getElementById("Kautuk").onclick = function() {bhavsmran("Kautuk")};
+document.getElementById("Vinod").onclick = function() {bhavsmran("Vinod")};
+document.getElementById("Parihaas").onclick = function() {bhavsmran("Parihaas")};
+document.getElementById("Vipalane").onclick = function() {bhavsmran("Vipalane")};
+document.getElementById("Tokhane").onclick = function() {bhavsmran("Tokhane")};
+document.getElementById("Abhaydan").onclick = function() {bhavsmran("Abhaydan")};
+document.getElementById("Varpradan").onclick = function() {bhavsmran("Varpradan")};
+document.getElementById("Tambul Prasad dan").onclick = function() {bhavsmran("Tambul Prasad dan")};
+document.getElementById("Shrimukhichi Pick").onclick = function() {bhavsmran("Shrimukhichi Pick")};
+document.getElementById("Prashansa").onclick = function() {bhavsmran("Prashansa")};
+document.getElementById("Sambokhan").onclick = function() {bhavsmran("Sambokhan")};
+document.getElementById("Shikshapan").onclick = function() {bhavsmran("Shikshapan")};
+document.getElementById("Kopane").onclick = function() {bhavsmran("Kopane")};
+document.getElementById("Nirakaran").onclick = function() {bhavsmran("Nirakaran")};
+document.getElementById("DantaPankti").onclick = function() {bhavsmran("DantaPankti")};
+document.getElementById("Nasaput").onclick = function() {bhavsmran("Nasaput")};
+document.getElementById("ShriNetra").onclick = function() {bhavsmran("ShriNetra")};
+document.getElementById("ShriNetranukar").onclick = function() {bhavsmran("ShriNetranukar")};
+document.getElementById("Bhrubhang").onclick = function() {bhavsmran("Bhrubhang")};
+document.getElementById("shrimukhe shrikare shrimugute anukar").onclick = function() {bhavsmran("shrimukhe shrikare shrimugute anukar")};
+document.getElementById("shrimukhe shrikare shrinetre tithi kakusahit varile").onclick = function() {bhavsmran("shrimukhe shrikare shrinetre tithi kakusahit varile")};
+document.getElementById("Pristhviuvhagu").onclick = function() {bhavsmran("Pristhviuvhagu")};
+document.getElementById("Karnaygal").onclick = function() {bhavsmran("Karnaygal")};
+document.getElementById("Lalhat").onclick = function() {bhavsmran("Lalhat")};
+document.getElementById("Shrimugut").onclick = function() {bhavsmran("Shrimugut")};
+document.getElementById("Shrimugute Anunnya").onclick = function() {bhavsmran("Shrimugute Anunnya")};
+document.getElementById("Shrimugut Manile").onclick = function() {bhavsmran("Shrimugut Manile")};
+document.getElementById("Shrimugute Nirakaran").onclick = function() {bhavsmran("Shrimugute Nirakaran")};
+document.getElementById("Sthiti Pradan").onclick = function() {bhavsmran("Sthiti Pradan")};
+document.getElementById("Bhatobas Stithi").onclick = function() {bhavsmran("Bhatobas Stithi")};
+document.getElementById("Nathoba Stithi").onclick = function() {bhavsmran("Nathoba Stithi")};
+document.getElementById("Ausa Stithi").onclick = function() {bhavsmran("Ausa Stithi")};
+document.getElementById("Dayamba stithi").onclick = function() {bhavsmran("Dayamba stithi")};
+document.getElementById("Dadosa Stithi").onclick = function() {bhavsmran("Dadosa Stithi")};
+document.getElementById("SarangPandita Stithi").onclick = function() {bhavsmran("SarangPandita Stithi")};
+document.getElementById("Cheshta").onclick = function() {bhavsmran("Cheshta")};
+document.getElementById("Cheshta Pradhan Lila").onclick = function() {bhavsmran("Cheshta Pradhan Lila")};
+document.getElementById("Prasanatechya Lila").onclick = function() {bhavsmran("Prasanatechya Lila")};
+document.getElementById("Dukh Nivruti").onclick = function() {bhavsmran("Dukh Nivruti")};
+document.getElementById("GrahoNivruti").onclick = function() {bhavsmran("GrahoNivruti")};
+document.getElementById("Deepan Shakti").onclick = function() {bhavsmran("Deepan Shakti")};
+document.getElementById("Paditaline").onclick = function() {bhavsmran("Paditaline")};
+document.getElementById("Vaat Pahane").onclick = function() {bhavsmran("Vaat Pahane")};
+document.getElementById("Bolavu Dhadane").onclick = function() {bhavsmran("Bolavu Dhadane")};
+document.getElementById("Kshudha Swikaru").onclick = function() {bhavsmran("Kshudha Swikaru")};
+document.getElementById("Trisha Swikar").onclick = function() {bhavsmran("Trisha Swikar")};
+document.getElementById("Utakantha Swikar").onclick = function() {bhavsmran("Utakantha Swikar")};
+document.getElementById("Shram Swikar").onclick = function() {bhavsmran("Shram Swikar")};
+document.getElementById("Chinta Swikar").onclick = function() {bhavsmran("Chinta Swikar")};
+document.getElementById("Rahavane").onclick = function() {bhavsmran("Rahavane")};
+document.getElementById("Pathavane").onclick = function() {bhavsmran("Pathavane")};
+document.getElementById("Khel").onclick = function() {bhavsmran("Khel")};
+document.getElementById("Vrukshastahli Asan").onclick = function() {bhavsmran("Vrukshastahli Asan")};
+document.getElementById("Vadatali Asan").onclick = function() {bhavsmran("Vadatali Asan")};
+document.getElementById("Sondivari Asan").onclick = function() {bhavsmran("Sondivari Asan")};
+document.getElementById("Vidnyan").onclick = function() {bhavsmran("Vidnyan")};
+document.getElementById("Jholi Pradan").onclick = function() {bhavsmran("Jholi Pradan")};
+document.getElementById("Jholi Drishtput").onclick = function() {bhavsmran("Jholi Drishtput")};
+document.getElementById("Pravaruti Vishayo Jhale").onclick = function() {bhavsmran("Pravaruti Vishayo Jhale")};
+document.getElementById("Vela Tinhi").onclick = function() {bhavsmran("Vela Tinhi")};
+document.getElementById("Por kaise latike").onclick = function() {bhavsmran("Por kaise latike")};
+document.getElementById("Tryinchya Vedh").onclick = function() {bhavsmran("Tryinchya Vedh")};
+document.getElementById("Pushti Arohan").onclick = function() {bhavsmran("Pushti Arohan")};
+document.getElementById("Doni Arohan").onclick = function() {bhavsmran("Doni Arohan")};
+document.getElementById("Prakash Darshan").onclick = function() {bhavsmran("Prakash Darshan")};
+document.getElementById("Ashyaryachi Pahud").onclick = function() {bhavsmran("Ashyaryachi Pahud")};
+document.getElementById("Putratva swikar").onclick = function() {bhavsmran("Putratva swikar")};
+document.getElementById("Mahapuja").onclick = function() {bhavsmran("Mahapuja")};
+document.getElementById("Vyatikrame Puja").onclick = function() {bhavsmran("Vyatikrame Puja")};
+document.getElementById("Adrishya hone").onclick = function() {bhavsmran("Adrishya hone")};
+document.getElementById("Mrut Jivavane").onclick = function() {bhavsmran("Mrut Jivavane")};
+document.getElementById("Plavane").onclick = function() {bhavsmran("Plavane")};
+document.getElementById("Amabe Praveshan").onclick = function() {bhavsmran("Amabe Praveshan")};
+document.getElementById("Kele Praveshan").onclick = function() {bhavsmran("Kele Praveshan")};
+document.getElementById("Bor Praveshan").onclick = function() {bhavsmran("Bor Praveshan")};
+document.getElementById("Audashya").onclick = function() {bhavsmran("Audashya")};
+document.getElementById("Anbhasha bolane").onclick = function() {bhavsmran("Anbhasha bolane")};
+document.getElementById("Gayan Nishedh").onclick = function() {bhavsmran("Gayan Nishedh")};
+
+
+function bhavsmran(search_text){
+console.log(search_text);
+$.getJSON('http://127.0.0.1:8000/person.json', function(jd)
+	{var json = jd.main
+				let search_field = search_text;
+				var myHTML = "";
+				for (let i = 1; i < json.length; i++)
+				{
+					let avyav = json[i].avyav
+					console.log(avyav);
+					for (let a = 0; a < avyav.length; a++){
+					console.log(typeof(search_field));
+					console.log(typeof(avyav[a]));
+					console.log(avyav[a] === search_field);
+					//let result = avyav[a].includes(search_field);
+						let result = avyav[a] === search_field;
+						if (result){
+						myHTML += '<h3 style="color:DodgerBlue;">' + (json[i].Aadi) + '</h3>'
+						myHTML += '<h3 style="color:DodgerBlue;">' + (avyav) + '</h3>'
+						myHTML += '<p style="color:MediumSeaGreen;">' + (json[i].Lila) + '</p>'
+					
+						}
+					}
+				document.getElementById("pagesix").innerHTML = myHTML;
+				}
+				//console.log(myHTML);
+				
+				})
+			}
