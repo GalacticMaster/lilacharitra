@@ -1745,7 +1745,7 @@ document.getElementById("ब्रह्मविद्ये सकळांह
 function vachan_search(search_text){
 let search_field = search_text;
 console.log("search test =" + search_text);
-$.getJSON('https://galacticmaster.github.io/lilacharitra/', function(jd)
+$.getJSON('https://galacticmaster.github.io/lilacharitra/person.json', function(jd)
 	{var json = jd.main
 				let search_field = search_text;
 				var myHTML = "";
