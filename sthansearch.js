@@ -1775,3 +1775,173 @@ $.getJSON('https://galacticmaster.github.io/lilacharitra/person.json', function(
 				
 				});
 			}
+
+/** dhrushtant **/
+
+document.getElementById("आंतुलाचा १").onclick = function() {drushtant_search("आंतुलाचा १")};
+document.getElementById("बाहीरीलाचा २").onclick = function() {drushtant_search("बाहीरीलाचा २")};
+document.getElementById("उंबरेयावरिलाचा ३").onclick = function() {drushtant_search("उंबरेयावरिलाचा ३")};
+document.getElementById("कुकडीएचा ४").onclick = function() {drushtant_search("कुकडीएचा ४")};
+document.getElementById("मासळीयेचा ५").onclick = function() {drushtant_search("मासळीयेचा ५")};
+document.getElementById("कासवियेचा ६").onclick = function() {drushtant_search("कासवियेचा ६")};
+document.getElementById("शब्दवेधिया रसाचा ७").onclick = function() {drushtant_search("शब्दवेधिया रसाचा ७")};
+document.getElementById("समुद्राचा ८").onclick = function() {drushtant_search("समुद्राचा ८")};
+document.getElementById("सोमकांताचा ९").onclick = function() {drushtant_search("सोमकांताचा ९")};
+document.getElementById("हिरेखाणियाचा १०").onclick = function() {drushtant_search("हिरेखाणियाचा १०")};
+document.getElementById("देवाचा ११").onclick = function() {drushtant_search("देवाचा ११")};
+document.getElementById("राहाटघडिएचा १२").onclick = function() {drushtant_search("राहाटघडिएचा १२")};
+document.getElementById("राहाटघडिएचा १२").onclick = function() {drushtant_search("राहाटघडिएचा १२")};
+document.getElementById("माळेकाराचा १३").onclick = function() {drushtant_search("माळेकाराचा १३")};
+document.getElementById("डोळेयाचा १४").onclick = function() {drushtant_search("डोळेयाचा १४")};
+document.getElementById("खडेयाखुबटेयाचा १५").onclick = function() {drushtant_search("खडेयाखुबटेयाचा १५")};
+document.getElementById("खडेयाखुबटेयाचा १५").onclick = function() {drushtant_search("खडेयाखुबटेयाचा १५")};
+document.getElementById("बांदीकाराचा १६").onclick = function() {drushtant_search("बांदीकाराचा १६")};
+document.getElementById("काकसूकराचा १७").onclick = function() {drushtant_search("काकसूकराचा १७")};
+document.getElementById("लाडाचीए बासीचा १८").onclick = function() {drushtant_search("लाडाचीए बासीचा १८")};
+document.getElementById("बांधलीए गाइचा १९").onclick = function() {drushtant_search("बांधलीए गाइचा १९")};
+document.getElementById("वज्रकीटकीएचा २०").onclick = function() {drushtant_search("वज्रकीटकीएचा २०")};
+document.getElementById("वज्रकीटकीएचा २०").onclick = function() {drushtant_search("वज्रकीटकीएचा २०")};
+document.getElementById("खाजेयाचा २१").onclick = function() {drushtant_search("खाजेयाचा २१")};
+document.getElementById("खाजेयाचा २१").onclick = function() {drushtant_search("खाजेयाचा २१")};
+document.getElementById("अन्नाचा २२").onclick = function() {drushtant_search("अन्नाचा २२")};
+document.getElementById("अन्नाचा २२").onclick = function() {drushtant_search("अन्नाचा २२")};
+document.getElementById("अमृताचा २३").onclick = function() {drushtant_search("अमृताचा २३")};
+document.getElementById("अमृताचा २३").onclick = function() {drushtant_search("अमृताचा २३")};
+document.getElementById("वटबीजाचा २४").onclick = function() {drushtant_search("वटबीजाचा २४")};
+document.getElementById("तुपाभाताचिया वासाचा २५").onclick = function() {drushtant_search("तुपाभाताचिया वासाचा २५")};
+document.getElementById("सेवाळलेया खडकाचा २६").onclick = function() {drushtant_search("सेवाळलेया खडकाचा २६")};
+document.getElementById("पाणियांतुल गुंडेयाचा २७").onclick = function() {drushtant_search("पाणियांतुल गुंडेयाचा २७")};
+document.getElementById("तणधैलेया  वावराचा २८").onclick = function() {drushtant_search("तणधैलेया  वावराचा २८")};
+document.getElementById("कानवाथराचा २९").onclick = function() {drushtant_search("कानवाथराचा २९")};
+document.getElementById("वेळुवाचा ३०").onclick = function() {drushtant_search("वेळुवाचा ३०")};
+document.getElementById("जारसैलेया वाळुकाचा ३१").onclick = function() {drushtant_search("जारसैलेया वाळुकाचा ३१")};
+document.getElementById("भवरैलेया वाळुकाचा ३२").onclick = function() {drushtant_search("भवरैलेया वाळुकाचा ३२")};
+document.getElementById("देहलुतैलेया वाळुकाचा ३३").onclick = function() {drushtant_search("देहलुतैलेया वाळुकाचा ३३")};
+document.getElementById("कोवळेया वाळुकाचा ३४").onclick = function() {drushtant_search("कोवळेया वाळुकाचा ३४")};
+document.getElementById("इंद्रवणांचा ३५").onclick = function() {drushtant_search("इंद्रवणांचा ३५")};
+document.getElementById("सन्निपातैलेयाचा ३६").onclick = function() {drushtant_search("सन्निपातैलेयाचा ३६")};
+document.getElementById("विषयाचा ३७").onclick = function() {drushtant_search("विषयाचा ३७")};
+document.getElementById("दूरस्थ मातेचा ३८").onclick = function() {drushtant_search("दूरस्थ मातेचा ३८")};
+document.getElementById("हिरडेयाबेहाडेयाचा ३९").onclick = function() {drushtant_search("हिरडेयाबेहाडेयाचा ३९")};
+document.getElementById("हिरडेयाबेहाडेयाचा ३९").onclick = function() {drushtant_search("हिरडेयाबेहाडेयाचा ३९")};
+document.getElementById("सुरीएचा ४०").onclick = function() {drushtant_search("सुरीएचा ४०")};
+document.getElementById("सुरीएचा ४०").onclick = function() {drushtant_search("सुरीएचा ४०")};
+document.getElementById("रुम्हणेयाचा ४१").onclick = function() {drushtant_search("रुम्हणेयाचा ४१")};
+document.getElementById("चांदोवेयाचा ४२").onclick = function() {drushtant_search("चांदोवेयाचा ४२")};
+document.getElementById("हस्तीचा ४३").onclick = function() {drushtant_search("हस्तीचा ४३")};
+document.getElementById("डुळकैलेया बाळकाचा ४४").onclick = function() {drushtant_search("डुळकैलेया बाळकाचा ४४")};
+document.getElementById("कपाळपरीक्षेचा ४५").onclick = function() {drushtant_search("कपाळपरीक्षेचा ४५")};
+document.getElementById("मोदळेयाचा ४६").onclick = function() {drushtant_search("मोदळेयाचा ४६")};
+document.getElementById("रोवंतलैया पशूचा ४७").onclick = function() {drushtant_search("रोवंतलैया पशूचा ४७")};
+document.getElementById("कर्मचांडाळाचा ४८").onclick = function() {drushtant_search("कर्मचांडाळाचा ४८")};
+document.getElementById("पडाळिये गाइचा ४९").onclick = function() {drushtant_search("पडाळिये गाइचा ४९")};
+document.getElementById("माळेकाराचा ५०").onclick = function() {drushtant_search("माळेकाराचा ५०")};
+document.getElementById("अयाचग्रासिया ५१").onclick = function() {drushtant_search("अयाचग्रासिया ५१")};
+document.getElementById("दीक्षितकन्येचा ५२").onclick = function() {drushtant_search("दीक्षितकन्येचा ५२")};
+document.getElementById("कुष्टियाचा ५३").onclick = function() {drushtant_search("कुष्टियाचा ५३")};
+document.getElementById("आधारीएचा परीसाचा ५४").onclick = function() {drushtant_search("आधारीएचा परीसाचा ५४")};
+document.getElementById("वानरीएचा ५५").onclick = function() {drushtant_search("वानरीएचा ५५")};
+document.getElementById("माकोडेयाचा ५६").onclick = function() {drushtant_search("माकोडेयाचा ५६")};
+document.getElementById("व्यतिपाताचा ५७").onclick = function() {drushtant_search("व्यतिपाताचा ५७")};
+document.getElementById("कोलाचा ५८").onclick = function() {drushtant_search("कोलाचा ५८")};
+document.getElementById("इशाळुवाचा ५९").onclick = function() {drushtant_search("इशाळुवाचा ५९")};
+document.getElementById("झाडिलेयापूसीलेयापशूचा ६०").onclick = function() {drushtant_search("झाडिलेयापूसीलेयापशूचा ६०")};
+document.getElementById("सामान्य स्त्रीएचा ६१").onclick = function() {drushtant_search("सामान्य स्त्रीएचा ६१")};
+document.getElementById("दासीचा ६२").onclick = function() {drushtant_search("दासीचा ६२")};
+document.getElementById("पतिव्रतेचा ६३").onclick = function() {drushtant_search("पतिव्रतेचा ६३")};
+document.getElementById("चाटसीएचा ६४").onclick = function() {drushtant_search("चाटसीएचा ६४")};
+document.getElementById("अग्नीचा ६५").onclick = function() {drushtant_search("अग्नीचा ६५")};
+document.getElementById("अग्नीचा ६५").onclick = function() {drushtant_search("अग्नीचा ६५")};
+document.getElementById("फुटाणेकाराचा ६६").onclick = function() {drushtant_search("फुटाणेकाराचा ६६")};
+document.getElementById("गुळ्हारियाचा ६७").onclick = function() {drushtant_search("गुळ्हारियाचा ६७")};
+document.getElementById("दुबळिए मातेचा ६८").onclick = function() {drushtant_search("दुबळिए मातेचा ६८")};
+document.getElementById("वृक्षत्वचेचा ६९").onclick = function() {drushtant_search("वृक्षत्वचेचा ६९")};
+document.getElementById("पाणिचोरेयाचा ७०").onclick = function() {drushtant_search("पाणिचोरेयाचा ७०")};
+document.getElementById("चातकाचा ७१").onclick = function() {drushtant_search("चातकाचा ७१")};
+document.getElementById("सिंदेराणेयाचा ७२").onclick = function() {drushtant_search("सिंदेराणेयाचा ७२")};
+document.getElementById("रिणाइताचा ७३").onclick = function() {drushtant_search("रिणाइताचा ७३")};
+document.getElementById("दंदियाचा ७४").onclick = function() {drushtant_search("दंदियाचा ७४")};
+document.getElementById("अग्निसंबंधाचा ७५").onclick = function() {drushtant_search("अग्निसंबंधाचा ७५")};
+document.getElementById("अग्निसंबंधाचा ७५").onclick = function() {drushtant_search("अग्निसंबंधाचा ७५")};
+document.getElementById("वटरोपाचा ७६").onclick = function() {drushtant_search("वटरोपाचा ७६")};
+document.getElementById("तुरंगमाचा ७७").onclick = function() {drushtant_search("तुरंगमाचा ७७")};
+document.getElementById("ब्रह्मचारी घोडेयाचा ७८").onclick = function() {drushtant_search("ब्रह्मचारी घोडेयाचा ७८")};
+document.getElementById("विरहिणीचा (प्रथम) ८७").onclick = function() {drushtant_search("विरहिणीचा (प्रथम) ८७")};
+document.getElementById("विरहिणीचा (प्रथम) ८७").onclick = function() {drushtant_search("विरहिणीचा (प्रथम) ८७")};
+document.getElementById("ऋषीशृंगाचा ७९").onclick = function() {drushtant_search("ऋषीशृंगाचा ७९")};
+document.getElementById("राजहंसाचा ८०").onclick = function() {drushtant_search("राजहंसाचा ८०")};
+document.getElementById("डिंगरेयाचा ८१").onclick = function() {drushtant_search("डिंगरेयाचा ८१")};
+document.getElementById("चाटरीचा (दुसरेया इसाळुवाचा) ८२").onclick = function() {drushtant_search("चाटरीचा (दुसरेया इसाळुवाचा) ८२")};
+document.getElementById("दुसरेया इसाळुवाचा ८२").onclick = function() {drushtant_search("दुसरेया इसाळुवाचा ८२")};
+document.getElementById("द्विभार्याचा ८३").onclick = function() {drushtant_search("द्विभार्याचा ८३")};
+document.getElementById("दुर्भगेचा ८४").onclick = function() {drushtant_search("दुर्भगेचा ८४")};
+document.getElementById("दुर्भगेचा ८४").onclick = function() {drushtant_search("दुर्भगेचा ८४")};
+document.getElementById("शय्यापालनेचा ८५").onclick = function() {drushtant_search("शय्यापालनेचा ८५")};
+document.getElementById("शय्यापालनेचा ८५").onclick = function() {drushtant_search("शय्यापालनेचा ८५")};
+document.getElementById("पोळलेया सुनेयाचा ८६").onclick = function() {drushtant_search("पोळलेया सुनेयाचा ८६")};
+document.getElementById("पोळलेया सुनेयाचा ८६").onclick = function() {drushtant_search("पोळलेया सुनेयाचा ८६")};
+document.getElementById("विरहिणीचा (दुसर्‍या) ८८").onclick = function() {drushtant_search("विरहिणीचा (दुसर्‍या) ८८")};
+document.getElementById("विरहिणीचा (दुसर्‍या) ८८").onclick = function() {drushtant_search("विरहिणीचा (दुसर्‍या) ८८")};
+document.getElementById("विरहिणीचा (तीसर्‍या) ८९").onclick = function() {drushtant_search("विरहिणीचा (तीसर्‍या) ८९")};
+document.getElementById("विरहिणीचा (तीसर्‍या) ८९").onclick = function() {drushtant_search("विरहिणीचा (तीसर्‍या) ८९")};
+document.getElementById("जळमांडवीचा ९०").onclick = function() {drushtant_search("जळमांडवीचा ९०")};
+document.getElementById("अहीरदेशीचीए म्हातारीएचा ९१").onclick = function() {drushtant_search("अहीरदेशीचीए म्हातारीएचा ९१")};
+document.getElementById("वर्तेचा ९२").onclick = function() {drushtant_search("वर्तेचा ९२")};
+document.getElementById("खर्गधारेचा ९३").onclick = function() {drushtant_search("खर्गधारेचा ९३")};
+document.getElementById("कठियाचा ९४").onclick = function() {drushtant_search("कठियाचा ९४")};
+document.getElementById("कीर्तिकठियाचा ९५").onclick = function() {drushtant_search("कीर्तिकठियाचा ९५")};
+document.getElementById("भिंगुरुटीयेचा ९६").onclick = function() {drushtant_search("भिंगुरुटीयेचा ९६")};
+document.getElementById("बाळविधवेचा ९७").onclick = function() {drushtant_search("बाळविधवेचा ९७")};
+document.getElementById("लेंकुरुवाळीए मातेचा ९८").onclick = function() {drushtant_search("लेंकुरुवाळीए मातेचा ९८")};
+document.getElementById("निद्रितक्षीरपानाचा ९९").onclick = function() {drushtant_search("निद्रितक्षीरपानाचा ९९")};
+document.getElementById("बाबुळिएचा १००").onclick = function() {drushtant_search("बाबुळिएचा १००")};
+document.getElementById("डोळेयाचा १०१").onclick = function() {drushtant_search("डोळेयाचा १०१")};
+document.getElementById("दूरदृश्याचा १०२").onclick = function() {drushtant_search("दूरदृश्याचा १०२")};
+document.getElementById("जागसुतेयाचा १०३").onclick = function() {drushtant_search("जागसुतेयाचा १०३")};
+document.getElementById("स्वप्नाचा १०४").onclick = function() {drushtant_search("स्वप्नाचा १०४")};
+document.getElementById("खाराणियेचा १०५").onclick = function() {drushtant_search("खाराणियेचा १०५")};
+document.getElementById("आंबवतीयेचा (सुरीचा) १०६").onclick = function() {drushtant_search("आंबवतीयेचा (सुरीचा) १०६")};
+document.getElementById("सुरीचा (आंबवतीएचा) १०६").onclick = function() {drushtant_search("सुरीचा (आंबवतीएचा) १०६")};
+document.getElementById("चेइलेयाचा १०७").onclick = function() {drushtant_search("चेइलेयाचा १०७")};
+document.getElementById("जवनिकेचा १०८").onclick = function() {drushtant_search("जवनिकेचा १०८")};
+document.getElementById("उखारलेया वस्त्राचा १०९").onclick = function() {drushtant_search("उखारलेया वस्त्राचा १०९")};
+document.getElementById("परिसाचा ११०").onclick = function() {drushtant_search("परिसाचा ११०")};
+document.getElementById("चंदनाचा १११").onclick = function() {drushtant_search("चंदनाचा १११")};
+document.getElementById("शरणांगताचा ११२").onclick = function() {drushtant_search("शरणांगताचा ११२")};
+document.getElementById("राज्याभिषेचा ११३").onclick = function() {drushtant_search("राज्याभिषेचा ११३")};
+document.getElementById("साकरेचा ११४").onclick = function() {drushtant_search("साकरेचा ११४")};
+
+
+function drushtant_search(search_text){
+let search_field = search_text;
+console.log("search test =" + search_text);
+$.getJSON('https://galacticmaster.github.io/lilacharitra/person.json', function(jd)
+	{var json = jd.main
+				let search_field = search_text;
+				var myHTML = "";
+				for (let i = 0; i < json.length; i++)
+				{
+					//console.log(json[i].Aadi);	
+					let drushtant = json[i].drushtant
+					//console.log(vachan);
+					for (let d = 0; d < drushtant.length; d++){
+					//console.log(typeof(search_field));
+					//console.log(typeof(vachan[v]));
+					//console.log(vachan[v]);
+					let result = drushtant[d].includes(search_field);
+					{
+						let result = drushtant[d].includes(search_field);
+						if (result){
+							console.log(result);
+						myHTML += '<h3 style="color:DodgerBlue;">' + (json[i].Aadi) + '</h3>'
+						myHTML += '<h3 style="color:DodgerBlue;">' + (drushtant) + '</h3>'
+						myHTML += '<p style="color:MediumSeaGreen;">' + (json[i].Lila) + '</p>'
+						}
+					}
+					}
+				document.getElementById("pagesix").innerHTML = myHTML;
+				}
+				//console.log(myHTML);
+				
+				});
+			}
