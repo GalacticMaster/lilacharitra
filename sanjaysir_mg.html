@@ -701,8 +701,8 @@ $.getJSON('https://galacticmaster.github.io/lilacharitra/person.json', function(
 					var lilaID = json[i].lilaID
 						let result = lilaID === search_field;
 						if (result){
-						myHTML += '<h3 style="color:DodgerBlue;">' + (json[i].Aadi) + '</h3>'
-						myHTML += '<p style="color:MediumSeaGreen;">' + (json[i].Lila) + '</p>'
+						myHTML += '<h3 style="text-align: center;color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">' + (json[i].Aadi) + '</h3>'
+						myHTML += '<p style="text-align: center;color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">' + (json[i].Lila) + '</p>'
 					
 						}
 				document.getElementById("pagesix").innerHTML = myHTML;
@@ -732,9 +732,9 @@ $.getJSON('https://galacticmaster.github.io/lilacharitra/person.json', function(
 						let result = person[p] === search_field;
 						if (result){
 						console.log(result);
-						myHTML += '<h3 style="color:DodgerBlue;">' + (json[i].Aadi) + '</h3>'
-						myHTML += '<h3 style="color:DodgerBlue;">' + (person) + '</h3>'
-						myHTML += '<p style="color:MediumSeaGreen;">' + (json[i].Lila) + '</p>'
+						myHTML += '<h3 style="text-align: center;color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">' + (json[i].Aadi) + '</h3>'
+						myHTML += '<h3 style="text-align: center;color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">' + (person) + '</h3>'
+						myHTML += '<p style="text-align: center;color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">' + (json[i].Lila) + '</p>'
 					
 						}
 					}
