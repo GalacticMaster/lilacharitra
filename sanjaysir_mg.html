@@ -34,6 +34,9 @@
 			{
 			font-size: 18x;
 			}
+		h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: normal;
+			}
 	</style>
 
 
@@ -42,7 +45,8 @@
 
 <div data-role="page" id="pageone">
   <div data-role="header">
-    <h1 style="color:Tomato;font-size: 30px"><i>ज्ञान प्रबोधन महानुभाव आश्रम (बारगांव पिंपरी सिन्नर )</i></h1>
+    <h1 style="color:Tomato;font-size: 30px">श्रीकृष्ण ज्ञान प्रबोधन महानुभाव आश्रम </h1>
+	<h1 style="color:Tomato;font-size: 20px">(बारागांव पिंपरी ता. सिन्नर, जि. नाशिक)</h1>
 	<h2 style = "text-align: center;font-size: 30px">॥ मूर्तिज्ञान ॥</h2>
 	</div>
 	<div data-role="main" class="ui-content">
@@ -168,7 +172,7 @@
 		</div>
 
 		<div data-role="header">
-		<p style="text-align: center"  >१ ॥ श्रीमूर्ती ॥</p>
+		<p style="text-align: center"  >१ ॥ श्रीमुर्त ॥</p>
 		</div>
 
 				<div data-role="collapsible">
@@ -710,13 +714,13 @@ $.getJSON('https://galacticmaster.github.io/lilacharitra/person.json', function(
 					var lilaID = json[i].lilaID
 						let result = lilaID === search_field;
 						if (result){
-						myHTML += '<h3 style="text-align: center;color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">' + (json[i].Aadi) +'   '+ '</h3>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">' + (json[i].Lila) + '</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">' + (json[i].Tip) + '&nbsp&nbsp&nbsp</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">'+'व्यक्ती   :' + (json[i].person) + '</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">'+'वचन  :' + (json[i].vachan) + '</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">'+'दृष्टांत  :' + (json[i].drushtant) + '</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">'+'श्रीमूर्ती   :' + (json[i].avyav) + '</p>'
+						myHTML += '<h3 style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">' + (json[i].Aadi) +'   '+ '</h3>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">' + (json[i].Lila) + '</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">' + (json[i].Tip) + '&nbsp&nbsp&nbsp</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+'व्यक्ती   :' + (json[i].person) + '</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+'वचन  :' + (json[i].vachan) + '</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+'दृष्टांत  :' + (json[i].drushtant) + '</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+'श्रीमूर्ती   :' + (json[i].avyav) + '</p>'
 						}
 				document.getElementById("pagesix").innerHTML = myHTML;
 				}
@@ -745,14 +749,13 @@ $.getJSON('https://galacticmaster.github.io/lilacharitra/person.json', function(
 						let result = person[p] === search_field;
 						if (result){
 						console.log(result);
-myHTML += '<h3 style="text-align: center;color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">' + (json[i].Aadi) +'   '+ '</h3>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">' + (json[i].Lila) + '</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">' + (json[i].Tip) + '&nbsp&nbsp&nbsp</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">'+'व्यक्ती   :' + (json[i].person) + '</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">'+'वचन  :' + (json[i].vachan) + '</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">'+'दृष्टांत  :' + (json[i].drushtant) + '</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">'+'श्रीमूर्ती   :' + (json[i].avyav) + '</p>'
-					
+myHTML += '<h3 style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">' + (json[i].Aadi) +'   '+ '</h3>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">' + (json[i].Lila) + '</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">' + (json[i].Tip) + '&nbsp&nbsp&nbsp</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+'व्यक्ती   :' + (json[i].person) + '</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+'वचन  :' + (json[i].vachan) + '</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+'दृष्टांत  :' + (json[i].drushtant) + '</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+'श्रीमूर्ती   :' + (json[i].avyav) + '</p>'				
 						}
 					}
 				//document.getElementById("pagesix").innerHTML = myHTML;
@@ -783,14 +786,13 @@ $.getJSON('https://galacticmaster.github.io/lilacharitra/person.json', function(
 						let result = drushtant[d].includes(search_field);
 						if (result){
 							console.log(result);
-myHTML += '<h3 style="text-align: center;color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">' + (json[i].Aadi) +'   '+ '</h3>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">' + (json[i].Lila) + '</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">' + (json[i].Tip) + '&nbsp&nbsp&nbsp</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">'+'व्यक्ती   :' + (json[i].person) + '</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">'+'वचन  :' + (json[i].vachan) + '</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">'+'दृष्टांत  :' + (json[i].drushtant) + '</p>'
-						myHTML += '<p style="color: white;font-family: Arial;;margin: 25px;padding: 8px;background-color: #33475b;border-radius: 10px;">'+'श्रीमूर्ती   :' + (json[i].avyav) + '</p>'
-						}
+						myHTML += '<h3 style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">' + (json[i].Aadi) +'   '+ '</h3>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">' + (json[i].Lila) + '</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">' + (json[i].Tip) + '&nbsp&nbsp&nbsp</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+'व्यक्ती   :' + (json[i].person) + '</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+'वचन  :' + (json[i].vachan) + '</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+'दृष्टांत  :' + (json[i].drushtant) + '</p>'
+						myHTML += '<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+'श्रीमूर्ती   :' + (json[i].avyav) + '</p>'						}
 					}
 					}
 				document.getElementById("pagesix").innerHTML = myHTML;
