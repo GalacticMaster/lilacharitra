@@ -26,8 +26,8 @@ function colltest(Aadi,Lila,Vachan,Tika){
 	$(window).unload();
 	$(window).load(Aadi,Lila, function(){
 		$('[data-role="content"]').empty();
-		$('<div data-role="collapsible" data-collapsed="true"><h3>'+Aadi+'</h3><p style="font-size: 18px;text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+Lila+'</p></div>').appendTo('[data-role="content"]').page()
-		$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
+		$('<div data-role="collapsible" data-collapsed="true"><h3>'+Aadi+'</h3><p style="font-size: 18px;text-align: center;font-family: Arial;">'+Lila+'</p></div>').appendTo('[data-role="content"]').page()
+		$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;text-align: center;font-family: Arial;">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
 		});
 }
 
