@@ -3,10 +3,14 @@
 <head>
 <meta charset="UTF-8">
 
+
 <script type='text/javascript'  src='https://code.jquery.com/jquery-1.4.4.js'></script>
 <script type='text/javascript'  src='https://code.jquery.com/jquery-1.4.4.min.js'></script>
 <script type='text/javascript'  src="https://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
 <link rel="stylesheet" type="text/css"  href="https://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css">
+
+
+
 
 
 <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"> -->
@@ -20,14 +24,25 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
+<style>
+.ui-listview > li a {
+  white-space: normal;
+}
+h3 .ui-btn-text{ white-space:normal; word-break:break-all; }
+</style>
+
 <script type='text/javascript'>
+
 
 function colltest(Aadi,Lila,Vachan,Tika){
 	$(window).unload();
+	$('[data-role="content"]').empty();
 	$(window).load(Aadi,Lila, function(){
-		$('[data-role="content"]').empty();
-		$('<div data-role="collapsible" data-collapsed="true"><h3>'+Aadi+'</h3><p style="font-size: 18px;text-align: center;font-family: Arial;">'+Lila+'</p></div>').appendTo('[data-role="content"]').page()
-		$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;text-align: center;font-family: Arial;">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
+		//$('[data-role="content"]').empty();
+		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
+		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p></div>').appendTo('[data-role="content"]').page()
+		$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
+		
 		});
 }
 
@@ -63,6 +78,8 @@ function searchlila(type,searchtext){
 $.getJSON('person.json', function(jd)
 	{var json = jd.main;
 	$("#output").empty();
+						var v_list = [];
+					console.log(v_list);
 	for (let i = 1; i < json.length; i++){
 	//	console.log(json[i]);
 	//	console.log(type);
@@ -82,13 +99,17 @@ $.getJSON('person.json', function(jd)
 			{
 					let vachan = json[i].vachan
 					//console.log(vachan);
+
 					for (let v = 0; v < vachan.length; v++){
 					let result = vachan[v].includes(searchtext);
-					{let result = vachan[v].includes(searchtext);{
+					{
 						if (result){
 							//console.log(result);
-							console.log(json[i].lilaID);
-							console.log(vachan[v]);
+							if($.inArray(vachan[v], v_list) === -1){
+							v_list.push(vachan[v])};
+							//console.log(json[i].lilaID);
+							//console.log(vachan[v]);
+							console.log(v_list);
 							colltest(json[i].Aadi,json[i].Lila,vachan[v],json[i].tika[v]);
 						$("#output").append('<h3 style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+json[i].Aadi+'</h3>');
 						$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+json[i].Lila+'</p>')
@@ -100,7 +121,7 @@ $.getJSON('person.json', function(jd)
 						$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;"> भाव समरण नोट्स : ' + json[i].avyav + '</p>');
 
 						}
-					}
+					
 					}
 					}
 				}
@@ -119,20 +140,24 @@ $.getJSON('person.json', function(jd)
 
 }
 
+
+
+
 </script>
 
 </head>
 <body>
 
 
-<div data-role="page" data-theme="e" id="pageone">
+
+<div data-role="page" data-theme="b" id="pageone">
   <div data-role="header">
     <h1 style="color:Tomato;font-size: 30px"><i>लीळाचरित्र</i></h1>
 	<h1 style = "font-size: 20px">॥ श्री परेशाए नम: ॥</h1>
 </div>
 
 <div data-role="main" class="ui-content">
-<ul data-role="listview" data-theme="e" data-inset="true" data-divider-theme="e" data-count-theme="e">
+<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
     <li><a href="#pagetwo" data-transition="slide">Slide to सूत्र सूची</a></li>
 </ul>
   </div>
@@ -142,10 +167,11 @@ $.getJSON('person.json', function(jd)
   </div>
 </div>
 
-<div data-role="page" data-theme="e" id="pagetwo">
+<div data-role="page" data-theme="b" id="pagetwo">
   <div data-role="header">
     <h1>Welcome To सूत्र सूची  </h1>
   </div>
+ 
   <div data-role="main" class="ui-content">
 	<div id="sc" class="content" style="text-align: center">
 		<h1 style="color:Tomato;text-align: center;font-size: 30px">सूत्र सूची </h1>
@@ -156,8 +182,8 @@ $.getJSON('person.json', function(jd)
 			
 			 <div data-role="collapsible" data-collapsed="true">
 			  <h3> ॥ अन्यव्यावृत्ति ॥ </h3>
-			  <ul data-role="listview" data-theme="e" data-inset="true" data-divider-theme="e" data-count-theme="e">
-			  <li><a onclick="searchlila('vachan','कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)');"  href="#page" data-transition="slide"> कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)</a></li> 
+			  <ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
+			  <li><a style="white-space: normal" onclick="searchlila('vachan','कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)');"  href="#page" data-transition="slide"> कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)</a></li> 
 			  <li><a onclick="searchlila('vachan','अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)');" value="अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)" href="#page" data-transition="slide">अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)</a></li>
 			<li><a onclick="searchlila('vachan','अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)');" value="अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)" href="#page" data-transition="slide">अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)</a></li>
 			<li><a onclick="searchlila('vachan','स्वर्गीचे इंद्रचंद्रादिक देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ४)');" value="स्वर्गीचे इंद्रचंद्रादिक देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ४)" href="#page" data-transition="slide">स्वर्गीचे इंद्रचंद्रादिक देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ४)</a></li>
@@ -173,7 +199,7 @@ $.getJSON('person.json', function(jd)
 		
 <div data-role="collapsible" data-collapsed="true">
 			  <h3> ॥ युगधर्म ॥</h3>
-			<ul data-role="listview" data-theme="e" data-inset="true" data-divider-theme="e" data-count-theme="e" >
+			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" >
 <li><a onclick="searchlila('vachan','बत्तीस लक्ष कृतयुग (युग. १)');" value="बत्तीस लक्ष कृतयुग (युग. १)'" href="#page" data-transition="slide">बत्तीस लक्ष कृतयुग (युग. १)</a></li>
 <li><a onclick="searchlila('vachan','कृतयुगीं आत्मोपास्ति हा धर्मु (युग. २)');" value="कृतयुगीं आत्मोपास्ति हा धर्मु (युग. २)" href="#page" data-transition="slide">कृतयुगीं आत्मोपास्ति हा धर्मु (युग. २)</a></li>
 <li><a onclick="searchlila('vachan','भक्ती अधर्मु (युग. ३)');" value="भक्ती अधर्मु (युग. ३)" href="#page" data-transition="slide">भक्ती अधर्मु (युग. ३)</a></li>
@@ -206,7 +232,7 @@ $.getJSON('person.json', function(jd)
 			</div>
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ विद्यामार्ग ॥</h3>
-			<ul data-role="listview" data-theme="e" data-inset="true" data-divider-theme="e" data-count-theme="e">
+			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
 <li><a onclick="searchlila('vachan','एकि विद्या (विद्यामार्ग १)');"  href="#page" data-transition="slide"> एकि विद्या (विद्यामार्ग १)</a></li>
 <li><a onclick="searchlila('vachan','दोनि विद्या (विद्यामार्ग २)');"  href="#page" data-transition="slide"> दोनि विद्या (विद्यामार्ग २)</a></li>
 <li><a onclick="searchlila('vachan','आठि विद्या (विद्यामार्ग ३)');"  href="#page" data-transition="slide"> आठि विद्या (विद्यामार्ग ३)</a></li>
@@ -234,7 +260,7 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ संहार ॥</h3>
-			<ul data-role="listview" data-theme="e" data-inset="true" data-divider-theme="e" data-count-theme="e">
+			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
 <li><a onclick="searchlila('vachan','परमेश्‍वरप्रवृत्ती माया सृष्टिसंहारू करी (संहार १)');"  href="#page" data-transition="slide"> परमेश्‍वरप्रवृत्ती माया सृष्टिसंहारू करी (संहार १)</a></li>
 <li><a onclick="searchlila('vachan','विखा इंद्रियीं विलया जाए (संहार ३)');"  href="#page" data-transition="slide"> विखा इंद्रियीं विलया जाए (संहार ३)</a></li>
 <li><a onclick="searchlila('vachan','अंत:करण देहीं विलया जाए (संहार ४)');"  href="#page" data-transition="slide"> अंत:करण देहीं विलया जाए (संहार ४)</a></li>
@@ -256,7 +282,7 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ संसरण ॥</h3>
-			<ul data-role="listview" data-theme="e" data-inset="true" data-divider-theme="e" data-count-theme="e">
+			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
 <li><a onclick="searchlila('vachan','मायास्वरुपीं एकदेशीं तम असे (संसरण १)');"  href="#page" data-transition="slide"> मायास्वरुपीं एकदेशीं तम असे (संसरण १)</a></li>
 <li><a onclick="searchlila('vachan','तमोनिमग्न जीव मायास्वरुपीं असति (संसरण २)');"  href="#page" data-transition="slide"> तमोनिमग्न जीव मायास्वरुपीं असति (संसरण २)</a></li>
 <li><a onclick="searchlila('vachan','परमेश्‍वरप्रवृत्ती माया तमोनिग्नां जीवां चैतन्यमहं ऐसें उपजवी (संसरण ३)');"  href="#page" data-transition="slide"> परमेश्‍वरप्रवृत्ती माया तमोनिग्नां जीवां चैतन्यमहं ऐसें उपजवी (संसरण ३)</a></li>
@@ -290,7 +316,7 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ असति परी ॥</h3>
-			<ul data-role="listview" data-theme="e" data-inset="true" data-divider-theme="e" data-count-theme="e">
+			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
 			<li><a onclick="searchlila('vachan','विकारविकल्पशून्यें (असतिपरी १)');"  href="#page" data-transition="slide"> विकारविकल्पशून्यें (असतिपरी १)</a></li>
 			<li><a onclick="searchlila('vachan','स्वभावमात्रें (असतिपरी २)');"  href="#page" data-transition="slide"> स्वभावमात्रें (असतिपरी २)</a></li>
 			<li><a onclick="searchlila('vachan','निरालंबी (असतिपरी ३)');"  href="#page" data-transition="slide"> निरालंबी (असतिपरी ३)</a></li>
@@ -303,7 +329,7 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ महावाक्य ॥</h3>
-			<ul data-role="listview" data-theme="e" data-inset="true" data-divider-theme="e" data-count-theme="e">
+			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
 <li><a onclick="searchlila('vachan','जीवप्रपंचव्यतिरिक्त सच्चिदानंदस्वरुप परमेश्‍वरु एकु आति तो सर्वशक्तियुक्त (महावाक्य १)');"  href="#page" data-transition="slide"> जीवप्रपंचव्यतिरिक्त सच्चिदानंदस्वरुप परमेश्‍वरु एकु आति तो सर्वशक्तियुक्त (महावाक्य १)</a></li>
 <li><a onclick="searchlila('vachan','नित्य केवळ अनादिअविद्यायुक्त वस्तु एकु आति ते जीवशब्दें बोलिजे (महावाक्य २)');"  href="#page" data-transition="slide"> नित्य केवळ अनादिअविद्यायुक्त वस्तु एकु आति ते जीवशब्दें बोलिजे (महावाक्य २)</a></li>
 <li><a onclick="searchlila('vachan','विश्‍वरुपाचिये ठाउनि मृत्तिकापर्यंत प्रपंचु बोलिजे (महावाक्य ३)');"  href="#page" data-transition="slide"> विश्‍वरुपाचिये ठाउनि मृत्तिकापर्यंत प्रपंचु बोलिजे (महावाक्य ३)</a></li>
@@ -318,7 +344,7 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ निर्वचन ॥</h3>
-			<ul data-role="listview" data-theme="e" data-inset="true" data-divider-theme="e" data-count-theme="e">
+			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
 <li><a onclick="searchlila('vachan','आनंदशब्दें ईश्‍वरु बोलिजें (निर्वचन १)');"  href="#page" data-transition="slide"> आनंदशब्दें ईश्‍वरु बोलिजें (निर्वचन १)</a></li>
 <li><a onclick="searchlila('vachan','आनंद तो (निर्वचन २)');"  href="#page" data-transition="slide"> आनंद तो (निर्वचन २)</a></li>
 <li><a onclick="searchlila('vachan','ब्रह्म तो (निर्वचन ३)');"  href="#page" data-transition="slide"> ब्रह्म तो (निर्वचन ३)</a></li>
@@ -349,7 +375,7 @@ $.getJSON('person.json', function(jd)
 			
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ उद्धरण ॥</h3>
-			<ul data-role="listview" data-theme="e" data-inset="true" data-divider-theme="e" data-count-theme="e">
+			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
 <li><a onclick="searchlila('vachan','सृष्टीमध्यें परमेश्‍वरु अवतरेति (उद्धरण १)');"  href="#page" data-transition="slide"> सृष्टीमध्यें परमेश्‍वरु अवतरेति (उद्धरण १)</a></li>
 <li><a onclick="searchlila('vachan','मनुष्यवेषधारीए होति (उद्धरण २)');"  href="#page" data-transition="slide"> मनुष्यवेषधारीए होति (उद्धरण २)</a></li>
 <li><a onclick="searchlila('vachan','मायावेषधारीए होति (उद्धरण ३)');"  href="#page" data-transition="slide"> मायावेषधारीए होति (उद्धरण ३)</a></li>
@@ -422,7 +448,7 @@ $.getJSON('person.json', function(jd)
 			</div>
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ आचार स्थळ ॥</h3>
-			<ul data-role="listview" data-theme="e" data-inset="true" data-divider-theme="e" data-count-theme="e">
+			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
 <li><a onclick="searchlila('vachan','स्वदेशसंबंधु त्याज्य स्वग्रामसंबंधु त्याज्य संबंधियांचा संबंधु तो विशेषता त्याज्य (आ. १)');"  href="#page" data-transition="slide"> स्वदेशसंबंधु त्याज्य स्वग्रामसंबंधु त्याज्य संबंधियांचा संबंधु तो विशेषता त्याज्य (आ. १)</a></li>
 <li><a onclick="searchlila('vachan','संबंधीं अधिकारु नाहीं (आ. २)');"  href="#page" data-transition="slide"> संबंधीं अधिकारु नाहीं (आ. २)</a></li>
 <li><a onclick="searchlila('vachan','संबंधीं विकारु विकारीं रसु रसीं अभिमुख सेवा निवृत्ति (आ. ३)');"  href="#page" data-transition="slide"> संबंधीं विकारु विकारीं रसु रसीं अभिमुख सेवा निवृत्ति (आ. ३)</a></li>
@@ -720,7 +746,7 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ आचारमाळिका स्थळ ॥</h3>
-			<ul data-role="listview" data-theme="e" data-inset="true" data-divider-theme="e" data-count-theme="e">
+			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
 <li><a onclick="searchlila('vachan','स्वातंत्र्यु हा मोक्ष पारतंत्र्यु हा बंध (आ. मा. १)');"  href="#page" data-transition="slide"> स्वातंत्र्यु हा मोक्ष पारतंत्र्यु हा बंध (आ. मा. १)</a></li>
 <li><a onclick="searchlila('vachan','मायाबहिनी आशंसिति आमचा दांडिये डोळिये कै जाइल परमेश्‍वरु आशंसिति कटंकटीयेमान गव्हरीं कपाटी ऐसा कै असेल (आ. मा. २)');"  href="#page" data-transition="slide"> मायाबहिनी आशंसिति आमचा दांडिये डोळिये कै जाइल परमेश्‍वरु आशंसिति कटंकटीयेमान गव्हरीं कपाटी ऐसा कै असेल (आ. मा. २)</a></li>
 <li><a onclick="searchlila('vachan','पोरा जीवा कव्हणी सामग्री न होआवी (आ. मा. ३)');"  href="#page" data-transition="slide"> पोरा जीवा कव्हणी सामग्री न होआवी (आ. मा. ३)</a></li>
@@ -981,7 +1007,7 @@ $.getJSON('person.json', function(jd)
 			</div>	
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ विचार स्थळ ॥</h3>
-			<ul data-role="listview" data-theme="e" data-inset="true" data-divider-theme="e" data-count-theme="e">
+			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
 <li><a onclick="searchlila('vachan','चैतन्य माया विदेह परा शक्ति (वि. १)');"  href="#page" data-transition="slide"> चैतन्य माया विदेह परा शक्ति (वि. १)</a></li>
 <li><a onclick="searchlila('vachan','मुख्य तुल्य अंश रश्मि: (वि. २)');"  href="#page" data-transition="slide"> मुख्य तुल्य अंश रश्मि: (वि. २)</a></li>
 <li><a onclick="searchlila('vachan','दिव्य दिनस्थ जळस्थ स्थळस्थ (वि. ३)');"  href="#page" data-transition="slide"> दिव्य दिनस्थ जळस्थ स्थळस्थ (वि. ३)</a></li>
@@ -1272,7 +1298,7 @@ $.getJSON('person.json', function(jd)
 			</div>				
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ विचारमाळिका स्थळ ॥</h3>
-			<ul data-role="listview" data-theme="e" data-inset="true" data-divider-theme="e" data-count-theme="e">
+			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
 <li><a onclick="searchlila('vachan','ज्ञान मोचक (वि. मा.. १)');"  href="#page" data-transition="slide"> ज्ञान मोचक (वि. मा.. १)</a></li>
 <li><a onclick="searchlila('vachan','नित्य व्यापक परमेश्‍वर (वि. मा. २)');"  href="#page" data-transition="slide"> नित्य व्यापक परमेश्‍वर (वि. मा. २)</a></li>
 <li><a onclick="searchlila('vachan','अप्रमेयु (वि. मा. ३)');"  href="#page" data-transition="slide"> अप्रमेयु (वि. मा. ३)</a></li>
@@ -1490,15 +1516,22 @@ $.getJSON('person.json', function(jd)
 </div>
 
 
-  <div data-role="page" data-theme="e"  id="page" >
+  <div data-role="page" data-theme="b" id="page" >
            <div data-role = "header">
             <h2>Sutra Path + Tika</h2>
          </div>
-    <div data-role="content">
-      <div data-role="collapsible" data-collapsed="true">
+    <div data-role="content" data-theme="c">
+      <div data-role="collapsible-set" data-collapsed="true">
 
       </div>
     </div>
+	
+		  <div data-role="footer">
+    <h1>@HemangSoni</h1>
+	<a href="#pageone" data-role="button" class="ui-icon-home">Home</a>
+  </div>
+  
+  
   </div>
 </body>
 </html>
