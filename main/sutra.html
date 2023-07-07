@@ -29,23 +29,38 @@
   white-space: normal;
 }
 h3 .ui-btn-text{ white-space:normal; word-break:break-all; }
+
+
 </style>
 
 <script type='text/javascript'>
 
 
-function colltest(Aadi,Lila,Vachan,Tika){
+function colltest(Aadi,Lila,Vachan,Tika,drushtant){
 	$(window).unload();
 	$('[data-role="content"]').empty();
 	$(window).load(Aadi,Lila, function(){
 		//$('[data-role="content"]').empty();
 		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
-		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p></div>').appendTo('[data-role="content"]').page()
+		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;"> Addi :'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> Lila :'+Lila+'</p><p> दृष्टांत  : '+drushtant+'</p></div>').appendTo('[data-role="content"]').page()
 		$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
+		//$('<p>'+drushtant+'</p>').appendTo('[data-role="content"]').page()
 		
 		});
 }
 
+function colltest_v(Aadi,Lila,Tip,Vachan,drushtant){
+	$(window).unload();
+	$('[data-role="content"]').empty();
+	$(window).load(Aadi,Lila, function(){
+		//$('[data-role="content"]').empty();
+		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
+		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p>'+Tip+'</p><p><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p><p><span style="color: #ff0000"> दृष्टांत  : </span> '+drushtant+'</p></div>').appendTo('[data-role="content"]').page()
+		//$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
+		//$('<p>'+drushtant+'</p>').appendTo('[data-role="content"]').page()
+		
+		});
+}
 //colltest("hemang");
 
 function glila(ID){
@@ -89,7 +104,9 @@ $.getJSON('person.json', function(jd)
 					//console.log(person);
 					for (let p = 0; p < person.length; p++){
 						let result = person[p] === searchtext;
+						console.log(person[p],result);
 						if (result){
+						colltest_v(json[i].Aadi,json[i].Lila,json[i].Tip,json[i].vachan,json[i].drushtant);
 						$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+person+'</p>');
 						}
 					}
@@ -158,7 +175,9 @@ $.getJSON('person.json', function(jd)
 
 <div data-role="main" class="ui-content">
 <ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
-    <li><a href="#pagetwo" data-transition="slide">Slide to सूत्र सूची</a></li>
+    <li><a href="#pagetwo" data-rel="dialog" data-transition="slide">सूत्र सूची</a></li>
+	<li><a href="#pagethree" data-rel="dialog" data-transition="slide">व्यक्ती सूची </a></li>
+
 </ul>
   </div>
  
@@ -1516,6 +1535,445 @@ $.getJSON('person.json', function(jd)
     <h1>@HemangSoni</h1>
   </div>
 </div>
+
+<!-- Page Three start-->
+
+<div data-role="page" data-theme="b" id="pagethree">
+  <div data-role="header">
+    <h1>Welcome To सूत्र सूची  </h1>
+  </div>
+ 
+  <div data-role="main" class="ui-content">
+	<div id="sc" class="content" style="text-align: center">
+		<h1 style="color:Tomato;text-align: center;font-size: 30px">व्यक्ती सूची </h1>
+
+	</div>
+	
+<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			  
+			<li><a onclick="searchlila('person','म्हाइंभट');" href="#page" data-transition="slide">म्हाइंभट</a></li>
+			<li><a onclick="searchlila('person','अत्रि');" href="#page" data-transition="slide">अत्रि</a></h2>
+<li><a onclick="searchlila('person','अकृर');" href="#page" data-transition="slide">अकृर</a></h2>
+<li><a onclick="searchlila('person','अग्नी');" href="#page" data-transition="slide">अग्नी</a></h2>
+<li><a onclick="searchlila('person','अदंडी');" href="#page" data-transition="slide">अदंडी</a></h2>
+<li><a onclick="searchlila('person','अदंडीनाथ');" href="#page" data-transition="slide">अदंडीनाथ</a></h2>
+<li><a onclick="searchlila('person','अनंघा');" href="#page" data-transition="slide">अनंघा</a></h2>
+<li><a onclick="searchlila('person','अनंतदेव');" href="#page" data-transition="slide">अनंतदेव</a></h2>
+<li><a onclick="searchlila('person','अनंतनाएक (श्री गोविंदप्रभूंचे वडील)');" href="#page" data-transition="slide">अनंतनाएक (श्री गोविंदप्रभूंचे वडील)</a></h2>
+<li><a onclick="searchlila('person','अनंतमुनी');" href="#page" data-transition="slide">अनंतमुनी</a></h2>
+<li><a onclick="searchlila('person','अनुर्ध (अनिरुद्ध)');" href="#page" data-transition="slide">अनुर्ध (अनिरुद्ध)</a></h2>
+<li><a onclick="searchlila('person','अनुसैया');" href="#page" data-transition="slide">अनुसैया</a></h2>
+<li><a onclick="searchlila('person','अ(आ)नो');" href="#page" data-transition="slide">अ(आ)नो</a></h2>
+<li><a onclick="searchlila('person','अभीमनी (अभिमन्यु)');" href="#page" data-transition="slide">अभीमनी (अभिमन्यु)</a></h2>
+<li><a onclick="searchlila('person','अमरा');" href="#page" data-transition="slide">अमरा</a></h2>
+<li><a onclick="searchlila('person','अर्जुन');" href="#page" data-transition="slide">अर्जुन</a></h2>
+<li><a onclick="searchlila('person','अवडळ भट');" href="#page" data-transition="slide">अवडळ भट</a></h2>
+<li><a onclick="searchlila('person','अळर्क');" href="#page" data-transition="slide">अळर्क</a></h2>
+<li><a onclick="searchlila('person','आउसे');" href="#page" data-transition="slide">आउसे</a></h2>
+<li><a onclick="searchlila('person','आत्माराम');" href="#page" data-transition="slide">आत्माराम</a></h2>
+<li><a onclick="searchlila('person','आदि महादेवो');" href="#page" data-transition="slide">आदि महादेवो</a></h2>
+<li><a onclick="searchlila('person','आपदेव भट ');" href="#page" data-transition="slide">आपदेव भट </a></h2>
+<li><a onclick="searchlila('person','आपलो');" href="#page" data-transition="slide">आपलो</a></h2>
+<li><a onclick="searchlila('person','आपे');" href="#page" data-transition="slide">आपे</a></h2>
+<li><a onclick="searchlila('person','आबयो');" href="#page" data-transition="slide">आबयो</a></h2>
+<li><a onclick="searchlila('person','आबाइसे ');" href="#page" data-transition="slide">आबाइसे </a></h2>
+<li><a onclick="searchlila('person','अमणदेव (यादव नृपति)');" href="#page" data-transition="slide">अमणदेव (यादव नृपति)</a></h2>
+<li><a onclick="searchlila('person','इंद्र (देवता)');" href="#page" data-transition="slide">इंद्र (देवता)</a></h2>
+<li><a onclick="searchlila('person','इंद्रभट');" href="#page" data-transition="slide">इंद्रभट</a></h2>
+<li><a onclick="searchlila('person','इंद्राइ महात्मा');" href="#page" data-transition="slide">इंद्राइ महात्मा</a></h2>
+<li><a onclick="searchlila('person','उधवदेव');" href="#page" data-transition="slide">उधवदेव</a></h2>
+<li><a onclick="searchlila('person','उधळीनाथ');" href="#page" data-transition="slide">उधळीनाथ</a></h2>
+<li><a onclick="searchlila('person','उपाध्ये (जानो, जानोपाध्ये,द्रीढपुरुष)');" href="#page" data-transition="slide">उपाध्ये (जानो, जानोपाध्ये,द्रीढपुरुष)</a></h2>
+<li><a onclick="searchlila('person','उपाध्ये विष्णुभट');" href="#page" data-transition="slide">उपाध्ये विष्णुभट</a></h2>
+<li><a onclick="searchlila('person','उपासनीये');" href="#page" data-transition="slide">उपासनीये</a></h2>
+<li><a onclick="searchlila('person','उमाइसे (सारंगपंडिताची दूसरी पत्नी)');" href="#page" data-transition="slide">उमाइसे (सारंगपंडिताची दूसरी पत्नी)</a></h2>
+<li><a onclick="searchlila('person','उमाइसे (अबाइसांची मुलगी, भटोबासांची बहीन)');" href="#page" data-transition="slide">उमाइसे (अबाइसांची मुलगी, भटोबासांची बहीन)</a></h2>
+<li><a onclick="searchlila('person','उमाइसे (वाएनएकाची कन्या, महादाइसांची वडीलबहीन)');" href="#page" data-transition="slide">उमाइसे (वाएनएकाची कन्या, महादाइसांची वडीलबहीन)</a></h2>
+<li><a onclick="searchlila('person','ऋषीशृंग');" href="#page" data-transition="slide">ऋषीशृंग</a></h2>
+<li><a onclick="searchlila('person','एकवीरा (जमदग्नी ऋषीची पत्नी)');" href="#page" data-transition="slide">एकवीरा (जमदग्नी ऋषीची पत्नी)</a></h2>
+<li><a onclick="searchlila('person','एकवीराबाइसे');" href="#page" data-transition="slide">एकवीराबाइसे</a></h2>
+<li><a onclick="searchlila('person','एकाइसे (भूतानंदाची लेक)');" href="#page" data-transition="slide">एकाइसे (भूतानंदाची लेक)</a></h2>
+<li><a onclick="searchlila('person','एकाइसे (शांतीबाइसाची मुलगी)');" href="#page" data-transition="slide">एकाइसे (शांतीबाइसाची मुलगी)</a></h2>
+<li><a onclick="searchlila('person','एल्हंभट (अवडळभट पाहा)');" href="#page" data-transition="slide">एल्हंभट (अवडळभट पाहा)</a></h2>
+<li><a onclick="searchlila('person','एल्हाइसे :एल्हो : (साधे पाहा)');" href="#page" data-transition="slide">एल्हाइसे :एल्हो : (साधे पाहा)</a></h2>
+<li><a onclick="searchlila('person','एल्हाइसे (नारोबाची आई)');" href="#page" data-transition="slide">एल्हाइसे (नारोबाची आई)</a></h2>
+<li><a onclick="searchlila('person','एल्हाइसे (तिकवनाएकाची कन्या)');" href="#page" data-transition="slide">एल्हाइसे (तिकवनाएकाची कन्या)</a></h2>
+<li><a onclick="searchlila('person','एस्वदा (यशोदा)');" href="#page" data-transition="slide">एस्वदा (यशोदा)</a></h2>
+<li><a onclick="searchlila('person','कणेरी');" href="#page" data-transition="slide">कणेरी</a></h2>
+<li><a onclick="searchlila('person','कंथडीनाथ');" href="#page" data-transition="slide">कंथडीनाथ</a></h2>
+<li><a onclick="searchlila('person','कन्ह (कान्ह)');" href="#page" data-transition="slide">कन्ह (कान्ह)</a></h2>
+<li><a onclick="searchlila('person','कमळ भैरव');" href="#page" data-transition="slide">कमळ भैरव</a></h2>
+<li><a onclick="searchlila('person','कमळाआउसे ( हरिपाळदेवाची पत्नी)');" href="#page" data-transition="slide">कमळाआउसे ( हरिपाळदेवाची पत्नी)</a></h2>
+<li><a onclick="searchlila('person','कमळारण्य');" href="#page" data-transition="slide">कमळारण्य</a></h2>
+<li><a onclick="searchlila('person','कर्‍हाडबाइ');" href="#page" data-transition="slide">कर्‍हाडबाइ</a></h2>
+<li><a onclick="searchlila('person','कविडिंब');" href="#page" data-transition="slide">कविडिंब</a></h2>
+<li><a onclick="searchlila('person','कंस');" href="#page" data-transition="slide">कंस</a></h2>
+<li><a onclick="searchlila('person','काकोस');" href="#page" data-transition="slide">काकोस</a></h2>
+<li><a onclick="searchlila('person','कान्हरदेया');" href="#page" data-transition="slide">कान्हरदेया</a></h2>
+<li><a onclick="searchlila('person','कान्हरदेव (यादव नृपति)');" href="#page" data-transition="slide">कान्हरदेव (यादव नृपति)</a></h2>
+<li><a onclick="searchlila('person','कान्हरनायक');" href="#page" data-transition="slide">कान्हरनायक</a></h2>
+<li><a onclick="searchlila('person','कान्हो कोरो');" href="#page" data-transition="slide">कान्हो कोरो</a></h2>
+<li><a onclick="searchlila('person','कामाइसे (राणाइसाचे बहीन)');" href="#page" data-transition="slide">कामाइसे (राणाइसाचे बहीन)</a></h2>
+<li><a onclick="searchlila('person','कामाइसे (वाएनाएकाची कन्या)');" href="#page" data-transition="slide">कामाइसे (वाएनाएकाची कन्या)</a></h2>
+<li><a onclick="searchlila('person','कामाइसे (मेहकर येथील वडील बोणे)');" href="#page" data-transition="slide">कामाइसे (मेहकर येथील वडील बोणे)</a></h2>
+<li><a onclick="searchlila('person','कामाक्षा (कामाख्या)');" href="#page" data-transition="slide">कामाक्षा (कामाख्या)</a></h2>
+<li><a onclick="searchlila('person','कार्तिक स्वामी');" href="#page" data-transition="slide">कार्तिक स्वामी</a></h2>
+<li><a onclick="searchlila('person','कास्त हरिदेव पंडित');" href="#page" data-transition="slide">कास्त हरिदेव पंडित</a></h2>
+<li><a onclick="searchlila('person','काळदास भट');" href="#page" data-transition="slide">काळदास भट</a></h2>
+<li><a onclick="searchlila('person','काळबोटा');" href="#page" data-transition="slide">काळबोटा</a></h2>
+<li><a onclick="searchlila('person','कुइराम');" href="#page" data-transition="slide">कुइराम</a></h2>
+<li><a onclick="searchlila('person','कुब्जी(कुब्जिका)');" href="#page" data-transition="slide">कुब्जी(कुब्जिका)</a></h2>
+<li><a onclick="searchlila('person','केशवनाएक');" href="#page" data-transition="slide">केशवनाएक</a></h2>
+<li><a onclick="searchlila('person','कोंती(कुंती)');" href="#page" data-transition="slide">कोंती(कुंती)</a></h2>
+<li><a onclick="searchlila('person','कोथळोबा');" href="#page" data-transition="slide">कोथळोबा</a></h2>
+<li><a onclick="searchlila('person','कौंडल्या');" href="#page" data-transition="slide">कौंडल्या</a></h2>
+<li><a onclick="searchlila('person','कौरव');" href="#page" data-transition="slide">कौरव</a></h2>
+<li><a onclick="searchlila('person','खेइगोइ (खेमाइसे)');" href="#page" data-transition="slide">खेइगोइ (खेमाइसे)</a></h2>
+<li><a onclick="searchlila('person','खेइभट (डखला पाहा)');" href="#page" data-transition="slide">खेइभट (डखला पाहा)</a></h2>
+<li><a onclick="searchlila('person','खोलनाएक (यादवांचा सेनापती)');" href="#page" data-transition="slide">खोलनाएक (यादवांचा सेनापती)</a></h2>
+<li><a onclick="searchlila('person','गणपति आपयो');" href="#page" data-transition="slide">गणपति आपयो</a></h2>
+<li><a onclick="searchlila('person','गणपति ठाकुर');" href="#page" data-transition="slide">गणपति ठाकुर</a></h2>
+<li><a onclick="searchlila('person','गतीये कमळनाएक');" href="#page" data-transition="slide">गतीये कमळनाएक</a></h2>
+<li><a onclick="searchlila('person','गाती कमळदेव');" href="#page" data-transition="slide">गाती कमळदेव</a></h2>
+<li><a onclick="searchlila('person','गदोनाएक');" href="#page" data-transition="slide">गदोनाएक</a></h2>
+<li><a onclick="searchlila('person','गदोभांडारी');" href="#page" data-transition="slide">गदोभांडारी</a></h2>
+<li><a onclick="searchlila('person','गर्गाचार्य');" href="#page" data-transition="slide">गर्गाचार्य</a></h2>
+<li><a onclick="searchlila('person','गांगा');" href="#page" data-transition="slide">गांगा</a></h2>
+<li><a onclick="searchlila('person','गांगाइसे (नागदेवाचार्यांची पत्नी)');" href="#page" data-transition="slide">गांगाइसे (नागदेवाचार्यांची पत्नी)</a></h2>
+<li><a onclick="searchlila('person','गार्गी');" href="#page" data-transition="slide">गार्गी</a></h2>
+<li><a onclick="searchlila('person','गुंडम् राउळ (श्री गोविंदप्रभू) श्री प्रभू पाहा');" href="#page" data-transition="slide">गुंडम् राउळ (श्री गोविंदप्रभू) श्री प्रभू पाहा</a></h2>
+<li><a onclick="searchlila('person','गुणाकार देव');" href="#page" data-transition="slide">गुणाकार देव</a></h2>
+<li><a onclick="searchlila('person','गोंदो');" href="#page" data-transition="slide">गोंदो</a></h2>
+<li><a onclick="searchlila('person','गोपाळ पंडित');" href="#page" data-transition="slide">गोपाळ पंडित</a></h2>
+<li><a onclick="searchlila('person','गोमटदेव( श्रीचक्रधर)');" href="#page" data-transition="slide">गोमटदेव( श्रीचक्रधर)</a></h2>
+<li><a onclick="searchlila('person','गोरक्ष (क्षी)');" href="#page" data-transition="slide">गोरक्ष (क्षी)</a></h2>
+<li><a onclick="searchlila('person','गोविंद (श्रीगोविंद प्रभू)');" href="#page" data-transition="slide">गोविंद (श्रीगोविंद प्रभू)</a></h2>
+<li><a onclick="searchlila('person','गोविंद (गौराइसे)');" href="#page" data-transition="slide">गोविंद (गौराइसे)</a></h2>
+<li><a onclick="searchlila('person','गोविंद (सिन्नर येथील व्यापारी)');" href="#page" data-transition="slide">गोविंद (सिन्नर येथील व्यापारी)</a></h2>
+<li><a onclick="searchlila('person','गोविंदचंद ');" href="#page" data-transition="slide">गोविंदचंद </a></h2>
+<li><a onclick="searchlila('person','गोविंदस्वामी');" href="#page" data-transition="slide">गोविंदस्वामी</a></h2>
+<li><a onclick="searchlila('person','गौतम');" href="#page" data-transition="slide">गौतम</a></h2>
+<li><a onclick="searchlila('person','गौराइसे (पद्मनाभीदेवाची आई)');" href="#page" data-transition="slide">गौराइसे (पद्मनाभीदेवाची आई)</a></h2>
+<li><a onclick="searchlila('person','गौराइसे (इंद्रभटाची पत्नी)');" href="#page" data-transition="slide">गौराइसे (इंद्रभटाची पत्नी)</a></h2>
+<li><a onclick="searchlila('person','गौराइसे (गोविंद)');" href="#page" data-transition="slide">गौराइसे (गोविंद)</a></h2>
+<li><a onclick="searchlila('person','ग्रहेसारंगपाणी');" href="#page" data-transition="slide">ग्रहेसारंगपाणी</a></h2>
+<li><a onclick="searchlila('person','घाटेहरिभट ');" href="#page" data-transition="slide">घाटेहरिभट </a></h2>
+<li><a onclick="searchlila('person','घुइनाएक');" href="#page" data-transition="slide">घुइनाएक</a></h2>
+<li><a onclick="searchlila('person','घोडाचुडी');" href="#page" data-transition="slide">घोडाचुडी</a></h2>
+<li><a onclick="searchlila('person','चक्रधर(स्वामी)');" href="#page" data-transition="slide">चक्रधर(स्वामी)</a></h2>
+<li><a onclick="searchlila('person','चंद्रदेव');" href="#page" data-transition="slide">चंद्रदेव</a></h2>
+<li><a onclick="searchlila('person','चंद्राइ महात्मा');" href="#page" data-transition="slide">चंद्राइ महात्मा</a></h2>
+<li><a onclick="searchlila('person','चांगदेव भट');" href="#page" data-transition="slide">चांगदेव भट</a></h2>
+<li><a onclick="searchlila('person','चांगदेव राउळ (द्वारावतीकार)');" href="#page" data-transition="slide">चांगदेव राउळ (द्वारावतीकार)</a></h2>
+<li><a onclick="searchlila('person','चांगदेवराउळ (श्रीचक्रधर)');" href="#page" data-transition="slide">चांगदेवराउळ (श्रीचक्रधर)</a></h2>
+<li><a onclick="searchlila('person','चांगदेव (श्रीचक्रधर)');" href="#page" data-transition="slide">चांगदेव (श्रीचक्रधर)</a></h2>
+<li><a onclick="searchlila('person','चित्ररथ (गंधर्व देवता)');" href="#page" data-transition="slide">चित्ररथ (गंधर्व देवता)</a></h2>
+<li><a onclick="searchlila('person','चोडा राय');" href="#page" data-transition="slide">चोडा राय</a></h2>
+<li><a onclick="searchlila('person','चौरंगी (नाथपंथी जोगी)');" href="#page" data-transition="slide">चौरंगी (नाथपंथी जोगी)</a></h2>
+<li><a onclick="searchlila('person','छर्दोबा (स्त्रदोबा)');" href="#page" data-transition="slide">छर्दोबा (स्त्रदोबा)</a></h2>
+<li><a onclick="searchlila('person','जगळदेव (यादवांचे अधिकारी)');" href="#page" data-transition="slide">जगळदेव (यादवांचे अधिकारी)</a></h2>
+<li><a onclick="searchlila('person','जनक (ऋषी)');" href="#page" data-transition="slide">जनक (ऋषी)</a></h2>
+<li><a onclick="searchlila('person','जनक नरसिंहभट');" href="#page" data-transition="slide">जनक नरसिंहभट</a></h2>
+<li><a onclick="searchlila('person','जनकनाएक (चक्रपाणी राउळांचे वडील)');" href="#page" data-transition="slide">जनकनाएक (चक्रपाणी राउळांचे वडील)</a></h2>
+<li><a onclick="searchlila('person','जमदग्नी');" href="#page" data-transition="slide">जमदग्नी</a></h2>
+<li><a onclick="searchlila('person','जय (विष्णूचा द्वारपाळ)');" href="#page" data-transition="slide">जय (विष्णूचा द्वारपाळ)</a></h2>
+<li><a onclick="searchlila('person','जरासंद');" href="#page" data-transition="slide">जरासंद</a></h2>
+<li><a onclick="searchlila('person','जस्माइसे (शांतीबाइसाची कन्या)');" href="#page" data-transition="slide">जस्माइसे (शांतीबाइसाची कन्या)</a></h2>
+<li><a onclick="searchlila('person','जळांधरी (जाळंधर)');" href="#page" data-transition="slide">जळांधरी (जाळंधर)</a></h2>
+<li><a onclick="searchlila('person','जाउगी');" href="#page" data-transition="slide">जाउगी</a></h2>
+<li><a onclick="searchlila('person','जाखुबाइ');" href="#page" data-transition="slide">जाखुबाइ</a></h2>
+<li><a onclick="searchlila('person','जापीये विष्णुभट');" href="#page" data-transition="slide">जापीये विष्णुभट</a></h2>
+<li><a onclick="searchlila('person','जयद्रथ');" href="#page" data-transition="slide">जयद्रथ</a></h2>
+<li><a onclick="searchlila('person','जोगनाएक (सुकीया)');" href="#page" data-transition="slide">जोगनाएक (सुकीया)</a></h2>
+<li><a onclick="searchlila('person','जोगनाएक (नीबीया)');" href="#page" data-transition="slide">जोगनाएक (नीबीया)</a></h2>
+<li><a onclick="searchlila('person','जोगनाएक (पद्मनाभीदेवाचा भाउ)');" href="#page" data-transition="slide">जोगनाएक (पद्मनाभीदेवाचा भाउ)</a></h2>
+<li><a onclick="searchlila('person','जोगरा');" href="#page" data-transition="slide">जोगरा</a></h2>
+<li><a onclick="searchlila('person','जोमाइसे');" href="#page" data-transition="slide">जोमाइसे</a></h2>
+<li><a onclick="searchlila('person','टोकणे');" href="#page" data-transition="slide">टोकणे</a></h2>
+<li><a onclick="searchlila('person','डखला');" href="#page" data-transition="slide">डखला</a></h2>
+<li><a onclick="searchlila('person','डांगरा (डांगरेश)');" href="#page" data-transition="slide">डांगरा (डांगरेश)</a></h2>
+<li><a onclick="searchlila('person','तिकवनाएक');" href="#page" data-transition="slide">तिकवनाएक</a></h2>
+<li><a onclick="searchlila('person','तिवाडी');" href="#page" data-transition="slide">तिवाडी</a></h2>
+<li><a onclick="searchlila('person','तिकोपाध्ये');" href="#page" data-transition="slide">तिकोपाध्ये</a></h2>
+<li><a onclick="searchlila('person','तुळसीया');" href="#page" data-transition="slide">तुळसीया</a></h2>
+<li><a onclick="searchlila('person','तेलीकार');" href="#page" data-transition="slide">तेलीकार</a></h2>
+<li><a onclick="searchlila('person','दंडीनाथ');" href="#page" data-transition="slide">दंडीनाथ</a></h2>
+<li><a onclick="searchlila('person','दत्तात्रेय ');" href="#page" data-transition="slide">दत्तात्रेय </a></h2>
+<li><a onclick="searchlila('person','दशरथ');" href="#page" data-transition="slide">दशरथ</a></h2>
+<li><a onclick="searchlila('person','दाइनाएक');" href="#page" data-transition="slide">दाइनाएक</a></h2>
+<li><a onclick="searchlila('person','दाइंबा (भोजा)');" href="#page" data-transition="slide">दाइंबा (भोजा)</a></h2>
+<li><a onclick="searchlila('person','दाइ भागवत');" href="#page" data-transition="slide">दाइ भागवत</a></h2>
+<li><a onclick="searchlila('person','देइ भागवत');" href="#page" data-transition="slide">देइ भागवत</a></h2>
+<li><a onclick="searchlila('person','दाको');" href="#page" data-transition="slide">दाको</a></h2>
+<li><a onclick="searchlila('person','दीलहुति');" href="#page" data-transition="slide">दीलहुति</a></h2>
+<li><a onclick="searchlila('person','दुंडीराउळ');" href="#page" data-transition="slide">दुंडीराउळ</a></h2>
+<li><a onclick="searchlila('person','दुर्योदन');" href="#page" data-transition="slide">दुर्योदन</a></h2>
+<li><a onclick="searchlila('person','दुर्वास');" href="#page" data-transition="slide">दुर्वास</a></h2>
+<li><a onclick="searchlila('person','द्रुपदी');" href="#page" data-transition="slide">द्रुपदी</a></h2>
+<li><a onclick="searchlila('person','देइभट');" href="#page" data-transition="slide">देइभट</a></h2>
+<li><a onclick="searchlila('person','देमती (हेमाडी पंडीताची राणी)');" href="#page" data-transition="slide">देमती (हेमाडी पंडीताची राणी)</a></h2>
+<li><a onclick="searchlila('person','देमाइसे (देमती)');" href="#page" data-transition="slide">देमाइसे (देमती)</a></h2>
+<li><a onclick="searchlila('person','देवका (देवकी)');" href="#page" data-transition="slide">देवका (देवकी)</a></h2>
+<li><a onclick="searchlila('person','देवर्त देव');" href="#page" data-transition="slide">देवर्त देव</a></h2>
+<li><a onclick="searchlila('person','देवनाएक');" href="#page" data-transition="slide">देवनाएक</a></h2>
+<li><a onclick="searchlila('person','द्रळस बाइसे (द्रविळास बाइसे)');" href="#page" data-transition="slide">द्रळस बाइसे (द्रविळास बाइसे)</a></h2>
+<li><a onclick="searchlila('person','द्रोण (द्रोणाचार्य)');" href="#page" data-transition="slide">द्रोण (द्रोणाचार्य)</a></h2>
+<li><a onclick="searchlila('person','धर्म (युधिष्टिर)');" href="#page" data-transition="slide">धर्म (युधिष्टिर)</a></h2>
+<li><a onclick="searchlila('person','धांदल (एक कुणबी)');" href="#page" data-transition="slide">धांदल (एक कुणबी)</a></h2>
+<li><a onclick="searchlila('person','धानाइसे (सारंगपंडिताला उमाइसापासौन झालेला मुलगी)');" href="#page" data-transition="slide">धानाइसे (सारंगपंडिताला उमाइसापासौन झालेला मुलगी)</a></h2>
+<li><a onclick="searchlila('person','धानाइसे (भूतानंदाची लेक)');" href="#page" data-transition="slide">धानाइसे (भूतानंदाची लेक)</a></h2>
+<li><a onclick="searchlila('person','धानुबाइ (एलिचपूर येथील पंचौळीची पत्नी)');" href="#page" data-transition="slide">धानुबाइ (एलिचपूर येथील पंचौळीची पत्नी)</a></h2>
+<li><a onclick="searchlila('person','नगीनदेव (चक्रधर) नग्नदेव');" href="#page" data-transition="slide">नगीनदेव (चक्रधर) नग्नदेव</a></h2>
+<li><a onclick="searchlila('person','नंद');" href="#page" data-transition="slide">नंद</a></h2>
+<li><a onclick="searchlila('person','नागदेव (रेइनायकाचा पुत्र)');" href="#page" data-transition="slide">नागदेव (रेइनायकाचा पुत्र)</a></h2>
+<li><a onclick="searchlila('person','नागदेव (भटोबास, भट)');" href="#page" data-transition="slide">नागदेव (भटोबास, भट)</a></h2>
+<li><a onclick="searchlila('person','नागदेव उपाध्ये');" href="#page" data-transition="slide">नागदेव उपाध्ये</a></h2>
+<li><a onclick="searchlila('person','नागदेव भट (उपाध्यांचा भाउ)');" href="#page" data-transition="slide">नागदेव भट (उपाध्यांचा भाउ)</a></h2>
+<li><a onclick="searchlila('person','नागदेवराउळ');" href="#page" data-transition="slide">नागदेवराउळ</a></h2>
+<li><a onclick="searchlila('person','नागाइसे (मेहकर येथील धाकुटी बोणे बाइ)');" href="#page" data-transition="slide">नागाइसे (मेहकर येथील धाकुटी बोणे बाइ)</a></h2>
+<li><a onclick="searchlila('person','नागाराउळ');" href="#page" data-transition="slide">नागाराउळ</a></h2>
+<li><a onclick="searchlila('person','नागार्जुन(सिद्ध)');" href="#page" data-transition="slide">नागार्जुन(सिद्ध)</a></h2>
+<li><a onclick="searchlila('person','नाथो कोरो');" href="#page" data-transition="slide">नाथो कोरो</a></h2>
+<li><a onclick="searchlila('person','नाथोबा (मंडळीक)');" href="#page" data-transition="slide">नाथोबा (मंडळीक)</a></h2>
+<li><a onclick="searchlila('person','नामाइसे');" href="#page" data-transition="slide">नामाइसे</a></h2>
+<li><a onclick="searchlila('person','नारद');" href="#page" data-transition="slide">नारद</a></h2>
+<li><a onclick="searchlila('person','नारायण (देवता)');" href="#page" data-transition="slide">नारायण (देवता)</a></h2>
+<li><a onclick="searchlila('person','नृसींहारण्य');" href="#page" data-transition="slide">नृसींहारण्य</a></h2>
+<li><a onclick="searchlila('person','नेमदेव (कोळी)');" href="#page" data-transition="slide">नेमदेव (कोळी)</a></h2>
+<li><a onclick="searchlila('person','नेमाइसे (श्रीगोविंदप्रभूंची आई)');" href="#page" data-transition="slide">नेमाइसे (श्रीगोविंदप्रभूंची आई)</a></h2>
+<li><a onclick="searchlila('person','पंचकौळ आचार्य');" href="#page" data-transition="slide">पंचकौळ आचार्य</a></h2>
+<li><a onclick="searchlila('person','पदकर नागदेवोभट');" href="#page" data-transition="slide">पदकर नागदेवोभट</a></h2>
+<li><a onclick="searchlila('person','पद्मनाभी');" href="#page" data-transition="slide">पद्मनाभी</a></h2>
+<li><a onclick="searchlila('person','पद्मा (सिन्नर येथील व्यापारी)');" href="#page" data-transition="slide">पद्मा (सिन्नर येथील व्यापारी)</a></h2>
+<li><a onclick="searchlila('person','परमाणुभव देव');" href="#page" data-transition="slide">परमाणुभव देव</a></h2>
+<li><a onclick="searchlila('person','परसनाएक (प्रसनाएक)');" href="#page" data-transition="slide">परसनाएक (प्रसनाएक)</a></h2>
+<li><a onclick="searchlila('person','परसराम (जमदग्नी ऋषीचा पुत्र)');" href="#page" data-transition="slide">परसराम (जमदग्नी ऋषीचा पुत्र)</a></h2>
+<li><a onclick="searchlila('person','परीक्षित (परीक्षिति)');" href="#page" data-transition="slide">परीक्षित (परीक्षिति)</a></h2>
+<li><a onclick="searchlila('person','पाठक');" href="#page" data-transition="slide">पाठक</a></h2>
+<li><a onclick="searchlila('person','पांचौळी ');" href="#page" data-transition="slide">पांचौळी </a></h2>
+<li><a onclick="searchlila('person','पांडव');" href="#page" data-transition="slide">पांडव</a></h2>
+<li><a onclick="searchlila('person','पांडा (बाइसाचा शिष्य)');" href="#page" data-transition="slide">पांडा (बाइसाचा शिष्य)</a></h2>
+<li><a onclick="searchlila('person','पानुनाएक');" href="#page" data-transition="slide">पानुनाएक</a></h2>
+<li><a onclick="searchlila('person','पारासर (पाराशर ऋषी)');" href="#page" data-transition="slide">पारासर (पाराशर ऋषी)</a></h2>
+<li><a onclick="searchlila('person','पार्वती');" href="#page" data-transition="slide">पार्वती</a></h2>
+<li><a onclick="searchlila('person','पाल्हा डांगिया');" href="#page" data-transition="slide">पाल्हा डांगिया</a></h2>
+<li><a onclick="searchlila('person','पिंपळे वामभट');" href="#page" data-transition="slide">पिंपळे वामभट</a></h2>
+<li><a onclick="searchlila('person','पुरिरव (पुरुरवा)');" href="#page" data-transition="slide">पुरिरव (पुरुरवा)</a></h2>
+<li><a onclick="searchlila('person','पुरुषोत्तम (नाथोचा पिता)');" href="#page" data-transition="slide">पुरुषोत्तम (नाथोचा पिता)</a></h2>
+<li><a onclick="searchlila('person','पुरुषोत्तम देव');" href="#page" data-transition="slide">पुरुषोत्तम देव</a></h2>
+<li><a onclick="searchlila('person','पूतना');" href="#page" data-transition="slide">पूतना</a></h2>
+<li><a onclick="searchlila('person','पेंधा');" href="#page" data-transition="slide">पेंधा</a></h2>
+<li><a onclick="searchlila('person','पोमाइसे (दाइंबाची पत्नी)');" href="#page" data-transition="slide">पोमाइसे (दाइंबाची पत्नी)</a></h2>
+<li><a onclick="searchlila('person','प्रकाशदेव');" href="#page" data-transition="slide">प्रकाशदेव</a></h2>
+<li><a onclick="searchlila('person','प्रदीमनू (प्रद्युम्न)');" href="#page" data-transition="slide">प्रदीमनू (प्रद्युम्न)</a></h2>
+<li><a onclick="searchlila('person','प्रल्हाद');" href="#page" data-transition="slide">प्रल्हाद</a></h2>
+<li><a onclick="searchlila('person','प्रसनाएक (परसनाएक पाहा)');" href="#page" data-transition="slide">प्रसनाएक (परसनाएक पाहा)</a></h2>
+<li><a onclick="searchlila('person','प्रसरामबास');" href="#page" data-transition="slide">प्रसरामबास</a></h2>
+<li><a onclick="searchlila('person','प्रज्ञासागर');" href="#page" data-transition="slide">प्रज्ञासागर</a></h2>
+<li><a onclick="searchlila('person','प्रार्धबाइसा (प्रल्हादबाइसे)');" href="#page" data-transition="slide">प्रार्धबाइसा (प्रल्हादबाइसे)</a></h2>
+<li><a onclick="searchlila('person','बहुडी (कामाख्याची दासी)');" href="#page" data-transition="slide">बहुडी (कामाख्याची दासी)</a></h2>
+<li><a onclick="searchlila('person','बहुडी (गणपती मठातील पूजारी)');" href="#page" data-transition="slide">बहुडी (गणपती मठातील पूजारी)</a></h2>
+<li><a onclick="searchlila('person','बहुळाख्य');" href="#page" data-transition="slide">बहुळाख्य</a></h2>
+<li><a onclick="searchlila('person','बळिप');" href="#page" data-transition="slide">बळिप</a></h2>
+<li><a onclick="searchlila('person','बळिभद्र (बळभद्र)');" href="#page" data-transition="slide">बळिभद्र (बळभद्र)</a></h2>
+<li><a onclick="searchlila('person','बळी (पाताळातील बळीराजा)');" href="#page" data-transition="slide">बळी (पाताळातील बळीराजा)</a></h2>
+<li><a onclick="searchlila('person','बाइसे (नागांबिका, नागुबाइ)');" href="#page" data-transition="slide">बाइसे (नागांबिका, नागुबाइ)</a></h2>
+<li><a onclick="searchlila('person','बागडे विष्णुभट');" href="#page" data-transition="slide">बागडे विष्णुभट</a></h2>
+<li><a onclick="searchlila('person','बाघराउत');" href="#page" data-transition="slide">बाघराउत</a></h2>
+<li><a onclick="searchlila('person','बोणेबाइ (रामटेक येथील)');" href="#page" data-transition="slide">बोणेबाइ (रामटेक येथील)</a></h2>
+<li><a onclick="searchlila('person','बोनेबाइ (मेहकर येथील)');" href="#page" data-transition="slide">बोनेबाइ (मेहकर येथील)</a></h2>
+<li><a onclick="searchlila('person','भोपदेव उपाध्ये');" href="#page" data-transition="slide">भोपदेव उपाध्ये</a></h2>
+<li><a onclick="searchlila('person','बोल्हा डांगिया');" href="#page" data-transition="slide">बोल्हा डांगिया</a></h2>
+<li><a onclick="searchlila('person','बोल्हा बारी');" href="#page" data-transition="slide">बोल्हा बारी</a></h2>
+<li><a onclick="searchlila('person','ब्रह्मचारीदेव');" href="#page" data-transition="slide">ब्रह्मचारीदेव</a></h2>
+<li><a onclick="searchlila('person','ब्रह्मसान');" href="#page" data-transition="slide">ब्रह्मसान</a></h2>
+<li><a onclick="searchlila('person','ब्रह्म (देवता)');" href="#page" data-transition="slide">ब्रह्म (देवता)</a></h2>
+<li><a onclick="searchlila('person','ब्रहस्पती');" href="#page" data-transition="slide">ब्रहस्पती</a></h2>
+<li><a onclick="searchlila('person','भटाचार्य (कुमारील भट)');" href="#page" data-transition="slide">भटाचार्य (कुमारील भट)</a></h2>
+<li><a onclick="searchlila('person','भटोबास (नागदेव पाहा)');" href="#page" data-transition="slide">भटोबास (नागदेव पाहा)</a></h2>
+<li><a onclick="searchlila('person','भर्तुहरी');" href="#page" data-transition="slide">भर्तुहरी</a></h2>
+<li><a onclick="searchlila('person','भाइदेव');" href="#page" data-transition="slide">भाइदेव</a></h2>
+<li><a onclick="searchlila('person','भाइदेव (वैजोबाचा सासरा)');" href="#page" data-transition="slide">भाइदेव (वैजोबाचा सासरा)</a></h2>
+<li><a onclick="searchlila('person','भांडारेकार (नीळभट)');" href="#page" data-transition="slide">भांडारेकार (नीळभट)</a></h2>
+<li><a onclick="searchlila('person','भानु (काळदासभटाचा नातु)');" href="#page" data-transition="slide">भानु (काळदासभटाचा नातु)</a></h2>
+<li><a onclick="searchlila('person','भानु (मार्कंड)');" href="#page" data-transition="slide">भानु (मार्कंड)</a></h2>
+<li><a onclick="searchlila('person','भास्कर (मार्कंड)');" href="#page" data-transition="slide">भास्कर (मार्कंड)</a></h2>
+<li><a onclick="searchlila('person','भीउ (भीम, भीवं)');" href="#page" data-transition="slide">भीउ (भीम, भीवं)</a></h2>
+<li><a onclick="searchlila('person','भीमसेन');" href="#page" data-transition="slide">भीमसेन</a></h2>
+<li><a onclick="searchlila('person','भीष्म (भीक्षम)');" href="#page" data-transition="slide">भीष्म (भीक्षम)</a></h2>
+<li><a onclick="searchlila('person','भूतानंदे');" href="#page" data-transition="slide">भूतानंदे</a></h2>
+<li><a onclick="searchlila('person','भोजराजा');" href="#page" data-transition="slide">भोजराजा</a></h2>
+<li><a onclick="searchlila('person','मछींद्र');" href="#page" data-transition="slide">मछींद्र</a></h2>
+<li><a onclick="searchlila('person','मदन');" href="#page" data-transition="slide">मदन</a></h2>
+<li><a onclick="searchlila('person','मदळसा (पुराणातील)');" href="#page" data-transition="slide">मदळसा (पुराणातील)</a></h2>
+<li><a onclick="searchlila('person','मदळसा (सामको)');" href="#page" data-transition="slide">मदळसा (सामको)</a></h2>
+<li><a onclick="searchlila('person','मदळसा बाइसे');" href="#page" data-transition="slide">मदळसा बाइसे</a></h2>
+<li><a onclick="searchlila('person','महादेव (देवता)');" href="#page" data-transition="slide">महादेव (देवता)</a></h2>
+<li><a onclick="searchlila('person','महादेव उपाध्ये');" href="#page" data-transition="slide">महादेव उपाध्ये</a></h2>
+<li><a onclick="searchlila('person','महादेव पाठक');" href="#page" data-transition="slide">महादेव पाठक</a></h2>
+<li><a onclick="searchlila('person','महादेव मुनि');" href="#page" data-transition="slide">महादेव मुनि</a></h2>
+<li><a onclick="searchlila('person','महेश (देवता)');" href="#page" data-transition="slide">महेश (देवता)</a></h2>
+<li><a onclick="searchlila('person','महेश्‍वरप पंडित (भटोबासांचा पुत्र)');" href="#page" data-transition="slide">महेश्‍वरप पंडित (भटोबासांचा पुत्र)</a></h2>
+<li><a onclick="searchlila('person','माइताहरी');" href="#page" data-transition="slide">माइताहरी</a></h2>
+<li><a onclick="searchlila('person','माइबाइ (भूतानंदे पाहा)');" href="#page" data-transition="slide">माइबाइ (भूतानंदे पाहा)</a></h2>
+<li><a onclick="searchlila('person','माइंबाइ (सांतीबाइसे पाहा)');" href="#page" data-transition="slide">माइंबाइ (सांतीबाइसे पाहा)</a></h2>
+<li><a onclick="searchlila('person','मांडव ऋषी ');" href="#page" data-transition="slide">मांडव ऋषी </a></h2>
+<li><a onclick="searchlila('person','माधवभट (भटोबासांचे वडील)');" href="#page" data-transition="slide">माधवभट (भटोबासांचे वडील)</a></h2>
+<li><a onclick="searchlila('person','मार्कं(र्तं)ड ');" href="#page" data-transition="slide">मार्कं(र्तं)ड </a></h2>
+<li><a onclick="searchlila('person','माल्हुबाइ (श्रीचक्रधर स्वामींची माता)');" href="#page" data-transition="slide">माल्हुबाइ (श्रीचक्रधर स्वामींची माता)</a></h2>
+<li><a onclick="searchlila('person','माहादमुनी ');" href="#page" data-transition="slide">माहादमुनी </a></h2>
+<li><a onclick="searchlila('person','माहादाइसे ');" href="#page" data-transition="slide">माहादाइसे </a></h2>
+<li><a onclick="searchlila('person','माहादाश्रम');" href="#page" data-transition="slide">माहादाश्रम</a></h2>
+<li><a onclick="searchlila('person','माहादेव (यादव नृपती)');" href="#page" data-transition="slide">माहादेव (यादव नृपती)</a></h2>
+<li><a onclick="searchlila('person','मीननाथ');" href="#page" data-transition="slide">मीननाथ</a></h2>
+<li><a onclick="searchlila('person','मुगुताबाइ (मुक्ताबाई, भर्तृहरीची पत्नी)');" href="#page" data-transition="slide">मुगुताबाइ (मुक्ताबाई, भर्तृहरीची पत्नी)</a></h2>
+<li><a onclick="searchlila('person','मुचकुंद');" href="#page" data-transition="slide">मुचकुंद</a></h2>
+<li><a onclick="searchlila('person','मैत्री (मैत्रेयी)');" href="#page" data-transition="slide">मैत्री (मैत्रेयी)</a></h2>
+<li><a onclick="searchlila('person','मैळा');" href="#page" data-transition="slide">मैळा</a></h2>
+<li><a onclick="searchlila('person','मोकानंद (सारंगपंडीताचा पहिला पत्नीचा भाउ)');" href="#page" data-transition="slide">मोकानंद (सारंगपंडीताचा पहिला पत्नीचा भाउ)</a></h2>
+<li><a onclick="searchlila('person','मौनीदेव (श्रीचक्रधर) मौनदेव, मौन्यदेव');" href="#page" data-transition="slide">मौनीदेव (श्रीचक्रधर) मौनदेव, मौन्यदेव</a></h2>
+<li><a onclick="searchlila('person','म्हाइंद्रणा (म्हाया गुरव)');" href="#page" data-transition="slide">म्हाइंद्रणा (म्हाया गुरव)</a></h2>
+<li><a onclick="searchlila('person','म्हाइंभट');" href="#page" data-transition="slide">म्हाइंभट</a></h2>
+<li><a onclick="searchlila('person','म्हाळाइसे');" href="#page" data-transition="slide">म्हाळाइसे</a></h2>
+<li><a onclick="searchlila('person','यश्‍वदा(एस्वदा पाहा)');" href="#page" data-transition="slide">यश्‍वदा(एस्वदा पाहा)</a></h2>
+<li><a onclick="searchlila('person','युधिष्टिर');" href="#page" data-transition="slide">युधिष्टिर</a></h2>
+<li><a onclick="searchlila('person','रखुमिनी (विठलाची पत्नी)');" href="#page" data-transition="slide">रखुमिनी (विठलाची पत्नी)</a></h2>
+<li><a onclick="searchlila('person','रत्नमाणिके');" href="#page" data-transition="slide">रत्नमाणिके</a></h2>
+<li><a onclick="searchlila('person','रंभा');" href="#page" data-transition="slide">रंभा</a></h2>
+<li><a onclick="searchlila('person','रवळा');" href="#page" data-transition="slide">रवळा</a></h2>
+<li><a onclick="searchlila('person','राखेलक्ष्मींद्रभट');" href="#page" data-transition="slide">राखेलक्ष्मींद्रभट</a></h2>
+<li><a onclick="searchlila('person','राखसे रामदेव');" href="#page" data-transition="slide">राखसे रामदेव</a></h2>
+<li><a onclick="searchlila('person','राघवदेव');" href="#page" data-transition="slide">राघवदेव</a></h2>
+<li><a onclick="searchlila('person','राणाइसे');" href="#page" data-transition="slide">राणाइसे</a></h2>
+<li><a onclick="searchlila('person','राणादेवी (सुर्यपत्नीचे नाव)');" href="#page" data-transition="slide">राणादेवी (सुर्यपत्नीचे नाव)</a></h2>
+<li><a onclick="searchlila('person','राम ');" href="#page" data-transition="slide">राम </a></h2>
+<li><a onclick="searchlila('person','रामदेव (यादव नृपति)');" href="#page" data-transition="slide">रामदेव (यादव नृपति)</a></h2>
+<li><a onclick="searchlila('person','रामदेव (दादोस, देव, राम)');" href="#page" data-transition="slide">रामदेव (दादोस, देव, राम)</a></h2>
+<li><a onclick="searchlila('person','रामदेव (चिंचखेडकर)');" href="#page" data-transition="slide">रामदेव (चिंचखेडकर)</a></h2>
+<li><a onclick="searchlila('person','रामद्रणा');" href="#page" data-transition="slide">रामद्रणा</a></h2>
+<li><a onclick="searchlila('person','रामनाएक');" href="#page" data-transition="slide">रामनाएक</a></h2>
+<li><a onclick="searchlila('person','रामाइ');" href="#page" data-transition="slide">रामाइ</a></h2>
+<li><a onclick="searchlila('person','रावण');" href="#page" data-transition="slide">रावण</a></h2>
+<li><a onclick="searchlila('person','राहीनाएक (राहीया)');" href="#page" data-transition="slide">राहीनाएक (राहीया)</a></h2>
+<li><a onclick="searchlila('person','रुक्मिणी ');" href="#page" data-transition="slide">रुक्मिणी </a></h2>
+<li><a onclick="searchlila('person','रूपदेवभट');" href="#page" data-transition="slide">रूपदेवभट</a></h2>
+<li><a onclick="searchlila('person','रूपनाएक');" href="#page" data-transition="slide">रूपनाएक</a></h2>
+<li><a onclick="searchlila('person','रूपाइसे (माहादाइसे पाहा)');" href="#page" data-transition="slide">रूपाइसे (माहादाइसे पाहा)</a></h2>
+<li><a onclick="searchlila('person','रेइनाएक');" href="#page" data-transition="slide">रेइनाएक</a></h2>
+<li><a onclick="searchlila('person','रेमनाएक (पद्मनाभीचा भाउ)');" href="#page" data-transition="slide">रेमनाएक (पद्मनाभीचा भाउ)</a></h2>
+<li><a onclick="searchlila('person','रेवांतक (राजा)');" href="#page" data-transition="slide">रेवांतक (राजा)</a></h2>
+<li><a onclick="searchlila('person','रेवांतकी');" href="#page" data-transition="slide">रेवांतकी</a></h2>
+<li><a onclick="searchlila('person','लकुळ (नकुल)');" href="#page" data-transition="slide">लकुळ (नकुल)</a></h2>
+<li><a onclick="searchlila('person','लंकेभागवत');" href="#page" data-transition="slide">लंकेभागवत</a></h2>
+<li><a onclick="searchlila('person','लखुबाइसे');" href="#page" data-transition="slide">लखुबाइसे</a></h2>
+<li><a onclick="searchlila('person','लाखुमीया');" href="#page" data-transition="slide">लाखुमीया</a></h2>
+<li><a onclick="searchlila('person','लखुमदेव (भाइदेवाचा भाउ)');" href="#page" data-transition="slide">लखुमदेव (भाइदेवाचा भाउ)</a></h2>
+<li><a onclick="searchlila('person','लवण ');" href="#page" data-transition="slide">लवण </a></h2>
+<li><a onclick="searchlila('person','लळताइसे (लळिताइसे)');" href="#page" data-transition="slide">लळताइसे (लळिताइसे)</a></h2>
+<li><a onclick="searchlila('person','लक्ष्मण');" href="#page" data-transition="slide">लक्ष्मण</a></h2>
+<li><a onclick="searchlila('person','लाखाइसे');" href="#page" data-transition="slide">लाखाइसे</a></h2>
+<li><a onclick="searchlila('person','ल्हामाइसे (साधेची आई)');" href="#page" data-transition="slide">ल्हामाइसे (साधेची आई)</a></h2>
+<li><a onclick="searchlila('person','लाहामाइसे (उपाध्यांची माता)');" href="#page" data-transition="slide">लाहामाइसे (उपाध्यांची माता)</a></h2>
+<li><a onclick="searchlila('person','लाहीभट');" href="#page" data-transition="slide">लाहीभट</a></h2>
+<li><a onclick="searchlila('person','लूइपाइ');" href="#page" data-transition="slide">लूइपाइ</a></h2>
+<li><a onclick="searchlila('person','लखुदेवोबा');" href="#page" data-transition="slide">लखुदेवोबा</a></h2>
+<li><a onclick="searchlila('person','वचीष्ट');" href="#page" data-transition="slide">वचीष्ट</a></h2>
+<li><a onclick="searchlila('person','वचीस्टदेव');" href="#page" data-transition="slide">वचीस्टदेव</a></h2>
+<li><a onclick="searchlila('person','वज्र');" href="#page" data-transition="slide">वज्र</a></h2>
+<li><a onclick="searchlila('person','वरुण (देवता)');" href="#page" data-transition="slide">वरुण (देवता)</a></h2>
+<li><a onclick="searchlila('person','वशिष्ट (वशिष्ट ऋषी)');" href="#page" data-transition="slide">वशिष्ट (वशिष्ट ऋषी)</a></h2>
+<li><a onclick="searchlila('person','वसु (देवता)');" href="#page" data-transition="slide">वसु (देवता)</a></h2>
+<li><a onclick="searchlila('person','वसुदेव');" href="#page" data-transition="slide">वसुदेव</a></h2>
+<li><a onclick="searchlila('person','वाएनायक');" href="#page" data-transition="slide">वाएनायक</a></h2>
+<li><a onclick="searchlila('person','वाम');" href="#page" data-transition="slide">वाम</a></h2>
+<li><a onclick="searchlila('person','वामदेव');" href="#page" data-transition="slide">वामदेव</a></h2>
+<li><a onclick="searchlila('person','वामनपेदी');" href="#page" data-transition="slide">वामनपेदी</a></h2>
+<li><a onclick="searchlila('person','वामन मतीविळास ');" href="#page" data-transition="slide">वामन मतीविळास </a></h2>
+<li><a onclick="searchlila('person','वामनाचार्य');" href="#page" data-transition="slide">वामनाचार्य</a></h2>
+<li><a onclick="searchlila('person','वायो (देवता)');" href="#page" data-transition="slide">वायो (देवता)</a></h2>
+<li><a onclick="searchlila('person','वासनाएक');" href="#page" data-transition="slide">वासनाएक</a></h2>
+<li><a onclick="searchlila('person','विंझदेव (यादवांचा अधिकारी)');" href="#page" data-transition="slide">विंझदेव (यादवांचा अधिकारी)</a></h2>
+<li><a onclick="searchlila('person','विधुर');" href="#page" data-transition="slide">विधुर</a></h2>
+<li><a onclick="searchlila('person','विभुधारण्य (श्रीगोविंद्प्रभू)');" href="#page" data-transition="slide">विभुधारण्य (श्रीगोविंद्प्रभू)</a></h2>
+<li><a onclick="searchlila('person','विश्‍वनाथदेव');" href="#page" data-transition="slide">विश्‍वनाथदेव</a></h2>
+<li><a onclick="searchlila('person','विश्‍वामित्र');" href="#page" data-transition="slide">विश्‍वामित्र</a></h2>
+<li><a onclick="searchlila('person','विष्णु (देवता)');" href="#page" data-transition="slide">विष्णु (देवता)</a></h2>
+<li><a onclick="searchlila('person','विष्णुदेव');" href="#page" data-transition="slide">विष्णुदेव</a></h2>
+<li><a onclick="searchlila('person','विष्णुभट');" href="#page" data-transition="slide">विष्णुभट</a></h2>
+<li><a onclick="searchlila('person','विष्णुस्वामी');" href="#page" data-transition="slide">विष्णुस्वामी</a></h2>
+<li><a onclick="searchlila('person','विदुरथ (जयद्रथाचा पिता)');" href="#page" data-transition="slide">विदुरथ (जयद्रथाचा पिता)</a></h2>
+<li><a onclick="searchlila('person','विरूपाक्ष');" href="#page" data-transition="slide">विरूपाक्ष</a></h2>
+<li><a onclick="searchlila('person','वृधाबाइसे (आबाइसे पाहा)');" href="#page" data-transition="slide">वृधाबाइसे (आबाइसे पाहा)</a></h2>
+<li><a onclick="searchlila('person','वेसाइसे');" href="#page" data-transition="slide">वेसाइसे</a></h2>
+<li><a onclick="searchlila('person','वैजाए( यादव नृपति माहादेवरायाची पत्नी)');" href="#page" data-transition="slide">वैजाए( यादव नृपति माहादेवरायाची पत्नी)</a></h2>
+<li><a onclick="searchlila('person','वैजाए (परळी वैजनाथ येथील)');" href="#page" data-transition="slide">वैजाए (परळी वैजनाथ येथील)</a></h2>
+<li><a onclick="searchlila('person','वैजो (भटोबासांचा धाकटा भाउ)');" href="#page" data-transition="slide">वैजो (भटोबासांचा धाकटा भाउ)</a></h2>
+<li><a onclick="searchlila('person','वैराग्यदेव (भटोबासांचा पुत्र)');" href="#page" data-transition="slide">वैराग्यदेव (भटोबासांचा पुत्र)</a></h2>
+<li><a onclick="searchlila('person','व्यास');" href="#page" data-transition="slide">व्यास</a></h2>
+<li><a onclick="searchlila('person','शंकर (देवता)');" href="#page" data-transition="slide">शंकर (देवता)</a></h2>
+<li><a onclick="searchlila('person','शंकराचार्य');" href="#page" data-transition="slide">शंकराचार्य</a></h2>
+<li><a onclick="searchlila('person','शुक (सुकदेव पाहा) ');" href="#page" data-transition="slide">शुक (सुकदेव पाहा) </a></h2>
+<li><a onclick="searchlila('person','शुक्र');" href="#page" data-transition="slide">शुक्र</a></h2>
+<li><a onclick="searchlila('person','शुक्र (शुक्राचार्य)');" href="#page" data-transition="slide">शुक्र (शुक्राचार्य)</a></h2>
+<li><a onclick="searchlila('person','शेष (देवता) शेख');" href="#page" data-transition="slide">शेष (देवता) शेख</a></h2>
+<li><a onclick="searchlila('person','श्रावण');" href="#page" data-transition="slide">श्रावण</a></h2>
+<li><a onclick="searchlila('person','श्रीकृष्ण');" href="#page" data-transition="slide">श्रीकृष्ण</a></h2>
+<li><a onclick="searchlila('person','श्रीप्रभू (श्री गोविंदप्रभू, श्री गुंडमराउळ व गोविंद पाहा)');" href="#page" data-transition="slide">श्रीप्रभू (श्री गोविंदप्रभू, श्री गुंडमराउळ व गोविंद पाहा)</a></h2>
+<li><a onclick="searchlila('person','संजय');" href="#page" data-transition="slide">संजय</a></h2>
+<li><a onclick="searchlila('person','संतोख');" href="#page" data-transition="slide">संतोख</a></h2>
+<li><a onclick="searchlila('person','सत्यभामा');" href="#page" data-transition="slide">सत्यभामा</a></h2>
+<li><a onclick="searchlila('person','संदीपानी');" href="#page" data-transition="slide">संदीपानी</a></h2>
+<li><a onclick="searchlila('person','सनक');" href="#page" data-transition="slide">सनक</a></h2>
+<li><a onclick="searchlila('person','समसप्तक (संशक्तक)');" href="#page" data-transition="slide">समसप्तक (संशक्तक)</a></h2>
+<li><a onclick="searchlila('person','साइदेव');" href="#page" data-transition="slide">साइदेव</a></h2>
+<li><a onclick="searchlila('person','साइभट');" href="#page" data-transition="slide">साइभट</a></h2>
+<li><a onclick="searchlila('person','साइली');" href="#page" data-transition="slide">साइली</a></h2>
+<li><a onclick="searchlila('person','सांडल्या');" href="#page" data-transition="slide">सांडल्या</a></h2>
+<li><a onclick="searchlila('person','सांतीबाइसे (माइबाइसे)');" href="#page" data-transition="slide">सांतीबाइसे (माइबाइसे)</a></h2>
+<li><a onclick="searchlila('person','साधे (एल्हाइसे, एल्हो)');" href="#page" data-transition="slide">साधे (एल्हाइसे, एल्हो)</a></h2>
+<li><a onclick="searchlila('person','सामको ');" href="#page" data-transition="slide">सामको </a></h2>
+<li><a onclick="searchlila('person','सामकोसे');" href="#page" data-transition="slide">सामकोसे</a></h2>
+<li><a onclick="searchlila('person','सारंगपंडीत');" href="#page" data-transition="slide">सारंगपंडीत</a></h2>
+<li><a onclick="searchlila('person','सारंगपाणी');" href="#page" data-transition="slide">सारंगपाणी</a></h2>
+<li><a onclick="searchlila('person','सारंगपाणी (आबाइसाची वडील पुत्र, भटोबासांचा भाउ)');" href="#page" data-transition="slide">सारंगपाणी (आबाइसाची वडील पुत्र, भटोबासांचा भाउ)</a></h2>
+<li><a onclick="searchlila('person','सारंगमाहाला');" href="#page" data-transition="slide">सारंगमाहाला</a></h2>
+<li><a onclick="searchlila('person','सारस्वतभट');" href="#page" data-transition="slide">सारस्वतभट</a></h2>
+<li><a onclick="searchlila('person','सासार्जुन (सहस्त्रार्जुन)');" href="#page" data-transition="slide">सासार्जुन (सहस्त्रार्जुन)</a></h2>
+<li><a onclick="searchlila('person','साहादेवो (सहदेव)');" href="#page" data-transition="slide">साहादेवो (सहदेव)</a></h2>
+<li><a onclick="searchlila('person','साळीवाहन');" href="#page" data-transition="slide">साळीवाहन</a></h2>
+<li><a onclick="searchlila('person','सिंगण (यादव नृपति)');" href="#page" data-transition="slide">सिंगण (यादव नृपति)</a></h2>
+<li><a onclick="searchlila('person','सीता');" href="#page" data-transition="slide">सीता</a></h2>
+<li><a onclick="searchlila('person','सिंदेराणे');" href="#page" data-transition="slide">सिंदेराणे</a></h2>
+<li><a onclick="searchlila('person','सुखदेव (शुकमुनी)');" href="#page" data-transition="slide">सुखदेव (शुकमुनी)</a></h2>
+<li><a onclick="searchlila('person','सुकलभट');" href="#page" data-transition="slide">सुकलभट</a></h2>
+<li><a onclick="searchlila('person','सुदेव');" href="#page" data-transition="slide">सुदेव</a></h2>
+<li><a onclick="searchlila('person','सुतदेव');" href="#page" data-transition="slide">सुतदेव</a></h2>
+<li><a onclick="searchlila('person','सोभागे (माइबाइसे)');" href="#page" data-transition="slide">सोभागे (माइबाइसे)</a></h2>
+<li><a onclick="searchlila('person','स्त्रदोबा (सर्दोबा, छर्दोबा)');" href="#page" data-transition="slide">स्त्रदोबा (सर्दोबा, छर्दोबा)</a></h2>
+<li><a onclick="searchlila('person','हनुमंत');" href="#page" data-transition="slide">हनुमंत</a></h2>
+<li><a onclick="searchlila('person','हरिपाळदेव (श्रीचक्रधर)');" href="#page" data-transition="slide">हरिपाळदेव (श्रीचक्रधर)</a></h2>
+<li><a onclick="searchlila('person','हंसराज (हांसुबाइ)');" href="#page" data-transition="slide">हंसराज (हांसुबाइ)</a></h2>
+<li><a onclick="searchlila('person','हिडंब (कोळि)');" href="#page" data-transition="slide">हिडंब (कोळि)</a></h2>
+<li><a onclick="searchlila('person','हेमांड पंडित');" href="#page" data-transition="slide">हेमांड पंडित</a></h2>
+<li><a onclick="searchlila('person','ज्ञानदेव');" href="#page" data-transition="slide">ज्ञानदेव</a></h2>
+<li><a onclick="searchlila('person','ज्ञानांकुश');" href="#page" data-transition="slide">ज्ञानांकुश</a></h2>
+			</ul>
+	</div>
+    <!--<a href="#pageone"  data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>-->
+	  <div data-role="footer">
+    <h1>@HemangSoni</h1>
+  </div>
+</div>
+
+
+<!-- Page Three Ends-->
+
+
+
+
+
+
+
 
 
   <div data-role="page" data-theme="b" id="page" >
