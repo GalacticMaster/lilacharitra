@@ -35,7 +35,6 @@ h3 .ui-btn-text{ white-space:normal; word-break:break-all; }
 
 <script type='text/javascript'>
 
-
 function colltest(Aadi,Lila,Vachan,Tika,drushtant){
 	$(window).unload();
 	$('[data-role="content"]').empty();
@@ -56,6 +55,19 @@ function colltest_v(Aadi,Lila,Tip,Vachan,drushtant){
 		//$('[data-role="content"]').empty();
 		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
 		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p>'+Tip+'</p><p><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p><p><span style="color: #ff0000"> दृष्टांत  : </span> '+drushtant+'</p></div>').appendTo('[data-role="content"]').page()
+		//$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
+		//$('<p>'+drushtant+'</p>').appendTo('[data-role="content"]').page()
+		
+		});
+}
+
+function colltest_d(Aadi,Lila,Tip,Vachan,drushtant,sambandh,lapnik,dvachan,drush,drashtantik,arth){
+	$(window).unload();
+	$('[data-role="content"]').empty();
+	$(window).load(Aadi,Lila, function(){
+		//$('[data-role="content"]').empty();
+		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
+		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p>'+Tip+'</p><p><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p></div><p><span style="color: #ff0000"> संबंध  : </span> '+sambandh+'</p><p><span style="color: #ff0000"> लापणिक   : </span> '+lapnik+'</p><p><span style="color: #ff0000"> दृष्टांत  : </span> '+drushtant+'</p><p><span style="color: #ff0000"> वचन  : </span> '+dvachan+'</p><p><span style="color: #ff0000"> दृष्टान्त  : </span> '+drush+'</p><p><span style="color: #ff0000"> दार्ष्टान्तिक  : </span> '+drashtantik+'</p><p><span style="color: #ff0000"> भावार्थ  : </span> '+arth+'</p></div>').appendTo('[data-role="content"]').page()
 		//$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
 		//$('<p>'+drushtant+'</p>').appendTo('[data-role="content"]').page()
 		
@@ -143,6 +155,24 @@ $.getJSON('person.json', function(jd)
 					}
 				}
 			
+		else if (type == "drushtanth")
+			{
+				let drushtant = json[i].drushtant;
+				//console.log(drushtant);
+				for(let d = 0; d < drushtant.length; d++){
+				//console.log(drushtant[d].drish);
+					{let result = drushtant[d].drish.includes(searchtext);
+						if (result){
+							console.log(result);
+							console.log(drushtant[d].drish);
+							console.log(json[i].Aadi);
+							
+						colltest_d(json[i].Aadi,json[i].Lila,json[i].Tip,json[i].vachan,drushtant[d].drish,drushtant[d].sambandh,drushtant[d].lapnik,drushtant[d].dvachan,drushtant[d].drush,drushtant[d].drashtantik,drushtant[d].arth)
+						$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;"> वचन  :'+json[i].Aadi+'</p>');
+						}
+					}
+				}
+			}
 		else if (type == "sthan")
 			{
 					{let result = json[i].Aadi.includes(searchtext);
@@ -156,6 +186,7 @@ $.getJSON('person.json', function(jd)
 });
 
 }
+
 
 
 
@@ -177,6 +208,7 @@ $.getJSON('person.json', function(jd)
 <ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
     <li><a href="#pagetwo" data-rel="dialog" data-transition="slide">सूत्र सूची</a></li>
 	<li><a href="#pagethree" data-rel="dialog" data-transition="slide">व्यक्ती सूची </a></li>
+	<li><a href="#pagefour" data-rel="dialog" data-transition="slide">दृष्टांत पाठ</a></li>
 
 </ul>
   </div>
@@ -1967,6 +1999,150 @@ $.getJSON('person.json', function(jd)
 
 
 <!-- Page Three Ends-->
+
+<!-- Page Four Starts-->
+
+<div data-role="page" data-theme="b" id="pagefour">
+  <div data-role="header">
+    <h1>Welcome To दृष्टांत पाठ  </h1>
+  </div>
+ 
+  <div data-role="main" class="ui-content">
+	<div id="sc" class="content" style="text-align: center">
+		<h1 style="color:Tomato;text-align: center;font-size: 30px">दृष्टांत पाठ </h1>
+
+	</div>
+	
+<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+
+<li><a onclick="searchlila('drushtanth','आंतुलाचा १');"  href="#page" data-transition="slide"> आंतुलाचा १</a></li> 
+<li><a onclick="searchlila('drushtanth','बाहीरीलाचा २');"  href="#page" data-transition="slide"> बाहीरीलाचा २</a></li> 
+<li><a onclick="searchlila('drushtanth','उंबरेयावरिलाचा ३');"  href="#page" data-transition="slide"> उंबरेयावरिलाचा ३</a></li> 
+<li><a onclick="searchlila('drushtanth','कुकडीएचा ४');"  href="#page" data-transition="slide"> कुकडीएचा ४</a></li> 
+<li><a onclick="searchlila('drushtanth','मासळीयेचा ५');"  href="#page" data-transition="slide"> मासळीयेचा ५</a></li> 
+<li><a onclick="searchlila('drushtanth','कासवियेचा ६');"  href="#page" data-transition="slide"> कासवियेचा ६</a></li> 
+<li><a onclick="searchlila('drushtanth','शब्दवेधिया रसाचा ७');"  href="#page" data-transition="slide"> शब्दवेधिया रसाचा ७</a></li> 
+<li><a onclick="searchlila('drushtanth','समुद्राचा ८');"  href="#page" data-transition="slide"> समुद्राचा ८</a></li> 
+<li><a onclick="searchlila('drushtanth','सोमकांताचा ९');"  href="#page" data-transition="slide"> सोमकांताचा ९</a></li> 
+<li><a onclick="searchlila('drushtanth','हिरेखाणियाचा १०');"  href="#page" data-transition="slide"> हिरेखाणियाचा १०</a></li> 
+<li><a onclick="searchlila('drushtanth','देवाचा ११');"  href="#page" data-transition="slide"> देवाचा ११</a></li> 
+<li><a onclick="searchlila('drushtanth','राहाटघडिएचा १२');"  href="#page" data-transition="slide"> राहाटघडिएचा १२</a></li> 
+<li><a onclick="searchlila('drushtanth','माळेकाराचा १३');"  href="#page" data-transition="slide"> माळेकाराचा १३</a></li> 
+<li><a onclick="searchlila('drushtanth','डोळेयाचा १४');"  href="#page" data-transition="slide"> डोळेयाचा १४</a></li> 
+<li><a onclick="searchlila('drushtanth','खडेयाखुबटेयाचा १५');"  href="#page" data-transition="slide"> खडेयाखुबटेयाचा १५</a></li> 
+<li><a onclick="searchlila('drushtanth','बांदीकाराचा १६');"  href="#page" data-transition="slide"> बांदीकाराचा १६</a></li> 
+<li><a onclick="searchlila('drushtanth','काकसूकराचा १७');"  href="#page" data-transition="slide"> काकसूकराचा १७</a></li> 
+<li><a onclick="searchlila('drushtanth','लाडाचीए बासीचा १८');"  href="#page" data-transition="slide"> लाडाचीए बासीचा १८</a></li> 
+<li><a onclick="searchlila('drushtanth','बांधलीए गाइचा १९');"  href="#page" data-transition="slide"> बांधलीए गाइचा १९</a></li> 
+<li><a onclick="searchlila('drushtanth','वज्रकीटकीएचा २०');"  href="#page" data-transition="slide"> वज्रकीटकीएचा २०</a></li> 
+<li><a onclick="searchlila('drushtanth','खाजेयाचा २१');"  href="#page" data-transition="slide"> खाजेयाचा २१</a></li> 
+<li><a onclick="searchlila('drushtanth','अन्नाचा २२');"  href="#page" data-transition="slide"> अन्नाचा २२</a></li> 
+<li><a onclick="searchlila('drushtanth','अमृताचा २३');"  href="#page" data-transition="slide"> अमृताचा २३</a></li> 
+<li><a onclick="searchlila('drushtanth','वटबीजाचा २४');"  href="#page" data-transition="slide"> वटबीजाचा २४</a></li> 
+<li><a onclick="searchlila('drushtanth','तुपाभाताचिया वासाचा २५');"  href="#page" data-transition="slide"> तुपाभाताचिया वासाचा २५</a></li> 
+<li><a onclick="searchlila('drushtanth','सेवाळलेया खडकाचा २६');"  href="#page" data-transition="slide"> सेवाळलेया खडकाचा २६</a></li> 
+<li><a onclick="searchlila('drushtanth','पाणियांतुल गुंडेयाचा २७');"  href="#page" data-transition="slide"> पाणियांतुल गुंडेयाचा २७</a></li> 
+<li><a onclick="searchlila('drushtanth','तणधैलेया  वावराचा २८');"  href="#page" data-transition="slide"> तणधैलेया  वावराचा २८</a></li> 
+<li><a onclick="searchlila('drushtanth','कानवाथराचा २९');"  href="#page" data-transition="slide"> कानवाथराचा २९</a></li> 
+<li><a onclick="searchlila('drushtanth','वेळुवाचा ३०');"  href="#page" data-transition="slide"> वेळुवाचा ३०</a></li> 
+<li><a onclick="searchlila('drushtanth','जारसैलेया वाळुकाचा ३१');"  href="#page" data-transition="slide"> जारसैलेया वाळुकाचा ३१</a></li> 
+<li><a onclick="searchlila('drushtanth','भवरैलेया वाळुकाचा ३२');"  href="#page" data-transition="slide"> भवरैलेया वाळुकाचा ३२</a></li> 
+<li><a onclick="searchlila('drushtanth','देहलुतैलेया वाळुकाचा ३३');"  href="#page" data-transition="slide"> देहलुतैलेया वाळुकाचा ३३</a></li> 
+<li><a onclick="searchlila('drushtanth','कोवळेया वाळुकाचा ३४');"  href="#page" data-transition="slide"> कोवळेया वाळुकाचा ३४</a></li> 
+<li><a onclick="searchlila('drushtanth','इंद्रवणांचा ३५');"  href="#page" data-transition="slide"> इंद्रवणांचा ३५</a></li> 
+<li><a onclick="searchlila('drushtanth','सन्निपातैलेयाचा ३६');"  href="#page" data-transition="slide"> सन्निपातैलेयाचा ३६</a></li> 
+<li><a onclick="searchlila('drushtanth','विषयाचा ३७');"  href="#page" data-transition="slide"> विषयाचा ३७</a></li> 
+<li><a onclick="searchlila('drushtanth','दूरस्थ मातेचा ३८');"  href="#page" data-transition="slide"> दूरस्थ मातेचा ३८</a></li> 
+<li><a onclick="searchlila('drushtanth','हिरडेयाबेहाडेयाचा ३९');"  href="#page" data-transition="slide"> हिरडेयाबेहाडेयाचा ३९</a></li> 
+<li><a onclick="searchlila('drushtanth','सुरीएचा ४०');"  href="#page" data-transition="slide"> सुरीएचा ४०</a></li> 
+<li><a onclick="searchlila('drushtanth','रुम्हणेयाचा ४१');"  href="#page" data-transition="slide"> रुम्हणेयाचा ४१</a></li> 
+<li><a onclick="searchlila('drushtanth','चांदोवेयाचा ४२');"  href="#page" data-transition="slide"> चांदोवेयाचा ४२</a></li> 
+<li><a onclick="searchlila('drushtanth','हस्तीचा ४३');"  href="#page" data-transition="slide"> हस्तीचा ४३</a></li> 
+<li><a onclick="searchlila('drushtanth','डुळकैलेया बाळकाचा ४४');"  href="#page" data-transition="slide"> डुळकैलेया बाळकाचा ४४</a></li> 
+<li><a onclick="searchlila('drushtanth','कपाळपरीक्षेचा ४५');"  href="#page" data-transition="slide"> कपाळपरीक्षेचा ४५</a></li> 
+<li><a onclick="searchlila('drushtanth','मोदळेयाचा ४६');"  href="#page" data-transition="slide"> मोदळेयाचा ४६</a></li> 
+<li><a onclick="searchlila('drushtanth','रोवंतलैया पशूचा ४७');"  href="#page" data-transition="slide"> रोवंतलैया पशूचा ४७</a></li> 
+<li><a onclick="searchlila('drushtanth','कर्मचांडाळाचा ४८');"  href="#page" data-transition="slide"> कर्मचांडाळाचा ४८</a></li> 
+<li><a onclick="searchlila('drushtanth','पडाळिये गाइचा ४९');"  href="#page" data-transition="slide"> पडाळिये गाइचा ४९</a></li> 
+<li><a onclick="searchlila('drushtanth','माळेकाराचा ५०');"  href="#page" data-transition="slide"> माळेकाराचा ५०</a></li> 
+<li><a onclick="searchlila('drushtanth','अयाचग्रासिया ५१');"  href="#page" data-transition="slide"> अयाचग्रासिया ५१</a></li> 
+<li><a onclick="searchlila('drushtanth','दीक्षितकन्येचा ५२');"  href="#page" data-transition="slide"> दीक्षितकन्येचा ५२</a></li> 
+<li><a onclick="searchlila('drushtanth','कुष्टियाचा ५३');"  href="#page" data-transition="slide"> कुष्टियाचा ५३</a></li> 
+<li><a onclick="searchlila('drushtanth','आधारीएचा परीसाचा ५४');"  href="#page" data-transition="slide"> आधारीएचा परीसाचा ५४</a></li> 
+<li><a onclick="searchlila('drushtanth','वानरीएचा ५५');"  href="#page" data-transition="slide"> वानरीएचा ५५</a></li> 
+<li><a onclick="searchlila('drushtanth','माकोडेयाचा ५६');"  href="#page" data-transition="slide"> माकोडेयाचा ५६</a></li> 
+<li><a onclick="searchlila('drushtanth','व्यतिपाताचा ५७');"  href="#page" data-transition="slide"> व्यतिपाताचा ५७</a></li> 
+<li><a onclick="searchlila('drushtanth','कोलाचा ५८');"  href="#page" data-transition="slide"> कोलाचा ५८</a></li> 
+<li><a onclick="searchlila('drushtanth','इशाळुवाचा ५९');"  href="#page" data-transition="slide"> इशाळुवाचा ५९</a></li> 
+<li><a onclick="searchlila('drushtanth','झाडिलेयापूसीलेयापशूचा ६०');"  href="#page" data-transition="slide"> झाडिलेयापूसीलेयापशूचा ६०</a></li> 
+<li><a onclick="searchlila('drushtanth','सामान्य स्त्रीएचा ६१');"  href="#page" data-transition="slide"> सामान्य स्त्रीएचा ६१</a></li> 
+<li><a onclick="searchlila('drushtanth','दासीचा ६२');"  href="#page" data-transition="slide"> दासीचा ६२</a></li> 
+<li><a onclick="searchlila('drushtanth','पतिव्रतेचा ६३');"  href="#page" data-transition="slide"> पतिव्रतेचा ६३</a></li> 
+<li><a onclick="searchlila('drushtanth','चाटसीएचा ६४');"  href="#page" data-transition="slide"> चाटसीएचा ६४</a></li> 
+<li><a onclick="searchlila('drushtanth','अग्नीचा ६५');"  href="#page" data-transition="slide"> अग्नीचा ६५</a></li> 
+<li><a onclick="searchlila('drushtanth','फुटाणेकाराचा ६६');"  href="#page" data-transition="slide"> फुटाणेकाराचा ६६</a></li> 
+<li><a onclick="searchlila('drushtanth','गुळ्हारियाचा ६७');"  href="#page" data-transition="slide"> गुळ्हारियाचा ६७</a></li> 
+<li><a onclick="searchlila('drushtanth','दुबळिए मातेचा ६८');"  href="#page" data-transition="slide"> दुबळिए मातेचा ६८</a></li> 
+<li><a onclick="searchlila('drushtanth','वृक्षत्वचेचा ६९');"  href="#page" data-transition="slide"> वृक्षत्वचेचा ६९</a></li> 
+<li><a onclick="searchlila('drushtanth','पाणिचोरेयाचा ७०');"  href="#page" data-transition="slide"> पाणिचोरेयाचा ७०</a></li> 
+<li><a onclick="searchlila('drushtanth','चातकाचा ७१');"  href="#page" data-transition="slide"> चातकाचा ७१</a></li> 
+<li><a onclick="searchlila('drushtanth','सिंदेराणेयाचा ७२');"  href="#page" data-transition="slide"> सिंदेराणेयाचा ७२</a></li> 
+<li><a onclick="searchlila('drushtanth','रिणाइताचा ७३');"  href="#page" data-transition="slide"> रिणाइताचा ७३</a></li> 
+<li><a onclick="searchlila('drushtanth','दंदियाचा ७४');"  href="#page" data-transition="slide"> दंदियाचा ७४</a></li> 
+<li><a onclick="searchlila('drushtanth','अग्निसंबंधाचा ७५');"  href="#page" data-transition="slide"> अग्निसंबंधाचा ७५</a></li> 
+<li><a onclick="searchlila('drushtanth','वटरोपाचा ७६');"  href="#page" data-transition="slide"> वटरोपाचा ७६</a></li> 
+<li><a onclick="searchlila('drushtanth','तुरंगमाचा ७७');"  href="#page" data-transition="slide"> तुरंगमाचा ७७</a></li> 
+<li><a onclick="searchlila('drushtanth','ब्रह्मचारी घोडेयाचा ७८');"  href="#page" data-transition="slide"> ब्रह्मचारी घोडेयाचा ७८</a></li> 
+<li><a onclick="searchlila('drushtanth','विरहिणीचा (प्रथम) ८७');"  href="#page" data-transition="slide"> विरहिणीचा (प्रथम) ८७</a></li> 
+<li><a onclick="searchlila('drushtanth','ऋषीशृंगाचा ७९');"  href="#page" data-transition="slide"> ऋषीशृंगाचा ७९</a></li> 
+<li><a onclick="searchlila('drushtanth','राजहंसाचा ८०');"  href="#page" data-transition="slide"> राजहंसाचा ८०</a></li> 
+<li><a onclick="searchlila('drushtanth','डिंगरेयाचा ८१');"  href="#page" data-transition="slide"> डिंगरेयाचा ८१</a></li> 
+<li><a onclick="searchlila('drushtanth','चाटरीचा (दुसरेया इसाळुवाचा) ८२');"  href="#page" data-transition="slide"> चाटरीचा (दुसरेया इसाळुवाचा) ८२</a></li> 
+<li><a onclick="searchlila('drushtanth','दुसरेया इसाळुवाचा ८२');"  href="#page" data-transition="slide"> दुसरेया इसाळुवाचा ८२</a></li> 
+<li><a onclick="searchlila('drushtanth','द्विभार्याचा ८३');"  href="#page" data-transition="slide"> द्विभार्याचा ८३</a></li> 
+<li><a onclick="searchlila('drushtanth','दुर्भगेचा ८४');"  href="#page" data-transition="slide"> दुर्भगेचा ८४</a></li> 
+<li><a onclick="searchlila('drushtanth','शय्यापालनेचा ८५');"  href="#page" data-transition="slide"> शय्यापालनेचा ८५</a></li> 
+<li><a onclick="searchlila('drushtanth','पोळलेया सुनेयाचा ८६');"  href="#page" data-transition="slide"> पोळलेया सुनेयाचा ८६</a></li> 
+<li><a onclick="searchlila('drushtanth','विरहिणीचा (दुसर्‍या) ८८');"  href="#page" data-transition="slide"> विरहिणीचा (दुसर्‍या) ८८</a></li> 
+<li><a onclick="searchlila('drushtanth','विरहिणीचा (तीसर्‍या) ८९');"  href="#page" data-transition="slide"> विरहिणीचा (तीसर्‍या) ८९</a></li> 
+<li><a onclick="searchlila('drushtanth','जळमांडवीचा ९०');"  href="#page" data-transition="slide"> जळमांडवीचा ९०</a></li> 
+<li><a onclick="searchlila('drushtanth','अहीरदेशीचीए म्हातारीएचा ९१');"  href="#page" data-transition="slide"> अहीरदेशीचीए म्हातारीएचा ९१</a></li> 
+<li><a onclick="searchlila('drushtanth','वर्तेचा ९२');"  href="#page" data-transition="slide"> वर्तेचा ९२</a></li> 
+<li><a onclick="searchlila('drushtanth','खर्गधारेचा ९३');"  href="#page" data-transition="slide"> खर्गधारेचा ९३</a></li> 
+<li><a onclick="searchlila('drushtanth','कठियाचा ९४');"  href="#page" data-transition="slide"> कठियाचा ९४</a></li> 
+<li><a onclick="searchlila('drushtanth','कीर्तिकठियाचा ९५');"  href="#page" data-transition="slide"> कीर्तिकठियाचा ९५</a></li> 
+<li><a onclick="searchlila('drushtanth','भिंगुरुटीयेचा ९६');"  href="#page" data-transition="slide"> भिंगुरुटीयेचा ९६</a></li> 
+<li><a onclick="searchlila('drushtanth','बाळविधवेचा ९७');"  href="#page" data-transition="slide"> बाळविधवेचा ९७</a></li> 
+<li><a onclick="searchlila('drushtanth','लेंकुरुवाळीए मातेचा ९८');"  href="#page" data-transition="slide"> लेंकुरुवाळीए मातेचा ९८</a></li> 
+<li><a onclick="searchlila('drushtanth','निद्रितक्षीरपानाचा ९९');"  href="#page" data-transition="slide"> निद्रितक्षीरपानाचा ९९</a></li> 
+<li><a onclick="searchlila('drushtanth','बाबुळिएचा १००');"  href="#page" data-transition="slide"> बाबुळिएचा १००</a></li> 
+<li><a onclick="searchlila('drushtanth','डोळेयाचा १०१');"  href="#page" data-transition="slide"> डोळेयाचा १०१</a></li> 
+<li><a onclick="searchlila('drushtanth','दूरदृश्याचा १०२');"  href="#page" data-transition="slide"> दूरदृश्याचा १०२</a></li> 
+<li><a onclick="searchlila('drushtanth','जागसुतेयाचा १०३');"  href="#page" data-transition="slide"> जागसुतेयाचा १०३</a></li> 
+<li><a onclick="searchlila('drushtanth','स्वप्नाचा १०४');"  href="#page" data-transition="slide"> स्वप्नाचा १०४</a></li> 
+<li><a onclick="searchlila('drushtanth','खाराणियेचा १०५');"  href="#page" data-transition="slide"> खाराणियेचा १०५</a></li> 
+<li><a onclick="searchlila('drushtanth','आंबवतीयेचा (सुरीचा) १०६');"  href="#page" data-transition="slide"> आंबवतीयेचा (सुरीचा) १०६</a></li> 
+<li><a onclick="searchlila('drushtanth','सुरीचा (आंबवतीएचा) १०६');"  href="#page" data-transition="slide"> सुरीचा (आंबवतीएचा) १०६</a></li> 
+<li><a onclick="searchlila('drushtanth','चेइलेयाचा १०७');"  href="#page" data-transition="slide"> चेइलेयाचा १०७</a></li> 
+<li><a onclick="searchlila('drushtanth','जवनिकेचा १०८');"  href="#page" data-transition="slide"> जवनिकेचा १०८</a></li> 
+<li><a onclick="searchlila('drushtanth','उखारलेया वस्त्राचा १०९');"  href="#page" data-transition="slide"> उखारलेया वस्त्राचा १०९</a></li> 
+<li><a onclick="searchlila('drushtanth','परिसाचा ११०');"  href="#page" data-transition="slide"> परिसाचा ११०</a></li> 
+<li><a onclick="searchlila('drushtanth','चंदनाचा १११');"  href="#page" data-transition="slide"> चंदनाचा १११</a></li> 
+<li><a onclick="searchlila('drushtanth','शरणांगताचा ११२');"  href="#page" data-transition="slide"> शरणांगताचा ११२</a></li> 
+<li><a onclick="searchlila('drushtanth','राज्याभिषेचा ११३');"  href="#page" data-transition="slide"> राज्याभिषेचा ११३</a></li> 
+<li><a onclick="searchlila('drushtanth','साकरेचा ११४');"  href="#page" data-transition="slide"> साकरेचा ११४</a></li> 
+
+
+
+			</ul>
+	</div>
+    <!--<a href="#pageone"  data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>-->
+	  <div data-role="footer">
+    <h1>@HemangSoni</h1>
+  </div>
+</div>
+
+<!-- Page Four Ends-->
 
 
 
