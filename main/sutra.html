@@ -52,25 +52,21 @@ function colltest_d(Aadi,Lila,Tip,Vachan,drushtant,sambandh,lapnik,dvachan,drush
 }
 //colltest("hemang");
 
-function glila(ID){
-var ID
-//console.log(ID);
+function glila(LID){
+var LID
+console.log(LID);
 $.getJSON('person.json', function(jd)
 	{var json = jd.main;
+	for (let i = 1; i < json.length; i++){
+	let result = json[i].lilaID === LID;
+	if (result)
+	{
 	//console.log(json[ID]);
-		//colltest(json[ID].Aadi,json[ID].Lila);
-
-		$("#output").html('<h3 style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+json[ID].Aadi+'</h3>');
-		$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+json[ID].Lila+'</p>');
-			if (json[ID].person){
-			person = json[ID].person;
-			}
-			if (json[ID].vachan != ""){
-			vachan = json[ID].vachan;
-			}
+		colltest(json[i].Aadi,json[i].Lila);
+		}
+	}
 	});
 }
-
 
 //glila(2);
 
@@ -172,9 +168,10 @@ $.getJSON('person.json', function(jd)
 
 <div data-role="main" class="ui-content">
 <ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
-    <li><a href="#pagetwo"  data-transition="slide">सूत्र सूची</a></li>
-	<li><a href="#pagethree"  data-transition="slide">व्यक्ती सूची </a></li>
-	<li><a href="#pagefour"  data-transition="slide">दृष्टांत पाठ</a></li>
+    <li><a href="#pagetwo"  data-transition="slide">॥ सूत्र पाठ ॥</a></li>
+	<li><a href="#pagethree"  data-transition="slide">॥ व्यक्ती सूची  ॥</a></li>
+	<li><a href="#pagefour"  data-transition="slide">॥ दृष्टांत पाठ ॥</a></li>
+	<li><a href="#pagefive"  data-transition="slide">॥ मूर्तिज्ञान ॥</a></li>
 
 </ul>
   </div>
@@ -186,12 +183,12 @@ $.getJSON('person.json', function(jd)
 
 <div data-role="page" data-theme="b" id="pagetwo">
   <div data-role="header">
-    <h1>Welcome To सूत्र सूची  </h1>
+    <h1>Welcome To ॥ सूत्र पाठ ॥  </h1>
   </div>
  
   <div data-role="main" class="ui-content">
 	<div id="sc" class="content" style="text-align: center">
-		<h1 style="color:Tomato;text-align: center;font-size: 30px">सूत्र सूची </h1>
+		<h1 style="color:Tomato;text-align: center;font-size: 30px">॥ सूत्र पाठ ॥ </h1>
 
 	</div>
 	
@@ -1538,12 +1535,12 @@ $.getJSON('person.json', function(jd)
 
 <div data-role="page" data-theme="b" id="pagethree">
   <div data-role="header">
-    <h1>Welcome To सूत्र सूची  </h1>
+    <h1>Welcome To ॥ व्यक्ती सूची  ॥  </h1>
   </div>
  
   <div data-role="main" class="ui-content">
 	<div id="sc" class="content" style="text-align: center">
-		<h1 style="color:Tomato;text-align: center;font-size: 30px">व्यक्ती सूची </h1>
+		<h1 style="color:Tomato;text-align: center;font-size: 30px">॥ व्यक्ती सूची  ॥ </h1>
 
 	</div>
 	
@@ -1969,12 +1966,12 @@ $.getJSON('person.json', function(jd)
 
 <div data-role="page" data-theme="b" id="pagefour">
   <div data-role="header">
-    <h1>Welcome To दृष्टांत पाठ  </h1>
+    <h1>Welcome To ॥ दृष्टांत पाठ ॥  </h1>
   </div>
  
   <div data-role="main" class="ui-content">
 	<div id="sc" class="content" style="text-align: center">
-		<h1 style="color:Tomato;text-align: center;font-size: 30px">दृष्टांत पाठ </h1>
+		<h1 style="color:Tomato;text-align: center;font-size: 30px">॥ दृष्टांत पाठ ॥ </h1>
 
 	</div>
 	
@@ -2109,7 +2106,329 @@ $.getJSON('person.json', function(jd)
 
 <!-- Page Four Ends-->
 
+<!-- Page Five start-->
 
+<div data-role="page" data-theme="b" id="pagefive">
+  <div data-role="header">
+    <h1>Welcome To ॥ मूर्तिज्ञान ॥ </h1>
+  </div>
+ 
+  <div data-role="main" class="ui-content">
+
+
+	<h2 style="color:Tomato;text-align: center;font-size: 30px">॥ मूर्तिज्ञान ॥</h2>
+	</div>
+	<div data-role="main" class="ui-content">
+			<div data-role="collapsibleset">
+<div data-role="collapsible" data-collapsed="true">
+				<h3>व्यक्ता श्रीमुर्तिधारीया परमेश्वराचें ज्ञान</h3>
+				<p>:।।: मुर्तिज्ञान:।।: श्रीपरेशायनमः।: तरि व्यक्ता श्रीमुर्तिधारीया परमेश्वराचें ज्ञान तें कैसे: ना तें ऐसें परमेश्वरू निर्वेवो निराकारू असे तो सावेवो साकारू होए: श्रीमुर्तिधारीया होए: श्री म्हणिजे माया तीए मायेचा वेषु स्वीकरीति: कांपां जें सर्वज्ञें म्हणितलें: सृष्टी मध्यें परमेश्वरू अवतरति:।।1।।: मनुष्यवेषधरीए होति:।।2।।: माया वेषधरीए होतिः।।3।।: माया पुरधरीए होतिः।।4।।: माया नीर्मीतंपुरं माया पुरं:।।5।।: माया घटाकारें आकारें ओते:।।6।।: नख: चर्म: रोमादी करूनि शुद्ध चैतन्यचि तें:।।7।।: माया पुरीं मायेसि अभीमानु:।।8।।: ब्रह्मांडीं शक्ती अधीनु शक्ती व्यापारू: माया पुरीं इश्वराधीनु शक्ती व्यापारू:।।9।।: माया पुरीं इतर शक्ती तूल्य माया:।।10।।: ऐसेया माया पुरातें स्वीकरीति: जैसा भिंगानेया आंतु दिपु लावीजे आणि बाहीरि प्रकटे: तैसा परमेश्वर निर्वेवो निराकारू असे तो सावेवो साकारू होए तें कांपा: ना गोसावी म्हाइंभटातें म्हणितलें निर्वेवो निराकारू असे तो सावेवो साकारू होए: ऐसी अवघी पुर्वी उच्चारीली:।:</p>
+</div>
+      <div data-role="collapsible" data-collapsed="true">
+        <h3>द्वापरीं श्रीकृष्णचक्रवर्ती मुर्तिज्ञान</h3>
+        <p>जैसे द्वापरीं श्रीकृष्णचक्रवर्ती क्षेत्रीयांचां कुळीं: यादवांचां वंशीं: वसूदेवापासौनि देवकीएचां गर्भिं उभायदृश्या अवतारू स्वीकरीला: गोकुळीं बाळलीळा विज्ञानशक्ती खेळीनलें: पाठीं ज्ञानशक्ती स्वीकरीली: द्वारावतिए अवस्थान चक्रवर्तिवखें क्रीडा: ऐसां उपाधि स्वीकरीला अनंत पवाडे केलें: अनंतें चरित्रें केलीं: अनंतां लीळा केलीया: अनंतां जीवातें उद्धरीले: केवि ना सर्वज्ञें म्हणितलें: श्रीकृष्णचक्रवर्ती अनंत उद्धरीले परि उद्धवार्जुन हें पुराणप्रसिद्ध: तया श्रीकृष्णचक्रवर्ती गोसावीयांयांचें चरणशरण:।।1।।:</p>
+      </div>
+      <div data-role="collapsible" data-collapsed="true">
+        <h3>मातापुरीं श्रीदत्तात्रेयप्रभु मुर्तिज्ञान</h3>
+        <p>त्रेतीं (भोगभुमीं) मातापुरीं श्रीदत्तात्रेयप्रभु गोसावी ऋषीवंशी अत्रीपासौनि अनुसयेचां गर्भिं चतुर्युगीं उभायदृश्या अवतारू स्वीकरीला: कां पां जें सर्वज्ञें म्हणितलें: श्रीदत्तात्रेयप्रभुचा चतुर्युगीं अवतारू: श्रीदत्तात्रेयप्रभुचा उभायदृश्या अवतारू: सैंह्याद्री अवस्थान नाना वेखें क्रीडा अनंतें चरित्रें केलीं: अनंतां लीळा केलीयां अनंतां जीवातें उद्धरीले: तया श्रीदत्तात्रेयप्रभु गोसावीयांयांचे चरणशरण:।।2।।:</p>
+		<ul data-role="listview" data-theme="b" data-inset="true"  data-count-theme="e">
+			<li><a onclick="glila('P1');"  href="#page" data-transition="slide">  १) श्रीदत्तात्रेयप्रभू मार्गामूळ आदिकरण: पु. १</a></li>
+			<li><a onclick="glila('U145');" href="#page" data-transition="slide" id="U145"> ७) सहस्त्रार्जुन वरप्रदान : उ. १४५ </a></li>
+			<li><a onclick="glila('U146');" href="#page" data-transition="slide" id="U146"> ८) परशुरामा भेटी उ. १४६</a></li>
+			<li><a onclick="glila('P2');" href="#page" data-transition="slide" id="P2a"> १०) सैह्याद्री व्याघ्रवेषे दर्शन - शक्ती स्विकार </a></li>
+			<li><a onclick="glila('P183');" href="#page" data-transition="slide" id="P183"> १२) आत्मतीर्थ प्रसंसा:  पू. १८३ </a></li></ul>
+		</ul>
+      </div>
+      <div data-role="collapsible" data-collapsed="true">
+        <h3>फलेठानी श्रीचांगदेवराउळ मुर्तिज्ञान</h3>
+        <p>फलेठानी कर्हाडेया ब्राम्हणाच्या घरीं श्रीचांगदेवराउळ गोसावी अवतारू स्वीकरीला स्त्रि आग्रहो निमीत्यें मातापुरा बीजे केलें: तेथ सैंह्याद्रीं श्रीदत्तात्रेयप्रभुचिया प्रवृत्ती आदिकारण: व्याघ्रनिमीत्ये श्रीचांगदेवराउळ गोसावी दवडुनि उभायदृश्यत्व स्वीकरीले: पर आच्छादिलें (:प्रश्राः दवडुनि:।रामे।: गर्भीचाची अवतार) द्वारावतिये अवस्थान: अवधुतवेखें क्रीडा: अनंतें चरित्रें केलीं: अनंतां लीळा केलीयां: अनंतां जीवातें उद्धरीले:।: तया श्रीचांगदेवराउळा गोसावीयांचे चरणशरण:।।3।।:</p>
+      <ul data-role="listview" data-theme="b" data-inset="true"  data-count-theme="e">
+				<li><a onclick="glila('P2');" href="#page" data-transition="slide" id="P2"> १) सैह्याद्री व्याघ्रवेखें दरीसनः</a></li>
+				<li> <a onclick="glila('P3');" href="#page" data-transition="slide" id="P3">२) सूपमार्जनी क्रिडा:</a></li>
+				<li> <a onclick="glila('P4');" href="#page" data-transition="slide" id="P4">३) रवळेया गीतश्रवणी नीर्व॑सु कथनः</a></li>
+				<li><a onclick="glila('P5');" href="#page" data-transition="slide" id="P5">४) कऱ्हेकूचकीं आसन:</a></li></ul>
+		</ul>
+	  </div>
+	  <div data-role="collapsible" data-collapsed="true">
+        <h3>ऋद्धिपूरी श्रीप्रभु मुर्तिज्ञान</h3>
+        <p>ऋद्धिपूर प्रांतीं कानवशाखें श्रीप्रभु अवतारू स्वीकरीला: संन्यासवेखें द्वारावतिएं गमण: तेथ श्रीचांगदेवराउळां गोसावीयां क्रीडा करीतां द्वितिएकारण: सूर्पनिमित्तें श्रीगुंडमराउळगोसावी उभायदृश्यत्व स्वीकरीले: अवर आच्छादिलें: पर प्रकटीये केलें: रूद्धपूरीं अवस्थान: निर्विकल्प बाळक्रीडा: अनंतें चरित्रें केलीं: अनंतां लीळा केलीयां: अनंतां जीवातें उद्धरीले तया श्रीगुंडमराउळां गोसावीयांचे चरणशरण:।।4।।:</p>
+      </div>
+	  <div data-role="collapsible" data-collapsed="true">
+        <h3>द्वारावतीए श्रीचांगदेवराउळ मुर्तिज्ञान</h3>
+        <p>द्वारावतीए कामाख्यानिमीत्तें पुरत्येजिलें: गुजरातेचेया प्रधानपुत्राचें पतीत उठउनि श्रीचांगदेवराउळीं गोसावी अवतारू स्वीकरीला तें चांपेगौर: राजस: तेजस: वेल्हाळ श्रीमुर्ति: सुरंग: सुकूमार: ध्वज: वज्र: अंबूज: पद्म अंकुशांकित श्रीचरणु सुहरत वोहरत जंघायुगळ: घणीं पीटिलीया ऐसीया मांडीया: सुरंग मनोहर जंघनद्वय: चौरसु घनवटु बरवा जंघनप्रदेशु: सखोल नाभिरंध्र: वळीत्रय शोभाएमान: सलक्षाणिक समतट दोंद: मृदुतर रोमराजी: विशाळ वक्षस्थाळ: ठोसरें निघोटें: नितळें मुडपें: सरळ वोहरते बरवे अजानुबाहु: सुरंग सकुमार अभयदानी श्रीकरकमळ: त्रिरेखी अळंकृत श्रीकंठ: अलोहीत वोष्टपूट: हीरेलग दंतपंक्ति: प्रहसित मनोहर श्रीमुखा कमळ: सरळ नासापूट: सरळ सुप्रसन्न आकर्ण विशाळ कृपालोचन: सुरेखा वंकटा भवैया: डावीए भवैवरि कांदी: उंचे कपोलें: लंबकर्ण: नीतळ नीडळ: बरवा मनोहर श्रीमुगुट वरीसां पंचवीसा सत्तावीसां भीतरीं दीसे वय: ऐसी सर्वांगसुंदर लावण्य सौभाग्य आथीली श्रीमूर्ति: महावाक्यीं जें गुणधर्म सांगीतलें तेहीं गुणधर्मीं युक्त: द्युतक्रिडानिमीत्यें औदास्य स्विकारू: तेथ ऋद्धिपुरीं श्रीप्रभुचिया प्रवृत्ती त्रुतीय कारण: रांधवनहाटीं सेंगुळेंबुडडे निमीत्यें उभयशक्तीचा स्विकारू: म्हणौनि एथ संपूर्ण अवतारू: पुर्वीचीया पांचै लीळा आठवावीया: अवस्था स्वीकारें कांतीए गमण: चतुर्थ कारण प्रतिष्ठानीं स्वीकरीलें बाइसां भेटी: निर्गुण प्रेमदान: भटादिकां केवळ ज्ञानदान (श्रीदत्तात्रेयप्रभु आदिकारण) गोसावीयां अनिएत अवस्थान: भीक्षुवेषें उभयगंगातीरीं क्रीडा: अनंतें चरित्रें केलीं: अनंतां लीळा केलीयां: अनंतां जीवातें उद्धरीले तया श्रीचांगदेवराउळा गोसावीयांचे चरणशरण:।।5।।:</p>
+      </div>
+	  <div data-role="collapsible" data-collapsed="true">
+        <h3>श्रृत श्रीमुर्तिची भावना आन ध्यान</h3>
+        <p>ऐसी ज्ञानशक्ती: विज्ञाणशक्ती: वेध: वेधशक्ती: बोध: बोधशक्ती: वैखरी: पराशक्ती उभायदृश्यत्व: दया: मया: कृपा: कारून्य प्रवृत्ती निवृत्ति: परावर वरदान: ऐसा व्यक्त सर्वशक्तीयुक्त परमेश्वरू श्रीचक्रधरू जाणीजे: यातें मुर्तिज्ञान बोलीजे:।: ऐसा परमेश्वरू श्रीचक्रधरू: तयाचें नाम लीळा मुर्ति: चेष्टा: देहपर्यंत आठवीजे: ध्याइजे: तैं या संसारापासौनि मुंचीजे: कोरडे अनुष्टीजे तरि मोक्षु होए: ना तेंचि आर्तिपुर्वक अनुष्टीजे तरि प्रेम होए:।: तरि श्रीमुर्तिची भावना आणि ध्यान तें कैसे: ना तें ऐसे गोसावी लखुदेवबासातें म्हणितलें हें तुम्हां श्रृत कीं दृष्ट: श्रृत म्हणिजे आइकीलें: दृष्ट म्हणिजे देखिलें:।: तरि श्रृत श्रीमुर्ति कैसी भावीजे ध्याइजे आणि देखिली श्रीमुर्ति कैसी आठविजे: आतां श्रृत श्रीमुर्तिची भावना आन ध्यान तें कैसें:।:</p>
+      </div>
+
+
+				<div data-role="collapsible" data-collapsed="true">
+				<h3> श्रीमुर्त ऐसी भावीजे ध्याइजे </h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('P25');" href="#page" data-transition="slide" id="P25"> १) जे एकांती श्रीचांगदेव राउळा गोसावीया शिष्या भेटी : (पु.२५-काटोल) </a></li>
+			  <li><a onclick="glila('P234');" href="#page" data-transition="slide" id="P124"> २) आणि धानाइ आख्याइका श्रवण (पु. १२४ - पैठण) </a></li>
+			  <li><a onclick="glila('P298');" href="#page" data-transition="slide"  id="P298"> ३) आणि रेमनाएका अवसर अनावसर कथन (पु.२९८- बीड) </a></li>
+			  <li><a onclick="glila('U76');" href="#page" data-transition="slide" id="U76"> ४) आणि मुर्तिप्रकासें राउता विस्मयो ( उ ७६ - जोगेश्वरी) </a></li>
+			  <li><a onclick="glila('P325');" href="#page" data-transition="slide" id="P325"> ५) आणि पाठवधा राहिया भेटि (पु. ३२५ - पाटोदा)  </a></li>
+			  <li><a onclick="glila('P461');" href="#page" data-transition="slide" id="P461"> ६) आणि हीवरळीए वाएनाएका भेटि नामकरण: (पु. ४६१ - जालना)</a></li></ul>
+			  </div>
+
+
+
+
+
+
+			<div data-role="collapsible" data-collapsed="true">
+				<h3>२. ॥ श्रीचरण ॥ २.॥ </h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li> १) जे एकांकी डावेनि श्रीचरणें सीळातळावरि उदक घालीती : (एकांक) </li>
+			  <li><a onclick="glila('P328');" href="#page" data-transition="slide" id="P328"> २) आणि माहादाइसाचे आंग चुरने (पू. ३२८-पाटोदा) </a></li>
+			  <li><a onclick="glila('P479');" href="#page" data-transition="slide" id="P479"> ३) भटा क्षेउर : ( पू. ४७९ - जालना) </a></li>
+			  <li><a onclick="glila('P279');" href="#page" data-transition="slide" id="U279"> ४) लाहामाइसाते ज्वरीं पडिताळणे (उ. २७९-अरण्यग्राम)</a></li>
+			  <li><a onclick="glila('U472');" href="#page" data-transition="slide" id="U472"> ५) पुरुषोत्तमदेवी पागडे ओळगवणे (उ. ४७२- पैठण ढोरेश्वर ) </a></li>
+			  <li>६) गोसावी पश्चातपाहरी परिश्रया बीजे करिती पश्चात पाहरी भटोबासांच्या वक्षस्थळावर श्रीचरण ठेवती. यावरि उदेयाचा पुजाअवसर आठवीजे आणि जेतुलीही श्रीचरण प्रक्षाळणे तेतुलेही आठवीजे.</li></ul>
+			  </div>
+				  <div data-role="collapsible" data-collapsed="true">
+				<h3> ३. ॥ श्री चरणीचा आंगुठा ॥ श्री चरणाचा आंगुठा ऐसा भाविजे ध्याइजे</h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('P390');" href="#page"  data-transition="slide" id="P390"> १) जे सीमुगा सींपणे (पू. ३९० भडेगाव) </a></li>
+			  <li><a onclick="glila('U383');" href="#page"  data-transition="slide" id="U383"> २) उमाइसा नमस्कारे आंगुठा लावणे (उ. ३८३ - पैठण - ढोरेश्वर ) </a></li>
+			  <li><a onclick="glila('U476');" href="#page"  data-transition="slide" id="U476"> ३) यंत्रासनापुर्वक महादाश्रमाची पुजा स्विकार (उ. ४७६ पैठण - ढोरेश्वर )</a></li>
+			  <li><a onclick="glila('U227');" href="#page"  data-transition="slide" id="U227"> ४) उर्णपटनएनी मार्कंड चोरी प्रकटीए करणे (उ. २२७ - नेवासा) </a></li>
+			  <li><a onclick="glila('U83');" href="#page"  data-transition="slide" id="U83"> ५) पौळी सीळा वाणे (उ. ८३ जोगेश्वरी) </a></i>
+			  <li><a onclick="glila('U18');" href="#page"  data-transition="slide" id="U18"> ६) सांडोवा बांधणे (उ. १८ - खडकुली)</a></li>
+			  <li><a onclick="glila('U264');" href="#page"  data-transition="slide" id="U264"> ७) साधा श्रीचरणाचीया अंगुठेणी निजवणे (उ. २६४ मढपींपळ) </a></li>
+			  <li><a onclick="glila('P500');" href="#page"  data-transition="slide" id="P500"> ८) लळीताईसा काळस्फोट स्पर्शने (पू. ५०० - रावंसगांव)</a>
+			  <li><a onclick="glila('U244');" href="#page"  data-transition="slide" id="U244">९) काळबोटा दवडणे (उ. २४४ - नेवासा)</a></li></ul>
+			  </div>
+			  
+			  
+			  <div data-role="collapsible" data-collapsed="true">
+				<h3>४. ॥ श्रीचरणीचेया आंगोठेयाचे नख ॥ श्री चरणीचेया आंगोठेयाचे नख ऐसे भावीजे ध्याइजे </h3>
+			  <ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('P496');" href="#page"  data-transition="slide" id="P496"> १) जे रावसगावी कामाइसा भेटी नामकरणे ( पू. ४९६ - रावंसगांव) </a></li></ul>
+			  </div>
+			  	<div data-role="collapsible" data-collapsed="true">
+				<h3>५. ॥ गुडघे ॥ गुडघे ऐसे भावीजे ध्याइजे</h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('U193');" href="#page" data-transition="slide" id="U193"> १) जे रुसले देव बुझाउ धाडणे (उ. १९३ - डोमेग्राम) </a></li>
+			  <li><a onclick="glila('U298');" href="#page" data-transition="slide" id="U298"> २) नेउरगांवी धाएखडकी इंद्रभटां हनवी पुजा (उ २९८ - नेउरगाव)</a></li></ul>
+			  </div>
+
+
+
+			<div data-role="collapsible" data-collapsed="true">
+				<h3> ६. ॥ जानुवीभाग ॥ जानुवीभाग ऐसे भावीजती ध्याइजती </h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			<li><a onclick="glila('U571');" href="#page" data-transition="slide" id="U571"> १) जे भटां लखुबाईसां भांडण </a></li>
+			  <li><a onclick="glila('P496');" href="#page" data-transition="slide" id="P496a"> १) जे रावसगावी कामाइसा भेटी नामकरणे ( पू. ४९६ - रावंसगांव) </a></li>
+			  <li><a onclick="glila('P42');" href="#page" data-transition="slide" id="P42"> २) ससीक रक्षण (पू. ४२ सालबर्डी) </a></li>
+			  <li><a onclick="glila('U436');"  href="#page" data-transition="slide" id="U436"> ३) देव कोप खेद खिंन महादेइसां यादव गुरु निरुपणे : (उ. - ४३६- पैठण -ढोरेश्वर) </a></li></ul>
+			  </div>
+			  <div data-role="collapsible" data-collapsed="true">
+			  <ul data-role="listview" data-theme="b" data-inset="true">
+				<h3> ७. ॥ मांडिया ॥ मांडिया ऐसीया भावीजेति ध्याइजेति</h3>
+			  <li><a onclick="glila('P51');" href="#page" data-transition="slide" id="P51"> १) भांडारेकारा देहावसान ( पू. ५१ - नांदेड)</a></li>
+			  <li><a onclick="glila('P305');" href="#page" data-transition="slide" id="P305"> २) सौभागाकरवि केळे खाववणे (पू. ३०५बीड) </a></li></ul>
+			  </div>
+			  <div data-role="collapsible" data-collapsed="true">
+				<h3>८. ॥ जघन प्रदेश ॥  जघन प्रदेश ऐसा भावीजे ध्याइजे</h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('P514');" href="#page" data-transition="slide" id="P514"> १) जे क्षुद्रानदी सेतु बांधणे (पू. ५१४ संगमेश्वर) </a></li>
+			  <li><a onclick="glila('U143');" href="#page" data-transition="slide" id="U143"> २) गदोनाएक जाया वस्त्रपूजा स्वीकार (उ. १४३ - डोमेग्राम) </a></li>
+			  <li><a onclick="glila('U24');" href="#page" data-transition="slide" id="U24">३) गोसावी खडकूलीए सीमुगा उभे घाटीया मेघवर्णी पाग वेढली असे. (उ. २४ - खडकुली) </a></li>
+			  <li><a onclick="glila('P216');" href="#page" data-transition="slide" id="P216"> ४) एळापुरी भक्तांसी खेळु (पू. २१६ - वेरुळ)</a></li>
+			  <li><a onclick="glila('P25');" href="#page" data-transition="slide" id="P25a"> ५) एकांकी कटी प्रदेशी सुडा वेढिला असे (पू. २५ - काटोल)  </a></li></ul>
+			  </div>
+			  <div data-role="collapsible" data-collapsed="true">
+				<h3>९. ॥ उदर ॥ उदर ऐसे भावीजे ध्याइजे </h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('U164');" href="#page" data-transition="slide" id="U164"> १) जे अस्वत्थमुळी इंद्रोपाहारी इंद्रया दैव प्रसंसा (उ. १६४ - डोमेग्राम) </a></li>
+			  <li><a onclick="glila('U164');" href="#page" data-transition="slide" id="U164a">२) बाईसे आरोगणे विनवीति तव गोसावी उदर अवलोकोनी म्हणती बाइ हे अजुन मागे नाः (उ. १६४ - डोमेग्राम) </a></li>
+			  <li><a href="" data-transition="slide" id="">३) सर्वत्र ज्ञानीया भक्तांची खंती उदरी घालीती</a></li></ul>
+			  </div>
+			  <div data-role="collapsible" data-collapsed="true">
+				<h3>१०. ॥ वक्षस्थळ || वक्षस्थळ ऐसे भावीजे ध्याइजे </h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('P408');" href="#page" data-transition="slide" id="P408"> १) जे महात्मा नामपूर्वक कुमारी खाजें देववणे (पू. ४०८- भडेगाव) </a></li>
+			  <li><a onclick="glila('P81');" href="#page" data-transition="slide" id="P81">२) सर्पव्दय पतन (पू. ८१ वडनेर भुजंग)</a></li>
+			  <li><a  id="">३) दोपाहारीचा पुजाअवसरी बीजे करीति च्यारिआडे रेखिति यावरि दोपाहारीचा पुजाअवसर आठविजे</a></li></ul>
+			  </div>
+
+
+			<div data-role="collapsible" data-collapsed="true">
+				<h3>११. ॥ श्रीकर ॥  श्रीकर एसे भावीजे ध्याइजे</h3>
+			<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('P29');" href="#page" data-transition="slide" id="P29"> १) जे भक्त म्हणति अजानबाहो ( पू. २९)</a></li>
+			  <li><a onclick="glila('P302');" href="#page" data-transition="slide" id="P302">२) देवा भटां भेटि (पू. ३०२ - बीड )</a></li>
+			  <li>३) पींडस्पर्श (डोमेग्राम) </li>
+			  <li>४) बाइसे बाहुभूषणे कळियांचे हातसरे ओळगविति ( पूजाअवसर)</li>
+			  <li><a onclick="glila('U330');" href="#page" data-transition="slide" id="U330">५) नागाराउळी कणेरवने वोळगवीली (उ. ३३० - पैठण) </a></li>
+			  <li><a onclick="glila('U473');" href="#page" data-transition="slide" id="U473">६) छायागोपाळाचीया बाइया दोरे वोळगवीले (उ. ४७३- पैठण - ढोरेश्वर)</a></li>
+			  <li><a onclick="glila('U359');" href="#page" data-transition="slide" id="U359">७) जात्यंधक्रीडे लघुत्व प्रकटीए करणें : (उ. ३५९- पैठण - ढोरेश्वर ) </a></li>
+			  <li>८) यावरि जेतुली क्षेमालिंगने तेतुलीही आठवीजे: </li>
+			  <li><a onclick="glila('P585');" href="#page" data-transition="slide" id="P585">( भेटीच्या लीळा क्रमांक पू. ५८५- जोगेश्वरी)</a></li>
+			  <li><a onclick="glila('U172');" href="#page" data-transition="slide" id="U172">( उ. १७२ - डोमेग्राम)</a></li>
+			  <li><a onclick="glila('U429');" href="#page" data-transition="slide" id="U429">(उ. ४२९ पैठण ढोरेश्वर )</a></li></ul>
+			  </div>
+
+
+			  <div data-role="collapsible" data-collapsed="true">
+				<h3>१२. ॥ श्रीकरकमळ || श्रीकरकमळ ऐसे भावीजती ध्याइजति </h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('P64');" href="#page" data-transition="slide" id="P64"> १) जे राएरी पाणिपात्र  ( पू. ६४ राहेर ) </a></li>
+			  <li><a onclick="glila('P35');" href="#page" data-transition="slide" id="P35">२) पंचकौळाचार्या ग्रहोनिवृत्ति ( पू. - ३५) </a></li>
+			  <li><a onclick="glila('P46');" href="#page" data-transition="slide" id="P46">३) भांडारेकारां भेटी (पू. ४६ - भांडारा ) </a></li>
+			  <li><a onclick="glila('P36');" href="#page" data-transition="slide" id="P36">४) घोडाचुडी शिष्या भेटि ( पू. - ३६) </a></li>
+			  <li><a onclick="glila('U78');" href="#page" data-transition="slide" id="U78">५) पटिशाळे वाउनि साधा पाणिपात्र देणे (उ. - ७८ - जोगेश्वरी) </a></li>
+			  <li><a onclick="glila('U372');" href="#page" data-transition="slide" id="U372">६) वोति सारंगपंडीता श्रीकर देणे (उ. ३७२- पैठण ढोरेश्वर)</a></li>
+			  <li><a onclick="glila('P508');" href="#page" data-transition="slide" id="P508">७) राणाइसा श्रीकर देणे (पू. - ५०८ - साडेगावं)</a></li>
+			  <li><a onclick="glila('U144');" href="#page" data-transition="slide" id="U144">८) देमाइसा प्रति कुष्ट धर्म निरुपणें (उ. - १४४ - डोमेग्राम) </a></li>
+			  <li><a onclick="glila('P396');" href="#page" data-transition="slide" id="P396">९) इंद्रोबा तुळसी वाणे (पू - ३९६ - भडेगांव) </a></li></ul>
+			  </div>
+			  <div data-role="collapsible" data-collapsed="true">
+				<h3>१३. । आंगुळीया ॥ आंगुळीया ऐसे भावीजेति ध्याइजेति </h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('U301');" href="#page" data-transition="slide" id="U301"> १) जे गदोनाएकाची पुजा स्वीकार (उ ३०१ नेवरगाव)</a></li>
+			  <li><a onclick="glila('U473');" href="#page" data-transition="slide" id="U473a">२) छायागोपाळीचिया बाइया मुद्रीका वोळगवीलीया (उ. ४७३- पैठण- ढोरेश्वर)</a></li>
+			  <li><a onclick="glila('U443');" href="#page" data-transition="slide" id="U443">३) तारांगुळी क्रीडे महादाइ प्रायश्चित देणे (उ. ४४३ - पैठण - ढोरेश्वर) </a></li>
+			  <li><a href="" id="">४) आणि कोन्ही उपाधी स्थळ आले असति तरि आपूलेया पवित्रा आंगुळीया करुनि उर्ध्व पौंड्रटीळा रेखीति : ( पुजा अवसर) १४.</a></li></ul>
+			  </div>
+			  <div data-role="collapsible" data-collapsed="true">
+			  <ul data-role="listview" data-theme="b" data-inset="true">
+				<h3>१४. ॥ अंगुठा ॥ आंगुठा ऐसे भावीजे ध्याइजे</h3>
+			  <li><a onclick="glila('U433');" href="#page" data-transition="slide" id="U433"> १) जे साधा क्षीरीभोजनपुर्वक टीळा तांबुळ माळ दान (उ. ४३३ - पैठण - ढोरेश्वर ) </a></li>
+			  <li><a onclick="glila('P572');" href="#page" data-transition="slide" id="P572">२) मार्गी गोपाळभोजन दाखवणें (पू ५७२- वडवाळीए) </a></li></ul>
+			  </div>
+			  <div data-role="collapsible" data-collapsed="true">
+				<h3>१५. ॥ श्रीकराची करांगुळी ॥ करांगुळी ऐसी भावीजे ध्याइजे</h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('U105');" href="#page" data-transition="slide" id="U105"> १) जे ताकवताची भाजी वाढणे: (उ. १०५ - डोमेग्राम) </a></li>
+			  <li><a onclick="glila('P145');" href="#page" data-transition="slide" id="P145">२) विसैए देवी कमळी पुजा (पू. १४५ - विसैए)</a></li>
+			  <li><a onclick="glila('P505');" href="#page" data-transition="slide" id="P505">३) बोरीए लाखाइसा राणइसां भेटी: (पू. - ५०५ बोरी) </a></li>
+			  <li><a onclick="glila('U522');" href="#page" data-transition="slide" id="U522">४) कणेरी गुरुभक्ती दाखवणे: (उ. - ५२२- पैठण ढोरेश्वर)</a></li>
+			  <li><a onclick="glila('P558');" href="#page" data-transition="slide" id="P558">५) अवधूताची ब्रम्हप्रकासीका ( पू. - ५५८ वींझुगां )</a></li>
+			  <li><a onclick="glila('U309');" href="#page" data-transition="slide" id="U309">६) रामाइदरीसनकृत नार्येळ कथन: (उ. ३०९ पेहरा संगम) </a></li></ul>
+			  </div>
+			  <div data-role="collapsible" data-collapsed="true">
+				<h3>१६. ।। श्रीकंठ ॥ श्रीकंठ ऐसा भावीजे ध्याइजे</h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('U330');" href="#page" data-transition="slide" id="U330a"> १) जे नागाराऊळी वाघनख सरी वोळगवीली (उ. ३३० - पैठण)  </a></li>
+			  <li><a onclick="glila('U473');" href="#page" data-transition="slide" id="U473">२) छायागोपाळी गोपाळाचिया बाइया साखळे ओळगवीले (उ-४७३- पैठण-ढोरेश्वर)</a></li>
+			  <li><a href="" id="">३) बाइसे प्रतिदिनी गळदंडा वोळगवीति: (पुजाअवसर) </a></li>
+			  <li><a onclick="glila('U433');" href="#page" data-transition="slide" id="U433a">४) साधा प्रसन्न होऊनि माळ दीधली: (उ ४३३ पैठण - ढोरेश्वर) </a></li>
+			  <li><a onclick="glila('U11');" href="#page" data-transition="slide" id="U11">५) पर्वी दायंबासि श्रीकंठीची माळ दीधली: (उ - ११ - खडकूली) </a></li>
+			  <li><a onclick="glila('U338');" href="#page" data-transition="slide" id="U338">६) उमाइसे पुजाअवसरी गोसावीयांच्या श्रीकंठीमाळ घातली (उ- ३३८- पैठण) </a></li>
+			  <li><a onclick="glila('P319');" href="#page" data-transition="slide" id="P319">७) गोंदासी श्रीकंठीची माळ दीधली: (पू - ३१९ - बीड) </a></li>
+			  <li><a onclick="glila('U133');" href="#page" data-transition="slide" id="U133">८) म्हांइभटां उदग्रहणीकापुर्वक ईश्वर प्रतीति करणे (उ १३३ - डोमेग्राम) </a></li>
+			  <li><a onclick="glila('P455');" href="#page" data-transition="slide" id="P455">९) इंद्रभटां पविते देणे : (पू - ४५५- करंजेखेड) यावरि जेतुले गळदंडे तेतुले आठविजे</a></li></ul>
+			  </div>
+			  	<div data-role="collapsible" data-collapsed="true">
+				<h3>१७. ॥ श्रीमुख ॥ श्रीमुख ऐसे भावीजे ध्याइजे</h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('U352');" href="#page" data-transition="slide" id="U352"> १) जे आउ वरप्रदान (उ. ३५२  पैठण)</a></li>
+			  <li><a onclick="glila('U185');" href="#page" data-transition="slide" id="U185">२) साधा अभयदान (उ. १८५ - डोमेग्राम) </a></li>
+			  <li><a onclick="glila('U154');" href="#page" data-transition="slide" id="U154">३) साधा प्रश्ने दर्शना पुढार (उ. - १५४ - डोमेग्राम)</a></li>
+			  <li><a onclick="glila('P387');" href="#page" data-transition="slide" id="P387">४) कानसे ब्राम्हणा अनुवर्जनी वरप्रदान: (पू ३८७- कनासी) </a></li>
+			  <li><a onclick="glila('P30');" href="#page" data-transition="slide" id="P30">५) ओरंगळी मल्ला पुत्रदान (पू ३० )</a></li>
+			  <li><a onclick="glila('U325');" href="#page" data-transition="slide" id="U325">६) भंटा वरप्रदान: ( तुझेनी मुखे अशास्त्र न निघे) (उ ३२५ पैठण) </a></li></ul>
+			  </div>
+			  <div data-role="collapsible" data-collapsed="true">
+				<h3>१८. ॥ दंतपंक्ति |  दंतपंक्ति ऐसे भावीजे ध्याइजे</h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('U11');" href="#page" data-transition="slide" id="U11">१) जे पर्वी दायंबा भेटी (ऊ. ११ खडकुली)</a></li>
+			  <li><a onclick="glila('U215');" href="#page" data-transition="slide" id="U215"> २) घोगरगांवी महाजना भेटी (उ. २१५ घोगरगावं)</a></li>
+			  <li><a href="" id="">३) बाइसे प्रतिदीनी सीलीका ओळगवीति गोसावी प्रतिदीनी दंतधावन करीती</a></li>
+			  <li><a onclick="glila('P221');" href="#page" data-transition="slide" id="P221">४) राकेया लक्ष्मींधरभटा जीव्हामळ प्रसाद निराकरण ( पू. २२१ एळापूर) </a></li></ul>
+			  </div>
+			  
+			  	<div data-role="collapsible" data-collapsed="true">
+				<h3>१९. ॥ नासापुट ॥ नासापुट ऐसे भावीजे ध्याइजे </h3>
+				<ul data-role="listview">
+			  <li><a onclick="glila('P81');" href="#page" data-transition="slide" id="P451">१) जे महात्मा (प्रकाश देव) निर्गमणी सींके उपहासु ( पू. ४५१ - करंजेखेड) </a></li></ul>
+			  </div>
+			  			  	<div data-role="collapsible" data-collapsed="true">
+				<h3>२०. ॥ श्रीनेत्र ॥ श्रीनेत्र ऐसे भावीजे ध्याइजे </h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('P315');" href="#page" data-transition="slide" id="P315">१) जे आबैसी दीठी उतरणे (पू. ३१५ - बीड )</a></li>
+			  <li><a onclick="glila('U490');" href="#page" data-transition="slide" id="U490">२) महादाई नेत्रदीपानुवाद (उ. ४९० पैठण- ढोरेश्वर )</a></li>
+			  <li><a onclick="glila('P107');" href="#page" data-transition="slide" id="P107">३) बाइसा प्रेमकळिका संचरीली ( पू. १०७ - पैठण) </a></li>
+			  <li><a onclick="glila('U360');" href="#page" data-transition="slide" id="U360">४) पहवा सर्पा सन्निधान देणे (उ. ३६० - पैठन- ढोरेश्वर) </a></li>
+			  <li><a onclick="glila('U10');" href="#page" data-transition="slide" id="U10">५) सर्पदृष्ट अवलोकुनि माळी रक्षीला (उ. १० - खडकुली) </a></li>
+			  <li><a onclick="glila('P277');" href="#page" data-transition="slide" id="P277">६) निखंब माड अवलोकने  (पू. २७७ कुंकुमठाण) </a></li>
+			  <li><a onclick="glila('U101');" href="#page" data-transition="slide" id="U101">७) आसनी वोदन रास्यांतरी वानरादि परीहासुः (उ. १०१ - डोमेग्राम)</a></li>
+			  <li><a onclick="glila('P29');" href="#page" data-transition="slide" id="P29a">८) महदोबा भक्त म्हणति विशालनेत्र (पू. २९ एकांक) यावरि जेतुलीही अवलोकने तेतुलीही आठवीजे :</a></li></ul>
+			  </div>
+				<div data-role="collapsible" data-collapsed="true">
+				<h3>२१. ॥ भवैया ॥ भवैया ऐसीया भाविजति ध्याइजति </h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('U489');" href="#page" data-transition="slide" id="U489">१) जे आऊसी कांदी पुसणे (उ. ४८९ - ढोरेश्वर) </a></li></ul>
+			  </div>
+				<div data-role="collapsible" data-collapsed="true">
+				<h3>२२. ॥ कर्णयुगळ ॥ कर्ण युगळ ऐसे भाविजे ध्याइजे </h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('P29');" href="#page" data-transition="slide" id="P29b">१) जे भक्त (महदोबा ) म्हणति लंबकर्ण ( पू. २९ एकांक) </a></li>
+			  <li><a onclick="glila('U330');" href="#page" data-transition="slide" id="U330b">२) नागाराउळी नांदीए वोळगवीले (उ. ३३० - पैठण) </a></li>
+			  <li><a onclick="glila('U473');" href="#page" data-transition="slide" id="U473b">३) छायागोपाळाचिया बाइया अनंत वोळगवीले: (उ. ४७३- पैठण, ढोरेश्वर ) </a></li>
+			  <li><a href="" id="">४) बाइसे प्रतिदिनी झळंबुके वोळगवीति (पुजाअवसर) </a></li></ul>
+			  </div>
+				<div data-role="collapsible" data-collapsed="true">
+				<h3>२३. ॥ लल्हाट || लल्हाट ऐसे भावीजे ध्याइजे</h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('P91');" href="#page" data-transition="slide" id="P91">१) जे बोणेबाइया भेटि (पू. ९१ मेहंकर) </a></li>
+			  <li><a onclick="glila('U429');" href="#page" data-transition="slide" id="U429a">२) चौबारा माहादाइसा उमाइसा भेटी (उ. ४२९ - पैठण- ढोरेश्वर ) </a></li>
+			  <li><a onclick="glila('U415');" href="#page" data-transition="slide" id="U415">३) माइतेया हरीने पत्रवेली रेखीली (उ. ४१५ पैठण ढोरेश्वर ) </a></li>
+			  <li><a onclick="glila('U265');" href="#page" data-transition="slide" id="U265">४) चीचौंडीए सााधांचा टिळे प्रश्नु (उ. २६५ - चींचौडी) </a></li>
+			  <li><a href="" id="">५) बाइसे गोपीचंदनाचा उर्ध्वपौंड्र टीळा रेखिती (पुजा अवसर)  </a></li>
+			  <li><a href="" id="">६) यावरि जेतुलीही टीळे तेतुलीही आठवीजे </a></li></ul>
+			  </div>
+			  	<div data-role="collapsible" data-collapsed="true">
+				<h3>२४ ॥ श्रीमुकुट ॥ श्रीमुकुट ऐसा भावीजे ध्याइजे</h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('U50');" href="#page" data-transition="slide" id="U50">१) जे आउ स्वान हननी श्रीमुकुट धरणे (उ. ५० खडकुली) </a></li>
+			  <li><a href=""  id="">२) आणि श्रीमुकुटी टोपरे वोळगवीति</a></li>
+			  <li><a onclick="glila('U434');" href="#page" data-transition="slide" id="U434">३) साधा नींबमौळी माधुर्यकृत प्रसाददान (उ. ४३४ - पैठण - ढोरेश्वर) </a></li>
+			  <li><a href="" id="">४) बाइसे श्रीमुकुटी मुगुटमाळा वोळगवीति (पुजा अवसर) </a></li>
+			  <li><a onclick="glila('U432');" href="#page" data-transition="slide" id="U432">५) साधा कणेरी फुले वाहणे : (उ. ४३२- पैठण - ढोरेश्वर ) </a></li>
+			  <li><a onclick="glila('P382');" href="#page" data-transition="slide" id="P382">६) साधा गळतु ऐसा दवणा वाहणे (पू. ३८२ - पैठण-ढोरेश्वर)</a></li>
+			  <li><a href="" id="">७) यावरि वीळीचा पुजा अवसर आठवावा</a></li></ul>
+			  </div>
+			  	<div data-role="collapsible" data-collapsed="true">
+				<h3>॥ श्रीमुर्तिचे ज्ञान ॥ म्हणौनि श्रीमुर्तीचे ज्ञान होआवे : कां पा जे </h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('U512');" href="#page" data-transition="slide" id="U512">आऊसाप्रति वाकमु दीघमु अनुवाद : ऐसे हो नेदावे (उ.५१२ - पैठण-ढोरेश्वर) </a></li></ul>
+			  </div>
+			  	<div data-role="collapsible" data-collapsed="true">
+				<h3>॥ नामाचे ज्ञान ॥ नामाचे ज्ञान होआवे : का पा</h3>
+				<ul data-role="listview" data-theme="b" data-inset="true">
+			  <li><a onclick="glila('U377');" href="#page" data-transition="slide" id="U377">जे अमर्दक तपोधना देवता अज्ञान ऐसे हो नेदावे (उ. ३७७ - पैठण ढोरेश्वर) </a></li></ul>
+			  </div>
+			  
+			<div data-role="collapsible" data-collapsed="true" data-theme="b">
+				<h3>॥ लीळेचे ज्ञान ॥  लीळेचे ज्ञान होआवे:</h3>
+<p>
+आचारपरू कीं विचारपरू ऐसें पहावें: मग विचारू जाणावा: कांपां जें <a onclick="glila('U509');" href="#page" data-transition="slide" id="U509"> चक्रवाका अनुवादें गुरूशिष्या अज्ञान  </a>ऐसें हों नेदावें: 
+मग आचाराचें ज्ञान होआवें: मग जातिलग आचरावें: कांपां जें <a onclick="glila('U510');" href="#page" data-transition="slide" id="U510"> श्रीपादा अनुवादें ब्राम्हणा अज्ञान </a> ऐसें हों नेदावें: म्हणौनि ऐसें आचारा विचाराचे: चतुर्विध स्मरणाचें ज्ञान होआवें: मग विचारूनि आचरीजे: 
+स्मरीजें: तें गोसावीयांचां लेखीं लागें: प्रमाणशुन्य तें न लगे: जैसी <a onclick="glila('P447');" href="#page" data-transition="slide" id="P447">>देवाची जाडि:</a> जैसीयां <a onclick="glila('U127');" href="#page" data-transition="slide" id="U127"> भटनाथोबाचियां उडीयां:</a> जैसी <a onclick="glila('U575');" href="#page" data-transition="slide" id="U575">म्हाइंभटाची पानें: </a>जैसी <a onclick="glila('P437');" href="#page" data-transition="slide" id="P437">मार्कंडाची भीक्षा:</a> जैसा <a onclick="glila('U94');" href="#page" data-transition="slide" id="U94"> नाथोबाचां तांदुळजा: </a>
+जैसी <a onclick="searchlila('drushtanth','कीर्तिकठियाचा ९५');" href="#page" data-transition="slide">दुसरीया कठीयाची</a> क्रिया म्हणौनि जीएकाळिचा जो जेतुला विधि: तो तेतुला प्रमाणयुक्त जातीलगु आचरावा: तरि काहीं एक अंशु गोसावीयांचां लेखी लागे: तेचि कां पां जें सर्वज्ञें म्हणितलें: 
+तयाचें उठणें बैसणें इतुलेंहीं वाया न वचें: म्हणौनि विचारूनि आचरीजे: स्मरीजे: तैचि श्रीचक्रधरू पावीजे:।।: एवं मुर्तिज्ञान संपुर्ण:
+</p>
+			  </div>
+			  
+			  <div data-role="collapsible">
+				<h3>|| प्रसन्नतेच्या लिळा ॥ </h3>
+			  
+			  </div>
+	
+
+	  <div data-role="footer" data-theme="b">
+    <h1>@HemangSoni</h1>
+  </div>
+</div>
+</div>
+</div>
+<!-- Page Five Ends-->
 
 
 
