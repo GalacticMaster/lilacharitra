@@ -2,12 +2,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <script type='text/javascript'  src='https://code.jquery.com/jquery-1.4.4.js'></script>
 <script type='text/javascript'  src='https://code.jquery.com/jquery-1.4.4.min.js'></script>
 <script type='text/javascript'  src="https://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
 <link rel="stylesheet" type="text/css"  href="https://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css">
+
+
+
 
 
 <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"> -->
@@ -64,7 +67,7 @@ function colltest_d(Aadi,Lila,Tip,Vachan,drushtant,sambandh,lapnik,dvachan,drush
 	$(window).load(Aadi,Lila, function(){
 		//$('[data-role="content"]').empty();
 		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
-		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tip+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p></div><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> संबंध  : </span> '+sambandh+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> लापणिक   : </span> '+lapnik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टांत  : </span> '+drushtant+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> वचन  : </span> '+dvachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टान्त  : </span> '+drush+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दार्ष्टान्तिक  : </span> '+drashtantik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> भावार्थ  : </span> '+arth+'</p></div>').appendTo('[data-role="content"]').page()
+		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p>'+Tip+'</p><p><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p></div><p><span style="color: #ff0000"> संबंध  : </span> '+sambandh+'</p><p><span style="color: #ff0000"> लापणिक   : </span> '+lapnik+'</p><p><span style="color: #ff0000"> दृष्टांत  : </span> '+drushtant+'</p><p><span style="color: #ff0000"> वचन  : </span> '+dvachan+'</p><p><span style="color: #ff0000"> दृष्टान्त  : </span> '+drush+'</p><p><span style="color: #ff0000"> दार्ष्टान्तिक  : </span> '+drashtantik+'</p><p><span style="color: #ff0000"> भावार्थ  : </span> '+arth+'</p></div>').appendTo('[data-role="content"]').page()
 		//$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
 		//$('<p>'+drushtant+'</p>').appendTo('[data-role="content"]').page()
 		
@@ -202,14 +205,13 @@ $.getJSON('person.json', function(jd)
 </div>
 
 <div data-role="main" class="ui-content">
-
 <ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
     <li><a href="#pagetwo"  data-transition="slide">सूत्र सूची</a></li>
-    <li><a href="#pagetwo"  data-transition="slide">सूत्र सूची</a></li>  
-	<li><a href="#pagefour" data-transition="slide">दृष्टांत पाठ</a></li>
+	<li><a href="#pagethree"  data-transition="slide">व्यक्ती सूची </a></li>
+	<li><a href="#pagefour"  data-transition="slide">दृष्टांत पाठ</a></li>
+
 </ul>
   </div>
-
  
   <div data-role="footer">
     <h1>@HemangSoni</h1>
