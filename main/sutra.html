@@ -10,20 +10,6 @@
 <link rel="stylesheet" type="text/css"  href="https://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css">
 
 
-
-
-
-<!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"> -->
-<!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
-<!-- <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> -->
-<!-- <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
-<!-- <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
-<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
-<!-- <script src="https://pagination.js.org/dist/2.1.4/pagination.min.js"></script> -->
-<!-- <link rel="stylesheet" href="https://pagination.js.org/dist/2.1.4/pagination.css"/> -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-
 <style>
 .ui-listview > li a {
   white-space: normal;
@@ -35,29 +21,23 @@ h3 .ui-btn-text{ white-space:normal; word-break:break-all; }
 
 <script type='text/javascript'>
 
-function colltest(Aadi,Lila,Vachan,Tika,drushtant){
+function colltest(Aadi,Lila,tip){
 	$(window).unload();
 	$('[data-role="content"]').empty();
 	$(window).load(Aadi,Lila, function(){
 		//$('[data-role="content"]').empty();
 		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
-		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;"> Addi :'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> Lila :'+Lila+'</p><p> दृष्टांत  : '+drushtant+'</p></div>').appendTo('[data-role="content"]').page()
-		$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
-		//$('<p>'+drushtant+'</p>').appendTo('[data-role="content"]').page()
-		
+		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify">'+tip+'</p></div>').appendTo('[data-role="content"]').page()		
 		});
 }
 
-function colltest_v(Aadi,Lila,Tip,Vachan,drushtant){
+function colltest_v(Aadi,Lila,Tip,Vachan,tika,lapika){
 	$(window).unload();
 	$('[data-role="content"]').empty();
 	$(window).load(Aadi,Lila, function(){
 		//$('[data-role="content"]').empty();
 		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
-		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p>'+Tip+'</p><p><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p><p><span style="color: #ff0000"> दृष्टांत  : </span> '+drushtant+'</p></div>').appendTo('[data-role="content"]').page()
-		//$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
-		//$('<p>'+drushtant+'</p>').appendTo('[data-role="content"]').page()
-		
+		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> लापिका  : </span> '+lapika+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> टीका   : </span> '+tika+'</p></div>').appendTo('[data-role="content"]').page()
 		});
 }
 
@@ -67,10 +47,7 @@ function colltest_d(Aadi,Lila,Tip,Vachan,drushtant,sambandh,lapnik,dvachan,drush
 	$(window).load(Aadi,Lila, function(){
 		//$('[data-role="content"]').empty();
 		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
-		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p>'+Tip+'</p><p><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p></div><p><span style="color: #ff0000"> संबंध  : </span> '+sambandh+'</p><p><span style="color: #ff0000"> लापणिक   : </span> '+lapnik+'</p><p><span style="color: #ff0000"> दृष्टांत  : </span> '+drushtant+'</p><p><span style="color: #ff0000"> वचन  : </span> '+dvachan+'</p><p><span style="color: #ff0000"> दृष्टान्त  : </span> '+drush+'</p><p><span style="color: #ff0000"> दार्ष्टान्तिक  : </span> '+drashtantik+'</p><p><span style="color: #ff0000"> भावार्थ  : </span> '+arth+'</p></div>').appendTo('[data-role="content"]').page()
-		//$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
-		//$('<p>'+drushtant+'</p>').appendTo('[data-role="content"]').page()
-		
+		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tip+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p></div><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> संबंध  : </span> '+sambandh+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> लापणिक   : </span> '+lapnik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टांत  : </span> '+drushtant+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> वचन  : </span> '+dvachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टान्त  : </span> '+drush+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दार्ष्टान्तिक  : </span> '+drashtantik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> भावार्थ  : </span> '+arth+'</p></div>').appendTo('[data-role="content"]').page()
 		});
 }
 //colltest("hemang");
@@ -87,11 +64,9 @@ $.getJSON('person.json', function(jd)
 		$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+json[ID].Lila+'</p>');
 			if (json[ID].person){
 			person = json[ID].person;
-			$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+person+'</p>');
 			}
 			if (json[ID].vachan != ""){
 			vachan = json[ID].vachan;
-			$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;"> वचन  :'+vachan+'</p>');
 			}
 	});
 }
@@ -118,9 +93,10 @@ $.getJSON('person.json', function(jd)
 						let result = person[p] === searchtext;
 						console.log(person[p],result);
 						if (result){
-						colltest_v(json[i].Aadi,json[i].Lila,json[i].Tip,json[i].vachan,json[i].drushtant);
-						$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+person+'</p>');
+					//console.log(vachan);
+						colltest(json[i].Aadi,json[i].Lila,json[i].Tip);
 						}
+
 					}
 				}
 			}
@@ -139,15 +115,7 @@ $.getJSON('person.json', function(jd)
 							//console.log(json[i].lilaID);
 							//console.log(vachan[v]);
 							console.log(v_list);
-							colltest(json[i].Aadi,json[i].Lila,vachan[v],json[i].tika[v]);
-						$("#output").append('<h3 style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+json[i].Aadi+'</h3>');
-						$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;">'+json[i].Lila+'</p>')
-						$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;"> वचन  :'+vachan[v]+'</p>');
-						$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;"> टिका  :'+ json[i].tika[v] + '</p>');
-						$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;"> व्यक्ती : ' + json[i].person + '</p>');
-						$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;"> दृष्टांत  : ' + json[i].drushtant + '</p>');
-						$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;"> स्थान  : ' + json[i].sthan + '</p>');
-						$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;"> भाव समरण नोट्स : ' + json[i].avyav + '</p>');
+							colltest_v(json[i].Aadi,json[i].Lila,json[i].Tip,vachan[v],json[i].tika[v],json[i].lapika[v]);
 
 						}
 					
@@ -168,7 +136,6 @@ $.getJSON('person.json', function(jd)
 							console.log(json[i].Aadi);
 							
 						colltest_d(json[i].Aadi,json[i].Lila,json[i].Tip,json[i].vachan,drushtant[d].drish,drushtant[d].sambandh,drushtant[d].lapnik,drushtant[d].dvachan,drushtant[d].drush,drushtant[d].drashtantik,drushtant[d].arth)
-						$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;"> वचन  :'+json[i].Aadi+'</p>');
 						}
 					}
 				}
@@ -178,7 +145,6 @@ $.getJSON('person.json', function(jd)
 					{let result = json[i].Aadi.includes(searchtext);
 						if (result){
 							//console.log(result);
-						$("#output").append('<p style="text-align: center;font-family: Arial;;margin: 25px;padding: 8px;border-style: solid;border-radius: 10px;border-color: black;"> वचन  :'+json[i].Aadi+'</p>');
 						}
 					}
 			}
@@ -1583,7 +1549,6 @@ $.getJSON('person.json', function(jd)
 	
 <ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 			  
-			<li><a onclick="searchlila('person','म्हाइंभट');" href="#page" data-transition="slide">म्हाइंभट</a></li>
 			<li><a onclick="searchlila('person','अत्रि');" href="#page" data-transition="slide">अत्रि</a></h2>
 <li><a onclick="searchlila('person','अकृर');" href="#page" data-transition="slide">अकृर</a></h2>
 <li><a onclick="searchlila('person','अग्नी');" href="#page" data-transition="slide">अग्नी</a></h2>
