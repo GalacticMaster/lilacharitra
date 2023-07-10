@@ -31,13 +31,13 @@ function colltest(Aadi,Lila,tip){
 		});
 }
 
-function colltest_v(Aadi,Lila,Tip,Vachan,tika,lapika){
+function colltest_v(Aadi,Lila,Tip,Vachan,tika,lapika,l_url){
 	$(window).unload();
 	$('[data-role="content"]').empty();
 	$(window).load(Aadi,Lila, function(){
 		//$('[data-role="content"]').empty();
 		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
-		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> लापिका  : </span> '+lapika+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> टीका   : </span> '+tika+'</p></div>').appendTo('[data-role="content"]').page()
+		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> लापिका  : </span> '+lapika+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> टीका   : </span> '+tika+'</p><a href="'+l_url+'">Tika 1 from Mahabhashya</a></div>').appendTo('[data-role="content"]').page()
 		});
 }
 
@@ -111,7 +111,8 @@ $.getJSON('person.json', function(jd)
 							//console.log(json[i].lilaID);
 							//console.log(vachan[v]);
 							console.log(v_list);
-							colltest_v(json[i].Aadi,json[i].Lila,json[i].Tip,vachan[v],json[i].tika[v],json[i].lapika[v]);
+							l_url="https://hemangsoni.gitbook.io/vichar/1"
+							colltest_v(json[i].Aadi,json[i].Lila,json[i].Tip,vachan[v],json[i].tika[v],json[i].lapika[v],l_url);
 
 						}
 					
@@ -172,6 +173,7 @@ $.getJSON('person.json', function(jd)
 	<li><a href="#pagethree"  data-transition="slide">॥ व्यक्ती सूची  ॥</a></li>
 	<li><a href="#pagefour"  data-transition="slide">॥ दृष्टांत पाठ ॥</a></li>
 	<li><a href="#pagefive"  data-transition="slide">॥ मूर्तिज्ञान ॥</a></li>
+	<li><a href="#pagesix"  data-transition="slide">॥ नामाचें दाहा ठाय ॥</a></li>
 
 </ul>
   </div>
@@ -2019,7 +2021,7 @@ $.getJSON('person.json', function(jd)
 <li><a onclick="searchlila('drushtanth','सुरीएचा ४०');"  href="#page" data-transition="slide"> सुरीएचा ४०</a></li> 
 <li><a onclick="searchlila('drushtanth','रुम्हणेयाचा ४१');"  href="#page" data-transition="slide"> रुम्हणेयाचा ४१</a></li> 
 <li><a onclick="searchlila('drushtanth','चांदोवेयाचा ४२');"  href="#page" data-transition="slide"> चांदोवेयाचा ४२</a></li> 
-<li><a onclick="searchlila('drushtanth','हस्तीचा ४३');"  href="#page" data-transition="slide"> हस्तीचा ४३</a></li> 
+<li><a onclick="searchlila('drushtanth','हस्तीचा ४३');"  href="#page" data-transition="slide"onclick="searchlila('drushtanth','हस्तीचा ४३');"  href="#page" data-transition="slide"> हस्तीचा ४३</a></li> 
 <li><a onclick="searchlila('drushtanth','डुळकैलेया बाळकाचा ४४');"  href="#page" data-transition="slide"> डुळकैलेया बाळकाचा ४४</a></li> 
 <li><a onclick="searchlila('drushtanth','कपाळपरीक्षेचा ४५');"  href="#page" data-transition="slide"> कपाळपरीक्षेचा ४५</a></li> 
 <li><a onclick="searchlila('drushtanth','मोदळेयाचा ४६');"  href="#page" data-transition="slide"> मोदळेयाचा ४६</a></li> 
@@ -2431,7 +2433,85 @@ $.getJSON('person.json', function(jd)
 <!-- Page Five Ends-->
 
 
+<!-- Page six start-->
 
+
+<div data-role="page" data-theme="b" id="pagesix">
+  <div data-role="header">
+    <h1>Welcome To ॥ नामाचें दाहा ठाय ॥ </h1>
+  </div>
+ 
+  <div data-role="main" class="ui-content">
+	<h2 style="color:Tomato;text-align: center;font-size: 30px">॥ नामाचें दाहा ठाय ॥</h2>
+	</div>
+	<div data-role="main" class="ui-content">
+			<div data-role="collapsibleset" data-theme="b" data-content-them="b">
+			<div data-role="collapsible" data-collapsed="true">
+				<h1>नामाचें दाहा ठाय</h1>
+				<p>:।।: नामाचें दाहा ठाय:।।: ।। श्रीचक्रधरायनमः:।।: साकारापासौनि नाम मुर्ति: निराकारापासौनि लीळा चेष्टा: (साकारापासौनि लीळा चेष्टा: निराकारापासौनि नाम मुर्ति) म्हणौनि साकारा निराकारा नामचि कारण: पाहाटगान भट धाडिवे नाम उच्चारीति आणि देयावें देयावें ऐसें उपजें: तैसें परमेश्वरू ब्रम्हविद्या निरूपीति तेव्हेळिं आधीं नाम सांघति: तें नाम उच्चारीलें दृपदाउसीं: जैं कौरवीं अवकळां केली: तैं कौरव तेणें नामेंचि संहारीलें: तेणें नामें दृवासया सीख लाविली: जैं पांडवांतें शापुं आला: तैं तेणें नामें आपुलेया ऐष्वर्याचा टीळा सारीला: तेणें नामें वीश्व चैतन्यासि सीख लाविली: जैं आनंदु प्रकटीला तै: तया लाजा प्रतौनि मुख न पाहेचि: साकारासि ढळों चळों नए आणि निराकारासि संहारू करूं नैए: जवं ज्ञानिया वर्ते तवं: (सामकोसीं नाम उच्चारीले आन लुखदेवबासांसि वेध संचरला:) ऐसें नाम वेधवंत म्हणौनि नामें वेधु:।।1।।: नामें बोधु:।।2।।: नामें अनुसरन:।।3।।: नामें स्मरण:।।4।।: नाम सकळ नीरोध परीहरी:।।5।।: नाम वाजत वारा धरी:।।6।।: नाम पडतें आकाश धरी:।।7।।: नाम येतें वीघ्न हरी:।।8।।: नाम साह्यातें करी:।।9।।: नाम प्राप्तीतें करी:।।10।।::।।: </p>
+			</div>
+			
+						<div data-role="collapsible" data-collapsed="true">
+				<h1>नामें वेधु</h1>
+				<p>तरि नामें वेधु तें केवि: ना: हीवरळीए <a onclick="glila('P472');" href="#page" data-transition="slide">लखुदेवबासाचीए लीळेचेनि </a> न्यायें: तेंचि केवि: ना सुक्षेत्राचेनि दृष्टांतें: तेंचि केवि: ना सर्वज्ञें म्हणितलें: एथीचेया नामापासौनि वेधु: कां स्थाना पासौनि वेधु म्हणौनि नामें वेधु: </p>
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h1>नामें बोधु</h1>
+				<p>तरि नामें बोधु तें केवि: ना <a onclick="glila('U133');" href="#page" data-transition="slide">डोंबेग्रामीं छिन्नपापीं म्हाइंभटाचीए लीळेचेनि न्यायें:</a> तेंचि केवि: ना <a onclick="searchlila('drushtanth','हस्तीचा ४३');"  href="#page" data-transition="slide">हस्तिचेनि दृष्टांतें:</a> तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','जीवासि बोधु आणि बोधशक्ति तें एथौनिचि कीं गा (वि. ११२)');"  href="#page" data-transition="slide">बोधु आणि बोधशक्ती तें एथौनिचि कींगा </a> म्हणौनि नामें बोधु:।।2।।: </p>
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h1>नामें अनुसरण</h1>
+				<p>तरि नामें अनुसरण तें केवि: ना डोंबेग्रामीं <a onclick="glila('U144');" href="#page" data-transition="slide">देमाइसां कुष्टधर्म निरूपणें </a>तिये लीळेचेनि न्यायें: तेंचि केवि: ना <a onclick="searchlila('drushtanth','कुष्टियाचा ५३');"  href="#page" data-transition="slide">कुष्टियाचेनि दृष्टांतें:</a> तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','देवो माझा मीं देवाचा ऐसेया परि असीजो का देमती (आ. २०५)');"  href="#page" data-transition="slide">देवो माझा: मी देवाचां: ऐसिया परि असिजो कां देमती</a> म्हणौनि नामें अनुसरण:।।3।।: </p>
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h1>नामें स्मरण</h1>
+				<p>तरि नामें स्मरण तें केवि: ना <a onclick="glila('P174');" href="#page" data-transition="slide">मांगरौळीएं चांगदेवभटाचीएं लीळेचेनि </a>न्यायें: तेंचि केवि: ना <a onclick="searchlila('drushtanth','भिंगुरुटीयेचा ९६');"  href="#page" data-transition="slide">भींगुरूटीएचेनि दृष्टांतें:</a> तेंचि केवि: ना सर्वज्ञें म्हणितलें: यातें दाहा विस वेळा आठवीजे: दाहा विस वेळा ना तरि सात पांच वेळ आठवीजे: सात पांच वेळ नाठवे तरि दोनी च्यारी वेळा आठवीजे: दोनी च्यारी वेळा ना आठवे तरि <a onclick="searchlila('vachan','एक दोनि वेळ यातें आठविजे परि वंध्यु दिवसु जाओं नेदिजे (आ. ३२)');"  href="#page" data-transition="slide"> एक दोनि वेळा आठवीजे: परि वंद्यु दिवसु जावों नेदिजे</a> म्हणौनि नामें स्मरण:।।4।।: </p>
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h1>नाम सकळ निरोध परीहरी</h1>
+				<p>तरि नाम सकळ निरोध परीहरी तें केवि: ना: ऋद्धपुर मार्गीं दाइंबा मौन्य वीहीलें: तिये लीळेचेनि न्यायें: तेंचि केवि: ना <a onclick="searchlila('drushtanth','ब्रह्मचारी घोडेयाचा ७८');"  href="#page" data-transition="slide">ब्रम्हचारी घोडेयाचेनि दृष्टांतें:</a> तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','परिच्छेदीं प्रवर्तलेया पुरुषाचे सकळही निरोध नेणों कोणचि निर्पौनि फेडी (आ. १०१)');"  href="#page" data-transition="slide">परिच्छेदीं प्रवर्तलेया पुरूषाचें सकळही नीरोध नेणों कोणचि नीर्पौनि फेडी</a> म्हणौनि नाम सकळही नीरोध परीहरी:।।5।।: </p>
+				
+			</div>
+						<div data-role="collapsible" data-collapsed="true">
+				<h1>नाम वाजत वारा धरी:</h1>
+				<p>तरि नाम वाजत वारा धरी: तें केवि: ना <a onclick="glila('U185');" href="#page" data-transition="slide">डोंबेग्रामीं साधाचीए लीळेचेनि</a> न्यायें: तेंचि केवि: ना <a onclick="searchlila('drushtanth','रिणाइताचा ७३');"  href="#page" data-transition="slide">रीणाइताचेनि दृष्टांतें:</a> तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','न भीया हो साधे हो तुम्हांवरि एथौनि वाजत वारा धरीजैल (आ. १०४)');"  href="#page" data-transition="slide"> न भीया हो साधे हो: तुम्हांवरि वाजत वारा एथौनि धरिजैल:</a> म्हणौनि नाम वाजत वारा धरी:।।6।।: </p>
+			</div>
+			
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h1>नाम पडतें आकास धरी:</h1>
+				<p>तरि नाम पडतें आकास धरी: तें केवि: ना: <a onclick="glila('U310');" href="#page" data-transition="slide">पेहरासंगमी रामाइसांचीए लीळेचेनि</a> न्यायें: तेंचि केवि: ना <a onclick="searchlila('drushtanth','दंदियाचा ७४');"  href="#page" data-transition="slide"> दंदियाचा ७४</a>दंदीयाचेनि दृष्टांतें: </a>तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','धर्माचिया चाडा रायाची राणी कां न ये वरि पडतें आकाश धरिजैल (आ. १०३)');"  href="#page" data-transition="slide">धर्माचीया चाडां रायाची राणी कां नये वरि पडते आकास धरिजैल</a> म्हणौनि नाम वरि पडतें आकास धरी:।।7।।: </p>
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h1>नाम येतें वीघ्न हरी:</h1>
+				<p>तरि नाम येतें वीघ्न हरी: तें केवि: ना <a onclick="glila('U608');" href="#page" data-transition="slide">बेलापुरीं माहादाइसांचीए जाप्य प्रष्नाचीए लीळेचेनि </a>न्यायें: तेंचि केवि: ना <a onclick="searchlila('drushtanth','लेंकुरुवाळीए मातेचा ९८');"  href="#page" data-transition="slide">लेंकुरवाळीए मातेचेनि दृष्टांतें:</a> तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','पोरा जीवा आग्रहो नाहीं आग्रहो जरि होए तरि परमेश्‍वरु ज्ञानियासि प्रेम देती (आ. मा. २५)');"  href="#page" data-transition="slide">पोरा जीवासि आग्रहो नाहीं आग्रहो जरि होए तरि कोपरा पान्हावो ए </a>म्हणौनि नाम येतें वीघ्न हरी:।।8।।: </p>
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h1>नाम साह्यातें करी</h1>
+				<p>तरि नाम साह्यातें करी तें केवि: ना <a onclick="glila('U77');" href="#page" data-transition="slide">जोगेस्वरीं साधाचीए लीळेचेनि </a>न्यायें: तेंचि केवि: ना घासाचेनि दृष्टांतें: तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','नामस्मरण करावे नामीं अभिमानु आति (आ. मा. ४६)');"  href="#page" data-transition="slide"> नामीं अभिमानु आति कीं</a> म्हणौनि नाम साह्यातें करी:।।9।।: </p>
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h1>नाम प्राप्तीतें करी</h1>
+				<p>तरि नाम प्राप्तीतें करी: तें केवि: ना: द्वापरीं अर्जुनदेवांचीए लीळेचेनि न्यायें: तेंचि केवि: ना<a onclick="searchlila('drushtanth','सुरीचा (आंबवतीएचा) १०६');"  href="#page" data-transition="slide">सुरीचेनि दृष्टांतें:</a> तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','बाइ श्रीकृष्णचक्रवर्ती अनंत उद्धरिले परि उद्धवार्जुन हे पुराण प्रसिद्ध (वि. ८२)');"  href="#page" data-transition="slide">द्वापरि श्रीकृष्णचक्रवर्तीं अनंत उद्धरीले परि उद्धवार्जुन हे पुराणप्रसिद्ध</a> म्हणौनि नाम प्राप्तीतें करी:।।10।।: </p>
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h1>रिकामे नसावे मुखी नाम घेता पांचवे ते निरंतर स्मरिजे </h1>
+				<p>ते नाम उच्चारीलें <a onclick="glila('P174');" href="#page" data-transition="slide">मांगरौळी चांगदेवभटीं वाळुवंटी:</a> तेणें आकर्षीला इश्वरू पासि आला: तें नाम उच्चारीलें <a onclick="glila('U77');" href="#page" data-transition="slide">साधीं गंगे बुडतां:</a> तें तेणें नामेचि तारीली: 
+				<a onclick="glila('U11');" href="#page" data-transition="slide">देवता सेळीएचेनि वेखें दाइंबा पाठीं लागली:</a> तेसनेया क्षोभापासौनि नामेचि राखीलें: 
+				<a onclick="glila('U11');" href="#page" data-transition="slide">सरालां आउसीं नाम आइकीलें: उच्चारीलें:</a> तेणें घडला अविधि परीहरला: विपरीत बुद्धी जाउनि थोरी आली: आर्ति उपजली: तया स्थानाची सवे सांडीली: स्वभावाचां त्यागु केला परमेश्वरू सानुकुळ होउनि साउमे आले: दर्शणां सन्नीधाना योग्य जाली: ऐसें नाम साह्यातें करी: तें नाम रूक्मणीआउसीं आइकतखेओं अष्टभोगांचा त्यागु केला: नामाचीया अवस्था हातींचिं पानें पळवा जालीं: अन्यथाज्ञानें हडपिनीसी कोपली: ऐसें नाम आवडीरूप आणि वेधवंत: नामाचेनि जाप्यें प्रवृत्ती भंगैल: भटोबासीं म्हणितलें तें जरि नाम उच्चारिता देवगिरीचा नीनावा तरि तयाचें अनिष्ट चुकतें आणि इश्वरीचि प्रवृत्ती भंगती: म्हणौनि नाम आठवीजे स्मरीजे: चींतीजे: ध्याइजे: तैचि या संसारापासौनि मुंचीजे म्हणौनि भटोबासीं म्हणितलें एणें अवतारें श्रीचक्रधरें जो नुधरे: तो कहींचि नुधरे: मां नुधरे:।।: एवं नामाचें दाहा ठाय समाप्त:।।०।।:</p>
+			</div>
+			
+
+	  <div data-role="footer" data-theme="b">
+    <h1>@HemangSoni</h1>
+  </div>
+</div>
+</div>
+
+
+
+
+<!-- Page six end-->
 
 
 
