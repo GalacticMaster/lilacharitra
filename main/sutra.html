@@ -7,19 +7,38 @@
 <script type='text/javascript'  src='https://code.jquery.com/jquery-1.4.4.js'></script>
 <script type='text/javascript'  src='https://code.jquery.com/jquery-1.4.4.min.js'></script>
 <script type='text/javascript'  src="https://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
+
 <link rel="stylesheet" type="text/css"  href="https://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css">
+
 
 
 <style>
 .ui-listview > li a {
   white-space: normal;
 }
+
 h3 .ui-btn-text{ white-space:normal; word-break:break-all; }
+
 
 
 </style>
 
 <script type='text/javascript'>
+
+function colllila(lilaID,Aadi,Lila){
+//console.log(lilaID,Aadi,Lila);
+	//$(window).unload();
+	//$('[data-role="content"]').empty();
+	$(document).ready(function(){
+	console.log(lilaID,Aadi,Lila);
+		//$('[data-role="content"]').empty();
+		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
+		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> Lila :'+Lila+'</p>').appendTo('[data-role="content"]').page()
+		//$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
+		//$('<p>'+drushtant+'</p>').appendTo('[data-role="content"]').page()
+		
+		});
+}
 
 function colltest(Aadi,Lila,tip){
 	$(window).unload();
@@ -68,6 +87,23 @@ $.getJSON('person.json', function(jd)
 	});
 }
 
+
+function Alila(){
+$.getJSON('person.json', function(jd)
+	{var json = jd.main;
+	for (let i = 1; i < json.length; i++){
+	var lid = json[i].lilaID;
+	let result = lid.startsWith("P")
+	if(result){
+	
+	//console.log(json[i]);
+		colllila(json[i].lilaID,json[i].Aadi,json[i].Lila);
+
+		
+		}
+	}
+	});
+}
 //glila(2);
 
 function searchlila(type,searchtext){
@@ -163,11 +199,15 @@ $.getJSON('person.json', function(jd)
 <div data-role="page" data-theme="b" id="pageone">
   <div data-role="header">
     <h1 style="color:Tomato;font-size: 30px"><i>लीळाचरित्र</i></h1>
+	<h3>विनम्र दंडवत करून एक नम्र विनंती करतो.</h3>
+	<h3>श्रीकृष्ण म्हणे उद्धवदेवा, हा ज्ञान रत्नाचा ठेवा । भलतेया हातीं न द्यावा, अधिकारेवीण ॥१॥ </h3>
+	<h3>हे निरूपण न सांगावे नास्तिका, न बोलावे दांभिका । ऐको न द्यावे निंदका, ऐसी असावी व्यवस्था ॥२॥</h3>
 	<h1 style = "font-size: 20px">॥ श्री परेशाए नम: ॥</h1>
 </div>
 
 <div data-role="main" class="ui-content">
 <ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
+	<li><a onclick="Alila();" href="#page"  data-transition="slide">॥ पूर्वार्ध ॥</a></li>
     <li><a href="#pagetwo"  data-transition="slide">॥ सूत्र पाठ ॥</a></li>
 	<li><a href="#pagethree"  data-transition="slide">॥ व्यक्ती सूची  ॥</a></li>
 	<li><a href="#pagefour"  data-transition="slide">॥ दृष्टांत पाठ ॥</a></li>
@@ -2522,7 +2562,7 @@ $.getJSON('person.json', function(jd)
 
   <div data-role="page" data-theme="b" id="page" >
            <div data-role = "header">
-            <h2>Sutra Path + Tika</h2>
+            <h2>output</h2>
          </div>
     <div data-role="content" data-theme="c">
       <div data-role="collapsible-set" data-collapsed="true">
