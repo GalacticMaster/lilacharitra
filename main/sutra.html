@@ -150,7 +150,7 @@ $.getJSON('person.json', function(jd)
 
 function Alila(type){
 console.log(type);
-
+$('[data-role="content"]').empty()
 $.getJSON('person.json', function(jd)
 	{var json = jd.main;
 	for (let i = 1; i < json.length; i++){
