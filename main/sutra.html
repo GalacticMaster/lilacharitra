@@ -19,15 +19,74 @@
 
 h3 .ui-btn-text{ white-space:normal; word-break:break-all; }
 
+li small:nth-of-type(3) {
+  display: none;
+}
 
+.list-group-item {
+  list-style: none;
+  display: flex;
+  border-bottom: 1px solid;
+}
+
+.list-group-item a {
+  display: flex;
+  flex: 1;
+  height: 40px;
+  align-items: center;
+  font-family: Arial;
+  font-size: 14px;
+}
+
+small {
+  order: 2;
+}
+
+strong {
+  order: 1;
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.list-group-item {
+  list-style: none;
+  display: flex;
+  border-bottom: 1px solid;
+}
+
+.thumb-sm {
+  max-width: 20px;
+}
+
+.list-group-item a {
+  display: flex;
+  flex: 1;
+  height: 40px;
+  align-items: center;
+  font-family: Arial;
+  font-size: 14px;
+}
+
+li span {
+  flex: 1;
+}
+
+li a {
+  color: black;
+  text-decoration: none;
+}
 
 </style>
 
 <script type='text/javascript'>
 
+
 function colllila(lilaID,Aadi,Lila){
 //console.log(lilaID,Aadi,Lila);
-	//$(window).unload();
 	//$('[data-role="content"]').empty();
 	$(document).ready(function(){
 	console.log(lilaID,Aadi,Lila);
@@ -36,8 +95,9 @@ function colllila(lilaID,Aadi,Lila){
 		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> Lila :'+Lila+'</p>').appendTo('[data-role="content"]').page()
 		//$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
 		//$('<p>'+drushtant+'</p>').appendTo('[data-role="content"]').page()
-		
+
 		});
+
 }
 
 function colltest(Aadi,Lila,tip){
@@ -88,21 +148,50 @@ $.getJSON('person.json', function(jd)
 }
 
 
-function Alila(){
+function Alila(type){
+console.log(type);
+
 $.getJSON('person.json', function(jd)
 	{var json = jd.main;
 	for (let i = 1; i < json.length; i++){
-	var lid = json[i].lilaID;
-	let result = lid.startsWith("P")
+		var lid = json[i].lilaID;
+			if (type==="P"){
+
+			let result = lid.startsWith("P")
+			if(result){
+			
+			//console.log(json[i]);
+				colllila(json[i].lilaID,json[i].Aadi,json[i].Lila);
+				}
+			}
+	
+	if(type==="U"){
+	let result = lid.startsWith("U")
 	if(result){
 	
-	//console.log(json[i]);
-		colllila(json[i].lilaID,json[i].Aadi,json[i].Lila);
-
-		
-		}
+	colllila(json[i].lilaID,json[i].Aadi,json[i].Lila);
+	}
+	
+	}
+		if(type==="KC"){
+	let result = lid.startsWith("KC")
+	if(result){
+	
+	colllila(json[i].lilaID,json[i].Aadi,json[i].Lila);
+	}
+	
+	}
+		if(type==="AC"){
+	let result = lid.startsWith("AC")
+	if(result){
+	
+	colllila(json[i].lilaID,json[i].Aadi,json[i].Lila);
+	}
+	
+	}
 	}
 	});
+
 }
 //glila(2);
 
@@ -206,8 +295,11 @@ $.getJSON('person.json', function(jd)
 </div>
 
 <div data-role="main" class="ui-content">
-<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e">
-	<li><a onclick="Alila();" href="#page"  data-transition="slide">॥ पूर्वार्ध ॥</a></li>
+<ul data-role="listview">
+	<li ><a onclick="Alila('P');" href="#page"  data-transition="slide">॥ पूर्वार्ध ॥</a></li>
+	<li ><a onclick="Alila('U');" href="#page"  data-transition="slide">॥ उत्तरार्ध ॥</a></li>
+	<li ><a onclick="Alila('KC');" href="#page"  data-transition="slide">॥ द्वापर चरित्र ॥</a></li>
+	<li ><a onclick="Alila('AC');" href="#page"  data-transition="slide">॥ अज्ञात चरित्र ॥</a></li>
     <li><a href="#pagetwo"  data-transition="slide">॥ सूत्र पाठ ॥</a></li>
 	<li><a href="#pagethree"  data-transition="slide">॥ व्यक्ती सूची  ॥</a></li>
 	<li><a href="#pagefour"  data-transition="slide">॥ दृष्टांत पाठ ॥</a></li>
@@ -239,7 +331,7 @@ $.getJSON('person.json', function(jd)
 			
 			 <div data-role="collapsible" data-collapsed="true">
 			  <h3> ॥ अन्यव्यावृत्ति ॥ </h3>
-			  <ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			  <ul data-role="listview" data-inset="true" data-divider-theme="e"  data-filter="true" data-filter-placeholder="Search...">
 			  <li><a style="white-space: normal" onclick="searchlila('vachan','कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)');"  href="#page" data-transition="slide"> कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)</a></li> 
 			  <li><a onclick="searchlila('vachan','अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)');" value="अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)" href="#page" data-transition="slide">अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)</a></li>
 			<li><a onclick="searchlila('vachan','अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)');" value="अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)" href="#page" data-transition="slide">अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)</a></li>
@@ -256,7 +348,7 @@ $.getJSON('person.json', function(jd)
 		
 <div data-role="collapsible" data-collapsed="true">
 			  <h3> ॥ युगधर्म ॥</h3>
-			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','बत्तीस लक्ष कृतयुग (युग. १)');" value="बत्तीस लक्ष कृतयुग (युग. १)'" href="#page" data-transition="slide">बत्तीस लक्ष कृतयुग (युग. १)</a></li>
 <li><a onclick="searchlila('vachan','कृतयुगीं आत्मोपास्ति हा धर्मु (युग. २)');" value="कृतयुगीं आत्मोपास्ति हा धर्मु (युग. २)" href="#page" data-transition="slide">कृतयुगीं आत्मोपास्ति हा धर्मु (युग. २)</a></li>
 <li><a onclick="searchlila('vachan','भक्ती अधर्मु (युग. ३)');" value="भक्ती अधर्मु (युग. ३)" href="#page" data-transition="slide">भक्ती अधर्मु (युग. ३)</a></li>
@@ -289,7 +381,7 @@ $.getJSON('person.json', function(jd)
 			</div>
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ विद्यामार्ग ॥</h3>
-			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','एकि विद्या (विद्यामार्ग १)');"  href="#page" data-transition="slide"> एकि विद्या (विद्यामार्ग १)</a></li>
 <li><a onclick="searchlila('vachan','दोनि विद्या (विद्यामार्ग २)');"  href="#page" data-transition="slide"> दोनि विद्या (विद्यामार्ग २)</a></li>
 <li><a onclick="searchlila('vachan','आठि विद्या (विद्यामार्ग ३)');"  href="#page" data-transition="slide"> आठि विद्या (विद्यामार्ग ३)</a></li>
@@ -317,7 +409,7 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ संहार ॥</h3>
-			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','परमेश्‍वरप्रवृत्ती माया सृष्टिसंहारू करी (संहार १)');"  href="#page" data-transition="slide"> परमेश्‍वरप्रवृत्ती माया सृष्टिसंहारू करी (संहार १)</a></li>
 <li><a onclick="searchlila('vachan','विखा इंद्रियीं विलया जाए (संहार ३)');"  href="#page" data-transition="slide"> विखा इंद्रियीं विलया जाए (संहार ३)</a></li>
 <li><a onclick="searchlila('vachan','अंत:करण देहीं विलया जाए (संहार ४)');"  href="#page" data-transition="slide"> अंत:करण देहीं विलया जाए (संहार ४)</a></li>
@@ -339,7 +431,7 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ संसरण ॥</h3>
-			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','मायास्वरुपीं एकदेशीं तम असे (संसरण १)');"  href="#page" data-transition="slide"> मायास्वरुपीं एकदेशीं तम असे (संसरण १)</a></li>
 <li><a onclick="searchlila('vachan','तमोनिमग्न जीव मायास्वरुपीं असति (संसरण २)');"  href="#page" data-transition="slide"> तमोनिमग्न जीव मायास्वरुपीं असति (संसरण २)</a></li>
 <li><a onclick="searchlila('vachan','परमेश्‍वरप्रवृत्ती माया तमोनिग्नां जीवां चैतन्यमहं ऐसें उपजवी (संसरण ३)');"  href="#page" data-transition="slide"> परमेश्‍वरप्रवृत्ती माया तमोनिग्नां जीवां चैतन्यमहं ऐसें उपजवी (संसरण ३)</a></li>
@@ -373,7 +465,7 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ असति परी ॥</h3>
-			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 			<li><a onclick="searchlila('vachan','विकारविकल्पशून्यें (असतिपरी १)');"  href="#page" data-transition="slide"> विकारविकल्पशून्यें (असतिपरी १)</a></li>
 			<li><a onclick="searchlila('vachan','स्वभावमात्रें (असतिपरी २)');"  href="#page" data-transition="slide"> स्वभावमात्रें (असतिपरी २)</a></li>
 			<li><a onclick="searchlila('vachan','निरालंबी (असतिपरी ३)');"  href="#page" data-transition="slide"> निरालंबी (असतिपरी ३)</a></li>
@@ -386,7 +478,7 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ महावाक्य ॥</h3>
-			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','जीवप्रपंचव्यतिरिक्त सच्चिदानंदस्वरुप परमेश्‍वरु एकु आति तो सर्वशक्तियुक्त (महावाक्य १)');"  href="#page" data-transition="slide"> जीवप्रपंचव्यतिरिक्त सच्चिदानंदस्वरुप परमेश्‍वरु एकु आति तो सर्वशक्तियुक्त (महावाक्य १)</a></li>
 <li><a onclick="searchlila('vachan','नित्य केवळ अनादिअविद्यायुक्त वस्तु एकु आति ते जीवशब्दें बोलिजे (महावाक्य २)');"  href="#page" data-transition="slide"> नित्य केवळ अनादिअविद्यायुक्त वस्तु एकु आति ते जीवशब्दें बोलिजे (महावाक्य २)</a></li>
 <li><a onclick="searchlila('vachan','विश्‍वरुपाचिये ठाउनि मृत्तिकापर्यंत प्रपंचु बोलिजे (महावाक्य ३)');"  href="#page" data-transition="slide"> विश्‍वरुपाचिये ठाउनि मृत्तिकापर्यंत प्रपंचु बोलिजे (महावाक्य ३)</a></li>
@@ -401,7 +493,7 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ निर्वचन ॥</h3>
-			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','आनंदशब्दें ईश्‍वरु बोलिजें (निर्वचन १)');"  href="#page" data-transition="slide"> आनंदशब्दें ईश्‍वरु बोलिजें (निर्वचन १)</a></li>
 <li><a onclick="searchlila('vachan','आनंद तो (निर्वचन २)');"  href="#page" data-transition="slide"> आनंद तो (निर्वचन २)</a></li>
 <li><a onclick="searchlila('vachan','ब्रह्म तो (निर्वचन ३)');"  href="#page" data-transition="slide"> ब्रह्म तो (निर्वचन ३)</a></li>
@@ -432,7 +524,7 @@ $.getJSON('person.json', function(jd)
 			
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ उद्धरण ॥</h3>
-			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','सृष्टीमध्यें परमेश्‍वरु अवतरेति (उद्धरण १)');"  href="#page" data-transition="slide"> सृष्टीमध्यें परमेश्‍वरु अवतरेति (उद्धरण १)</a></li>
 <li><a onclick="searchlila('vachan','मनुष्यवेषधारीए होति (उद्धरण २)');"  href="#page" data-transition="slide"> मनुष्यवेषधारीए होति (उद्धरण २)</a></li>
 <li><a onclick="searchlila('vachan','मायावेषधारीए होति (उद्धरण ३)');"  href="#page" data-transition="slide"> मायावेषधारीए होति (उद्धरण ३)</a></li>
@@ -505,7 +597,7 @@ $.getJSON('person.json', function(jd)
 			</div>
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ आचार स्थळ ॥</h3>
-			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','स्वदेशसंबंधु त्याज्य स्वग्रामसंबंधु त्याज्य संबंधियांचा संबंधु तो विशेषता त्याज्य (आ. १)');"  href="#page" data-transition="slide"> स्वदेशसंबंधु त्याज्य स्वग्रामसंबंधु त्याज्य संबंधियांचा संबंधु तो विशेषता त्याज्य (आ. १)</a></li>
 <li><a onclick="searchlila('vachan','संबंधीं अधिकारु नाहीं (आ. २)');"  href="#page" data-transition="slide"> संबंधीं अधिकारु नाहीं (आ. २)</a></li>
 <li><a onclick="searchlila('vachan','संबंधीं विकारु विकारीं रसु रसीं अभिमुख सेवा निवृत्ति (आ. ३)');"  href="#page" data-transition="slide"> संबंधीं विकारु विकारीं रसु रसीं अभिमुख सेवा निवृत्ति (आ. ३)</a></li>
@@ -803,7 +895,7 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ आचारमाळिका स्थळ ॥</h3>
-			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','स्वातंत्र्यु हा मोक्ष पारतंत्र्यु हा बंध (आ. मा. १)');"  href="#page" data-transition="slide"> स्वातंत्र्यु हा मोक्ष पारतंत्र्यु हा बंध (आ. मा. १)</a></li>
 <li><a onclick="searchlila('vachan','मायाबहिनी आशंसिति आमचा दांडिये डोळिये कै जाइल परमेश्‍वरु आशंसिति कटंकटीयेमान गव्हरीं कपाटी ऐसा कै असेल (आ. मा. २)');"  href="#page" data-transition="slide"> मायाबहिनी आशंसिति आमचा दांडिये डोळिये कै जाइल परमेश्‍वरु आशंसिति कटंकटीयेमान गव्हरीं कपाटी ऐसा कै असेल (आ. मा. २)</a></li>
 <li><a onclick="searchlila('vachan','पोरा जीवा कव्हणी सामग्री न होआवी (आ. मा. ३)');"  href="#page" data-transition="slide"> पोरा जीवा कव्हणी सामग्री न होआवी (आ. मा. ३)</a></li>
@@ -1064,7 +1156,7 @@ $.getJSON('person.json', function(jd)
 			</div>	
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ विचार स्थळ ॥</h3>
-			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','चैतन्य माया विदेह परा शक्ति (वि. १)');"  href="#page" data-transition="slide"> चैतन्य माया विदेह परा शक्ति (वि. १)</a></li>
 <li><a onclick="searchlila('vachan','मुख्य तुल्य अंश रश्मि: (वि. २)');"  href="#page" data-transition="slide"> मुख्य तुल्य अंश रश्मि: (वि. २)</a></li>
 <li><a onclick="searchlila('vachan','दिव्य दिनस्थ जळस्थ स्थळस्थ (वि. ३)');"  href="#page" data-transition="slide"> दिव्य दिनस्थ जळस्थ स्थळस्थ (वि. ३)</a></li>
@@ -1355,7 +1447,7 @@ $.getJSON('person.json', function(jd)
 			</div>				
 			<div data-role="collapsible" data-collapsed="true">
 			<h3>॥ विचारमाळिका स्थळ ॥</h3>
-			<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','ज्ञान मोचक (वि. मा.. १)');"  href="#page" data-transition="slide"> ज्ञान मोचक (वि. मा.. १)</a></li>
 <li><a onclick="searchlila('vachan','नित्य व्यापक परमेश्‍वर (वि. मा. २)');"  href="#page" data-transition="slide"> नित्य व्यापक परमेश्‍वर (वि. मा. २)</a></li>
 <li><a onclick="searchlila('vachan','अप्रमेयु (वि. मा. ३)');"  href="#page" data-transition="slide"> अप्रमेयु (वि. मा. ३)</a></li>
@@ -1585,7 +1677,7 @@ $.getJSON('person.json', function(jd)
 
 	</div>
 	
-<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 			  
 			<li><a onclick="searchlila('person','अत्रि');" href="#page" data-transition="slide">अत्रि</a></h2>
 <li><a onclick="searchlila('person','अकृर');" href="#page" data-transition="slide">अकृर</a></h2>
@@ -2016,7 +2108,7 @@ $.getJSON('person.json', function(jd)
 
 	</div>
 	
-<ul data-role="listview" data-theme="b" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 
 <li><a onclick="searchlila('drushtanth','आंतुलाचा १');"  href="#page" data-transition="slide"> आंतुलाचा १</a></li> 
 <li><a onclick="searchlila('drushtanth','बाहीरीलाचा २');"  href="#page" data-transition="slide"> बाहीरीलाचा २</a></li> 
@@ -2172,7 +2264,7 @@ $.getJSON('person.json', function(jd)
       <div data-role="collapsible" data-collapsed="true">
         <h3>मातापुरीं श्रीदत्तात्रेयप्रभु मुर्तिज्ञान</h3>
         <p>त्रेतीं (भोगभुमीं) मातापुरीं श्रीदत्तात्रेयप्रभु गोसावी ऋषीवंशी अत्रीपासौनि अनुसयेचां गर्भिं चतुर्युगीं उभायदृश्या अवतारू स्वीकरीला: कां पां जें सर्वज्ञें म्हणितलें: श्रीदत्तात्रेयप्रभुचा चतुर्युगीं अवतारू: श्रीदत्तात्रेयप्रभुचा उभायदृश्या अवतारू: सैंह्याद्री अवस्थान नाना वेखें क्रीडा अनंतें चरित्रें केलीं: अनंतां लीळा केलीयां अनंतां जीवातें उद्धरीले: तया श्रीदत्तात्रेयप्रभु गोसावीयांयांचे चरणशरण:।।2।।:</p>
-		<ul data-role="listview" data-theme="b" data-inset="true"  data-count-theme="e">
+		<ul data-role="listview" data-inset="true"  data-count-theme="e">
 			<li><a onclick="glila('P1');"  href="#page" data-transition="slide">  १) श्रीदत्तात्रेयप्रभू मार्गामूळ आदिकरण: पु. १</a></li>
 			<li><a onclick="glila('U145');" href="#page" data-transition="slide" id="U145"> ७) सहस्त्रार्जुन वरप्रदान : उ. १४५ </a></li>
 			<li><a onclick="glila('U146');" href="#page" data-transition="slide" id="U146"> ८) परशुरामा भेटी उ. १४६</a></li>
@@ -2183,7 +2275,7 @@ $.getJSON('person.json', function(jd)
       <div data-role="collapsible" data-collapsed="true">
         <h3>फलेठानी श्रीचांगदेवराउळ मुर्तिज्ञान</h3>
         <p>फलेठानी कर्हाडेया ब्राम्हणाच्या घरीं श्रीचांगदेवराउळ गोसावी अवतारू स्वीकरीला स्त्रि आग्रहो निमीत्यें मातापुरा बीजे केलें: तेथ सैंह्याद्रीं श्रीदत्तात्रेयप्रभुचिया प्रवृत्ती आदिकारण: व्याघ्रनिमीत्ये श्रीचांगदेवराउळ गोसावी दवडुनि उभायदृश्यत्व स्वीकरीले: पर आच्छादिलें (:प्रश्राः दवडुनि:।रामे।: गर्भीचाची अवतार) द्वारावतिये अवस्थान: अवधुतवेखें क्रीडा: अनंतें चरित्रें केलीं: अनंतां लीळा केलीयां: अनंतां जीवातें उद्धरीले:।: तया श्रीचांगदेवराउळा गोसावीयांचे चरणशरण:।।3।।:</p>
-      <ul data-role="listview" data-theme="b" data-inset="true"  data-count-theme="e">
+      <ul data-role="listview" data-inset="true"  data-count-theme="e">
 				<li><a onclick="glila('P2');" href="#page" data-transition="slide" id="P2"> १) सैह्याद्री व्याघ्रवेखें दरीसनः</a></li>
 				<li> <a onclick="glila('P3');" href="#page" data-transition="slide" id="P3">२) सूपमार्जनी क्रिडा:</a></li>
 				<li> <a onclick="glila('P4');" href="#page" data-transition="slide" id="P4">३) रवळेया गीतश्रवणी नीर्व॑सु कथनः</a></li>
@@ -2206,7 +2298,7 @@ $.getJSON('person.json', function(jd)
 
 				<div data-role="collapsible" data-collapsed="true">
 				<h3> श्रीमुर्त ऐसी भावीजे ध्याइजे </h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P25');" href="#page" data-transition="slide" id="P25"> १) जे एकांती श्रीचांगदेव राउळा गोसावीया शिष्या भेटी : (पु.२५-काटोल) </a></li>
 			  <li><a onclick="glila('P234');" href="#page" data-transition="slide" id="P124"> २) आणि धानाइ आख्याइका श्रवण (पु. १२४ - पैठण) </a></li>
 			  <li><a onclick="glila('P298');" href="#page" data-transition="slide"  id="P298"> ३) आणि रेमनाएका अवसर अनावसर कथन (पु.२९८- बीड) </a></li>
@@ -2222,7 +2314,7 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 				<h3>२. ॥ श्रीचरण ॥ २.॥ </h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li> १) जे एकांकी डावेनि श्रीचरणें सीळातळावरि उदक घालीती : (एकांक) </li>
 			  <li><a onclick="glila('P328');" href="#page" data-transition="slide" id="P328"> २) आणि माहादाइसाचे आंग चुरने (पू. ३२८-पाटोदा) </a></li>
 			  <li><a onclick="glila('P479');" href="#page" data-transition="slide" id="P479"> ३) भटा क्षेउर : ( पू. ४७९ - जालना) </a></li>
@@ -2232,7 +2324,7 @@ $.getJSON('person.json', function(jd)
 			  </div>
 				  <div data-role="collapsible" data-collapsed="true">
 				<h3> ३. ॥ श्री चरणीचा आंगुठा ॥ श्री चरणाचा आंगुठा ऐसा भाविजे ध्याइजे</h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P390');" href="#page"  data-transition="slide" id="P390"> १) जे सीमुगा सींपणे (पू. ३९० भडेगाव) </a></li>
 			  <li><a onclick="glila('U383');" href="#page"  data-transition="slide" id="U383"> २) उमाइसा नमस्कारे आंगुठा लावणे (उ. ३८३ - पैठण - ढोरेश्वर ) </a></li>
 			  <li><a onclick="glila('U476');" href="#page"  data-transition="slide" id="U476"> ३) यंत्रासनापुर्वक महादाश्रमाची पुजा स्विकार (उ. ४७६ पैठण - ढोरेश्वर )</a></li>
@@ -2247,12 +2339,12 @@ $.getJSON('person.json', function(jd)
 			  
 			  <div data-role="collapsible" data-collapsed="true">
 				<h3>४. ॥ श्रीचरणीचेया आंगोठेयाचे नख ॥ श्री चरणीचेया आंगोठेयाचे नख ऐसे भावीजे ध्याइजे </h3>
-			  <ul data-role="listview" data-theme="b" data-inset="true">
+			  <ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P496');" href="#page"  data-transition="slide" id="P496"> १) जे रावसगावी कामाइसा भेटी नामकरणे ( पू. ४९६ - रावंसगांव) </a></li></ul>
 			  </div>
 			  	<div data-role="collapsible" data-collapsed="true">
 				<h3>५. ॥ गुडघे ॥ गुडघे ऐसे भावीजे ध्याइजे</h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U193');" href="#page" data-transition="slide" id="U193"> १) जे रुसले देव बुझाउ धाडणे (उ. १९३ - डोमेग्राम) </a></li>
 			  <li><a onclick="glila('U298');" href="#page" data-transition="slide" id="U298"> २) नेउरगांवी धाएखडकी इंद्रभटां हनवी पुजा (उ २९८ - नेउरगाव)</a></li></ul>
 			  </div>
@@ -2261,21 +2353,21 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 				<h3> ६. ॥ जानुवीभाग ॥ जानुवीभाग ऐसे भावीजती ध्याइजती </h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			<li><a onclick="glila('U571');" href="#page" data-transition="slide" id="U571"> १) जे भटां लखुबाईसां भांडण </a></li>
 			  <li><a onclick="glila('P496');" href="#page" data-transition="slide" id="P496a"> १) जे रावसगावी कामाइसा भेटी नामकरणे ( पू. ४९६ - रावंसगांव) </a></li>
 			  <li><a onclick="glila('P42');" href="#page" data-transition="slide" id="P42"> २) ससीक रक्षण (पू. ४२ सालबर्डी) </a></li>
 			  <li><a onclick="glila('U436');"  href="#page" data-transition="slide" id="U436"> ३) देव कोप खेद खिंन महादेइसां यादव गुरु निरुपणे : (उ. - ४३६- पैठण -ढोरेश्वर) </a></li></ul>
 			  </div>
 			  <div data-role="collapsible" data-collapsed="true">
-			  <ul data-role="listview" data-theme="b" data-inset="true">
+			  <ul data-role="listview" data-inset="true">
 				<h3> ७. ॥ मांडिया ॥ मांडिया ऐसीया भावीजेति ध्याइजेति</h3>
 			  <li><a onclick="glila('P51');" href="#page" data-transition="slide" id="P51"> १) भांडारेकारा देहावसान ( पू. ५१ - नांदेड)</a></li>
 			  <li><a onclick="glila('P305');" href="#page" data-transition="slide" id="P305"> २) सौभागाकरवि केळे खाववणे (पू. ३०५बीड) </a></li></ul>
 			  </div>
 			  <div data-role="collapsible" data-collapsed="true">
 				<h3>८. ॥ जघन प्रदेश ॥  जघन प्रदेश ऐसा भावीजे ध्याइजे</h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P514');" href="#page" data-transition="slide" id="P514"> १) जे क्षुद्रानदी सेतु बांधणे (पू. ५१४ संगमेश्वर) </a></li>
 			  <li><a onclick="glila('U143');" href="#page" data-transition="slide" id="U143"> २) गदोनाएक जाया वस्त्रपूजा स्वीकार (उ. १४३ - डोमेग्राम) </a></li>
 			  <li><a onclick="glila('U24');" href="#page" data-transition="slide" id="U24">३) गोसावी खडकूलीए सीमुगा उभे घाटीया मेघवर्णी पाग वेढली असे. (उ. २४ - खडकुली) </a></li>
@@ -2284,14 +2376,14 @@ $.getJSON('person.json', function(jd)
 			  </div>
 			  <div data-role="collapsible" data-collapsed="true">
 				<h3>९. ॥ उदर ॥ उदर ऐसे भावीजे ध्याइजे </h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U164');" href="#page" data-transition="slide" id="U164"> १) जे अस्वत्थमुळी इंद्रोपाहारी इंद्रया दैव प्रसंसा (उ. १६४ - डोमेग्राम) </a></li>
 			  <li><a onclick="glila('U164');" href="#page" data-transition="slide" id="U164a">२) बाईसे आरोगणे विनवीति तव गोसावी उदर अवलोकोनी म्हणती बाइ हे अजुन मागे नाः (उ. १६४ - डोमेग्राम) </a></li>
 			  <li><a href="" data-transition="slide" id="">३) सर्वत्र ज्ञानीया भक्तांची खंती उदरी घालीती</a></li></ul>
 			  </div>
 			  <div data-role="collapsible" data-collapsed="true">
 				<h3>१०. ॥ वक्षस्थळ || वक्षस्थळ ऐसे भावीजे ध्याइजे </h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P408');" href="#page" data-transition="slide" id="P408"> १) जे महात्मा नामपूर्वक कुमारी खाजें देववणे (पू. ४०८- भडेगाव) </a></li>
 			  <li><a onclick="glila('P81');" href="#page" data-transition="slide" id="P81">२) सर्पव्दय पतन (पू. ८१ वडनेर भुजंग)</a></li>
 			  <li><a  id="">३) दोपाहारीचा पुजाअवसरी बीजे करीति च्यारिआडे रेखिति यावरि दोपाहारीचा पुजाअवसर आठविजे</a></li></ul>
@@ -2300,7 +2392,7 @@ $.getJSON('person.json', function(jd)
 
 			<div data-role="collapsible" data-collapsed="true">
 				<h3>११. ॥ श्रीकर ॥  श्रीकर एसे भावीजे ध्याइजे</h3>
-			<ul data-role="listview" data-theme="b" data-inset="true">
+			<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P29');" href="#page" data-transition="slide" id="P29"> १) जे भक्त म्हणति अजानबाहो ( पू. २९)</a></li>
 			  <li><a onclick="glila('P302');" href="#page" data-transition="slide" id="P302">२) देवा भटां भेटि (पू. ३०२ - बीड )</a></li>
 			  <li>३) पींडस्पर्श (डोमेग्राम) </li>
@@ -2317,7 +2409,7 @@ $.getJSON('person.json', function(jd)
 
 			  <div data-role="collapsible" data-collapsed="true">
 				<h3>१२. ॥ श्रीकरकमळ || श्रीकरकमळ ऐसे भावीजती ध्याइजति </h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P64');" href="#page" data-transition="slide" id="P64"> १) जे राएरी पाणिपात्र  ( पू. ६४ राहेर ) </a></li>
 			  <li><a onclick="glila('P35');" href="#page" data-transition="slide" id="P35">२) पंचकौळाचार्या ग्रहोनिवृत्ति ( पू. - ३५) </a></li>
 			  <li><a onclick="glila('P46');" href="#page" data-transition="slide" id="P46">३) भांडारेकारां भेटी (पू. ४६ - भांडारा ) </a></li>
@@ -2330,21 +2422,21 @@ $.getJSON('person.json', function(jd)
 			  </div>
 			  <div data-role="collapsible" data-collapsed="true">
 				<h3>१३. । आंगुळीया ॥ आंगुळीया ऐसे भावीजेति ध्याइजेति </h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U301');" href="#page" data-transition="slide" id="U301"> १) जे गदोनाएकाची पुजा स्वीकार (उ ३०१ नेवरगाव)</a></li>
 			  <li><a onclick="glila('U473');" href="#page" data-transition="slide" id="U473a">२) छायागोपाळीचिया बाइया मुद्रीका वोळगवीलीया (उ. ४७३- पैठण- ढोरेश्वर)</a></li>
 			  <li><a onclick="glila('U443');" href="#page" data-transition="slide" id="U443">३) तारांगुळी क्रीडे महादाइ प्रायश्चित देणे (उ. ४४३ - पैठण - ढोरेश्वर) </a></li>
 			  <li><a href="" id="">४) आणि कोन्ही उपाधी स्थळ आले असति तरि आपूलेया पवित्रा आंगुळीया करुनि उर्ध्व पौंड्रटीळा रेखीति : ( पुजा अवसर) १४.</a></li></ul>
 			  </div>
 			  <div data-role="collapsible" data-collapsed="true">
-			  <ul data-role="listview" data-theme="b" data-inset="true">
+			  <ul data-role="listview" data-inset="true">
 				<h3>१४. ॥ अंगुठा ॥ आंगुठा ऐसे भावीजे ध्याइजे</h3>
 			  <li><a onclick="glila('U433');" href="#page" data-transition="slide" id="U433"> १) जे साधा क्षीरीभोजनपुर्वक टीळा तांबुळ माळ दान (उ. ४३३ - पैठण - ढोरेश्वर ) </a></li>
 			  <li><a onclick="glila('P572');" href="#page" data-transition="slide" id="P572">२) मार्गी गोपाळभोजन दाखवणें (पू ५७२- वडवाळीए) </a></li></ul>
 			  </div>
 			  <div data-role="collapsible" data-collapsed="true">
 				<h3>१५. ॥ श्रीकराची करांगुळी ॥ करांगुळी ऐसी भावीजे ध्याइजे</h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U105');" href="#page" data-transition="slide" id="U105"> १) जे ताकवताची भाजी वाढणे: (उ. १०५ - डोमेग्राम) </a></li>
 			  <li><a onclick="glila('P145');" href="#page" data-transition="slide" id="P145">२) विसैए देवी कमळी पुजा (पू. १४५ - विसैए)</a></li>
 			  <li><a onclick="glila('P505');" href="#page" data-transition="slide" id="P505">३) बोरीए लाखाइसा राणइसां भेटी: (पू. - ५०५ बोरी) </a></li>
@@ -2354,7 +2446,7 @@ $.getJSON('person.json', function(jd)
 			  </div>
 			  <div data-role="collapsible" data-collapsed="true">
 				<h3>१६. ।। श्रीकंठ ॥ श्रीकंठ ऐसा भावीजे ध्याइजे</h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U330');" href="#page" data-transition="slide" id="U330a"> १) जे नागाराऊळी वाघनख सरी वोळगवीली (उ. ३३० - पैठण)  </a></li>
 			  <li><a onclick="glila('U473');" href="#page" data-transition="slide" id="U473">२) छायागोपाळी गोपाळाचिया बाइया साखळे ओळगवीले (उ-४७३- पैठण-ढोरेश्वर)</a></li>
 			  <li><a href="" id="">३) बाइसे प्रतिदिनी गळदंडा वोळगवीति: (पुजाअवसर) </a></li>
@@ -2367,7 +2459,7 @@ $.getJSON('person.json', function(jd)
 			  </div>
 			  	<div data-role="collapsible" data-collapsed="true">
 				<h3>१७. ॥ श्रीमुख ॥ श्रीमुख ऐसे भावीजे ध्याइजे</h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U352');" href="#page" data-transition="slide" id="U352"> १) जे आउ वरप्रदान (उ. ३५२  पैठण)</a></li>
 			  <li><a onclick="glila('U185');" href="#page" data-transition="slide" id="U185">२) साधा अभयदान (उ. १८५ - डोमेग्राम) </a></li>
 			  <li><a onclick="glila('U154');" href="#page" data-transition="slide" id="U154">३) साधा प्रश्ने दर्शना पुढार (उ. - १५४ - डोमेग्राम)</a></li>
@@ -2377,7 +2469,7 @@ $.getJSON('person.json', function(jd)
 			  </div>
 			  <div data-role="collapsible" data-collapsed="true">
 				<h3>१८. ॥ दंतपंक्ति |  दंतपंक्ति ऐसे भावीजे ध्याइजे</h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U11');" href="#page" data-transition="slide" id="U11">१) जे पर्वी दायंबा भेटी (ऊ. ११ खडकुली)</a></li>
 			  <li><a onclick="glila('U215');" href="#page" data-transition="slide" id="U215"> २) घोगरगांवी महाजना भेटी (उ. २१५ घोगरगावं)</a></li>
 			  <li><a href="" id="">३) बाइसे प्रतिदीनी सीलीका ओळगवीति गोसावी प्रतिदीनी दंतधावन करीती</a></li>
@@ -2391,7 +2483,7 @@ $.getJSON('person.json', function(jd)
 			  </div>
 			  			  	<div data-role="collapsible" data-collapsed="true">
 				<h3>२०. ॥ श्रीनेत्र ॥ श्रीनेत्र ऐसे भावीजे ध्याइजे </h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P315');" href="#page" data-transition="slide" id="P315">१) जे आबैसी दीठी उतरणे (पू. ३१५ - बीड )</a></li>
 			  <li><a onclick="glila('U490');" href="#page" data-transition="slide" id="U490">२) महादाई नेत्रदीपानुवाद (उ. ४९० पैठण- ढोरेश्वर )</a></li>
 			  <li><a onclick="glila('P107');" href="#page" data-transition="slide" id="P107">३) बाइसा प्रेमकळिका संचरीली ( पू. १०७ - पैठण) </a></li>
@@ -2403,12 +2495,12 @@ $.getJSON('person.json', function(jd)
 			  </div>
 				<div data-role="collapsible" data-collapsed="true">
 				<h3>२१. ॥ भवैया ॥ भवैया ऐसीया भाविजति ध्याइजति </h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U489');" href="#page" data-transition="slide" id="U489">१) जे आऊसी कांदी पुसणे (उ. ४८९ - ढोरेश्वर) </a></li></ul>
 			  </div>
 				<div data-role="collapsible" data-collapsed="true">
 				<h3>२२. ॥ कर्णयुगळ ॥ कर्ण युगळ ऐसे भाविजे ध्याइजे </h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P29');" href="#page" data-transition="slide" id="P29b">१) जे भक्त (महदोबा ) म्हणति लंबकर्ण ( पू. २९ एकांक) </a></li>
 			  <li><a onclick="glila('U330');" href="#page" data-transition="slide" id="U330b">२) नागाराउळी नांदीए वोळगवीले (उ. ३३० - पैठण) </a></li>
 			  <li><a onclick="glila('U473');" href="#page" data-transition="slide" id="U473b">३) छायागोपाळाचिया बाइया अनंत वोळगवीले: (उ. ४७३- पैठण, ढोरेश्वर ) </a></li>
@@ -2416,7 +2508,7 @@ $.getJSON('person.json', function(jd)
 			  </div>
 				<div data-role="collapsible" data-collapsed="true">
 				<h3>२३. ॥ लल्हाट || लल्हाट ऐसे भावीजे ध्याइजे</h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P91');" href="#page" data-transition="slide" id="P91">१) जे बोणेबाइया भेटि (पू. ९१ मेहंकर) </a></li>
 			  <li><a onclick="glila('U429');" href="#page" data-transition="slide" id="U429a">२) चौबारा माहादाइसा उमाइसा भेटी (उ. ४२९ - पैठण- ढोरेश्वर ) </a></li>
 			  <li><a onclick="glila('U415');" href="#page" data-transition="slide" id="U415">३) माइतेया हरीने पत्रवेली रेखीली (उ. ४१५ पैठण ढोरेश्वर ) </a></li>
@@ -2426,7 +2518,7 @@ $.getJSON('person.json', function(jd)
 			  </div>
 			  	<div data-role="collapsible" data-collapsed="true">
 				<h3>२४ ॥ श्रीमुकुट ॥ श्रीमुकुट ऐसा भावीजे ध्याइजे</h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U50');" href="#page" data-transition="slide" id="U50">१) जे आउ स्वान हननी श्रीमुकुट धरणे (उ. ५० खडकुली) </a></li>
 			  <li><a href=""  id="">२) आणि श्रीमुकुटी टोपरे वोळगवीति</a></li>
 			  <li><a onclick="glila('U434');" href="#page" data-transition="slide" id="U434">३) साधा नींबमौळी माधुर्यकृत प्रसाददान (उ. ४३४ - पैठण - ढोरेश्वर) </a></li>
@@ -2437,12 +2529,12 @@ $.getJSON('person.json', function(jd)
 			  </div>
 			  	<div data-role="collapsible" data-collapsed="true">
 				<h3>॥ श्रीमुर्तिचे ज्ञान ॥ म्हणौनि श्रीमुर्तीचे ज्ञान होआवे : कां पा जे </h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U512');" href="#page" data-transition="slide" id="U512">आऊसाप्रति वाकमु दीघमु अनुवाद : ऐसे हो नेदावे (उ.५१२ - पैठण-ढोरेश्वर) </a></li></ul>
 			  </div>
 			  	<div data-role="collapsible" data-collapsed="true">
 				<h3>॥ नामाचे ज्ञान ॥ नामाचे ज्ञान होआवे : का पा</h3>
-				<ul data-role="listview" data-theme="b" data-inset="true">
+				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U377');" href="#page" data-transition="slide" id="U377">जे अमर्दक तपोधना देवता अज्ञान ऐसे हो नेदावे (उ. ३७७ - पैठण ढोरेश्वर) </a></li></ul>
 			  </div>
 			  
