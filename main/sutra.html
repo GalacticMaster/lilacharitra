@@ -21,6 +21,11 @@
 h3 .ui-btn-text{ white-space:normal; word-break:break-all; }
 h3 { white-space:normal; word-break:break-all; }
 
+mark { 
+  background-color: pink;
+  color: black;
+}
+
 </style>
 
 <script type='text/javascript'>
@@ -138,7 +143,6 @@ $.getJSON('person.json', function(jd)
 
 function searchlila(type,searchtext){
 //console.log(type,searchtext);
-
 $.getJSON('person.json', function(jd)
 	{var json = jd.main;
 	$("#output").empty();
@@ -216,20 +220,24 @@ $.getJSON('person.json', function(jd)
 }
 
 /*Searchbox*/
+
   $(document).ready(function(){
+ 
    $.getJSON('person.json', function(jd) {
-	
 	var data = jd.main
 	console.log(jd.main)
 				$('#txt-search').keyup(function(){
+				 var src_str = $('#filter-records').html('')
             var searchField = $(this).val();
 			if(searchField === '')  {
+			
 				$('#filter-records').html('');
 				return;
 			}
 			
             var regex = new RegExp(searchField, "i");
             var output = '<ul class="searchresults">';
+			output = "";
             var count = 1;
 			  $.each(data, function(key, val){
 				if (val.Aadi.search(regex) != -1 || val.Lila.search(regex) != -1) {
@@ -238,16 +246,23 @@ $.getJSON('person.json', function(jd)
 				  output += '<p>'+ val.Lila+'</p>';
 				  output += '</li>';
 				  if(count%2 == 0){
-					//output += '</div><div data-role="collapsible-set">'
+					//output += '</ul>'
 				  }
 				  count++;
 				}
 			  });
 			  output += '</ul>';
-			  console.log(output);
-			  $('[data-role="content"]').html(output);
+			  var src_str = output;
+			  var term = searchField;
+			  term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
+			  var pattern = new RegExp("("+term+")", "gi");
+			  src_str = src_str.replace(pattern, "<mark>$1</mark>");
+			  src_str = src_str.replace(/(<mark>[^<>]*)((<[^>]+>)+)([^<>]*<\/mark>)/,"$1</mark>$2<mark>$4");
+			  $('#filter-records').html(src_str)
         });
+
   });
+
 
 	});
 
@@ -2634,21 +2649,19 @@ $.getJSON('person.json', function(jd)
     <h1>Live Search</h1>
 	<form role="form">
         <div class="form-group">
-          <input type="search" name="search" id="txt-search" placeholder="Search by Aadi OR Lila">
+          <input type="search" name="search" id="txt-search" placeholder="Type your search character">
         </div>
 	</form>
 
 	
-	<div data-role="content" data-theme="c">
-      <div data-role="collapsible-set" data-collapsed="true">
-	  	<div id="filter-records"></div>
 
-      </div>
-    </div>
+<div data-role="content" data-theme="c">
+	  	<div id="filter-records"></div>
+</div>
+
 	
 	
   </div>
-  
   
 	
 		  <div data-role="footer">
