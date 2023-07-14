@@ -237,7 +237,6 @@ $.getJSON('person.json', function(jd)
 			
             var regex = new RegExp(searchField, "i");
             var output = '<ul class="searchresults">';
-			output = "";
             var count = 1;
 			  $.each(data, function(key, val){
 				if (val.Aadi.search(regex) != -1 || val.Lila.search(regex) != -1) {
