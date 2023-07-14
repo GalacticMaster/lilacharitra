@@ -10,6 +10,7 @@
 
 <link rel="stylesheet" type="text/css"  href="https://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> 
 
 
 <style>
@@ -18,67 +19,7 @@
 }
 
 h3 .ui-btn-text{ white-space:normal; word-break:break-all; }
-
-li small:nth-of-type(3) {
-  display: none;
-}
-
-.list-group-item {
-  list-style: none;
-  display: flex;
-  border-bottom: 1px solid;
-}
-
-.list-group-item a {
-  display: flex;
-  flex: 1;
-  height: 40px;
-  align-items: center;
-  font-family: Arial;
-  font-size: 14px;
-}
-
-small {
-  order: 2;
-}
-
-strong {
-  order: 1;
-}
-
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-.list-group-item {
-  list-style: none;
-  display: flex;
-  border-bottom: 1px solid;
-}
-
-.thumb-sm {
-  max-width: 20px;
-}
-
-.list-group-item a {
-  display: flex;
-  flex: 1;
-  height: 40px;
-  align-items: center;
-  font-family: Arial;
-  font-size: 14px;
-}
-
-li span {
-  flex: 1;
-}
-
-li a {
-  color: black;
-  text-decoration: none;
-}
+h3 { white-space:normal; word-break:break-all; }
 
 </style>
 
@@ -274,7 +215,43 @@ $.getJSON('person.json', function(jd)
 
 }
 
+/*Searchbox*/
+  $(document).ready(function(){
+   $.getJSON('person.json', function(jd) {
+	
+	var data = jd.main
+	console.log(jd.main)
+				$('#txt-search').keyup(function(){
+            var searchField = $(this).val();
+			if(searchField === '')  {
+				$('#filter-records').html('');
+				return;
+			}
+			
+            var regex = new RegExp(searchField, "i");
+            var output = '<ul class="searchresults">';
+            var count = 1;
+			  $.each(data, function(key, val){
+				if (val.Aadi.search(regex) != -1 || val.Lila.search(regex) != -1) {
+				  output += '<li>';
+				  output += '<h2>' + val.Aadi + '</h2>';
+				  output += '<p>'+ val.Lila+'</p>';
+				  output += '</li>';
+				  if(count%2 == 0){
+					//output += '</div><div data-role="collapsible-set">'
+				  }
+				  count++;
+				}
+			  });
+			  output += '</ul>';
+			  console.log(output);
+			  $('[data-role="content"]').html(output);
+        });
+  });
 
+	});
+
+/*searchbox ends*/
 
 
 
@@ -288,9 +265,9 @@ $.getJSON('person.json', function(jd)
 <div data-role="page" data-theme="b" id="pageone">
   <div data-role="header">
     <h1 style="color:Tomato;font-size: 30px"><i>लीळाचरित्र</i></h1>
-	<h3>विनम्र दंडवत करून एक नम्र विनंती करतो.</h3>
-	<h3>श्रीकृष्ण म्हणे उद्धवदेवा, हा ज्ञान रत्नाचा ठेवा । भलतेया हातीं न द्यावा, अधिकारेवीण ॥१॥ </h3>
-	<h3>हे निरूपण न सांगावे नास्तिका, न बोलावे दांभिका । ऐको न द्यावे निंदका, ऐसी असावी व्यवस्था ॥२॥</h3>
+	<h3 style="white-space:normal; word-break:break-all;">विनम्र दंडवत करून एक नम्र विनंती करतो.</h3>
+	<h3 style="white-space:normal; word-break:break-all;">श्रीकृष्ण म्हणे उद्धवदेवा, हा ज्ञान रत्नाचा ठेवा । भलतेया हातीं न द्यावा, अधिकारेवीण ॥१॥ </h3>
+	<h3 style="white-space:normal; word-break:break-all;">हे निरूपण न सांगावे नास्तिका, न बोलावे दांभिका । ऐको न द्यावे निंदका, ऐसी असावी व्यवस्था ॥२॥</h3>
 	<h1 style = "font-size: 20px">॥ श्री परेशाए नम: ॥</h1>
 </div>
 
@@ -305,6 +282,7 @@ $.getJSON('person.json', function(jd)
 	<li><a href="#pagefour"  data-transition="slide">॥ दृष्टांत पाठ ॥</a></li>
 	<li><a href="#pagefive"  data-transition="slide">॥ मूर्तिज्ञान ॥</a></li>
 	<li><a href="#pagesix"  data-transition="slide">॥ नामाचें दाहा ठाय ॥</a></li>
+	<li><a href="#pageseven"  data-transition="slide">SearchBox</a></li>
 
 </ul>
   </div>
@@ -2307,11 +2285,6 @@ $.getJSON('person.json', function(jd)
 			  <li><a onclick="glila('P461');" href="#page" data-transition="slide" id="P461"> ६) आणि हीवरळीए वाएनाएका भेटि नामकरण: (पु. ४६१ - जालना)</a></li></ul>
 			  </div>
 
-
-
-
-
-
 			<div data-role="collapsible" data-collapsed="true">
 				<h3>२. ॥ श्रीचरण ॥ २.॥ </h3>
 				<ul data-role="listview" data-inset="true">
@@ -2553,7 +2526,8 @@ $.getJSON('person.json', function(jd)
 				<h3>|| प्रसन्नतेच्या लिळा ॥ </h3>
 			  
 			  </div>
-	
+	</div>
+	</div>
 
 	  <div data-role="footer" data-theme="b">
     <h1>@HemangSoni</h1>
@@ -2569,14 +2543,14 @@ $.getJSON('person.json', function(jd)
 
 <div data-role="page" data-theme="b" id="pagesix">
   <div data-role="header">
-    <h1>Welcome To ॥ नामाचें दाहा ठाय ॥ </h1>
+    <h1 >Welcome To ॥ नामाचें दाहा ठाय ॥ </h1>
   </div>
  
   <div data-role="main" class="ui-content">
 	<h2 style="color:Tomato;text-align: center;font-size: 30px">॥ नामाचें दाहा ठाय ॥</h2>
 	</div>
 	<div data-role="main" class="ui-content">
-			<div data-role="collapsibleset" data-theme="b" data-content-them="b">
+			<div data-role="collapsibleset" >
 			<div data-role="collapsible" data-collapsed="true">
 				<h1>नामाचें दाहा ठाय</h1>
 				<p><a onclick="glila('U60');"href="#page" data-transition="slide">पाची नामाचे स्मरण होआवे का पा: (ली. क्र. उ.६० मध्ये) नामाचे दाहा ठाए: पंचकृष्ण निरुपण: ऐसे गोसावी भटोबासांते निरुपिले</a></p>
@@ -2637,7 +2611,7 @@ $.getJSON('person.json', function(jd)
 				<a onclick="glila('U11');" href="#page" data-transition="slide">सरालां आउसीं नाम आइकीलें: उच्चारीलें:</a> तेणें घडला अविधि परीहरला: विपरीत बुद्धी जाउनि थोरी आली: आर्ति उपजली: तया स्थानाची सवे सांडीली: स्वभावाचां त्यागु केला परमेश्वरू सानुकुळ होउनि साउमे आले: दर्शणां सन्नीधाना योग्य जाली: ऐसें नाम साह्यातें करी: तें नाम रूक्मणीआउसीं आइकतखेओं अष्टभोगांचा त्यागु केला: नामाचीया अवस्था हातींचिं पानें पळवा जालीं: अन्यथाज्ञानें हडपिनीसी कोपली: ऐसें नाम आवडीरूप आणि वेधवंत: नामाचेनि जाप्यें प्रवृत्ती भंगैल: भटोबासीं म्हणितलें तें जरि नाम उच्चारिता देवगिरीचा नीनावा तरि तयाचें अनिष्ट चुकतें आणि इश्वरीचि प्रवृत्ती भंगती: म्हणौनि नाम आठवीजे स्मरीजे: चींतीजे: ध्याइजे: तैचि या संसारापासौनि मुंचीजे म्हणौनि भटोबासीं म्हणितलें एणें अवतारें श्रीचक्रधरें जो नुधरे: तो कहींचि नुधरे: मां नुधरे:।।: एवं नामाचें दाहा ठाय समाप्त:।।०।।:</p>
 			</div>
 			
-
+</div>
 	  <div data-role="footer" data-theme="b">
     <h1>@HemangSoni</h1>
   </div>
@@ -2649,18 +2623,60 @@ $.getJSON('person.json', function(jd)
 
 <!-- Page six end-->
 
+<!-- Page Seven Start-->
+<div data-role="page" data-theme="b" id="pageseven" >
+           <div data-role = "header">
+            <h2>search page</h2>
+         </div>
+		 
+		 
+<div class="container">
+    <h1>Live Search</h1>
+	<form role="form">
+        <div class="form-group">
+          <input type="input" id="txt-search" placeholder="Type your search character">
+        </div>
+	</form>
 
+	
+	<div data-role="content" data-theme="c">
+      <div data-role="collapsible-set" data-collapsed="true">
+	  	<div id="filter-records"></div>
+
+      </div>
+    </div>
+	
+	
+  </div>
+  
+  
+	
+		  <div data-role="footer">
+    <h1>@HemangSoni</h1>
+	<a href="#pageone" data-role="button" class="ui-icon-home">Home</a>
+  </div>
+  
+  
+  </div>
+ <!-- page seven ends-->
 
 
   <div data-role="page" data-theme="b" id="page" >
            <div data-role = "header">
             <h2>output</h2>
          </div>
+		 
+		 
+		 
+		 
     <div data-role="content" data-theme="c">
       <div data-role="collapsible-set" data-collapsed="true">
 
       </div>
     </div>
+	
+  
+  
 	
 		  <div data-role="footer">
     <h1>@HemangSoni</h1>
