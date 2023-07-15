@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 
 <title>&#128591॥पर शास्त्र॥&#128591</title>
-	
 <script type='text/javascript'  src='https://code.jquery.com/jquery-1.4.4.js'></script>
 <script type='text/javascript'  src='https://code.jquery.com/jquery-1.4.4.min.js'></script>
 <script type='text/javascript'  src="https://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
@@ -32,14 +31,14 @@ mark {
 <script type='text/javascript'>
 
 
-function colllila(lilaID,Aadi,Lila){
+function colllila(lilaID,Aadi,Lila,Tip,vachan,sthan,person){
 //console.log(lilaID,Aadi,Lila);
 	//$('[data-role="content"]').empty();
 	$(document).ready(function(){
 	console.log(lilaID,Aadi,Lila);
 		//$('[data-role="content"]').empty();
 		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
-		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> Lila :'+Lila+'</p>').appendTo('[data-role="content"]').page()
+		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">लीळा : </span>'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> तळ टीप :</span>'+Tip+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">परिवार  :</span>'+person+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000">वचन : </span>'+vachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000">स्थान </span>'+sthan+'</p>').appendTo('[data-role="content"]').page()
 		//$('<div data-role="collapsible" data-collapsed="true"><h3>'+Vachan+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tika+'</p></div>').appendTo('[data-role="content"]').page()
 		//$('<p>'+drushtant+'</p>').appendTo('[data-role="content"]').page()
 
@@ -47,13 +46,13 @@ function colllila(lilaID,Aadi,Lila){
 
 }
 
-function colltest(Aadi,Lila,tip){
+function colltest(lilaID,Aadi,Lila,Tip,vachan,sthan,person){
 	$(window).unload();
 	$('[data-role="content"]').empty();
 	$(window).load(Aadi,Lila, function(){
 		//$('[data-role="content"]').empty();
 		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
-		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify">'+tip+'</p></div>').appendTo('[data-role="content"]').page()		
+		$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">लीळा : </span>'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> तळ टीप :</span>'+Tip+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">परिवार  :</span>'+person+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000">वचन : </span>'+vachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000">स्थान </span>'+sthan+'</p>').appendTo('[data-role="content"]').page()
 		});
 }
 
@@ -108,7 +107,7 @@ $.getJSON('person.json', function(jd)
 			if(result){
 			
 			//console.log(json[i]);
-				colllila(json[i].lilaID,json[i].Aadi,json[i].Lila);
+				colllila(json[i].lilaID,json[i].Aadi,json[i].Lila,json[i].Tip,json[i].vachan,json[i].sthan,json[i].person);
 				}
 			}
 	
@@ -116,7 +115,7 @@ $.getJSON('person.json', function(jd)
 	let result = lid.startsWith("U")
 	if(result){
 	
-	colllila(json[i].lilaID,json[i].Aadi,json[i].Lila);
+	colllila(json[i].lilaID,json[i].Aadi,json[i].Lila,json[i].Tip,json[i].vachan,json[i].sthan,json[i].person);
 	}
 	
 	}
@@ -124,7 +123,7 @@ $.getJSON('person.json', function(jd)
 	let result = lid.startsWith("KC")
 	if(result){
 	
-	colllila(json[i].lilaID,json[i].Aadi,json[i].Lila);
+	colllila(json[i].lilaID,json[i].Aadi,json[i].Lila,json[i].Tip,json[i].vachan,json[i].sthan,json[i].person);
 	}
 	
 	}
@@ -132,7 +131,7 @@ $.getJSON('person.json', function(jd)
 	let result = lid.startsWith("AC")
 	if(result){
 	
-	colllila(json[i].lilaID,json[i].Aadi,json[i].Lila);
+	colllila(json[i].lilaID,json[i].Aadi,json[i].Lila,json[i].Tip,json[i].vachan,json[i].sthan,json[i].person);
 	}
 	
 	}
@@ -143,6 +142,7 @@ $.getJSON('person.json', function(jd)
 //glila(2);
 
 function searchlila(type,searchtext){
+
 //console.log(type,searchtext);
 $.getJSON('person.json', function(jd)
 	{var json = jd.main;
@@ -161,7 +161,7 @@ $.getJSON('person.json', function(jd)
 						console.log(person[p],result);
 						if (result){
 					//console.log(vachan);
-						colltest(json[i].Aadi,json[i].Lila,json[i].Tip);
+						colltest(json[i].lilaID,json[i].Aadi,json[i].Lila,json[i].Tip,json[i].vachan,json[i].sthan,json[i].person);
 						}
 
 					}
@@ -223,7 +223,8 @@ $.getJSON('person.json', function(jd)
 /*Searchbox*/
 
   $(document).ready(function(){
- 
+  $('#filter-records').empty();
+ $('[data-role="content"]').empty();
    $.getJSON('person.json', function(jd) {
 	var data = jd.main
 	console.log(jd.main)
@@ -2114,7 +2115,7 @@ $.getJSON('person.json', function(jd)
 <li><a onclick="searchlila('drushtanth','समुद्राचा ८');"  href="#page" data-transition="slide"> समुद्राचा ८</a></li> 
 <li><a onclick="searchlila('drushtanth','सोमकांताचा ९');"  href="#page" data-transition="slide"> सोमकांताचा ९</a></li> 
 <li><a onclick="searchlila('drushtanth','हिरेखाणियाचा १०');"  href="#page" data-transition="slide"> हिरेखाणियाचा १०</a></li> 
-<li><a onclick="searchlila('drushtanth','देवाचा ११');"  href="#page" data-transition="slide"> देवाचा ११</a></li> 
+<li><a onclick="searchlila('drushtanth','वेवाचा ११');"  href="#page" data-transition="slide"> वेवाचा ११</a></li> 
 <li><a onclick="searchlila('drushtanth','राहाटघडिएचा १२');"  href="#page" data-transition="slide"> राहाटघडिएचा १२</a></li> 
 <li><a onclick="searchlila('drushtanth','माळेकाराचा १३');"  href="#page" data-transition="slide"> माळेकाराचा १३</a></li> 
 <li><a onclick="searchlila('drushtanth','डोळेयाचा १४');"  href="#page" data-transition="slide"> डोळेयाचा १४</a></li> 
@@ -2640,7 +2641,7 @@ $.getJSON('person.json', function(jd)
 <!-- Page six end-->
 
 <!-- Page Seven Start-->
-<div data-role="page" data-theme="b" id="pageseven" >
+<div data-role="page" data-theme="c" id="pageseven" >
            <div data-role = "header">
             <h2>search page</h2>
          </div>
@@ -2654,10 +2655,9 @@ $.getJSON('person.json', function(jd)
         </div>
 	</form>
 
-	
 
-<div data-role="content" data-theme="c">
-	  	<div id="filter-records"></div>
+<div data-role="main" class="ui-content" data-theme="c">
+	  	<div id="filter-records" ></div>
 </div>
 	
 	
