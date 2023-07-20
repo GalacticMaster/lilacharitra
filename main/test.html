@@ -322,9 +322,9 @@ $.getJSON('person.json', function(jd)
 	{var json = jd.main;
 	console.log(json);
 	for (let i = 0; i < json.length; i++){
-		//var lid = json[i].aadi;
-		//console.log(json[i].aadi);
-		//console.log(json[i].avyav);
+		var lid = json[i].aadi;
+		console.log(json[i].aadi);
+		console.log(json[i].avyav);
 		if (json[i].avyav.includes("प्रसन्नतेच्या लीला")){
 		console.log(json[i].avyav);
 		collbhav(json[i].Aadi,json[i].Lila);
