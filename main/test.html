@@ -317,10 +317,10 @@ function collbhav(aadi,lila){
 
 
 function bhav(){
-//console.log();
 $('[data-role="content"]').empty()
 $.getJSON('person.json', function(jd)
 	{var json = jd.main;
+	console.log(json);
 	for (let i = 0; i < json.length; i++){
 		//var lid = json[i].aadi;
 		//console.log(json[i].aadi);
