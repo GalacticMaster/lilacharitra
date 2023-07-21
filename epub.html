@@ -24,7 +24,7 @@
     var currentSectionIndex = (params && params.get("loc")) ? params.get("loc") : undefined;
 
     // Load the opf
-    var book = ePub(url || "./Amhi.opdf");
+    var book = ePub(url || "./Amhi.opf");
 	  console.log(book);
     var rendition = book.renderTo("viewer", {
       width: "100%",
