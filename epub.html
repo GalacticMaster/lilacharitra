@@ -24,7 +24,7 @@
     var currentSectionIndex = (params && params.get("loc")) ? params.get("loc") : undefined;
 
     // Load the opf
-    var book = ePub(url || "https://galacticmaster.github.io/lilacharitra/Amhi.epub");
+    var book = ePub(url || "./Amhi.epub");
 	  console.log(book);
     var rendition = book.renderTo("viewer", {
       width: "100%",
