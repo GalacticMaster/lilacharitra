@@ -24,6 +24,7 @@
 
     // Load the opf
     var book = ePub(url || "https://galacticmaster.github.io/lilacharitra/Amhi.epub");
+	  console.log(book);
     var rendition = book.renderTo("viewer", {
       width: "100%",
       height: 600,
