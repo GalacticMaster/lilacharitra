@@ -10,8 +10,11 @@
 }
 
 body {
+	display: absolute;
   background: #4e4e4e;
   overflow: hidden;
+        -webkit-align-items: center;
+      -webkit-justify-content: center;
 }
 
 #main {
@@ -100,15 +103,14 @@ body {
 }
 
 #viewer {
-  width: 80%;
-  height: 80%;
-  /* margin-left: 10%; */
-  margin: 0 auto;
-  max-width: 1250px;
-  z-index: 2;
-  position: relative;
-  overflow: hidden;
+      width: 290px;
+      height: 580px;
+      box-shadow: 0 0 4px #ccc;
+      padding: 100px 10px 100px 10px;
+      margin: 5px auto;
+      background: white;
 }
+
 
 #viewer iframe {
   border: none;
@@ -654,7 +656,7 @@ input:-ms-placeholder {
 
 @media only screen and (max-width: 1040px) {
   #viewer{
-    width: 50%;
+    width: 500%;
     margin-left: 25%;
   }
 
