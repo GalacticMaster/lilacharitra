@@ -16,14 +16,17 @@
 <style>
 .ui-listview > li a {
   white-space: normal !important;
-}
+}​
 h3 .ui-btn-text{ white-space:normal; word-break:break-all; }
 h3 { white-space:normal; word-break:break-all; }
+
 mark { 
   background-color: pink;
   color: black;
 }
-
+a {
+  white-space: normal;
+}
 
 </style>
 
@@ -66,6 +69,23 @@ function colltest_d(Aadi,Lila,Tip,Vachan,drushtant,sambandh,lapnik,dvachan,drush
 		});
 }
 
+function colltest_e(Aadi,Lila,Tip,avyav){
+	$(window).unload();
+	$('[data-role="content"]').empty();
+	$(window).load(Aadi,Lila, function(){
+		//$('[data-role="content"]').empty();
+		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
+		var output = '<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div>'
+				var src_str = output;
+			  var term = avyav;
+			  term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
+			  var pattern = new RegExp("("+term+")", "gi");
+			  src_str = src_str.replace(pattern, "<span style=\"color: #ff0000\">$1</span>");
+			  //src_str = src_str.replace(/(<span style="color: #ff0000">[^<>]*)((<[^>]+>)+)([^<>]*<\/span>)/,"$1</span>$2<span>$4");
+		$(src_str).$( "#set" ).append( content ).collapsibleset( "refresh" );
+		//$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div>').appendTo('[data-role="content"]').page()
+		});
+}
 
 function glila(LID){
 var LID
@@ -206,6 +226,20 @@ $.getJSON('person.json', function(jd)
 						}
 					}
 			}
+		else if (type == "avyav")
+		{
+				let avyav = json[i].avyav;
+				for(let e = 0; e < avyav.length; e++){
+				console.log(avyav[e]);
+				let result = avyav[e].includes(searchtext);
+						if (result){
+							console.log(result);
+							console.log(avyav[e]);
+							console.log(json[i].Aadi);
+						colltest_e(json[i].Aadi,json[i].Lila,json[i].Tip,avyav[e])
+						} 
+				}		
+		}
 	}
 });
 
@@ -324,6 +358,51 @@ $.getJSON('person.json', function(jd)
 }
 
 /*bhav smran logic end*/
+/* RC start*/
+
+function collrc(lilaID,Aadi,Lila){
+//console.log(lilaID,Aadi,Lila);
+	//$('[data-role="content"]').empty();
+	$(document).ready(function(){
+	console.log(lilaID,Aadi,Lila);
+		//$('[data-role="content"]').empty();
+		
+		var content = '<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">लीळा : </span>'+Lila+'</p>'
+		$( "#set" ).append( content ).collapsibleset( "refresh" );
+		});
+
+}
+
+function rclila(type){
+$('[data-role="content"]').empty()
+$.getJSON('rc.json', function(jd)
+	{var json = jd.main;
+	console.log(json);
+	for (let i = 1; i < json.length; i++){
+		var lid = json[i].id;
+		console.log(lid);
+			if (type==="P"){
+			let result = lid.startsWith("P")
+			if(result){
+			console.log(result);
+				collrc(json[i].id,json[i].aadi,json[i].lila);
+				}
+			}
+	
+			if(type==="U"){
+			let result = lid.startsWith("U")
+					if(result){
+					console.log(result);
+						collrc(json[i].id,json[i].aadi,json[i].lila);
+			}
+	
+	}
+	}
+	});
+
+}
+
+/*RC end */
 $( function() {
   $( "#nav-panel" ).panel().enhanceWithin();
 } );
@@ -338,9 +417,12 @@ $( function() {
   			  	<li ><a onclick="Alila('P');" href="#page"  data-transition="slide">🌷॥ पूर्वार्ध ॥🌷</a></li>
 				<li ><a onclick="Alila('U');" href="#page"  data-transition="slide">&#127801;॥ उत्तरार्ध ॥&#127801;</a></li>
 				<li ><a onclick="Alila('KC');" href="#page"  data-transition="slide">🌷॥ द्वापर चरित्र ॥🌷</a></li>
-				<li ><a onclick="Alila('AC');" href="#page"  data-transition="slide">&#127801;अज्ञात चरित्र ॥&#127801;</a></li>
+				<li ><a onclick="Alila('AC');" href="#page"  data-transition="slide">&#127801;॥अज्ञात चरित्र ॥&#127801;</a></li>
 				<li ><a onclick="bhav();" href="#page"  data-transition="slide">🌷॥ प्रसन्नतेच्या लीला॥🌷</a></li>
+				<li><a onclick="rclila('P');"  href="#page"  data-transition="slide">🌷॥ॠद्धपूर चरीत्र - पूर्वार्ध॥🌷</a></li>
+				<li><a onclick="rclila('U');"  href="#page"  data-transition="slide">🌷॥ॠद्धपूर चरीत्र - उत्तरार्ध॥🌷</a></li>
 				<li><a href="#pagethree"  data-transition="slide">&#127801;॥ व्यक्ती सूची  ॥&#127801;</a></li>
+				<li><a href="#pageeight"  data-transition="slide">🌷॥ भाव स्मरण ॥🌷</a></li>
 				<li><a href="#pagetwo"  data-transition="slide">&#127801;॥ सूत्र पाठ ॥&#127801;</a></li>
 				<li><a href="#pagefour"  data-transition="slide">🌷॥ दृष्टांत पाठ ॥🌷</a></li>
 				<li><a href="#pagefive"  data-transition="slide">&#127801;॥ मूर्तिज्ञान ॥&#127801;</a></li>
@@ -2752,7 +2834,150 @@ Your browser does not support the audio element.
   
   </div>
  <!-- page seven ends-->
+<!-- page eight start -->
+ 
+ <div data-role="page" id="pageeight">
+  <div data-role="header" data-position="fixed">
+    <h1>🌷॥ भाव स्मरण ॥🌷</h1>
+<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+<a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
+  </div>
+ 
+  <div data-role="main" class="ui-content">
+	<div id="sc" class="content" style="text-align: center">
+		<h1 style="color:Tomato;text-align: center;font-size: 30px">॥ व्यक्ती सूची  ॥ </h1>
 
+	</div>
+	
+<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search...">
+			  
+<li><a onclick="searchlila('avyav','श्रीमूर्ती');" href="#page" data-transition="slide">श्रीमूर्ती</a></li>
+<li><a onclick="searchlila('avyav','श्रीमूर्ती');" href="#page" data-transition="slide">श्रीमूर्ती</a></li>
+<li><a onclick="searchlila('avyav','श्रीचरण');" href="#page" data-transition="slide">श्रीचरण</a></li>
+<li><a onclick="searchlila('avyav','चारनोदक');" href="#page" data-transition="slide">चारनोदक</a></li>
+<li><a onclick="searchlila('avyav','तुळशी वहाने ');" href="#page" data-transition="slide">तुळशी वहाने </a></li>
+<li><a onclick="searchlila('avyav','गती');" href="#page" data-transition="slide">गती</a></li>
+<li><a onclick="searchlila('avyav','लावुनी');" href="#page" data-transition="slide">लावुनी</a></li>
+<li><a onclick="searchlila('avyav','श्रीचरणीचा अंगुठा');" href="#page" data-transition="slide">श्रीचरणीचा अंगुठा</a></li>
+<li><a onclick="searchlila('avyav','जानू विभाग');" href="#page" data-transition="slide">जानू विभाग</a></li>
+<li><a onclick="searchlila('avyav','गुडघे');" href="#page" data-transition="slide">गुडघे</a></li>
+<li><a onclick="searchlila('avyav','मांडिया');" href="#page" data-transition="slide">मांडिया</a></li>
+<li><a onclick="searchlila('avyav','जघन प्रदेशु');" href="#page" data-transition="slide">जघन प्रदेशु</a></li>
+<li><a onclick="searchlila('avyav','उदर');" href="#page" data-transition="slide">उदर</a></li>
+<li><a onclick="searchlila('avyav','वक्ष स्थळ');" href="#page" data-transition="slide">वक्ष स्थळ</a></li>
+<li><a onclick="searchlila('avyav','क्षेमलिंगन');" href="#page" data-transition="slide">क्षेमलिंगन</a></li>
+<li><a onclick="searchlila('avyav','भटोबास क्षेमालिंगन');" href="#page" data-transition="slide">भटोबास क्षेमालिंगन</a></li>
+<li><a onclick="searchlila('avyav','महादाईसा क्षेमलिंगन');" href="#page" data-transition="slide">महादाईसा क्षेमलिंगन</a></li>
+<li><a onclick="searchlila('avyav','आऊसा खेमलिंगन');" href="#page" data-transition="slide">आऊसा खेमलिंगन</a></li>
+<li><a onclick="searchlila('avyav','उपाख्य क्षेम…');" href="#page" data-transition="slide">उपाख्य क्षेम…</a></li>
+<li><a onclick="searchlila('avyav','दादोसा क्षेम…');" href="#page" data-transition="slide">दादोसा क्षेम…</a></li>
+<li><a onclick="searchlila('avyav','बाहूप्रदेश');" href="#page" data-transition="slide">बाहूप्रदेश</a></li>
+<li><a onclick="searchlila('avyav','श्रीकर कमल');" href="#page" data-transition="slide">श्रीकर कमल</a></li>
+<li><a onclick="searchlila('avyav','श्रीकरे दाखवणे');" href="#page" data-transition="slide">श्रीकरे दाखवणे</a></li>
+<li><a onclick="searchlila('avyav','श्रीकराने स्पर्शने ');" href="#page" data-transition="slide">श्रीकराने स्पर्शने </a></li>
+<li><a onclick="searchlila('avyav','खांद्यावरी श्रीकर घालणें');" href="#page" data-transition="slide">खांद्यावरी श्रीकर घालणें</a></li>
+<li><a onclick="searchlila('avyav','पाठी स्पर्षणे ');" href="#page" data-transition="slide">पाठी स्पर्षणे </a></li>
+<li><a onclick="searchlila('avyav','पाठीवरी श्रीकरु देणें');" href="#page" data-transition="slide">पाठीवरी श्रीकरु देणें</a></li>
+<li><a onclick="searchlila('avyav','श्रीकरे अनुकार');" href="#page" data-transition="slide">श्रीकरे अनुकार</a></li>
+<li><a onclick="searchlila('avyav','अंगुलिया');" href="#page" data-transition="slide">अंगुलिया</a></li>
+<li><a onclick="searchlila('avyav','श्रीकर… अंगुलीचा अनुकार');" href="#page" data-transition="slide">श्रीकर… अंगुलीचा अनुकार</a></li>
+<li><a onclick="searchlila('avyav','अंगुठा');" href="#page" data-transition="slide">अंगुठा</a></li>
+<li><a onclick="searchlila('avyav','करंगुळी');" href="#page" data-transition="slide">करंगुळी</a></li>
+<li><a onclick="searchlila('avyav','श्रीकंठ ');" href="#page" data-transition="slide">श्रीकंठ </a></li>
+<li><a onclick="searchlila('avyav','हनुवती');" href="#page" data-transition="slide">हनुवती</a></li>
+<li><a onclick="searchlila('avyav','श्रीमुख');" href="#page" data-transition="slide">श्रीमुख</a></li>
+<li><a onclick="searchlila('avyav','इखित हस्या');" href="#page" data-transition="slide">इखित हस्या</a></li>
+<li><a onclick="searchlila('avyav','हस्या स्विकार');" href="#page" data-transition="slide">हस्या स्विकार</a></li>
+<li><a onclick="searchlila('avyav','हर्ष स्विकार');" href="#page" data-transition="slide">हर्ष स्विकार</a></li>
+<li><a onclick="searchlila('avyav','टाळी वाजवणे');" href="#page" data-transition="slide">टाळी वाजवणे</a></li>
+<li><a onclick="searchlila('avyav','कौतुक');" href="#page" data-transition="slide">कौतुक</a></li>
+<li><a onclick="searchlila('avyav','विनोद');" href="#page" data-transition="slide">विनोद</a></li>
+<li><a onclick="searchlila('avyav','परिहास');" href="#page" data-transition="slide">परिहास</a></li>
+<li><a onclick="searchlila('avyav','विपलाने');" href="#page" data-transition="slide">विपलाने</a></li>
+<li><a onclick="searchlila('avyav','तोखाणे');" href="#page" data-transition="slide">तोखाणे</a></li>
+<li><a onclick="searchlila('avyav','अभयदान');" href="#page" data-transition="slide">अभयदान</a></li>
+<li><a onclick="searchlila('avyav','वरप्रदान');" href="#page" data-transition="slide">वरप्रदान</a></li>
+<li><a onclick="searchlila('avyav','तांबूल प्रसाद दान');" href="#page" data-transition="slide">तांबूल प्रसाद दान</a></li>
+<li><a onclick="searchlila('avyav','श्रीमुखाची उबल');" href="#page" data-transition="slide">श्रीमुखाची उबल</a></li>
+<li><a onclick="searchlila('avyav','प्रशंसा');" href="#page" data-transition="slide">प्रशंसा</a></li>
+<li><a onclick="searchlila('avyav','सांबोखन');" href="#page" data-transition="slide">सांबोखन</a></li>
+<li><a onclick="searchlila('avyav','शिक्षापण');" href="#page" data-transition="slide">शिक्षापण</a></li>
+<li><a onclick="searchlila('avyav','कोपने');" href="#page" data-transition="slide">कोपने</a></li>
+<li><a onclick="searchlila('avyav','निराकरण');" href="#page" data-transition="slide">निराकरण</a></li>
+<li><a onclick="searchlila('avyav','दंतपंक्ति');" href="#page" data-transition="slide">दंतपंक्ति</a></li>
+<li><a onclick="searchlila('avyav','नासपुट ');" href="#page" data-transition="slide">नासपुट </a></li>
+<li><a onclick="searchlila('avyav','श्रीनेत्र');" href="#page" data-transition="slide">श्रीनेत्र</a></li>
+<li><a onclick="searchlila('avyav','श्रीनेत्रानुकर');" href="#page" data-transition="slide">श्रीनेत्रानुकर</a></li>
+<li><a onclick="searchlila('avyav','भृभंग');" href="#page" data-transition="slide">भृभंग</a></li>
+<li><a onclick="searchlila('avyav','श्रीमुखे श्रीकारे श्रीमुगुटे  अनुकार');" href="#page" data-transition="slide">श्रीमुखे श्रीकारे श्रीमुगुटे  अनुकार</a></li>
+<li><a onclick="searchlila('avyav','श्रीमुखे श्रीकरे श्रीनेत्रे तिथी काकुसहित वरिले');" href="#page" data-transition="slide">श्रीमुखे श्रीकरे श्रीनेत्रे तिथी काकुसहित वरिले</a></li>
+<li><a onclick="searchlila('avyav','पृथ्वीवहगु');" href="#page" data-transition="slide">पृथ्वीवहगु</a></li>
+<li><a onclick="searchlila('avyav','कर्णयगल');" href="#page" data-transition="slide">कर्णयगल</a></li>
+<li><a onclick="searchlila('avyav','ललहट ');" href="#page" data-transition="slide">ललहट </a></li>
+<li><a onclick="searchlila('avyav','श्रीमुगुट ');" href="#page" data-transition="slide">श्रीमुगुट </a></li>
+<li><a onclick="searchlila('avyav','श्रीमुगुटे अनुज्ञा ');" href="#page" data-transition="slide">श्रीमुगुटे अनुज्ञा </a></li>
+<li><a onclick="searchlila('avyav','श्रीमुगुटे मनिले');" href="#page" data-transition="slide">श्रीमुगुटे मनिले</a></li>
+<li><a onclick="searchlila('avyav','श्रीमुगुटे  निराकारण');" href="#page" data-transition="slide">श्रीमुगुटे  निराकारण</a></li>
+<li><a onclick="searchlila('avyav','स्थितप्रदान');" href="#page" data-transition="slide">स्थितप्रदान</a></li>
+<li><a onclick="searchlila('avyav','भटोबास स्थीती ');" href="#page" data-transition="slide">भटोबास स्थीती </a></li>
+<li><a onclick="searchlila('avyav','नाथोबा स्तिथी');" href="#page" data-transition="slide">नाथोबा स्तिथी</a></li>
+<li><a onclick="searchlila('avyav','आउसा स्थिती');" href="#page" data-transition="slide">आउसा स्थिती</a></li>
+<li><a onclick="searchlila('avyav','दयांबा स्थिती ');" href="#page" data-transition="slide">दयांबा स्थिती </a></li>
+<li><a onclick="searchlila('avyav','दादोसा स्थिती');" href="#page" data-transition="slide">दादोसा स्थिती</a></li>
+<li><a onclick="searchlila('avyav','सारंगपंडिता स्थिती');" href="#page" data-transition="slide">सारंगपंडिता स्थिती</a></li>
+<li><a onclick="searchlila('avyav','चेष्टा');" href="#page" data-transition="slide">चेष्टा</a></li>
+<li><a onclick="searchlila('avyav','चेष्टा प्रधान लीला');" href="#page" data-transition="slide">चेष्टा प्रधान लीला</a></li>
+<li><a onclick="searchlila('avyav','प्रसन्नतेच्या लीला');" href="#page" data-transition="slide">प्रसन्नतेच्या लीला</a></li>
+<li><a onclick="searchlila('avyav','दुःख निवृत्ती');" href="#page" data-transition="slide">दुःख निवृत्ती</a></li>
+<li><a onclick="searchlila('avyav','ग्रहोनिवृत्ती');" href="#page" data-transition="slide">ग्रहोनिवृत्ती</a></li>
+<li><a onclick="searchlila('avyav','दीपन शक्ती');" href="#page" data-transition="slide">दीपन शक्ती</a></li>
+<li><a onclick="searchlila('avyav','पडिताळीने ');" href="#page" data-transition="slide">पडिताळीने </a></li>
+<li><a onclick="searchlila('avyav','वाट पाहणे');" href="#page" data-transition="slide">वाट पाहणे</a></li>
+<li><a onclick="searchlila('avyav','बोलावु धाडणे');" href="#page" data-transition="slide">बोलावु धाडणे</a></li>
+<li><a onclick="searchlila('avyav','क्षुधा स्विकारु');" href="#page" data-transition="slide">क्षुधा स्विकारु</a></li>
+<li><a onclick="searchlila('avyav','त्रिशा स्विकार');" href="#page" data-transition="slide">त्रिशा स्विकार</a></li>
+<li><a onclick="searchlila('avyav','उत्कंठा स्विकार');" href="#page" data-transition="slide">उत्कंठा स्विकार</a></li>
+<li><a onclick="searchlila('avyav','श्रम स्विकार');" href="#page" data-transition="slide">श्रम स्विकार</a></li>
+<li><a onclick="searchlila('avyav','चिंता स्विकार');" href="#page" data-transition="slide">चिंता स्विकार</a></li>
+<li><a onclick="searchlila('avyav','रहावणे');" href="#page" data-transition="slide">रहावणे</a></li>
+<li><a onclick="searchlila('avyav','पाठवणे');" href="#page" data-transition="slide">पाठवणे</a></li>
+<li><a onclick="searchlila('avyav','खेळ');" href="#page" data-transition="slide">खेळ</a></li>
+<li><a onclick="searchlila('avyav','वृक्षस्तळी आसन');" href="#page" data-transition="slide">वृक्षस्तळी आसन</a></li>
+<li><a onclick="searchlila('avyav','वडातळी आसन');" href="#page" data-transition="slide">वडातळी आसन</a></li>
+<li><a onclick="searchlila('avyav','सोंडावरी आसन');" href="#page" data-transition="slide">सोंडावरी आसन</a></li>
+<li><a onclick="searchlila('avyav','विज्ञान');" href="#page" data-transition="slide">विज्ञान</a></li>
+<li><a onclick="searchlila('avyav','झोळीप्रदान');" href="#page" data-transition="slide">झोळीप्रदान</a></li>
+<li><a onclick="searchlila('avyav','झोळी दृष्टीपुत');" href="#page" data-transition="slide">झोळी दृष्टीपुत</a></li>
+<li><a onclick="searchlila('avyav','प्रवृत्ती विषयो झाले');" href="#page" data-transition="slide">प्रवृत्ती विषयो झाले</a></li>
+<li><a onclick="searchlila('avyav','वेळा तिन्ही');" href="#page" data-transition="slide">वेळा तिन्ही</a></li>
+<li><a onclick="searchlila('avyav','पोर कैसे लाटिके');" href="#page" data-transition="slide">पोर कैसे लाटिके</a></li>
+<li><a onclick="searchlila('avyav','त्रयंच्य वेध');" href="#page" data-transition="slide">त्रयंच्य वेध</a></li>
+<li><a onclick="searchlila('avyav','पुष्टी आरोहण');" href="#page" data-transition="slide">पुष्टी आरोहण</a></li>
+<li><a onclick="searchlila('avyav','डोनी आरोहण');" href="#page" data-transition="slide">डोनी आरोहण</a></li>
+<li><a onclick="searchlila('avyav','प्रकाश दर्शन');" href="#page" data-transition="slide">प्रकाश दर्शन</a></li>
+<li><a onclick="searchlila('avyav','आश्चर्याची पहुड ');" href="#page" data-transition="slide">आश्चर्याची पहुड </a></li>
+<li><a onclick="searchlila('avyav','पुत्रत्व स्विकार');" href="#page" data-transition="slide">पुत्रत्व स्विकार</a></li>
+<li><a onclick="searchlila('avyav','महापूजा');" href="#page" data-transition="slide">महापूजा</a></li>
+<li><a onclick="searchlila('avyav','व्यतिक्रमे पूजा');" href="#page" data-transition="slide">व्यतिक्रमे पूजा</a></li>
+<li><a onclick="searchlila('avyav','अदृश्य होणे');" href="#page" data-transition="slide">अदृश्य होणे</a></li>
+<li><a onclick="searchlila('avyav','मृत जिवविने ');" href="#page" data-transition="slide">मृत जिवविने </a></li>
+<li><a onclick="searchlila('avyav','प्लावणे');" href="#page" data-transition="slide">प्लावणे</a></li>
+<li><a onclick="searchlila('avyav','आंबे प्रवेशन ');" href="#page" data-transition="slide">आंबे प्रवेशन </a></li>
+<li><a onclick="searchlila('avyav','केले प्रवेशन ');" href="#page" data-transition="slide">केले प्रवेशन </a></li>
+<li><a onclick="searchlila('avyav','बोर प्रवेश');" href="#page" data-transition="slide">बोर प्रवेश</a></li>
+<li><a onclick="searchlila('avyav','औद्यास्य');" href="#page" data-transition="slide">औद्यास्य</a></li>
+<li><a onclick="searchlila('avyav','अनभाषा बोलणें');" href="#page" data-transition="slide">अनभाषा बोलणें</a></li>
+<li><a onclick="searchlila('avyav','गायन निषेध');" href="#page" data-transition="slide">गायन निषेध</a></li>
+
+			</ul>
+	</div>
+    <!--<a href="#pageone"  data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>-->
+	  <div data-role="footer" data-position="fixed">
+    <h1>&#128591दंडवत प्रणाम &#128591</h1>
+	<a href="#pageone" data-role="button" class="ui-icon-home">Home</a>
+  </div>
+</div>
+<!-- page engit ends-->
 
   <div data-role="page" data-theme="a" id="page" class="jqm-demos ui-responsive-panel" data-title="Panel responsive page" data-url="panel-responsive-page1" >
   
