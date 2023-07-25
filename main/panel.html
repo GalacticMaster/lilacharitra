@@ -370,7 +370,7 @@ function collrc(lilaID,Aadi,Lila){
 }
 
 function rclila(type){
-$('[data-role="content"]').empty()
+$("#set div").empty();
 $.getJSON('rc.json', function(jd)
 	{var json = jd.main;
 	console.log(json);
