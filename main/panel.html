@@ -78,7 +78,7 @@ function colltest_e(Aadi,Lila,Tip,avyav){
 			  var pattern = new RegExp("("+term+")", "gi");
 			  src_str = src_str.replace(pattern, "<span style=\"color: #ff0000\">$1</span>");
 			  //src_str = src_str.replace(/(<span style="color: #ff0000">[^<>]*)((<[^>]+>)+)([^<>]*<\/span>)/,"$1</span>$2<span>$4");
-		$(src_str).$( "#set" ).append( content ).collapsibleset( "refresh" );
+		$( "#set" ).append( src_str ).collapsibleset( "refresh" );
 		//$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div>').appendTo('[data-role="content"]').page()
 		});
 }
