@@ -70,11 +70,7 @@ function colltest_d(Aadi,Lila,Tip,Vachan,drushtant,sambandh,lapnik,dvachan,drush
 }
 
 function colltest_e(Aadi,Lila,Tip,avyav){
-	$(window).unload();
-	$('[data-role="content"]').empty();
-	$(window).load(Aadi,Lila, function(){
-		//$('[data-role="content"]').empty();
-		$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
+	$(document).ready(function() {
 		var output = '<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div>'
 				var src_str = output;
 			  var term = avyav;
