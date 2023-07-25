@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
 
@@ -25,6 +25,7 @@ mark {
 }
 
     .ui-content {
+	white-space: normal;
         border-width: 0;
         overflow: visible;
         overflow-x: hidden;
@@ -32,12 +33,15 @@ mark {
     }
 
     .ui-collapsible-inset, .ui-collapsible-set {
+	white-space: normal;
         margin: 0 !important;
     }
 
     p {
+	white-space: normal;
         padding: 0px 15px 0px 15px;
     }
+
 </style>
 
 <script type='text/javascript'>
@@ -74,7 +78,7 @@ function colltest_v(Aadi,Lila,Tip,Vachan,tika,lapika){
 
 function colltest_d(Aadi,Lila,Tip,Vachan,drushtant,sambandh,lapnik,dvachan,drush,drashtantik,arth){
 	$(document).ready(function() {
-		var content = '<div data-role="collapsible"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tip+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p></div><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> संबंध  : </span> '+sambandh+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> लापणिक   : </span> '+lapnik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टांत  : </span> '+drushtant+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> वचन  : </span> '+dvachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टान्त  : </span> '+drush+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दार्ष्टान्तिक  : </span> '+drashtantik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> भावार्थ  : </span> '+arth+'</p></div>'
+		var content = '<div data-role="collapsible"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tip+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p></div><div><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> संबंध  : </span> '+sambandh+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> लापणिक   : </span> '+lapnik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टांत  : </span> '+drushtant+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> वचन  : </span> '+dvachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टान्त  : </span> '+drush+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दार्ष्टान्तिक  : </span> '+drashtantik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> भावार्थ  : </span> '+arth+'</p></div>'
 		$( "#set" ).append( content ).collapsibleset( "refresh" );
 		});
 }
@@ -337,15 +341,15 @@ $.getJSON('person.json', function(jd)
 }
 
 /*bhav smran logic end*/
-
+$( function() {
+  $( "#nav-panel" ).panel();
+} );
 </script>
 
 </head>
 <body>
 
-
-<div data-role="page" data-theme="a" class="jqm-demos ui-responsive-panel" id="pageone" data-title="Panel responsive page" data-url="panel-responsive-page1">
-    <div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
+<div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
         <ul data-role="listview">
             <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
   			  	<li ><a onclick="Alila('P');" href="#page"  data-transition="slide">🌷॥ पूर्वार्ध ॥🌷</a></li>
@@ -362,8 +366,11 @@ $.getJSON('person.json', function(jd)
 				<li><a href="#pageseven"  data-transition="slide">SearchBox</a></li>
         </ul>
     </div><!-- /panel -->
+
+<div data-role="page" data-theme="a" id="pageone">
     
-<div data-role="header">
+    
+<div data-role="header" data-position="fixed" data-fullscreen="true">
     <h1 style="color:Tomato;font-size: 30px"><i>लीळाचरित्र</i></h1>
 	<h3 style="white-space:normal; word-break:break-all;">विनम्र दंडवत करून एक नम्र विनंती करतो.</h3>
 	<h3 style="white-space:normal; word-break:break-all;">श्रीकृष्ण म्हणे उद्धवदेवा, हा ज्ञान रत्नाचा ठेवा । भलतेया हातीं न द्यावा, अधिकारेवीण ॥१॥ </h3>
@@ -376,29 +383,14 @@ $.getJSON('person.json', function(jd)
 
 
 <div data-role="page" data-theme="a" id="pagetwo" class="jqm-demos ui-responsive-panel" data-title="Panel responsive page" data-url="panel-responsive-page1">
-  <div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
-        <ul data-role="listview">
-            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
-  			  	<li ><a onclick="Alila('P');" href="#page"  data-transition="slide">🌷॥ पूर्वार्ध ॥🌷</a></li>
-				<li ><a onclick="Alila('U');" href="#page"  data-transition="slide">&#127801;॥ उत्तरार्ध ॥&#127801;</a></li>
-				<li ><a onclick="Alila('KC');" href="#page"  data-transition="slide">🌷॥ द्वापर चरित्र ॥🌷</a></li>
-				<li ><a onclick="Alila('AC');" href="#page"  data-transition="slide">&#127801;अज्ञात चरित्र ॥&#127801;</a></li>
-				<li ><a onclick="bhav();" href="#page"  data-transition="slide">🌷॥ प्रसन्नतेच्या लीला॥🌷</a></li>
-				<li><a href="#pagethree"  data-transition="slide">&#127801;॥ व्यक्ती सूची  ॥&#127801;</a></li>
-				<li><a href="#pagetwo"  data-transition="slide">&#127801;॥ सूत्र पाठ ॥&#127801;</a></li>
-				<li><a href="#pagefour"  data-transition="slide">🌷॥ दृष्टांत पाठ ॥🌷</a></li>
-				<li><a href="#pagefive"  data-transition="slide">&#127801;॥ मूर्तिज्ञान ॥&#127801;</a></li>
-				<li><a href="#pagesix"  data-transition="slide">🌷॥ नामाचें दाहा ठाय ॥🌷</a></li>
-				<li ><a onclick="smruti();" href="#page"  data-transition="slide">🌷॥ स्मृतिस्थळ ॥🌷</a></li>
-				<li><a href="#pageseven"  data-transition="slide">SearchBox</a></li>
-        </ul>
-    </div><!-- /panel -->
-  <div data-role="header">
+
+  <div data-role="header" data-position="fixed">
     <h1>🌷॥ सूत्र पाठ ॥🌷</h1>
 	<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+	<a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
   </div>
  
-  <div data-role="main" class="ui-content">
+  <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
   <div id="sc" class="content" style="text-align: center">
 		<h1 style="color:Tomato;text-align: center;font-size: 30px">॥ सूत्र पाठ ॥ </h1>
 </div>
@@ -1731,39 +1723,23 @@ $.getJSON('person.json', function(jd)
 
 			</ul>
 			</div>	
-
-			
-
     <!--<a href="#pageone"  data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>-->
-	  <div data-role="footer">
+	  <div data-role="footer" data-position="fixed">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
+	<a href="#pageone" data-role="button" class="ui-icon-home">Home</a>
   </div>
+			
 </div>
-</div>
+
 
 <!-- Page Three start-->
 
 <div data-role="page" data-theme="a" id="pagethree" class="jqm-demos ui-responsive-panel" data-title="Panel responsive page" data-url="panel-responsive-page1">
-    <div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
-        <ul data-role="listview">
-            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
-   			  	<li ><a onclick="Alila('P');" href="#page"  data-transition="slide">🌷॥ पूर्वार्ध ॥🌷</a></li>
-				<li ><a onclick="Alila('U');" href="#page"  data-transition="slide">&#127801;॥ उत्तरार्ध ॥&#127801;</a></li>
-				<li ><a onclick="Alila('KC');" href="#page"  data-transition="slide">🌷॥ द्वापर चरित्र ॥🌷</a></li>
-				<li ><a onclick="Alila('AC');" href="#page"  data-transition="slide">&#127801;अज्ञात चरित्र ॥&#127801;</a></li>
-				<li ><a onclick="bhav();" href="#page"  data-transition="slide">🌷॥ प्रसन्नतेच्या लीला॥🌷</a></li>
-				<li><a href="#pagethree"  data-transition="slide">&#127801;॥ व्यक्ती सूची  ॥&#127801;</a></li>
-				<li><a href="#pagetwo"  data-transition="slide">&#127801;॥ सूत्र पाठ ॥&#127801;</a></li>
-				<li><a href="#pagefour"  data-transition="slide">🌷॥ दृष्टांत पाठ ॥🌷</a></li>
-				<li><a href="#pagefive"  data-transition="slide">&#127801;॥ मूर्तिज्ञान ॥&#127801;</a></li>
-				<li><a href="#pagesix"  data-transition="slide">🌷॥ नामाचें दाहा ठाय ॥🌷</a></li>
-				<li ><a onclick="smruti();" href="#page"  data-transition="slide">🌷॥ स्मृतिस्थळ ॥🌷</a></li>
-				<li><a href="#pageseven"  data-transition="slide">SearchBox</a></li>
-        </ul>
-    </div><!-- /panel -->
-  <div data-role="header">
+
+  <div data-role="header" data-position="fixed">
     <h1>🌷॥ व्यक्ती सूची ॥🌷</h1>
 	<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+	<a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
   </div>
  
   <div data-role="main" class="ui-content">
@@ -2183,8 +2159,9 @@ $.getJSON('person.json', function(jd)
 
 
     <!--<a href="#pageone"  data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>-->
-<div data-role="footer">
+<div data-role="footer" data-position="fixed">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
+	<a href="#pageone" data-role="button" class="ui-icon-home">Home</a>
 </div>
 </div>
 
@@ -2194,26 +2171,10 @@ $.getJSON('person.json', function(jd)
 <!-- Page Four Starts-->
 
 <div data-role="page" data-theme="a" id="pagefour" class="jqm-demos ui-responsive-panel" data-title="Panel responsive page" data-url="panel-responsive-page1">
-  <div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
-        <ul data-role="listview">
-            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
-   			  	<li ><a onclick="Alila('P');" href="#page"  data-transition="slide">🌷॥ पूर्वार्ध ॥🌷</a></li>
-				<li ><a onclick="Alila('U');" href="#page"  data-transition="slide">&#127801;॥ उत्तरार्ध ॥&#127801;</a></li>
-				<li ><a onclick="Alila('KC');" href="#page"  data-transition="slide">🌷॥ द्वापर चरित्र ॥🌷</a></li>
-				<li ><a onclick="Alila('AC');" href="#page"  data-transition="slide">&#127801;अज्ञात चरित्र ॥&#127801;</a></li>
-				<li ><a onclick="bhav();" href="#page"  data-transition="slide">🌷॥ प्रसन्नतेच्या लीला॥🌷</a></li>
-				<li><a href="#pagethree"  data-transition="slide">&#127801;॥ व्यक्ती सूची  ॥&#127801;</a></li>
-				<li><a href="#pagetwo"  data-transition="slide">&#127801;॥ सूत्र पाठ ॥&#127801;</a></li>
-				<li><a href="#pagefour"  data-transition="slide">🌷॥ दृष्टांत पाठ ॥🌷</a></li>
-				<li><a href="#pagefive"  data-transition="slide">&#127801;॥ मूर्तिज्ञान ॥&#127801;</a></li>
-				<li><a href="#pagesix"  data-transition="slide">🌷॥ नामाचें दाहा ठाय ॥🌷</a></li>
-				<li ><a onclick="smruti();" href="#page"  data-transition="slide">🌷॥ स्मृतिस्थळ ॥🌷</a></li>
-				<li><a href="#pageseven"  data-transition="slide">SearchBox</a></li>
-        </ul>
-    </div><!-- /panel -->
-  <div data-role="header">
+  <div data-role="header" data-position="fixed">
     <h1>🌷॥ दृष्टांत पाठ ॥ 🌷</h1>
 	<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+	<a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
   </div>
  
   <div data-role="main" class="ui-content">
@@ -2347,8 +2308,9 @@ $.getJSON('person.json', function(jd)
 			</ul>
 	</div>
     <!--<a href="#pageone"  data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>-->
-	  <div data-role="footer">
+	  <div data-role="footer" data-position="fixed">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
+	<a href="#pageone" data-role="button" class="ui-icon-home">Home</a>
   </div>
 </div>
 </div>
@@ -2358,26 +2320,11 @@ $.getJSON('person.json', function(jd)
 <!-- Page Five start-->
 
 <div data-role="page" data-theme="a" id="pagefive" class="jqm-demos ui-responsive-panel" data-title="Panel responsive page" data-url="panel-responsive-page1">
- <div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
-        <ul data-role="listview">
-            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
-   			  	<li ><a onclick="Alila('P');" href="#page"  data-transition="slide">🌷॥ पूर्वार्ध ॥🌷</a></li>
-				<li ><a onclick="Alila('U');" href="#page"  data-transition="slide">&#127801;॥ उत्तरार्ध ॥&#127801;</a></li>
-				<li ><a onclick="Alila('KC');" href="#page"  data-transition="slide">🌷॥ द्वापर चरित्र ॥🌷</a></li>
-				<li ><a onclick="Alila('AC');" href="#page"  data-transition="slide">&#127801;अज्ञात चरित्र ॥&#127801;</a></li>
-				<li ><a onclick="bhav();" href="#page"  data-transition="slide">🌷॥ प्रसन्नतेच्या लीला॥🌷</a></li>
-				<li><a href="#pagethree"  data-transition="slide">&#127801;॥ व्यक्ती सूची  ॥&#127801;</a></li>
-				<li><a href="#pagetwo"  data-transition="slide">&#127801;॥ सूत्र पाठ ॥&#127801;</a></li>
-				<li><a href="#pagefour"  data-transition="slide">🌷॥ दृष्टांत पाठ ॥🌷</a></li>
-				<li><a href="#pagefive"  data-transition="slide">&#127801;॥ मूर्तिज्ञान ॥&#127801;</a></li>
-				<li><a href="#pagesix"  data-transition="slide">🌷॥ नामाचें दाहा ठाय ॥🌷</a></li>
-				<li ><a onclick="smruti();" href="#page"  data-transition="slide">🌷॥ स्मृतिस्थळ ॥🌷</a></li>
-				<li><a href="#pageseven"  data-transition="slide">SearchBox</a></li>
-        </ul>
-</div>
-  <div data-role="header">
+
+  <div data-role="header" data-position="fixed">
     <h1>🌷॥ मूर्तिज्ञान ॥ 🌷</h1>
 	<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+	<a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
   </div>
  
   <div data-role="main" class="ui-content">
@@ -2448,7 +2395,7 @@ Your browser does not support the audio element.
 
 			<div data-role="collapsible" data-collapsed="true">
 				<h3>२. ॥ श्रीचरण ॥ २.॥ </h3>
-				<ul data-role="listview" data-inset="true">
+				<ul data-role="listview">
 			  <li> १) जे एकांकी डावेनि श्रीचरणें सीळातळावरि उदक घालीती : (एकांक) </li>
 			  <li><a onclick="glila('P328');" href="#page" data-transition="slide" id="P328"> २) आणि माहादाइसाचे आंग चुरने (पू. ३२८-पाटोदा) </a></li>
 			  <li><a onclick="glila('P479');" href="#page" data-transition="slide" id="P479"> ३) भटा क्षेउर : ( पू. ४७९ - जालना) </a></li>
@@ -2689,8 +2636,9 @@ Your browser does not support the audio element.
 			  </div>
 
 </div>
-	  <div data-role="footer">
+	  <div data-role="footer" data-position="fixed">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
+	<a href="#pageone" data-role="button" class="ui-icon-home">Home</a>
   </div>
 </div>
 
@@ -2703,26 +2651,10 @@ Your browser does not support the audio element.
 
 
 <div data-role="page" data-theme="a" id="pagesix" class="jqm-demos ui-responsive-panel" data-title="Panel responsive page" data-url="panel-responsive-page1">
-<div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
-        <ul data-role="listview">
-            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
-   			  	<li ><a onclick="Alila('P');" href="#page"  data-transition="slide">🌷॥ पूर्वार्ध ॥🌷</a></li>
-				<li ><a onclick="Alila('U');" href="#page"  data-transition="slide">&#127801;॥ उत्तरार्ध ॥&#127801;</a></li>
-				<li ><a onclick="Alila('KC');" href="#page"  data-transition="slide">🌷॥ द्वापर चरित्र ॥🌷</a></li>
-				<li ><a onclick="Alila('AC');" href="#page"  data-transition="slide">&#127801;अज्ञात चरित्र ॥&#127801;</a></li>
-				<li ><a onclick="bhav();" href="#page"  data-transition="slide">🌷॥ प्रसन्नतेच्या लीला॥🌷</a></li>
-				<li><a href="#pagethree"  data-transition="slide">&#127801;॥ व्यक्ती सूची  ॥&#127801;</a></li>
-				<li><a href="#pagetwo"  data-transition="slide">&#127801;॥ सूत्र पाठ ॥&#127801;</a></li>
-				<li><a href="#pagefour"  data-transition="slide">🌷॥ दृष्टांत पाठ ॥🌷</a></li>
-				<li><a href="#pagefive"  data-transition="slide">&#127801;॥ मूर्तिज्ञान ॥&#127801;</a></li>
-				<li><a href="#pagesix"  data-transition="slide">🌷॥ नामाचें दाहा ठाय ॥🌷</a></li>
-				<li ><a onclick="smruti();" href="#page"  data-transition="slide">🌷॥ स्मृतिस्थळ ॥🌷</a></li>
-				<li><a href="#pageseven"  data-transition="slide">SearchBox</a></li>
-        </ul>
-    </div><!-- /panel -->
-  <div data-role="header">
+  <div data-role="header" data-position="fixed">
     <h1 >🌷॥ नामाचें दाहा ठाय ॥ 🌷</h1>
 	<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+	<a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
   </div>
  
   <div data-role="main" class="ui-content">
@@ -2793,8 +2725,9 @@ Your browser does not support the audio element.
 			</div>
 			
 </div>
-	  <div data-role="footer" data-theme="b">
+	  <div data-role="footer" data-position="fixed">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
+	<a href="#pageone" data-role="button" class="ui-icon-home">Home</a>
   </div>
 </div>
 </div>
@@ -2806,7 +2739,7 @@ Your browser does not support the audio element.
 
 <!-- Page Seven Start-->
 <div data-role="page" data-theme="c" id="pageseven" >
-           <div data-role = "header">
+           <div data-role = "header" data-position="fixed">
             <h2>search page</h2>
          </div>
 		 
@@ -2828,7 +2761,7 @@ Your browser does not support the audio element.
   </div>
   
 	
-		  <div data-role="footer">
+		  <div data-role="footer" data-position="fixed">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
 	<a href="#pageone" data-role="button" class="ui-icon-home">Home</a>
   </div>
@@ -2839,34 +2772,18 @@ Your browser does not support the audio element.
 
 
   <div data-role="page" data-theme="a" id="page" class="jqm-demos ui-responsive-panel" data-title="Panel responsive page" data-url="panel-responsive-page1" >
-  <div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
-        <ul data-role="listview">
-            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
-   			  	<li ><a onclick="Alila('P');" href="#page"  data-transition="slide">🌷॥ पूर्वार्ध ॥🌷</a></li>
-				<li ><a onclick="Alila('U');" href="#page"  data-transition="slide">&#127801;॥ उत्तरार्ध ॥&#127801;</a></li>
-				<li ><a onclick="Alila('KC');" href="#page"  data-transition="slide">🌷॥ द्वापर चरित्र ॥🌷</a></li>
-				<li ><a onclick="Alila('AC');" href="#page"  data-transition="slide">&#127801;अज्ञात चरित्र ॥&#127801;</a></li>
-				<li ><a onclick="bhav();" href="#page"  data-transition="slide">🌷॥ प्रसन्नतेच्या लीला॥🌷</a></li>
-				<li><a href="#pagethree"  data-transition="slide">&#127801;॥ व्यक्ती सूची  ॥&#127801;</a></li>
-				<li><a href="#pagetwo"  data-transition="slide">&#127801;॥ सूत्र पाठ ॥&#127801;</a></li>
-				<li><a href="#pagefour"  data-transition="slide">🌷॥ दृष्टांत पाठ ॥🌷</a></li>
-				<li><a href="#pagefive"  data-transition="slide">&#127801;॥ मूर्तिज्ञान ॥&#127801;</a></li>
-				<li><a href="#pagesix"  data-transition="slide">🌷॥ नामाचें दाहा ठाय ॥🌷</a></li>
-				<li ><a onclick="smruti();" href="#page"  data-transition="slide">🌷॥ स्मृतिस्थळ ॥🌷</a></li>
-				<li><a href="#pageseven"  data-transition="slide">SearchBox</a></li>
-        </ul>
-    </div><!-- /panel -->
   
-           <div data-role = "header">
+           <div data-role = "header" data-position="fixed">
             <h2> &#128591दंडवत प्रणाम &#128591</h2>
 			<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+			<a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
          </div>
 
 <div data-role="collapsibleset" data-content-theme="a" id="set">
 
 </div> 
  
-		  <div data-role="footer">
+		  <div data-role="footer" data-position="fixed">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
 	<a href="#pageone" data-role="button" class="ui-icon-home">Home</a>
   </div>
