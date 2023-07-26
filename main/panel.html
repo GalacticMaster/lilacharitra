@@ -7,7 +7,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<!--<link rel="stylesheet" href="themes/pershastra.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />-->
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
@@ -416,11 +418,12 @@ $('ul').find('a').on('click', function () {
 <body>
 
 <div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
-        <ul data-role="listview">
+        <ul data-role="listview" data-inset="true">
             <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
+			<li data-icon="home"><a href="#pageone" data-rel="home">Home Page</a></li>
 				<div data-role="collapsible" data-collapsed="true">
 				<h3>॥ लीळाचरित्र ॥</h3>
-				<ul data-role="listview">
+				<ul data-role="listview" data-inset="true">
   			  	<li><a onclick="Alila('P');" href="#page"  data-transition="slide">🌷॥ पूर्वार्ध ॥🌷</a></li>
 				<li><a onclick="Alila('U');" href="#page"  data-transition="slide">&#127801;॥ उत्तरार्ध ॥&#127801;</a></li>
 				<li><a onclick="Alila('KC');" href="#page"  data-transition="slide">🌷॥ द्वापर चरित्र ॥🌷</a></li>
@@ -428,20 +431,25 @@ $('ul').find('a').on('click', function () {
 				<li><a onclick="bhav();" href="#page"  data-transition="slide">🌷॥ प्रसन्नतेच्या लीला॥🌷</a></li>
 				<li><a href="#pagethree"  data-transition="slide">&#127801;॥ व्यक्ती सूची  ॥&#127801;</a></li>
 				<li><a href="#pageeight"  data-transition="slide">🌷॥ भाव स्मरण ॥🌷</a></li>
-				<li><a href="https://galacticmaster.github.io/lilacharitra/epubjs-reader-master/reader/index.html" rel="external">&#127801;॥ आम्ही  - पूर्वार्ध॥&#127801;</a></li>
-				<li><a href="https://galacticmaster.github.io/lilacharitra/epubjs-reader-master/reader/indexu.html" rel="external">🌷॥ आम्ही  - उत्तरार्ध॥🌷</a></li>
+				</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+				<h3>॥ आम्ही॥</h3>
+				<ul data-role="listview" data-inset="true">
+								<li><a href="http://127.0.0.1:8000/epubjs-reader-master/epubjs-reader-master/reader/index.html" rel="external">&#127801;॥पूर्वार्ध॥&#127801;</a></li>
+				<li><a href="http://127.0.0.1:8000/epubjs-reader-master/epubjs-reader-master/reader/indexu.html" rel="external">🌷॥उत्तरार्ध॥🌷</a></li>
 				</ul>
 				</div>
 				<div data-role="collapsible" data-collapsed="true">
 				<h3>॥ॠद्धपूर चरीत्र॥</h3>
-				<ul data-role="listview">
-				<li><a onclick="rclila('P');"  href="#page"  data-transition="slide">🌷॥ॠद्धपूर चरीत्र - पूर्वार्ध॥🌷</a></li>
-				<li><a onclick="rclila('U');"  href="#page"  data-transition="slide">🌷॥ॠद्धपूर चरीत्र - उत्तरार्ध॥🌷</a></li>
+				<ul data-role="listview" data-inset="true">
+				<li><a onclick="rclila('P');"  href="#page"  data-transition="slide">🌷॥पूर्वार्ध॥🌷</a></li>
+				<li><a onclick="rclila('U');"  href="#page"  data-transition="slide">🌷॥उत्तरार्ध॥🌷</a></li>
 				</ul>
 				</div>
 				<div data-role="collapsible" data-collapsed="true">
 				<h3>॥सूत्र पाठ॥</h3>
-				<ul data-role="listview">
+				<ul data-role="listview" data-inset="true">
 				<li><a href="#pagetwo"  data-transition="slide">&#127801;॥ सूत्र पाठ ॥&#127801;</a></li>
 				<li><a href="#pagefour"  data-transition="slide">🌷॥ दृष्टांत पाठ ॥🌷</a></li>
 				<li><a href="#pagefive"  data-transition="slide">&#127801;॥ मूर्तिज्ञान ॥&#127801;</a></li>
@@ -500,7 +508,7 @@ $('ul').find('a').on('click', function () {
 			
 			 <div data-role="collapsible" data-collapsed="true">
 			  <h3> ॥ अन्यव्यावृत्ति ॥ </h3>
-			  <ul data-role="listview" data-inset="true" data-divider-theme="e"  data-filter="true" data-filter-placeholder="Search...">
+			  <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search...">
 			  <li><a style="white-space: normal" onclick="searchlila('vachan','कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)');"  href="#page" data-transition="slide"> कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)</a></li> 
 			  <li><a onclick="searchlila('vachan','अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)');" value="अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)" href="#page" data-transition="slide">अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)</a></li>
 			<li><a onclick="searchlila('vachan','अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)');" value="अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)" href="#page" data-transition="slide">अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)</a></li>
@@ -1824,9 +1832,9 @@ $('ul').find('a').on('click', function () {
 			</ul>
 			</div>	
     <!--<a href="#pageone"  data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>-->
-	  <div data-role="footer" data-position="fixed">
+	  <div data-role="footer" data-position="fixed" data-fullscreen="true">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
-	<div class="ui-block-a"><a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a></div>
+	
   </div>
 			
 </div>
