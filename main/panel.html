@@ -31,7 +31,6 @@ style="font-size:
 text-align:justify
 }
 
-
 </style>
 
 <script type='text/javascript'>
@@ -412,15 +411,28 @@ $('ul').find('a').on('click', function () {
     $(this).closest('ul').find('a').removeClass('ui-btn-active');
     $(this).addClass('ui-btn-active');
 });
+
+$( "#popupPanel" ).on({
+    popupbeforeposition: function() {
+        var h = $( window ).height();
+
+        $( "#popupPanel" ).css( "height", h );
+    }
+});
 </script>
 
 </head>
 <body>
 
+
+
 <div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
+		<p><center>॥ परशास्त्र॥</center></p>
+		
+		<a class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-delete ui-btn-icon-notext" href="#" >Button</a>
+		<a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a>
         <ul data-role="listview" data-inset="true">
-            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
-			<li data-icon="home"><a href="#pageone" data-rel="home">Home Page</a></li>
+
 				<div data-role="collapsible" data-collapsed="true">
 				<h3>॥ लीळाचरित्र ॥</h3>
 				<ul data-role="listview" data-inset="true">
@@ -470,18 +482,19 @@ $('ul').find('a').on('click', function () {
 			<div data-role="main">
 			<br></br>
 			<h1 style = "font-size: 20px"><center> ॥ श्री परेशाए नम: ॥</center> </h1>
-			<center> &#128591दंडवत प्रणाम &#128591</center>
+			<h1><center><strong>सौजन्य आणि संकल्पना</strong></center></h1>
 			<ul>
-			 
-			<li> P.P.P.M. Dharmaraj Baba Bidkar ( Guruji Satara Ashram)
-			<li> P.P.P.M. Kumar Baba Bidkar ( Guruji Satara Ashram)
-			<li> P.P Santosh Muni Bidkar (baragaon pimpri)
-			<li> P.P DeepakRaj Bidkar (Tardaf)
-			<li> P.P SatvikMuni Bidkar (Satara Asharam)
-			<li> P.P Janardan Dada Bidkar (Satara Ashram)
-			<li> P.P Sanja Sir Shelatkar (Geeta Patshala)
-			<li> P.P Parkash Sir Thakre (Geeta Patshala)
-			<img src="2021-06-26.jpg" width="200" height="150">
+			<li>  प. पु. पु.म. धर्मराज बाबा बिडकर ( सातारा आश्रम)</li>
+			<li> प. पु. पु.म. कुमार बाबा बिडकर ( सातारा आश्रम)</li>
+			<li> प. पु. संतोष मुनी बिडकर (बारागाव पिंपरी)</li>
+			<li> प. पु. दीपकराज बिडकर (तरडफ)</li>
+			<li> प. पु. सात्विकमुनी बिडकर (सातारा आश्रम)</li>
+			<li> प. पु. जनार्दन दादा बिडकर (सातारा आश्रम)</li>
+			<li> प. पु. संजय सर शेलटकर (गीता पाठशाळा मुंबई)</li>
+			<li> प. पु. प्रकाश सर ठाकरे (गीता पाठशाळा मुंबई)</li>
+			<br></br>
+			</ul>
+			<center><strong> &#128591दंडवत प्रणाम &#128591</strong></center>
 			</div>
 	  <div data-role="footer" data-position="fixed">
 	  <div class="ui-block-a"><a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a></div>
@@ -495,7 +508,7 @@ $('ul').find('a').on('click', function () {
   <div data-role="header" data-position="fixed" data-fullscreen="true">
     <h1>🌷॥ सूत्र पाठ ॥🌷</h1>
 	<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-	<a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
+	<a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>	
   </div>
  
   <div data-role="main" class="ui-content jqm-content jqm-fullwidth">
