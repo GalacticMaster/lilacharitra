@@ -32,7 +32,6 @@ text-align:justify
 }
 p { margin-bottom: 15px; }
 #toTop { position: fixed; bottom: 50px; right: 30px; width: 84px; background-color: #CCC; cursor: pointer; display: none; }
-
 }
 
 body {
@@ -77,19 +76,28 @@ $(document).ready(function() {
 
 function colltest(lilaID,Aadi,Lila,Tip,vachan,sthan,person){
 	$(document).ready(function() {
-
-		//$('[data-role="content"]').empty();
-		//$('<div data-role="collapsible-set">').appendTo('[data-role="content"]').page()
-		//$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">लीळा : </span>'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> तळ टीप :</span>'+Tip+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">परिवार  :</span>'+person+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000">वचन : </span>'+vachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000">स्थान </span>'+sthan+'</p>').appendTo('[data-role="content"]').page()
-		var content = "<div data-role='collapsible'><h3 style=\"word-break:break-all;\">"+lilaID+"&nbsp"+Aadi+"</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">लीळा : </span>"+Lila+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\"> तळ टीप :</span>"+Tip+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">परिवार  :</span>"+person+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">वचन : </span>"+vachan+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">स्थान </span>"+sthan+"</p>"
-		$( "#set" ).append( content ).collapsibleset( "refresh" );
+		var content = "<div data-role='collapsible'><h3 style=\"word-break:break-all;\">"+lilaID+"&nbsp"+Aadi+"</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">लीळा : </span>"+Lila+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\"> तळ टीप :</span>"+Tip+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">परिवार  :</span>"+person+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">वचन : </span>"+vachan+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">स्थान :</span>"+sthan+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">परिवार  : </span>"+person+"</p>"
+				var src_str = content;
+			  var term = person;
+			  term = term.toString().replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
+			  var pattern = new RegExp("("+term+")", "gi");
+			  src_str = src_str.replace(pattern, "<span style=\"color: #ff0000\">$1</span>");
+		$( "#set" ).append( src_str ).collapsibleset( "refresh" );
 		});
 }
 
 function colltest_v(Aadi,Lila,Tip,Vachan,tika,lapika){
 	$(document).ready(function() {
 		var content = '<div data-role="collapsible"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> लापिका  : </span> '+lapika+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> टीका   : </span> '+tika+'</p></div>'
-		$( "#set" ).append( content ).collapsibleset( "refresh" );
+			  var src_str = content;
+			  console.log(src_str);
+			  var term = $.trim(Vachan.split('(',1)[0]);
+			  term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
+			  console.log(term);
+			  var pattern = new RegExp("("+term+")", "gi");
+			  console.log(pattern);
+			  src_str = src_str.replace(pattern, "<span style=\"color: #ff0000\">$1</span>");
+		$( "#set" ).append( src_str ).collapsibleset( "refresh" );
 		});
 }
 
@@ -440,18 +448,15 @@ $('ul').find('a').on('click', function () {
     $(this).addClass('ui-btn-active');
 });
 
-$( "#popupPanel" ).on({
-    popupbeforeposition: function() {
-        var h = $( window ).height();
-
-        $( "#popupPanel" ).css( "height", h );
-    }
+/* Instantiate the popup on DOMReady, and enhance its contents */
+$(function(){
+    $( "#popupMenu1" ).enhanceWithin().popup();
 });
 </script>
 
 </head>
 <body>
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<button onclick="topFunction()" id="myBtn" title="Go to top" style='font-size:20px;'>&#11014;</button>
 <script>
 // Get the button
 let mybutton = document.getElementById("myBtn");
@@ -473,16 +478,10 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 </script>
-
-
-<div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
-		<p><center>॥ परशास्त्र॥</center></p>
-		
-		<a class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-delete ui-btn-icon-notext" href="#" >Button</a>
-		<a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a>
-        <ul data-role="listview" data-inset="true">
-
-				<div data-role="collapsible" data-collapsed="true">
+<div data-role="popup" id="popupMenu1" data-theme="b">
+        <ul data-role="listview" data-inset="true" style="min-width:210px;">
+            <li data-role="list-divider">Choose an action</li>
+<div data-role="collapsible" data-collapsed="true"  <div data-role="collapsibleset" data-theme="b" data-content-theme="a" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
 				<h3>॥ लीळाचरित्र ॥</h3>
 				<ul data-role="listview" data-inset="true">
   			  	<li><a onclick="Alila('P');" href="#page"  data-transition="slide">🌷॥ पूर्वार्ध ॥🌷</a></li>
@@ -518,8 +517,65 @@ function topFunction() {
 				</ul>
 				</div>
 				<li ><a onclick="smruti();" href="#page"  data-transition="slide">🌷॥ स्मृतिस्थळ ॥🌷</a></li>
-				<li><a href="#pageseven"  data-transition="slide">SearchBox</a></li>
         </ul>
+</div>
+
+<div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
+		<p><center>॥ परशास्त्र॥</center></p>
+		
+		<a class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-delete ui-btn-icon-notext" href="#" >Button</a>
+		<a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a>
+        <ul data-role="listview" data-inset="true">
+			<div data-role="collapsibleset" data-theme="b" data-content-theme="a" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
+				<div data-role="collapsible" data-collapsed="true">
+				<h3>॥ लीळाचरित्र ॥</h3>
+				<ul data-role="listview" data-inset="true">
+  			  	<li><a onclick="Alila('P');" href="#page"  data-transition="slide">🌷॥ पूर्वार्ध ॥🌷</a></li>
+				<li><a onclick="Alila('U');" href="#page"  data-transition="slide">&#127801;॥ उत्तरार्ध ॥&#127801;</a></li>
+				<li><a onclick="Alila('KC');" href="#page"  data-transition="slide">🌷॥ द्वापर चरित्र ॥🌷</a></li>
+				<li><a onclick="Alila('AC');" href="#page"  data-transition="slide">&#127801;॥अज्ञात चरित्र ॥&#127801;</a></li>
+				<li><a onclick="bhav();" href="#page"  data-transition="slide">🌷॥ प्रसन्नतेच्या लीला॥🌷</a></li>
+				<li><a href="#pagethree"  data-transition="slide">&#127801;॥ व्यक्ती सूची  ॥&#127801;</a></li>
+				<li><a href="#pageeight"  data-transition="slide">🌷॥ भाव स्मरण ॥🌷</a></li>
+				</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+				<h3>॥ आम्ही॥</h3>
+				<ul data-role="listview" data-inset="true">
+								<li><a href="http://127.0.0.1:8000/epubjs-reader-master/epubjs-reader-master/reader/index.html" rel="external">&#127801;॥पूर्वार्ध॥&#127801;</a></li>
+				<li><a href="http://127.0.0.1:8000/epubjs-reader-master/epubjs-reader-master/reader/indexu.html" rel="external">🌷॥उत्तरार्ध॥🌷</a></li>
+				</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+				<h3>॥ॠद्धपूर चरीत्र॥</h3>
+				<ul data-role="listview" data-inset="true">
+				<li><a onclick="rclila('P');"  href="#page"  data-transition="slide">🌷॥पूर्वार्ध॥🌷</a></li>
+				<li><a onclick="rclila('U');"  href="#page"  data-transition="slide">🌷॥उत्तरार्ध॥🌷</a></li>
+				</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+				<h3>॥सूत्र पाठ॥</h3>
+				<ul data-role="listview" data-inset="true">
+				<li><a href="#pagetwo"  data-transition="slide">&#127801;॥ सूत्र पाठ ॥&#127801;</a></li>
+				<li><a href="#pagefour"  data-transition="slide">🌷॥ दृष्टांत पाठ ॥🌷</a></li>
+				<li><a href="#pagefive"  data-transition="slide">&#127801;॥ मूर्तिज्ञान ॥&#127801;</a></li>
+				<li><a href="#pagesix"  data-transition="slide">🌷॥ नामाचें दाहा ठाय ॥🌷</a></li>
+				</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+				<h3>॥ स्मृतिस्थळ ॥</h3>
+				<ul data-role="listview" data-inset="true">
+				<li ><a onclick="smruti();" href="#page"  data-transition="slide">🌷॥ स्मृतिस्थळ ॥🌷</a></li>
+				</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+				<h3>SearchBoX</h3>
+				<ul data-role="listview" data-inset="true">
+				<li><a href="#pageseven"  data-transition="slide">SearchBox</a></li>
+				</ul>
+				</div>
+        </ul>
+		</div>
     </div><!-- /panel -->
 
 <div data-role="page" data-theme="a" id="pageone" data-title="॥ परशास्त्र॥ ">   
@@ -527,6 +583,7 @@ function topFunction() {
 		<div data-role="header" data-position="fixed" data-fullscreen="true">
 			<h1><i>॥ परशास्त्र॥ </i></h1>
 			<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+
 		</div>
 			<div data-role="main">
 			<br></br>
@@ -543,6 +600,50 @@ function topFunction() {
 			<li> प. पु. प्रकाश सर ठाकरे (गीता पाठशाळा मुंबई)</li>
 			<br></br>
 			</ul>
+			
+			<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
+<div data-role="popup" id="popupMenu" data-theme="b">
+        <ul data-role="listview" data-inset="true" style="min-width:210px;">
+            <li data-role="list-divider">Choose an action</li>
+<div data-role="collapsible" data-collapsed="true"  <div data-role="collapsibleset" data-theme="b" data-content-theme="a" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
+				<h3>॥ लीळाचरित्र ॥</h3>
+				<ul data-role="listview" data-inset="true">
+  			  	<li><a onclick="Alila('P');" href="#page"  data-transition="slide">🌷॥ पूर्वार्ध ॥🌷</a></li>
+				<li><a onclick="Alila('U');" href="#page"  data-transition="slide">&#127801;॥ उत्तरार्ध ॥&#127801;</a></li>
+				<li><a onclick="Alila('KC');" href="#page"  data-transition="slide">🌷॥ द्वापर चरित्र ॥🌷</a></li>
+				<li><a onclick="Alila('AC');" href="#page"  data-transition="slide">&#127801;॥अज्ञात चरित्र ॥&#127801;</a></li>
+				<li><a onclick="bhav();" href="#page"  data-transition="slide">🌷॥ प्रसन्नतेच्या लीला॥🌷</a></li>
+				<li><a href="#pagethree"  data-transition="slide">&#127801;॥ व्यक्ती सूची  ॥&#127801;</a></li>
+				<li><a href="#pageeight"  data-transition="slide">🌷॥ भाव स्मरण ॥🌷</a></li>
+				</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+				<h3>॥ आम्ही॥</h3>
+				<ul data-role="listview" data-inset="true">
+								<li><a href="http://127.0.0.1:8000/epubjs-reader-master/epubjs-reader-master/reader/index.html" rel="external">&#127801;॥पूर्वार्ध॥&#127801;</a></li>
+				<li><a href="http://127.0.0.1:8000/epubjs-reader-master/epubjs-reader-master/reader/indexu.html" rel="external">🌷॥उत्तरार्ध॥🌷</a></li>
+				</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+				<h3>॥ॠद्धपूर चरीत्र॥</h3>
+				<ul data-role="listview" data-inset="true">
+				<li><a onclick="rclila('P');"  href="#page"  data-transition="slide">🌷॥पूर्वार्ध॥🌷</a></li>
+				<li><a onclick="rclila('U');"  href="#page"  data-transition="slide">🌷॥उत्तरार्ध॥🌷</a></li>
+				</ul>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+				<h3>॥सूत्र पाठ॥</h3>
+				<ul data-role="listview" data-inset="true">
+				<li><a href="#pagetwo"  data-transition="slide">&#127801;॥ सूत्र पाठ ॥&#127801;</a></li>
+				<li><a href="#pagefour"  data-transition="slide">🌷॥ दृष्टांत पाठ ॥🌷</a></li>
+				<li><a href="#pagefive"  data-transition="slide">&#127801;॥ मूर्तिज्ञान ॥&#127801;</a></li>
+				<li><a href="#pagesix"  data-transition="slide">🌷॥ नामाचें दाहा ठाय ॥🌷</a></li>
+				</ul>
+				</div>
+				<li ><a onclick="smruti();" href="#page"  data-transition="slide">🌷॥ स्मृतिस्थळ ॥🌷</a></li>
+        </ul>
+</div>
+
 			<center><strong> &#128591दंडवत प्रणाम &#128591</strong></center>
 			</div>
 	  <div data-role="footer" data-position="fixed">
@@ -568,7 +669,7 @@ function topFunction() {
 	</div>
 	
 	
-			
+			<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
 			 <div data-role="collapsible" data-collapsed="true">
 			  <h3> ॥ अन्यव्यावृत्ति ॥ </h3>
 			  <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search...">
@@ -1919,6 +2020,7 @@ function topFunction() {
 		<h1 style="color:Tomato;text-align: center;font-size: 30px">॥ व्यक्ती सूची  ॥ </h1>
 
 	</div>
+	<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
 <div>
 <ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 			  
@@ -2355,7 +2457,7 @@ function topFunction() {
 
 	</div>
 
-	
+	<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
 <ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 
 <li><a onclick="searchlila('drushtanth','आंतुलाचा १');"  href="#page" data-transition="slide"> आंतुलाचा १</a></li> 
@@ -2499,13 +2601,13 @@ function topFunction() {
 	<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
 	<a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
   </div>
- 
+
   <div data-role="main" class="ui-content">
 
   <br></br>
 	<h2 style="color:Tomato;text-align: center;font-size: 30px">॥ मूर्तिज्ञान ॥</h2>
 	</div>
-
+<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
 			<div data-role="collapsibleset">
 <div data-role="collapsible" data-collapsed="true">
 				<h3>व्यक्ता श्रीमुर्तिधारीया परमेश्वराचें ज्ञान</h3>
@@ -2831,6 +2933,7 @@ function topFunction() {
     <br></br>
 	<h2 style="color:Tomato;text-align: center;font-size: 30px">॥ नामाचें दाहा ठाय ॥</h2>
 	</div>
+	<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
 	<div data-role="main" class="ui-content">
 			<div data-role="collapsibleset" >
 			<div data-role="collapsible" data-collapsed="true">
@@ -2955,7 +3058,7 @@ function topFunction() {
 		<h1 style="color:Tomato;text-align: center;font-size: 30px">॥ भाव स्मरण ॥ </h1>
 
 	</div>
-	
+	<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
 <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search...">
 			  
 <li><a onclick="searchlila('avyav','श्रीमूर्ती');" href="#page" data-transition="slide">श्रीमूर्ती</a></li>
@@ -3094,11 +3197,19 @@ function topFunction() {
             <h2> &#128591दंडवत प्रणाम &#128591</h2>
 			<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
 			<a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
+			<form>
+    <input data-type="search" id="searchForCollapsibleSetChildren">
+</form>
          </div>
 
 <div data-role="main" class="ui-content">
+
 <br></br>
-<div data-role="collapsibleset" id="set">
+<br></br>
+<br></br>
+<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
+
+<div data-role="collapsibleset" id="set" data-filter="true" data-children="> div, > div div ul li" data-inset="true" id="collapsiblesetForFilterChildren" data-input="#searchForCollapsibleSetChildren">
 </div>
 </div> 
 	<div id="toTop"><p>Back to Top</p></div>
