@@ -30,7 +30,35 @@ style="font-size:
 18px;font-family: Arial;
 text-align:justify
 }
+p { margin-bottom: 15px; }
+#toTop { position: fixed; bottom: 50px; right: 30px; width: 84px; background-color: #CCC; cursor: pointer; display: none; }
 
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
 </style>
 
 <script type='text/javascript'>
@@ -423,7 +451,28 @@ $( "#popupPanel" ).on({
 
 </head>
 <body>
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+// Get the button
+let mybutton = document.getElementById("myBtn");
 
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
 
 
 <div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
@@ -1845,10 +1894,10 @@ $( "#popupPanel" ).on({
 
 			</ul>
 			</div>	
+	
     <!--<a href="#pageone"  data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>-->
 	  <div data-role="footer" data-position="fixed" data-fullscreen="true">
-    <h1>&#128591दंडवत प्रणाम &#128591</h1>
-	
+    <h1>&#128591दंडवत प्रणाम &#128591</h1>	
   </div>
 			
 </div>
@@ -1863,13 +1912,14 @@ $( "#popupPanel" ).on({
 	<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
 	<a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
   </div>
- 
+
   <div data-role="main" class="ui-content">
   <br></br>
+
 		<h1 style="color:Tomato;text-align: center;font-size: 30px">॥ व्यक्ती सूची  ॥ </h1>
 
 	</div>
-	
+<div>
 <ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 			  
 <li><a onclick="searchlila('person','अत्रि');" href="#page" data-transition="slide">अत्रि</a></h2>
@@ -2278,12 +2328,11 @@ $( "#popupPanel" ).on({
 <li><a onclick="searchlila('person','ज्ञानदेव');" href="#page" data-transition="slide">ज्ञानदेव</a></h2>
 <li><a onclick="searchlila('person','ज्ञानांकुश');" href="#page" data-transition="slide">ज्ञानांकुश</a></h2>
 			</ul>
-
-
+</div>
+	<div id="toTop"><p>Back to Top</p></div>
     <!--<a href="#pageone"  data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>-->
 <div data-role="footer" data-position="fixed">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
-	<div class="ui-block-a"><a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a></div>
 </div>
 </div>
 
@@ -2431,6 +2480,7 @@ $( "#popupPanel" ).on({
 			</ul>
 	</div>
     <!--<a href="#pageone"  data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>-->
+		<div id="toTop"><p>Back to Top</p></div>
 	  <div data-role="footer" data-position="fixed">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
 	<div class="ui-block-a"><a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a></div>
@@ -2756,9 +2806,9 @@ $( "#popupPanel" ).on({
 			  </div>
 
 </div>
+	<div id="toTop"><p>Back to Top</p></div>
 	  <div data-role="footer" data-position="fixed">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
-	<div class="ui-block-a"><a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a></div>
   </div>
 </div>
 
@@ -2846,9 +2896,9 @@ $( "#popupPanel" ).on({
 			</div>
 			
 </div>
+	<div id="toTop"><p>Back to Top</p></div>
 	  <div data-role="footer" data-position="fixed">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
-	<div class="ui-block-a"><a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a></div>
   </div>
 </div>
 </div>
@@ -2880,7 +2930,7 @@ $( "#popupPanel" ).on({
 	
 	
   </div>
-  
+  	<div id="toTop"><p>Back to Top</p></div>
 	
 		  <div data-role="footer">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
@@ -3027,11 +3077,13 @@ $( "#popupPanel" ).on({
 <li><a onclick="searchlila('avyav','गायन निषेध');" href="#page" data-transition="slide">गायन निषेध</a></li>
 
 			</ul>
+					
 	</div>
     <!--<a href="#pageone"  data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>-->
+
 	  <div data-role="footer" data-position="fixed">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
-	<div class="ui-block-a"><a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a></div>
+
   </div>
 </div>
 <!-- page engit ends-->
@@ -3049,10 +3101,10 @@ $( "#popupPanel" ).on({
 <div data-role="collapsibleset" id="set">
 </div>
 </div> 
+	<div id="toTop"><p>Back to Top</p></div>
  
 		  <div data-role="footer" data-position="fixed">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
-	<div class="ui-block-a"><a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a></div>
   </div>
       </div>
 
