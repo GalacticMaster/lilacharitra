@@ -8,10 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-
 	<!--<link rel="stylesheet" href="themes/pershastra.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />-->
-<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.css" />
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
@@ -62,10 +61,33 @@ body {
   background-color: #555;
 }
 
+.ui-collapsible-content {<!--   w ww.j av  a  2  s.  c  o m-->
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+  height: Auto;
+  overflow: hidden;
+}
 
+.ui-collapsible-content-collapsed {
+  display: block;
+  height: 0;
+  padding: 0 16px;
+}
+
+ul li.ui-li {<!--from  www.  j a v a  2s .  c  om-->
+  border-top: 1px solid #ccc !important;
+}
+
+ul li.ui-li-divider {
+  border-top: none !important;
+}
 </style>
 
 <script type='text/javascript'>
+
 
 function colllila(lilaID,Aadi,Lila,Tip,vachan,sthan,person){
 
@@ -2557,9 +2579,7 @@ function topFunction() {
 <li><a onclick="searchlila('drushtanth','साकरेचा ११४');"  href="#page" data-transition="slide"> साकरेचा ११४</a></li> 
 
 
-
 			</ul>
-	
     <!--<a href="#pageone"  data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>-->
 		<div id="toTop"><p>Back to Top</p></div>
 
