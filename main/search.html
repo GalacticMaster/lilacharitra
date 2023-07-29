@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     <title>Live Json Search</title>
+</head>
+<body>
+  <div class="container">
+    <h3>Leela Charitra Live Search</h3>
+	<form role="form">
+        <div class="form-group">
+          <input type="input" class="form-control input-m" id="text-search" placeholder="Type your search character">
+        </div>
+	</form>
+	<div id="filter"></div>
+  </div>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<style>
+	h5 .ui-btn-text{ white-space:normal; word-break:break-all; }
+h5 { white-space:normal; word-break:break-all; }
+	mark { 
+  background-color: pink;
+  color: black;
+}
+</style>
+<script>
+  $(document).ready(function(){
+     $.getJSON('person.json', function(jd) {
+	var data = jd.main
+	console.log(jd.main)
+
+$('#text-search').keyup(function(){
+            var searchField = $(this).val();
+			if(searchField === '')  {
+				$('#filter').html('');
+				return;
+			}
+			
+            var regex = new RegExp(searchField, "i");
+            var output = '<div class="card mb-2">';
+            var count = 1;
+			  $.each(data, function(key, val){
+				if ((val.Aadi.search(regex) != -1 || val.Lila.search(regex) != -1)) {
+				  //output += '<div class="row p-2">';
+				  //output += '<div class="col-7">';
+				  output += '<h5>' + val.Aadi + '</h5>';
+				  output += '<p style="font-size: 18px;font-family: Arial;text-align:justify">' + val.Lila + '</p>'
+				  //output += '</div>';
+				  //output += '</div>';
+				  if(count%1 == 0){
+					output += '</div><div class="card mb-2">'
+				  }
+				  count++;
+				}
+			  });
+			  output += '</div>';
+			  
+			  var src_str = output;
+			  var term = searchField;
+			  term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
+			  var pattern = new RegExp("("+term+")", "gi");
+			  src_str = src_str.replace(pattern, "<mark>$1</mark>");
+			  src_str = src_str.replace(/(<mark>[^<>]*)((<[^>]+>)+)([^<>]*<\/mark>)/,"$1</mark>$2<mark>$4");
+			  $('#filter').html(src_str)
+			  //$('#filter').html(output);
+        });
+  });
+  });
+</script>
+</body>
+</html>
