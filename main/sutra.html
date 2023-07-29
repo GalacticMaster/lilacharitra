@@ -17,7 +17,6 @@
 
 
 
-
 <style>
 .ui-listview > li a {
   white-space: normal !important;
@@ -295,6 +294,7 @@ $.getJSON('person.json', function(jd)
 	console.log(jd.main)
 				$('#txt-search').keyup(function(){
 			//var src_str = $('#filter-records').html('')
+			alert( "Handler for `keyup` called." );
             var searchField = $(this).val();
 			if(searchField === '')  {
 			
@@ -540,7 +540,7 @@ function topFunction() {
 				</ul>
 				</div>
 				<li ><a onclick="smruti();" href="#page"  data-transition="slide">🌷॥ स्मृतिस्थळ ॥🌷</a></li>
-				<div class="ui-block-c"><a class="ui-shadow ui-btn ui-corner-all ui-icon-search ui-btn-icon-notext ui-btn-inline" href="#pageseven">Button</a></div>
+				<div class="ui-block-c"><a class="ui-shadow ui-btn ui-corner-all ui-icon-search ui-btn-icon-notext ui-btn-inline" href="/main/search.html">Button</a></div>
         </ul>
 </div>
 
@@ -593,14 +593,14 @@ function topFunction() {
 				</ul>
 				</div>
 
-				<div class="ui-block-c"><a class="ui-shadow ui-btn ui-corner-all ui-icon-search ui-btn-icon-notext ui-btn-inline" href="#pageseven">Button</a></div>
+				<div class="ui-block-c"><a class="ui-shadow ui-btn ui-corner-all ui-icon-search ui-btn-icon-notext ui-btn-inline" href="/main/search.html">Button</a></div>
 
         </ul>
 		</div>
     </div><!-- /panel -->
 
 
-
+<!-- PageOne Start -->
 <div data-role="page" data-theme="a" data-content-theme="b" id="pageone" data-title="॥ परशास्त्र॥ ">   
  
 		<div data-role="header" data-position="fixed" data-fullscreen="true">
@@ -608,10 +608,12 @@ function topFunction() {
 			<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
 
 		</div>
+		
+		
 			<div data-role="main">
 			<br></br>
 			<h1 style = "font-size: 20px"><center> ॥ श्री परेशाए नम: ॥</center> </h1>
-			
+			<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
 			<h1><center><strong>सौजन्य आणि संकल्पना</strong></center></h1>
 			<ul>
 			<li>  प. पु. पु.म. धर्मराज बाबा बिडकर ( सातारा आश्रम)</li>
@@ -624,16 +626,16 @@ function topFunction() {
 			<li> प. पु. प्रकाश सर ठाकरे (गीता पाठशाळा मुंबई)</li>
 			<br></br>
 			</ul>
-
-			<center><strong> &#128591दंडवत प्रणाम &#128591</strong></center>
-			</div>
+			</div>	
+			
+			
 			
 
 </div>
+<!-- PageOne End -->
 
 
 
- <!-- page seven ends-->
 
 <!-- Page Two start -->
 <div data-role="page" data-theme="a" id="pagetwo" class="jqm-demos ui-responsive-panel" data-title="॥ परशास्त्र॥ ">
@@ -2986,7 +2988,7 @@ function topFunction() {
 			<div id="filter-records" ></div>
 		</div>
 </div>
-
+ <!-- page seven ends-->
 <!-- page eight start -->
  
  <div data-role="page" id="pageeight" data-title="॥ परशास्त्र॥ ">
@@ -3129,7 +3131,7 @@ function topFunction() {
     <!--<a href="#pageone"  data-transition="slide" data-direction="reverse">Slide to Page One (reversed)</a>-->
 
 </div>
-<!-- page engit ends-->
+<!-- page eight ends-->
 
   <div data-role="page" data-theme="a" id="page" data-title="॥ परशास्त्र॥ ">
   
