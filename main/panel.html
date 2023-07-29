@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />-->
         <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
 
 
 <style>
@@ -58,25 +58,27 @@ body {
 #myBtn:hover {
   background-color: #555;
 }
+
+
 </style>
 
 <script type='text/javascript'>
-
 
 function colllila(lilaID,Aadi,Lila,Tip,vachan,sthan,person){
 
 $(document).ready(function() {
 //console.log(lilaID);
 
-        var content = "<div data-role='collapsible'><h3 style=\"word-break:break-all;white-space: normal;\">"+lilaID+"'&nbsp'"+Aadi+"'</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">लीळा : </span>'"+Lila+"'</p>";
-        $("#set").append( content ).collapsibleset( "refresh" );
+        //var content = "<div data-role='collapsible'><h3 style=\"word-break:break-all;white-space: normal;\">"+lilaID+"'&nbsp'"+Aadi+"'</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">लीळा : </span>'"+Lila+"'</p>";
+        var content = '<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p></div>'
+		$("#set").append( content ).collapsibleset( "refresh" );
     });
 
 }
 
 function colltest(lilaID,Aadi,Lila,Tip,vachan,sthan,person){
 	$(document).ready(function() {
-		var content = "<div data-role='collapsible'><h3 style=\"word-break:break-all;\">"+lilaID+"&nbsp"+Aadi+"</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">लीळा : </span>"+Lila+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\"> तळ टीप :</span>"+Tip+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">परिवार  :</span>"+person+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">वचन : </span>"+vachan+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">स्थान :</span>"+sthan+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">परिवार  : </span>"+person+"</p>"
+		var content = "<div data-role='collapsible'><h3 style=\"word-break:break-all;\">"+lilaID+"&nbsp"+Aadi+"</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">लीळा : </span>"+Lila+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\"> तळ टीप :</span>"+Tip+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">परिवार  :</span>"+person+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">वचन : </span>"+vachan+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">स्थान :</span>"+sthan+"</p>"
 				var src_str = content;
 			  var term = person;
 			  term = term.toString().replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
@@ -90,12 +92,12 @@ function colltest_v(Aadi,Lila,Tip,Vachan,tika,lapika){
 	$(document).ready(function() {
 		var content = '<div data-role="collapsible"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> लापिका  : </span> '+lapika+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> टीका   : </span> '+tika+'</p></div>'
 			  var src_str = content;
-			  console.log(src_str);
+			  
 			  var term = $.trim(Vachan.split('(',1)[0]);
 			  term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
-			  console.log(term);
+			  
 			  var pattern = new RegExp("("+term+")", "gi");
-			  console.log(pattern);
+			  
 			  src_str = src_str.replace(pattern, "<span style=\"color: #ff0000\">$1</span>");
 		$( "#set" ).append( src_str ).collapsibleset( "refresh" );
 		});
@@ -110,7 +112,7 @@ function colltest_d(Aadi,Lila,Tip,Vachan,drushtant,sambandh,lapnik,dvachan,drush
 
 function colltest_e(Aadi,Lila,Tip,avyav){
 	$(document).ready(function() {
-		var output = '<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div>'
+		var output = '<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div>'
 				var src_str = output;
 			  var term = avyav;
 			  term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
@@ -118,7 +120,7 @@ function colltest_e(Aadi,Lila,Tip,avyav){
 			  src_str = src_str.replace(pattern, "<span style=\"color: #ff0000\">$1</span>");
 			  //src_str = src_str.replace(/(<span style="color: #ff0000">[^<>]*)((<[^>]+>)+)([^<>]*<\/span>)/,"$1</span>$2<span>$4");
 		$( "#set" ).append( src_str ).collapsibleset( "refresh" );
-		//$('<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div>').appendTo('[data-role="content"]').page()
+		//$('<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div>').appendTo('[data-role="content"]').page()
 		});
 }
 
@@ -195,7 +197,6 @@ $("#set div").empty();
 $.getJSON('person.json', function(jd)
 	{var json = jd.main;
 						var v_list = [];
-					console.log(v_list);
 	for (let i = 1; i < json.length; i++){
 	//	console.log(json[i]);
 	//	console.log(type);
@@ -227,7 +228,7 @@ $.getJSON('person.json', function(jd)
 							v_list.push(vachan[v])};
 							//console.log(json[i].lilaID);
 							//console.log(vachan[v]);
-							console.log(v_list);
+						
 							colltest_v(json[i].Aadi,json[i].Lila,json[i].Tip,vachan[v],json[i].tika[v],json[i].lapika[v]);
 
 						}
@@ -282,9 +283,9 @@ $.getJSON('person.json', function(jd)
 
 /*Searchbox*/
 
-  $(document).ready(function(){
+ $(document).ready(function(){
+ console.log("page loaded");
   $('#filter-records').empty();
-$("#set div").empty();
    $.getJSON('person.json', function(jd) {
 	var data = jd.main
 	console.log(jd.main)
@@ -329,6 +330,7 @@ $("#set div").empty();
 	});
 
 /*searchbox ends*/
+
 /*smruti sthal start*/
 
 function collsmruti(aadi,smruti){
@@ -337,7 +339,7 @@ function collsmruti(aadi,smruti){
 	$(document).ready(function(){
 	console.log(aadi,smruti);
 		//$('[data-role="content"]').empty();
-		var content = '<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">स्मृति : </span>'+smruti+'</p>'
+		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">स्मृति : </span>'+smruti+'</p>'
 		$( "#set" ).append( content ).collapsibleset( "refresh" );
 		});
 
@@ -368,7 +370,7 @@ function collbhav(aadi,lila){
 	$(document).ready(function(){
 	//console.log(aadi,smruti);
 		//$('[data-role="content"]').empty();
-		var content =  '<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">स्मृति : </span>'+lila+'</p>'
+		var content =  '<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">स्मृति : </span>'+lila+'</p>'
 		$( "#set" ).append( content ).collapsibleset( "refresh" );
 		});
 
@@ -403,7 +405,7 @@ function collrc(lilaID,Aadi,Lila){
 	console.log(lilaID,Aadi,Lila);
 		//$('[data-role="content"]').empty();
 		
-		var content = '<div data-role="collapsible" data-collapsed="true"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">लीळा : </span>'+Lila+'</p>'
+		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">लीळा : </span>'+Lila+'</p>'
 		$( "#set" ).append( content ).collapsibleset( "refresh" );
 		});
 
@@ -443,15 +445,19 @@ $( function() {
   $( "#nav-panel" ).panel().enhanceWithin();
 } );
 
-$('ul').find('a').on('click', function () {
-    $(this).closest('ul').find('a').removeClass('ui-btn-active');
-    $(this).addClass('ui-btn-active');
-});
+
 
 /* Instantiate the popup on DOMReady, and enhance its contents */
 $(function(){
     $( "#popupMenu1" ).enhanceWithin().popup();
 });
+/*
+$(function(){
+    $( "#demo-page" ).enhanceWithin().popup();
+});*/
+
+
+
 </script>
 
 </head>
@@ -477,10 +483,16 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+
+
 </script>
+
+
+
 <div data-role="popup" id="popupMenu1" data-theme="b">
         <ul data-role="listview" data-inset="true" style="min-width:210px;">
-            <li data-role="list-divider">Choose an action</li>
+            
 <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
 				<h3>॥ लीळाचरित्र ॥</h3>
 				<ul data-role="listview" data-inset="true">
@@ -496,8 +508,8 @@ function topFunction() {
 				<div data-role="collapsible" data-collapsed="true"data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
 				<h3>॥ आम्ही॥</h3>
 				<ul data-role="listview" data-inset="true">
-								<li><a href="http://127.0.0.1:8000/epubjs-reader-master/epubjs-reader-master/reader/index.html" rel="external">&#127801;॥पूर्वार्ध॥&#127801;</a></li>
-				<li><a href="http://127.0.0.1:8000/epubjs-reader-master/epubjs-reader-master/reader/indexu.html" rel="external">🌷॥उत्तरार्ध॥🌷</a></li>
+								<li><a href="https://galacticmaster.github.io/lilacharitra/epubjs-reader-master/reader/index.html" rel="external">&#127801;॥पूर्वार्ध॥&#127801;</a></li>
+				<li><a href="https://galacticmaster.github.io/lilacharitra/epubjs-reader-master/reader/indexu.html" rel="external">🌷॥उत्तरार्ध॥🌷</a></li>
 				</ul>
 				</div>
 				<div data-role="collapsible" data-collapsed="true" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
@@ -523,11 +535,11 @@ function topFunction() {
 <div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
 		<p><center>॥ परशास्त्र॥</center></p>
 		
-		<a class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-delete ui-btn-icon-notext" href="#" >Button</a>
+		<a class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-delete ui-btn-icon-notext" href="#" data-rel="close" >Button</a>
 		<a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a>
         <ul data-role="listview" data-inset="true">
 			<div data-role="collapsibleset" data-theme="b" data-content-theme="a" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>॥ लीळाचरित्र ॥</h3>
 				<ul data-role="listview" data-inset="true">
   			  	<li><a onclick="Alila('P');" href="#page"  data-transition="slide">🌷॥ पूर्वार्ध ॥🌷</a></li>
@@ -539,21 +551,21 @@ function topFunction() {
 				<li><a href="#pageeight"  data-transition="slide">🌷॥ भाव स्मरण ॥🌷</a></li>
 				</ul>
 				</div>
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>॥ आम्ही॥</h3>
 				<ul data-role="listview" data-inset="true">
 								<li><a href="http://127.0.0.1:8000/epubjs-reader-master/epubjs-reader-master/reader/index.html" rel="external">&#127801;॥पूर्वार्ध॥&#127801;</a></li>
 				<li><a href="http://127.0.0.1:8000/epubjs-reader-master/epubjs-reader-master/reader/indexu.html" rel="external">🌷॥उत्तरार्ध॥🌷</a></li>
 				</ul>
 				</div>
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>॥ॠद्धपूर चरीत्र॥</h3>
 				<ul data-role="listview" data-inset="true">
 				<li><a onclick="rclila('P');"  href="#page"  data-transition="slide">🌷॥पूर्वार्ध॥🌷</a></li>
 				<li><a onclick="rclila('U');"  href="#page"  data-transition="slide">🌷॥उत्तरार्ध॥🌷</a></li>
 				</ul>
 				</div>
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>॥सूत्र पाठ॥</h3>
 				<ul data-role="listview" data-inset="true">
 				<li><a href="#pagetwo"  data-transition="slide">&#127801;॥ सूत्र पाठ ॥&#127801;</a></li>
@@ -562,13 +574,13 @@ function topFunction() {
 				<li><a href="#pagesix"  data-transition="slide">🌷॥ नामाचें दाहा ठाय ॥🌷</a></li>
 				</ul>
 				</div>
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>॥ स्मृतिस्थळ ॥</h3>
 				<ul data-role="listview" data-inset="true">
 				<li ><a onclick="smruti();" href="#page"  data-transition="slide">🌷॥ स्मृतिस्थळ ॥🌷</a></li>
 				</ul>
 				</div>
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>SearchBoX</h3>
 				<ul data-role="listview" data-inset="true">
 				<li><a href="#pageseven"  data-transition="slide">SearchBox</a></li>
@@ -617,21 +629,21 @@ function topFunction() {
 				<li><a href="#pageeight"  data-transition="slide">🌷॥ भाव स्मरण ॥🌷</a></li>
 				</ul>
 				</div>
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>॥ आम्ही॥</h3>
 				<ul data-role="listview" data-inset="true">
 								<li><a href="http://127.0.0.1:8000/epubjs-reader-master/epubjs-reader-master/reader/index.html" rel="external">&#127801;॥पूर्वार्ध॥&#127801;</a></li>
 				<li><a href="http://127.0.0.1:8000/epubjs-reader-master/epubjs-reader-master/reader/indexu.html" rel="external">🌷॥उत्तरार्ध॥🌷</a></li>
 				</ul>
 				</div>
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>॥ॠद्धपूर चरीत्र॥</h3>
 				<ul data-role="listview" data-inset="true">
 				<li><a onclick="rclila('P');"  href="#page"  data-transition="slide">🌷॥पूर्वार्ध॥🌷</a></li>
 				<li><a onclick="rclila('U');"  href="#page"  data-transition="slide">🌷॥उत्तरार्ध॥🌷</a></li>
 				</ul>
 				</div>
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>॥सूत्र पाठ॥</h3>
 				<ul data-role="listview" data-inset="true">
 				<li><a href="#pagetwo"  data-transition="slide">&#127801;॥ सूत्र पाठ ॥&#127801;</a></li>
@@ -670,10 +682,10 @@ function topFunction() {
 	
 	
 			<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
-			 <div data-role="collapsible" data-collapsed="true">
+			 <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			  <h3> ॥ अन्यव्यावृत्ति ॥ </h3>
 			  <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search...">
-			  <li><a style="white-space: normal" onclick="searchlila('vachan','कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)');"  href="#page" data-transition="slide"> कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)</a></li> 
+			  <li><a onclick="searchlila('vachan','कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)');" href="#page" data-transition="slide" > कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)</a></li> 
 			  <li><a onclick="searchlila('vachan','अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)');" value="अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)" href="#page" data-transition="slide">अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)</a></li>
 			<li><a onclick="searchlila('vachan','अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)');" value="अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)" href="#page" data-transition="slide">अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)</a></li>
 			<li><a onclick="searchlila('vachan','स्वर्गीचे इंद्रचंद्रादिक देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ४)');" value="स्वर्गीचे इंद्रचंद्रादिक देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ४)" href="#page" data-transition="slide">स्वर्गीचे इंद्रचंद्रादिक देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ४)</a></li>
@@ -686,7 +698,7 @@ function topFunction() {
 			</div>
 			
 		
-<div data-role="collapsible" data-collapsed="true">
+<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			  <h3> ॥ युगधर्म ॥</h3>
 			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','बत्तीस लक्ष कृतयुग (युग. १)');" value="बत्तीस लक्ष कृतयुग (युग. १)'" href="#page" data-transition="slide">बत्तीस लक्ष कृतयुग (युग. १)</a></li>
@@ -719,7 +731,7 @@ function topFunction() {
 <li><a onclick="searchlila('vachan','या चहुयुगांचां धर्मीं परमेश्‍वरु नेणिजे न पविजे परमेश्‍वरें परमेश्‍वरु जाणिजे परमेश्‍वरें परमेश्‍वरु पाविजे (युग. २८)');" value="या चहुयुगांचां धर्मीं परमेश्‍वरु नेणिजे न पविजे परमेश्‍वरें परमेश्‍वरु जाणिजे परमेश्‍वरें परमेश्‍वरु पाविजे (युग. २८)" href="#page" data-transition="slide">या चहुयुगांचां धर्मीं परमेश्‍वरु नेणिजे न पविजे परमेश्‍वरें परमेश्‍वरु जाणिजे परमेश्‍वरें परमेश्‍वरु पाविजे (युग. २८)</a></li>
 </ul>
 			</div>
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ विद्यामार्ग ॥</h3>
 			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','एकि विद्या (विद्यामार्ग १)');"  href="#page" data-transition="slide"> एकि विद्या (विद्यामार्ग १)</a></li>
@@ -747,7 +759,7 @@ function topFunction() {
 </ul>
 	</div>
 
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ संहार ॥</h3>
 			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','परमेश्‍वरप्रवृत्ती माया सृष्टिसंहारू करी (संहार १)');"  href="#page" data-transition="slide"> परमेश्‍वरप्रवृत्ती माया सृष्टिसंहारू करी (संहार १)</a></li>
@@ -769,7 +781,7 @@ function topFunction() {
 </ul>
 	</div>
 
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ संसरण ॥</h3>
 			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','मायास्वरुपीं एकदेशीं तम असे (संसरण १)');"  href="#page" data-transition="slide"> मायास्वरुपीं एकदेशीं तम असे (संसरण १)</a></li>
@@ -803,7 +815,7 @@ function topFunction() {
 </ul>
 	</div>			  
 
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ असति परी ॥</h3>
 			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 			<li><a onclick="searchlila('vachan','विकारविकल्पशून्यें (असतिपरी १)');"  href="#page" data-transition="slide"> विकारविकल्पशून्यें (असतिपरी १)</a></li>
@@ -816,7 +828,7 @@ function topFunction() {
 			</ul>
 			</div>		
 
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ महावाक्य ॥</h3>
 			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','जीवप्रपंचव्यतिरिक्त सच्चिदानंदस्वरुप परमेश्‍वरु एकु आति तो सर्वशक्तियुक्त (महावाक्य १)');"  href="#page" data-transition="slide"> जीवप्रपंचव्यतिरिक्त सच्चिदानंदस्वरुप परमेश्‍वरु एकु आति तो सर्वशक्तियुक्त (महावाक्य १)</a></li>
@@ -831,7 +843,7 @@ function topFunction() {
 			</ul>
 			</div>	
 
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ निर्वचन ॥</h3>
 			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','आनंदशब्दें ईश्‍वरु बोलिजें (निर्वचन १)');"  href="#page" data-transition="slide"> आनंदशब्दें ईश्‍वरु बोलिजें (निर्वचन १)</a></li>
@@ -862,7 +874,7 @@ function topFunction() {
 			</div>			
 			
 			
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ उद्धरण ॥</h3>
 			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','सृष्टीमध्यें परमेश्‍वरु अवतरेति (उद्धरण १)');"  href="#page" data-transition="slide"> सृष्टीमध्यें परमेश्‍वरु अवतरेति (उद्धरण १)</a></li>
@@ -935,7 +947,7 @@ function topFunction() {
 
 			</ul>
 			</div>
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ आचार स्थळ ॥</h3>
 			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','स्वदेशसंबंधु त्याज्य स्वग्रामसंबंधु त्याज्य संबंधियांचा संबंधु तो विशेषता त्याज्य (आ. १)');"  href="#page" data-transition="slide"> स्वदेशसंबंधु त्याज्य स्वग्रामसंबंधु त्याज्य संबंधियांचा संबंधु तो विशेषता त्याज्य (आ. १)</a></li>
@@ -1233,7 +1245,7 @@ function topFunction() {
 			</div>
 
 
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ आचारमाळिका स्थळ ॥</h3>
 			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','स्वातंत्र्यु हा मोक्ष पारतंत्र्यु हा बंध (आ. मा. १)');"  href="#page" data-transition="slide"> स्वातंत्र्यु हा मोक्ष पारतंत्र्यु हा बंध (आ. मा. १)</a></li>
@@ -1494,7 +1506,7 @@ function topFunction() {
 
 			</ul>
 			</div>	
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ विचार स्थळ ॥</h3>
 			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','चैतन्य माया विदेह परा शक्ति (वि. १)');"  href="#page" data-transition="slide"> चैतन्य माया विदेह परा शक्ति (वि. १)</a></li>
@@ -1785,7 +1797,7 @@ function topFunction() {
 
 			</ul>
 			</div>				
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ विचारमाळिका स्थळ ॥</h3>
 			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
 <li><a onclick="searchlila('vachan','ज्ञान मोचक (वि. मा.. १)');"  href="#page" data-transition="slide"> ज्ञान मोचक (वि. मा.. १)</a></li>
@@ -2609,16 +2621,16 @@ function topFunction() {
 	</div>
 <center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
 			<div data-role="collapsibleset">
-<div data-role="collapsible" data-collapsed="true">
+<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>व्यक्ता श्रीमुर्तिधारीया परमेश्वराचें ज्ञान</h3>
 				<p>:।।: मुर्तिज्ञान:।।: श्रीपरेशायनमः।: तरि व्यक्ता श्रीमुर्तिधारीया परमेश्वराचें ज्ञान तें कैसे: ना तें ऐसें परमेश्वरू निर्वेवो निराकारू असे तो सावेवो साकारू होए: श्रीमुर्तिधारीया होए: श्री म्हणिजे माया तीए मायेचा वेषु स्वीकरीति: कांपां जें सर्वज्ञें म्हणितलें: सृष्टी मध्यें परमेश्वरू अवतरति:।।1।।: मनुष्यवेषधरीए होति:।।2।।: माया वेषधरीए होतिः।।3।।: माया पुरधरीए होतिः।।4।।: माया नीर्मीतंपुरं माया पुरं:।।5।।: माया घटाकारें आकारें ओते:।।6।।: नख: चर्म: रोमादी करूनि शुद्ध चैतन्यचि तें:।।7।।: माया पुरीं मायेसि अभीमानु:।।8।।: ब्रह्मांडीं शक्ती अधीनु शक्ती व्यापारू: माया पुरीं इश्वराधीनु शक्ती व्यापारू:।।9।।: माया पुरीं इतर शक्ती तूल्य माया:।।10।।: ऐसेया माया पुरातें स्वीकरीति: जैसा भिंगानेया आंतु दिपु लावीजे आणि बाहीरि प्रकटे: तैसा परमेश्वर निर्वेवो निराकारू असे तो सावेवो साकारू होए तें कांपा: ना गोसावी म्हाइंभटातें म्हणितलें निर्वेवो निराकारू असे तो सावेवो साकारू होए: ऐसी अवघी पुर्वी उच्चारीली:।:</p>
 
 </div>
-      <div data-role="collapsible" data-collapsed="true">
+      <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
         <h3>द्वापरीं श्रीकृष्णचक्रवर्ती मुर्तिज्ञान</h3>
         <p>जैसे द्वापरीं श्रीकृष्णचक्रवर्ती क्षेत्रीयांचां कुळीं: यादवांचां वंशीं: वसूदेवापासौनि देवकीएचां गर्भिं उभायदृश्या अवतारू स्वीकरीला: गोकुळीं बाळलीळा विज्ञानशक्ती खेळीनलें: पाठीं ज्ञानशक्ती स्वीकरीली: द्वारावतिए अवस्थान चक्रवर्तिवखें क्रीडा: ऐसां उपाधि स्वीकरीला अनंत पवाडे केलें: अनंतें चरित्रें केलीं: अनंतां लीळा केलीया: अनंतां जीवातें उद्धरीले: केवि ना सर्वज्ञें म्हणितलें: श्रीकृष्णचक्रवर्ती अनंत उद्धरीले परि उद्धवार्जुन हें पुराणप्रसिद्ध: तया श्रीकृष्णचक्रवर्ती गोसावीयांयांचें चरणशरण:।।1।।:</p>
       </div>
-      <div data-role="collapsible" data-collapsed="true">
+      <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
         <h3>मातापुरीं श्रीदत्तात्रेयप्रभु मुर्तिज्ञान</h3>
         <p>त्रेतीं (भोगभुमीं) मातापुरीं श्रीदत्तात्रेयप्रभु गोसावी ऋषीवंशी अत्रीपासौनि अनुसयेचां गर्भिं चतुर्युगीं उभायदृश्या अवतारू स्वीकरीला: कां पां जें सर्वज्ञें म्हणितलें: श्रीदत्तात्रेयप्रभुचा चतुर्युगीं अवतारू: श्रीदत्तात्रेयप्रभुचा उभायदृश्या अवतारू: सैंह्याद्री अवस्थान नाना वेखें क्रीडा अनंतें चरित्रें केलीं: अनंतां लीळा केलीयां अनंतां जीवातें उद्धरीले: तया श्रीदत्तात्रेयप्रभु गोसावीयांयांचे चरणशरण:।।2।।:</p>
 		<ul data-role="listview" data-inset="true"  data-count-theme="e">
@@ -2629,7 +2641,7 @@ function topFunction() {
 			<li><a onclick="glila('P183');" href="#page" data-transition="slide" id="P183"> १२) आत्मतीर्थ प्रसंसा:  पू. १८३ </a></li></ul>
 		</ul>
       </div>
-      <div data-role="collapsible" data-collapsed="true">
+      <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
         <h3>फलेठानी श्रीचांगदेवराउळ मुर्तिज्ञान</h3>
         <p>फलेठानी कर्हाडेया ब्राम्हणाच्या घरीं श्रीचांगदेवराउळ गोसावी अवतारू स्वीकरीला स्त्रि आग्रहो निमीत्यें मातापुरा बीजे केलें: तेथ सैंह्याद्रीं श्रीदत्तात्रेयप्रभुचिया प्रवृत्ती आदिकारण: व्याघ्रनिमीत्ये श्रीचांगदेवराउळ गोसावी दवडुनि उभायदृश्यत्व स्वीकरीले: पर आच्छादिलें (:प्रश्राः दवडुनि:।रामे।: गर्भीचाची अवतार) द्वारावतिये अवस्थान: अवधुतवेखें क्रीडा: अनंतें चरित्रें केलीं: अनंतां लीळा केलीयां: अनंतां जीवातें उद्धरीले:।: तया श्रीचांगदेवराउळा गोसावीयांचे चरणशरण:।।3।।:</p>
       <ul data-role="listview" data-inset="true"  data-count-theme="e">
@@ -2639,21 +2651,21 @@ function topFunction() {
 				<li><a onclick="glila('P5');" href="#page" data-transition="slide" id="P5">४) कऱ्हेकूचकीं आसन:</a></li></ul>
 		</ul>
 	  </div>
-	  <div data-role="collapsible" data-collapsed="true">
+	  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
         <h3>ऋद्धिपूरी श्रीप्रभु मुर्तिज्ञान</h3>
         <p>ऋद्धिपूर प्रांतीं कानवशाखें श्रीप्रभु अवतारू स्वीकरीला: संन्यासवेखें द्वारावतिएं गमण: तेथ श्रीचांगदेवराउळां गोसावीयां क्रीडा करीतां द्वितिएकारण: सूर्पनिमित्तें श्रीगुंडमराउळगोसावी उभायदृश्यत्व स्वीकरीले: अवर आच्छादिलें: पर प्रकटीये केलें: रूद्धपूरीं अवस्थान: निर्विकल्प बाळक्रीडा: अनंतें चरित्रें केलीं: अनंतां लीळा केलीयां: अनंतां जीवातें उद्धरीले तया श्रीगुंडमराउळां गोसावीयांचे चरणशरण:।।4।।:</p>
       </div>
-	  <div data-role="collapsible" data-collapsed="true">
+	  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
         <h3>द्वारावतीए श्रीचांगदेवराउळ मुर्तिज्ञान</h3>
         <p>द्वारावतीए कामाख्यानिमीत्तें पुरत्येजिलें: गुजरातेचेया प्रधानपुत्राचें पतीत उठउनि श्रीचांगदेवराउळीं गोसावी अवतारू स्वीकरीला तें चांपेगौर: राजस: तेजस: वेल्हाळ श्रीमुर्ति: सुरंग: सुकूमार: ध्वज: वज्र: अंबूज: पद्म अंकुशांकित श्रीचरणु सुहरत वोहरत जंघायुगळ: घणीं पीटिलीया ऐसीया मांडीया: सुरंग मनोहर जंघनद्वय: चौरसु घनवटु बरवा जंघनप्रदेशु: सखोल नाभिरंध्र: वळीत्रय शोभाएमान: सलक्षाणिक समतट दोंद: मृदुतर रोमराजी: विशाळ वक्षस्थाळ: ठोसरें निघोटें: नितळें मुडपें: सरळ वोहरते बरवे अजानुबाहु: सुरंग सकुमार अभयदानी श्रीकरकमळ: त्रिरेखी अळंकृत श्रीकंठ: अलोहीत वोष्टपूट: हीरेलग दंतपंक्ति: प्रहसित मनोहर श्रीमुखा कमळ: सरळ नासापूट: सरळ सुप्रसन्न आकर्ण विशाळ कृपालोचन: सुरेखा वंकटा भवैया: डावीए भवैवरि कांदी: उंचे कपोलें: लंबकर्ण: नीतळ नीडळ: बरवा मनोहर श्रीमुगुट वरीसां पंचवीसा सत्तावीसां भीतरीं दीसे वय: ऐसी सर्वांगसुंदर लावण्य सौभाग्य आथीली श्रीमूर्ति: महावाक्यीं जें गुणधर्म सांगीतलें तेहीं गुणधर्मीं युक्त: द्युतक्रिडानिमीत्यें औदास्य स्विकारू: तेथ ऋद्धिपुरीं श्रीप्रभुचिया प्रवृत्ती त्रुतीय कारण: रांधवनहाटीं सेंगुळेंबुडडे निमीत्यें उभयशक्तीचा स्विकारू: म्हणौनि एथ संपूर्ण अवतारू: पुर्वीचीया पांचै लीळा आठवावीया: अवस्था स्वीकारें कांतीए गमण: चतुर्थ कारण प्रतिष्ठानीं स्वीकरीलें बाइसां भेटी: निर्गुण प्रेमदान: भटादिकां केवळ ज्ञानदान (श्रीदत्तात्रेयप्रभु आदिकारण) गोसावीयां अनिएत अवस्थान: भीक्षुवेषें उभयगंगातीरीं क्रीडा: अनंतें चरित्रें केलीं: अनंतां लीळा केलीयां: अनंतां जीवातें उद्धरीले तया श्रीचांगदेवराउळा गोसावीयांचे चरणशरण:।।5।।:</p>
       </div>
-	  <div data-role="collapsible" data-collapsed="true">
+	  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
         <h3>श्रृत श्रीमुर्तिची भावना आन ध्यान</h3>
         <p>ऐसी ज्ञानशक्ती: विज्ञाणशक्ती: वेध: वेधशक्ती: बोध: बोधशक्ती: वैखरी: पराशक्ती उभायदृश्यत्व: दया: मया: कृपा: कारून्य प्रवृत्ती निवृत्ति: परावर वरदान: ऐसा व्यक्त सर्वशक्तीयुक्त परमेश्वरू श्रीचक्रधरू जाणीजे: यातें मुर्तिज्ञान बोलीजे:।: ऐसा परमेश्वरू श्रीचक्रधरू: तयाचें नाम लीळा मुर्ति: चेष्टा: देहपर्यंत आठवीजे: ध्याइजे: तैं या संसारापासौनि मुंचीजे: कोरडे अनुष्टीजे तरि मोक्षु होए: ना तेंचि आर्तिपुर्वक अनुष्टीजे तरि प्रेम होए:।: तरि श्रीमुर्तिची भावना आणि ध्यान तें कैसे: ना तें ऐसे गोसावी लखुदेवबासातें म्हणितलें हें तुम्हां श्रृत कीं दृष्ट: श्रृत म्हणिजे आइकीलें: दृष्ट म्हणिजे देखिलें:।: तरि श्रृत श्रीमुर्ति कैसी भावीजे ध्याइजे आणि देखिली श्रीमुर्ति कैसी आठविजे: आतां श्रृत श्रीमुर्तिची भावना आन ध्यान तें कैसें:।:</p>
       </div>
 
 
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3> श्रीमुर्त ऐसी भावीजे ध्याइजे </h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P25');" href="#page" data-transition="slide" id="P25"> १) जे एकांती श्रीचांगदेव राउळा गोसावीया शिष्या भेटी : (पु.२५-काटोल) </a></li>
@@ -2664,7 +2676,7 @@ function topFunction() {
 			  <li><a onclick="glila('P461');" href="#page" data-transition="slide" id="P461"> ६) आणि हीवरळीए वाएनाएका भेटि नामकरण: (पु. ४६१ - जालना)</a></li></ul>
 			  </div>
 
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>२. ॥ श्रीचरण ॥ २.॥ </h3>
 				<ul data-role="listview" data-inset="true">
 			  <li> १) जे एकांकी डावेनि श्रीचरणें सीळातळावरि उदक घालीती : (एकांक) </li>
@@ -2675,7 +2687,7 @@ function topFunction() {
 			  <li><a onclick="glila('U472');" href="#page" data-transition="slide" id="U472"> ५) पुरुषोत्तमदेवी पागडे ओळगवणे (उ. ४७२- पैठण ढोरेश्वर ) </a></li>
 			  <li>६) गोसावी पश्चातपाहरी परिश्रया बीजे करिती पश्चात पाहरी भटोबासांच्या वक्षस्थळावर श्रीचरण ठेवती. यावरि उदेयाचा पुजाअवसर आठवीजे आणि जेतुलीही श्रीचरण प्रक्षाळणे तेतुलेही आठवीजे.</li></ul>
 			  </div>
-				  <div data-role="collapsible" data-collapsed="true">
+				  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3> ३. ॥ श्री चरणीचा आंगुठा ॥ श्री चरणाचा आंगुठा ऐसा भाविजे ध्याइजे</h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P390');" href="#page"  data-transition="slide" id="P390"> १) जे सीमुगा सींपणे (पू. ३९० भडेगाव) </a></li>
@@ -2690,12 +2702,12 @@ function topFunction() {
 			  </div>
 			  
 			  
-			  <div data-role="collapsible" data-collapsed="true">
+			  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>४. ॥ श्रीचरणीचेया आंगोठेयाचे नख ॥ श्री चरणीचेया आंगोठेयाचे नख ऐसे भावीजे ध्याइजे </h3>
 			  <ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P496');" href="#page"  data-transition="slide" id="P496"> १) जे रावसगावी कामाइसा भेटी नामकरणे ( पू. ४९६ - रावंसगांव) </a></li></ul>
 			  </div>
-			  	<div data-role="collapsible" data-collapsed="true">
+			  	<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>५. ॥ गुडघे ॥ गुडघे ऐसे भावीजे ध्याइजे</h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U193');" href="#page" data-transition="slide" id="U193"> १) जे रुसले देव बुझाउ धाडणे (उ. १९३ - डोमेग्राम) </a></li>
@@ -2704,7 +2716,7 @@ function topFunction() {
 
 
 
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3> ६. ॥ जानुवीभाग ॥ जानुवीभाग ऐसे भावीजती ध्याइजती </h3>
 				<ul data-role="listview" data-inset="true">
 			<li><a onclick="glila('U571');" href="#page" data-transition="slide" id="U571"> १) जे भटां लखुबाईसां भांडण </a></li>
@@ -2712,13 +2724,13 @@ function topFunction() {
 			  <li><a onclick="glila('P42');" href="#page" data-transition="slide" id="P42"> २) ससीक रक्षण (पू. ४२ सालबर्डी) </a></li>
 			  <li><a onclick="glila('U436');"  href="#page" data-transition="slide" id="U436"> ३) देव कोप खेद खिंन महादेइसां यादव गुरु निरुपणे : (उ. - ४३६- पैठण -ढोरेश्वर) </a></li></ul>
 			  </div>
-			  <div data-role="collapsible" data-collapsed="true">
+			  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			  <ul data-role="listview" data-inset="true">
 				<h3> ७. ॥ मांडिया ॥ मांडिया ऐसीया भावीजेति ध्याइजेति</h3>
 			  <li><a onclick="glila('P51');" href="#page" data-transition="slide" id="P51"> १) भांडारेकारा देहावसान ( पू. ५१ - नांदेड)</a></li>
 			  <li><a onclick="glila('P305');" href="#page" data-transition="slide" id="P305"> २) सौभागाकरवि केळे खाववणे (पू. ३०५बीड) </a></li></ul>
 			  </div>
-			  <div data-role="collapsible" data-collapsed="true">
+			  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>८. ॥ जघन प्रदेश ॥  जघन प्रदेश ऐसा भावीजे ध्याइजे</h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P514');" href="#page" data-transition="slide" id="P514"> १) जे क्षुद्रानदी सेतु बांधणे (पू. ५१४ संगमेश्वर) </a></li>
@@ -2727,14 +2739,14 @@ function topFunction() {
 			  <li><a onclick="glila('P216');" href="#page" data-transition="slide" id="P216"> ४) एळापुरी भक्तांसी खेळु (पू. २१६ - वेरुळ)</a></li>
 			  <li><a onclick="glila('P25');" href="#page" data-transition="slide" id="P25a"> ५) एकांकी कटी प्रदेशी सुडा वेढिला असे (पू. २५ - काटोल)  </a></li></ul>
 			  </div>
-			  <div data-role="collapsible" data-collapsed="true">
+			  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>९. ॥ उदर ॥ उदर ऐसे भावीजे ध्याइजे </h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U164');" href="#page" data-transition="slide" id="U164"> १) जे अस्वत्थमुळी इंद्रोपाहारी इंद्रया दैव प्रसंसा (उ. १६४ - डोमेग्राम) </a></li>
 			  <li><a onclick="glila('U164');" href="#page" data-transition="slide" id="U164a">२) बाईसे आरोगणे विनवीति तव गोसावी उदर अवलोकोनी म्हणती बाइ हे अजुन मागे नाः (उ. १६४ - डोमेग्राम) </a></li>
 			  <li><a href="" data-transition="slide" id="">३) सर्वत्र ज्ञानीया भक्तांची खंती उदरी घालीती</a></li></ul>
 			  </div>
-			  <div data-role="collapsible" data-collapsed="true">
+			  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>१०. ॥ वक्षस्थळ || वक्षस्थळ ऐसे भावीजे ध्याइजे </h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P408');" href="#page" data-transition="slide" id="P408"> १) जे महात्मा नामपूर्वक कुमारी खाजें देववणे (पू. ४०८- भडेगाव) </a></li>
@@ -2743,7 +2755,7 @@ function topFunction() {
 			  </div>
 
 
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>११. ॥ श्रीकर ॥  श्रीकर एसे भावीजे ध्याइजे</h3>
 			<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P29');" href="#page" data-transition="slide" id="P29"> १) जे भक्त म्हणति अजानबाहो ( पू. २९)</a></li>
@@ -2760,7 +2772,7 @@ function topFunction() {
 			  </div>
 
 
-			  <div data-role="collapsible" data-collapsed="true">
+			  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>१२. ॥ श्रीकरकमळ || श्रीकरकमळ ऐसे भावीजती ध्याइजति </h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P64');" href="#page" data-transition="slide" id="P64"> १) जे राएरी पाणिपात्र  ( पू. ६४ राहेर ) </a></li>
@@ -2773,7 +2785,7 @@ function topFunction() {
 			  <li><a onclick="glila('U144');" href="#page" data-transition="slide" id="U144">८) देमाइसा प्रति कुष्ट धर्म निरुपणें (उ. - १४४ - डोमेग्राम) </a></li>
 			  <li><a onclick="glila('P396');" href="#page" data-transition="slide" id="P396">९) इंद्रोबा तुळसी वाणे (पू - ३९६ - भडेगांव) </a></li></ul>
 			  </div>
-			  <div data-role="collapsible" data-collapsed="true">
+			  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>१३. । आंगुळीया ॥ आंगुळीया ऐसे भावीजेति ध्याइजेति </h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U301');" href="#page" data-transition="slide" id="U301"> १) जे गदोनाएकाची पुजा स्वीकार (उ ३०१ नेवरगाव)</a></li>
@@ -2781,13 +2793,13 @@ function topFunction() {
 			  <li><a onclick="glila('U443');" href="#page" data-transition="slide" id="U443">३) तारांगुळी क्रीडे महादाइ प्रायश्चित देणे (उ. ४४३ - पैठण - ढोरेश्वर) </a></li>
 			  <li><a href="" id="">४) आणि कोन्ही उपाधी स्थळ आले असति तरि आपूलेया पवित्रा आंगुळीया करुनि उर्ध्व पौंड्रटीळा रेखीति : ( पुजा अवसर) १४.</a></li></ul>
 			  </div>
-			  <div data-role="collapsible" data-collapsed="true">
+			  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			  <ul data-role="listview" data-inset="true">
 				<h3>१४. ॥ अंगुठा ॥ आंगुठा ऐसे भावीजे ध्याइजे</h3>
 			  <li><a onclick="glila('U433');" href="#page" data-transition="slide" id="U433"> १) जे साधा क्षीरीभोजनपुर्वक टीळा तांबुळ माळ दान (उ. ४३३ - पैठण - ढोरेश्वर ) </a></li>
 			  <li><a onclick="glila('P572');" href="#page" data-transition="slide" id="P572">२) मार्गी गोपाळभोजन दाखवणें (पू ५७२- वडवाळीए) </a></li></ul>
 			  </div>
-			  <div data-role="collapsible" data-collapsed="true">
+			  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>१५. ॥ श्रीकराची करांगुळी ॥ करांगुळी ऐसी भावीजे ध्याइजे</h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U105');" href="#page" data-transition="slide" id="U105"> १) जे ताकवताची भाजी वाढणे: (उ. १०५ - डोमेग्राम) </a></li>
@@ -2797,7 +2809,7 @@ function topFunction() {
 			  <li><a onclick="glila('P558');" href="#page" data-transition="slide" id="P558">५) अवधूताची ब्रम्हप्रकासीका ( पू. - ५५८ वींझुगां )</a></li>
 			  <li><a onclick="glila('U309');" href="#page" data-transition="slide" id="U309">६) रामाइदरीसनकृत नार्येळ कथन: (उ. ३०९ पेहरा संगम) </a></li></ul>
 			  </div>
-			  <div data-role="collapsible" data-collapsed="true">
+			  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>१६. ।। श्रीकंठ ॥ श्रीकंठ ऐसा भावीजे ध्याइजे</h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U330');" href="#page" data-transition="slide" id="U330a"> १) जे नागाराऊळी वाघनख सरी वोळगवीली (उ. ३३० - पैठण)  </a></li>
@@ -2810,7 +2822,7 @@ function topFunction() {
 			  <li><a onclick="glila('U133');" href="#page" data-transition="slide" id="U133">८) म्हांइभटां उदग्रहणीकापुर्वक ईश्वर प्रतीति करणे (उ १३३ - डोमेग्राम) </a></li>
 			  <li><a onclick="glila('P455');" href="#page" data-transition="slide" id="P455">९) इंद्रभटां पविते देणे : (पू - ४५५- करंजेखेड) यावरि जेतुले गळदंडे तेतुले आठविजे</a></li></ul>
 			  </div>
-			  	<div data-role="collapsible" data-collapsed="true">
+			  	<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>१७. ॥ श्रीमुख ॥ श्रीमुख ऐसे भावीजे ध्याइजे</h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U352');" href="#page" data-transition="slide" id="U352"> १) जे आउ वरप्रदान (उ. ३५२  पैठण)</a></li>
@@ -2820,7 +2832,7 @@ function topFunction() {
 			  <li><a onclick="glila('P30');" href="#page" data-transition="slide" id="P30">५) ओरंगळी मल्ला पुत्रदान (पू ३० )</a></li>
 			  <li><a onclick="glila('U325');" href="#page" data-transition="slide" id="U325">६) भंटा वरप्रदान: ( तुझेनी मुखे अशास्त्र न निघे) (उ ३२५ पैठण) </a></li></ul>
 			  </div>
-			  <div data-role="collapsible" data-collapsed="true">
+			  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>१८. ॥ दंतपंक्ति |  दंतपंक्ति ऐसे भावीजे ध्याइजे</h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U11');" href="#page" data-transition="slide" id="U11">१) जे पर्वी दायंबा भेटी (ऊ. ११ खडकुली)</a></li>
@@ -2829,12 +2841,12 @@ function topFunction() {
 			  <li><a onclick="glila('P221');" href="#page" data-transition="slide" id="P221">४) राकेया लक्ष्मींधरभटा जीव्हामळ प्रसाद निराकरण ( पू. २२१ एळापूर) </a></li></ul>
 			  </div>
 			  
-			  	<div data-role="collapsible" data-collapsed="true">
+			  	<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>१९. ॥ नासापुट ॥ नासापुट ऐसे भावीजे ध्याइजे </h3>
 				<ul data-role="listview">
 			  <li><a onclick="glila('P81');" href="#page" data-transition="slide" id="P451">१) जे महात्मा (प्रकाश देव) निर्गमणी सींके उपहासु ( पू. ४५१ - करंजेखेड) </a></li></ul>
 			  </div>
-			  			  	<div data-role="collapsible" data-collapsed="true">
+			  			  	<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>२०. ॥ श्रीनेत्र ॥ श्रीनेत्र ऐसे भावीजे ध्याइजे </h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P315');" href="#page" data-transition="slide" id="P315">१) जे आबैसी दीठी उतरणे (पू. ३१५ - बीड )</a></li>
@@ -2846,12 +2858,12 @@ function topFunction() {
 			  <li><a onclick="glila('U101');" href="#page" data-transition="slide" id="U101">७) आसनी वोदन रास्यांतरी वानरादि परीहासुः (उ. १०१ - डोमेग्राम)</a></li>
 			  <li><a onclick="glila('P29');" href="#page" data-transition="slide" id="P29a">८) महदोबा भक्त म्हणति विशालनेत्र (पू. २९ एकांक) यावरि जेतुलीही अवलोकने तेतुलीही आठवीजे :</a></li></ul>
 			  </div>
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>२१. ॥ भवैया ॥ भवैया ऐसीया भाविजति ध्याइजति </h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U489');" href="#page" data-transition="slide" id="U489">१) जे आऊसी कांदी पुसणे (उ. ४८९ - ढोरेश्वर) </a></li></ul>
 			  </div>
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>२२. ॥ कर्णयुगळ ॥ कर्ण युगळ ऐसे भाविजे ध्याइजे </h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P29');" href="#page" data-transition="slide" id="P29b">१) जे भक्त (महदोबा ) म्हणति लंबकर्ण ( पू. २९ एकांक) </a></li>
@@ -2859,7 +2871,7 @@ function topFunction() {
 			  <li><a onclick="glila('U473');" href="#page" data-transition="slide" id="U473b">३) छायागोपाळाचिया बाइया अनंत वोळगवीले: (उ. ४७३- पैठण, ढोरेश्वर ) </a></li>
 			  <li><a href="" id="">४) बाइसे प्रतिदिनी झळंबुके वोळगवीति (पुजाअवसर) </a></li></ul>
 			  </div>
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>२३. ॥ लल्हाट || लल्हाट ऐसे भावीजे ध्याइजे</h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('P91');" href="#page" data-transition="slide" id="P91">१) जे बोणेबाइया भेटि (पू. ९१ मेहंकर) </a></li>
@@ -2869,7 +2881,7 @@ function topFunction() {
 			  <li><a href="" id="">५) बाइसे गोपीचंदनाचा उर्ध्वपौंड्र टीळा रेखिती (पुजा अवसर)  </a></li>
 			  <li><a href="" id="">६) यावरि जेतुलीही टीळे तेतुलीही आठवीजे </a></li></ul>
 			  </div>
-			  	<div data-role="collapsible" data-collapsed="true">
+			  	<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>२४ ॥ श्रीमुकुट ॥ श्रीमुकुट ऐसा भावीजे ध्याइजे</h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U50');" href="#page" data-transition="slide" id="U50">१) जे आउ स्वान हननी श्रीमुकुट धरणे (उ. ५० खडकुली) </a></li>
@@ -2880,18 +2892,18 @@ function topFunction() {
 			  <li><a onclick="glila('P382');" href="#page" data-transition="slide" id="P382">६) साधा गळतु ऐसा दवणा वाहणे (पू. ३८२ - पैठण-ढोरेश्वर)</a></li>
 			  <li><a href="" id="">७) यावरि वीळीचा पुजा अवसर आठवावा</a></li></ul>
 			  </div>
-			  	<div data-role="collapsible" data-collapsed="true">
+			  	<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>॥ श्रीमुर्तिचे ज्ञान ॥ म्हणौनि श्रीमुर्तीचे ज्ञान होआवे : कां पा जे </h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U512');" href="#page" data-transition="slide" id="U512">आऊसाप्रति वाकमु दीघमु अनुवाद : ऐसे हो नेदावे (उ.५१२ - पैठण-ढोरेश्वर) </a></li></ul>
 			  </div>
-			  	<div data-role="collapsible" data-collapsed="true">
+			  	<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>॥ नामाचे ज्ञान ॥ नामाचे ज्ञान होआवे : का पा</h3>
 				<ul data-role="listview" data-inset="true">
 			  <li><a onclick="glila('U377');" href="#page" data-transition="slide" id="U377">जे अमर्दक तपोधना देवता अज्ञान ऐसे हो नेदावे (उ. ३७७ - पैठण ढोरेश्वर) </a></li></ul>
 			  </div>
 			  
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>॥ लीळेचे ज्ञान ॥  लीळेचे ज्ञान होआवे:</h3>
 <p>
 आचारपरू कीं विचारपरू ऐसें पहावें: मग विचारू जाणावा: कांपां जें <a onclick="glila('U509');" href="#page" data-transition="slide" id="U509"> चक्रवाका अनुवादें गुरूशिष्या अज्ञान  </a>ऐसें हों नेदावें: 
@@ -2902,7 +2914,7 @@ function topFunction() {
 </p>
 			  </div>
 			  
-			  <div data-role="collapsible" data-collapsed="true">
+			  <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>|| प्रसन्नतेच्या लिळा ॥ </h3>
 			  <li ><a onclick="bhav();" href="#page"  data-transition="slide">🌷॥ प्रसन्नतेच्या लीला॥🌷</a></li>
 			  </div>
@@ -2935,8 +2947,8 @@ function topFunction() {
 	</div>
 	<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
 	<div data-role="main" class="ui-content">
-			<div data-role="collapsibleset" >
-			<div data-role="collapsible" data-collapsed="true">
+			
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h1>नामाचें दाहा ठाय</h1>
 				<p><a onclick="glila('U60');"href="#page" data-transition="slide">पाची नामाचे स्मरण होआवे का पा: (ली. क्र. उ.६० मध्ये) नामाचे दाहा ठाए: पंचकृष्ण निरुपण: ऐसे गोसावी भटोबासांते निरुपिले</a></p>
 				<p>:।।: नामाचें दाहा ठाय:।।: ।। श्रीचक्रधरायनमः:।।: साकारापासौनि नाम मुर्ति: निराकारापासौनि लीळा चेष्टा: (साकारापासौनि लीळा चेष्टा: निराकारापासौनि नाम मुर्ति) म्हणौनि 
@@ -2946,50 +2958,50 @@ function topFunction() {
 				ऐसें नाम वेधवंत म्हणौनि नामें वेधु:।।1।।: नामें बोधु:।।2।।: नामें अनुसरन:।।3।।: नामें स्मरण:।।4।।: नाम सकळ नीरोध परीहरी:।।5।।: नाम वाजत वारा धरी:।।6।।: नाम पडतें आकाश धरी:।।7।।: नाम येतें वीघ्न हरी:।।8।।: नाम साह्यातें करी:।।9।।: नाम प्राप्तीतें करी:।।10।।: </p>
 			</div>
 			
-						<div data-role="collapsible" data-collapsed="true">
+						<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h1>नामें वेधु</h1>
 				<p>तरि नामें वेधु तें केवि: ना: हीवरळीए <a onclick="glila('P472');" href="#page" data-transition="slide">लखुदेवबासाचीए लीळेचेनि </a> न्यायें: तेंचि केवि: ना <a onclick="searchlila('drushtanth','तणधैलेया  वावराचा २८');"  href="#page" data-transition="slide">सुक्षेत्राचेनि दृष्टांतें: </a>तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','ऐसें हें एथीचेया नामापासौनि होए कां स्थानापासौनि होए (वि.२६२)');"  href="#page" data-transition="slide"> एथीचेया नामापासौनि वेधु: कां स्थाना पासौनि वेधु</a> म्हणौनि नामें वेधु: </p>
 			</div>
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h1>नामें बोधु</h1>
 				<p>तरि नामें बोधु तें केवि: ना <a onclick="glila('U133');" href="#page" data-transition="slide">डोंबेग्रामीं छिन्नपापीं म्हाइंभटाचीए लीळेचेनि न्यायें:</a> तेंचि केवि: ना <a onclick="searchlila('drushtanth','हस्तीचा ४३');"  href="#page" data-transition="slide">हस्तिचेनि दृष्टांतें:</a> तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','जीवासि बोधु आणि बोधशक्ति तें एथौनिचि कीं गा (वि. ११२)');"  href="#page" data-transition="slide">बोधु आणि बोधशक्ती तें एथौनिचि कींगा </a> म्हणौनि नामें बोधु:।।2।।: </p>
 			</div>
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h1>नामें अनुसरण</h1>
 				<p>तरि नामें अनुसरण तें केवि: ना डोंबेग्रामीं <a onclick="glila('U144');" href="#page" data-transition="slide">देमाइसां कुष्टधर्म निरूपणें </a>तिये लीळेचेनि न्यायें: तेंचि केवि: ना <a onclick="searchlila('drushtanth','कुष्टियाचा ५३');"  href="#page" data-transition="slide">कुष्टियाचेनि दृष्टांतें:</a> तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','देवो माझा मीं देवाचा ऐसेया परि असीजो का देमती (आ. २०५)');"  href="#page" data-transition="slide">देवो माझा: मी देवाचां: ऐसिया परि असिजो कां देमती</a> म्हणौनि नामें अनुसरण:।।3।।: </p>
 			</div>
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h1>नामें स्मरण</h1>
 				<p>तरि नामें स्मरण तें केवि: ना <a onclick="glila('P174');" href="#page" data-transition="slide">मांगरौळीएं चांगदेवभटाचीएं लीळेचेनि </a>न्यायें: तेंचि केवि: ना <a onclick="searchlila('drushtanth','भिंगुरुटीयेचा ९६');"  href="#page" data-transition="slide">भींगुरूटीएचेनि दृष्टांतें:</a> तेंचि केवि: ना सर्वज्ञें म्हणितलें: यातें दाहा विस वेळा आठवीजे: दाहा विस वेळा ना तरि सात पांच वेळ आठवीजे: सात पांच वेळ नाठवे तरि दोनी च्यारी वेळा आठवीजे: दोनी च्यारी वेळा ना आठवे तरि <a onclick="searchlila('vachan','एक दोनि वेळ यातें आठविजे परि वंध्यु दिवसु जाओं नेदिजे (आ. ३२)');"  href="#page" data-transition="slide"> एक दोनि वेळा आठवीजे: परि वंद्यु दिवसु जावों नेदिजे</a> म्हणौनि नामें स्मरण:।।4।।: </p>
 			</div>
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h1>नाम सकळ निरोध परीहरी</h1>
 				<p>तरि नाम सकळ निरोध परीहरी तें केवि: ना: ऋद्धपुर मार्गीं दाइंबा मौन्य वीहीलें: तिये लीळेचेनि न्यायें: तेंचि केवि: ना <a onclick="searchlila('drushtanth','ब्रह्मचारी घोडेयाचा ७८');"  href="#page" data-transition="slide">ब्रम्हचारी घोडेयाचेनि दृष्टांतें:</a> तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','परिच्छेदीं प्रवर्तलेया पुरुषाचे सकळही निरोध नेणों कोणचि निर्पौनि फेडी (आ. १०१)');"  href="#page" data-transition="slide">परिच्छेदीं प्रवर्तलेया पुरूषाचें सकळही नीरोध नेणों कोणचि नीर्पौनि फेडी</a> म्हणौनि नाम सकळही नीरोध परीहरी:।।5।।: </p>
 				
 			</div>
-						<div data-role="collapsible" data-collapsed="true">
+						<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h1>नाम वाजत वारा धरी:</h1>
 				<p>तरि नाम वाजत वारा धरी: तें केवि: ना <a onclick="glila('U185');" href="#page" data-transition="slide">डोंबेग्रामीं साधाचीए लीळेचेनि</a> न्यायें: तेंचि केवि: ना <a onclick="searchlila('drushtanth','रिणाइताचा ७३');"  href="#page" data-transition="slide">रीणाइताचेनि दृष्टांतें:</a> तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','न भीया हो साधे हो तुम्हांवरि एथौनि वाजत वारा धरीजैल (आ. १०४)');"  href="#page" data-transition="slide"> न भीया हो साधे हो: तुम्हांवरि वाजत वारा एथौनि धरिजैल:</a> म्हणौनि नाम वाजत वारा धरी:।।6।।: </p>
 			</div>
 			
 			</div>
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h1>नाम पडतें आकास धरी:</h1>
 				<p>तरि नाम पडतें आकास धरी: तें केवि: ना: <a onclick="glila('U310');" href="#page" data-transition="slide">पेहरासंगमी रामाइसांचीए लीळेचेनि</a> न्यायें: तेंचि केवि: ना <a onclick="searchlila('drushtanth','दंदियाचा ७४');"  href="#page" data-transition="slide"> दंदियाचा ७४</a>दंदीयाचेनि दृष्टांतें: </a>तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','धर्माचिया चाडा रायाची राणी कां न ये वरि पडतें आकाश धरिजैल (आ. १०३)');"  href="#page" data-transition="slide">धर्माचीया चाडां रायाची राणी कां नये वरि पडते आकास धरिजैल</a> म्हणौनि नाम वरि पडतें आकास धरी:।।7।।: </p>
 			</div>
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h1>नाम येतें वीघ्न हरी:</h1>
 				<p>तरि नाम येतें वीघ्न हरी: तें केवि: ना <a onclick="glila('U608');" href="#page" data-transition="slide">बेलापुरीं माहादाइसांचीए जाप्य प्रष्नाचीए लीळेचेनि </a>न्यायें: तेंचि केवि: ना <a onclick="searchlila('drushtanth','लेंकुरुवाळीए मातेचा ९८');"  href="#page" data-transition="slide">लेंकुरवाळीए मातेचेनि दृष्टांतें:</a> तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','पोरा जीवा आग्रहो नाहीं आग्रहो जरि होए तरि परमेश्‍वरु ज्ञानियासि प्रेम देती (आ. मा. २५)');"  href="#page" data-transition="slide">पोरा जीवासि आग्रहो नाहीं आग्रहो जरि होए तरि कोपरा पान्हावो ए </a>म्हणौनि नाम येतें वीघ्न हरी:।।8।।: </p>
 			</div>
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h1>नाम साह्यातें करी</h1>
 				<p>तरि नाम साह्यातें करी तें केवि: ना <a onclick="glila('U77');" href="#page" data-transition="slide">जोगेस्वरीं साधाचीए लीळेचेनि </a>न्यायें: तेंचि केवि: ना घासाचेनि दृष्टांतें: तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','नामस्मरण करावे नामीं अभिमानु आति (आ. मा. ४६)');"  href="#page" data-transition="slide"> नामीं अभिमानु आति कीं</a> म्हणौनि नाम साह्यातें करी:।।9।।: </p>
 			</div>
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h1>नाम प्राप्तीतें करी</h1>
 				<p>तरि नाम प्राप्तीतें करी: तें केवि: ना: द्वापरीं अर्जुनदेवांचीए लीळेचेनि न्यायें: तेंचि केवि: ना <a onclick="searchlila('drushtanth','सुरीचा (आंबवतीएचा) १०६');"  href="#page" data-transition="slide">सुरीचेनि दृष्टांतें:</a> तेंचि केवि: ना सर्वज्ञें म्हणितलें: <a onclick="searchlila('vachan','बाइ श्रीकृष्णचक्रवर्ती अनंत उद्धरिले परि उद्धवार्जुन हे पुराण प्रसिद्ध (वि. ८२)');"  href="#page" data-transition="slide">द्वापरि श्रीकृष्णचक्रवर्तीं अनंत उद्धरीले परि उद्धवार्जुन हे पुराणप्रसिद्ध</a> म्हणौनि नाम प्राप्तीतें करी:।।10।।: </p>
 			</div>
-			<div data-role="collapsible" data-collapsed="true">
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>रिकामे नसावे मुखी नाम घेता पांचवे ते निरंतर स्मरिजे </h3>
 				<p>ते नाम उच्चारीलें <a onclick="glila('P174');" href="#page" data-transition="slide">मांगरौळी चांगदेवभटीं वाळुवंटी:</a> तेणें आकर्षीला इश्वरू पासि आला: तें नाम उच्चारीलें <a onclick="glila('U77');" href="#page" data-transition="slide">साधीं गंगे बुडतां:</a> तें तेणें नामेचि तारीली: 
 				<a onclick="glila('U11');" href="#page" data-transition="slide">देवता सेळीएचेनि वेखें दाइंबा पाठीं लागली:</a> तेसनेया क्षोभापासौनि नामेचि राखीलें: 
@@ -2998,11 +3010,13 @@ function topFunction() {
 				<a onclick="glila('U608');" href="#page" data-transition="slide">नामाचेनि जाप्यें प्रवृत्ती भंगैल:</a> भटोबासीं म्हणितलें तें जरि नाम उच्चारिता देवगिरीचा नीनावा तरि तयाचें अनिष्ट चुकतें आणि इश्वरीचि प्रवृत्ती भंगती: म्हणौनि नाम आठवीजे स्मरीजे: चींतीजे: ध्याइजे: तैचि या संसारापासौनि मुंचीजे म्हणौनि भटोबासीं म्हणितलें एणें अवतारें श्रीचक्रधरें जो नुधरे: तो कहींचि नुधरे: मां नुधरे:।।: एवं नामाचें दाहा ठाय समाप्त:।।०।।:</p>
 			</div>
 			
+
 </div>
 	<div id="toTop"><p>Back to Top</p></div>
 	  <div data-role="footer" data-position="fixed">
     <h1>&#128591दंडवत प्रणाम &#128591</h1>
   </div>
+</div>
 </div>
 </div>
 
@@ -3011,38 +3025,7 @@ function topFunction() {
 
 <!-- Page six end-->
 
-<!-- Page Seven Start-->
-<div data-role="page" data-theme="a" id="pageseven" data-title="॥ परशास्त्र॥ ">
-           <div data-role = "header">
-            <h2>search page</h2>
-         </div>
-		 
-		 
-<div class="container">
-    <h1>Live Search</h1>
-	<form role="form">
-        <div class="form-group">
-          <input type="search" name="search" id="txt-search" placeholder="Type your search character">
-        </div>
-	</form>
 
-
-<div data-role="main" class="ui-content" data-theme="c">
-	  	<div id="filter-records" ></div>
-</div>
-	
-	
-  </div>
-  	<div id="toTop"><p>Back to Top</p></div>
-	
-		  <div data-role="footer">
-    <h1>&#128591दंडवत प्रणाम &#128591</h1>
-	<a href="#pageone" data-role="button" class="ui-icon-home">Home</a>
-  </div>
-  
-  
-  </div>
- <!-- page seven ends-->
 <!-- page eight start -->
  
  <div data-role="page" id="pageeight" data-title="॥ परशास्त्र॥ ">
@@ -3219,7 +3202,38 @@ function topFunction() {
   </div>
       </div>
 
+<!-- Page Seven Start-->
+<div data-role="page" data-theme="a" id="pageseven" data-title="॥ परशास्त्र॥ ">
+           <div data-role = "header">
+            <h2>search page</h2>
+         </div>
+		 
+		 
+<div class="container">
+    <h1>Live Search</h1>
+	<form role="form">
+        <div class="form-group">
+          <input type="search" name="search" id="txt-search" placeholder="Type your search character">
+        </div>
+	</form>
 
+
+<div data-role="main" class="ui-content" data-theme="c">
+	  	<div id="filter-records" ></div>
+</div>
+	
+	
+  </div>
+  	<div id="toTop"><p>Back to Top</p></div>
+	
+		  <div data-role="footer">
+    <h1>&#128591दंडवत प्रणाम &#128591</h1>
+	<a href="#pageone" data-role="button" class="ui-icon-home">Home</a>
+  </div>
+  
+  
+  </div>
+ <!-- page seven ends-->
 
 </body>
 </html>
