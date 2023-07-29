@@ -7,11 +7,15 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+
+
 	<!--<link rel="stylesheet" href="themes/pershastra.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />-->
-        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
 
 
 <style>
@@ -283,9 +287,9 @@ $.getJSON('person.json', function(jd)
 
 /*Searchbox*/
 
- $(document).ready(function(){
- console.log("page loaded");
+  $(document).ready(function(){
   $('#filter-records').empty();
+ $('[data-role="content"]').empty();
    $.getJSON('person.json', function(jd) {
 	var data = jd.main
 	console.log(jd.main)
@@ -456,7 +460,14 @@ $(function(){
     $( "#demo-page" ).enhanceWithin().popup();
 });*/
 
+$(document).ready( function(){ 
 
+    $('a.switchview').on('click', function () {
+        $('a.switchview').removeClass('ui-btn-active ui-state-persist');
+        $(this).addClass('ui-btn-active ui-state-persist');
+        return false;
+    });
+});
 
 </script>
 
@@ -529,10 +540,11 @@ function topFunction() {
 				</ul>
 				</div>
 				<li ><a onclick="smruti();" href="#page"  data-transition="slide">🌷॥ स्मृतिस्थळ ॥🌷</a></li>
+				<div class="ui-block-c"><a class="ui-shadow ui-btn ui-corner-all ui-icon-search ui-btn-icon-notext ui-btn-inline" href="#pageseven">Button</a></div>
         </ul>
 </div>
 
-<div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
+<div data-role="panel" data-display="overlay" data-theme="b" id="nav-panel">
 		<p><center>॥ परशास्त्र॥</center></p>
 		
 		<a class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-delete ui-btn-icon-notext" href="#" data-rel="close" >Button</a>
@@ -580,17 +592,14 @@ function topFunction() {
 				<li ><a onclick="smruti();" href="#page"  data-transition="slide">🌷॥ स्मृतिस्थळ ॥🌷</a></li>
 				</ul>
 				</div>
-				<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
-				<h3>SearchBoX</h3>
-				<ul data-role="listview" data-inset="true">
-				<li><a href="#pageseven"  data-transition="slide">SearchBox</a></li>
-				</ul>
-				</div>
+
+				<div class="ui-block-c"><a class="ui-shadow ui-btn ui-corner-all ui-icon-search ui-btn-icon-notext ui-btn-inline" href="#pageseven">Button</a></div>
+
         </ul>
 		</div>
     </div><!-- /panel -->
 
-<div data-role="page" data-theme="a" id="pageone" data-title="॥ परशास्त्र॥ ">   
+<div data-role="page" data-theme="a" data-content-theme="b" id="pageone" data-title="॥ परशास्त्र॥ ">   
  
 		<div data-role="header" data-position="fixed" data-fullscreen="true">
 			<h1><i>॥ परशास्त्र॥ </i></h1>
@@ -685,7 +694,7 @@ function topFunction() {
 			 <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			  <h3> ॥ अन्यव्यावृत्ति ॥ </h3>
 			  <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search...">
-			  <li><a onclick="searchlila('vachan','कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)');" href="#page" data-transition="slide" > कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)</a></li> 
+			  <li><a class="ui-btn-active" onclick="searchlila('vachan','कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)');" href="#page" data-transition="slide" > कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)</a></li> 
 			  <li><a onclick="searchlila('vachan','अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)');" value="अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)" href="#page" data-transition="slide">अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)</a></li>
 			<li><a onclick="searchlila('vachan','अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)');" value="अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)" href="#page" data-transition="slide">अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)</a></li>
 			<li><a onclick="searchlila('vachan','स्वर्गीचे इंद्रचंद्रादिक देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ४)');" value="स्वर्गीचे इंद्रचंद्रादिक देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ४)" href="#page" data-transition="slide">स्वर्गीचे इंद्रचंद्रादिक देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ४)</a></li>
@@ -3203,36 +3212,21 @@ function topFunction() {
       </div>
 
 <!-- Page Seven Start-->
-<div data-role="page" data-theme="a" id="pageseven" data-title="॥ परशास्त्र॥ ">
-           <div data-role = "header">
-            <h2>search page</h2>
-         </div>
-		 
-		 
-<div class="container">
-    <h1>Live Search</h1>
-	<form role="form">
-        <div class="form-group">
-          <input type="search" name="search" id="txt-search" placeholder="Type your search character">
+    </div>
+    <div data-role="page" data-theme="a" id="pageseven">
+        <div data-role="header" data-position="fixed">
+            <h1>लीळाचरित्र Search</h1>
         </div>
-	</form>
-
-
-<div data-role="main" class="ui-content" data-theme="c">
+        <div data-role="main" class="ui-content">
+            <input type="search" name="search" id="txt-search" value="">
+        </div>
+		<div data-role="main" class="ui-content" data-theme="c">
 	  	<div id="filter-records" ></div>
 </div>
-	
-	
-  </div>
-  	<div id="toTop"><p>Back to Top</p></div>
-	
-		  <div data-role="footer">
-    <h1>&#128591दंडवत प्रणाम &#128591</h1>
-	<a href="#pageone" data-role="button" class="ui-icon-home">Home</a>
-  </div>
-  
-  
-  </div>
+    </div>
+
+
+    </div>
  <!-- page seven ends-->
 
 </body>
