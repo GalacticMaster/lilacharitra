@@ -3,10 +3,50 @@
  <head>
  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
      <title>Live Json Search</title>
+	
+	<style>
+		html,
+body,
+.intro {
+  height: 100%;
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-leading {
+  border-top: 0.125rem solid #00b74a;
+  border-bottom: 0.125rem solid #00b74a;
+  border-left: 0.125rem solid #00b74a;
+}
+.form-outline .form-control:focus~.form-notch .form-notch-middle {
+  border-color: #00b74a;
+}
+.form-outline .form-control:focus~.form-notch .form-notch-trailing {
+  border-top: 0.125rem solid #00b74a;
+  border-bottom: 0.125rem solid #00b74a;
+  border-right: 0.125rem solid #00b74a;
+}
+.form-outline .form-control:focus~.form-label {
+  color: #00b74a;
+}
+.autocomplete-input.focused~.form-notch .form-notch-leading {
+  border-top: 2px solid #00b74a;
+  border-bottom: 2px solid #00b74a;
+  border-left: 2px solid #00b74a;
+  transition: all 0.2s linear;
+}
+.autocomplete-input.focused~.form-notch .form-notch-middle {
+  border-color: #00b74a;
+}
+.autocomplete-input.focused~.form-notch .form-notch-trailing {
+  border-color: #00b74a;
+}
+.autocomplete-input.focused~.autocomplete-label {
+  color: #00b74a;
+}
+</style>
 </head>
-<body>
+<body><!--
   <div class="container">
     <h3>Leela Charitra Live Search</h3>
 	<form role="form">
@@ -15,15 +55,72 @@
         </div>
 	</form>
 	<div id="filter"></div>
+  </div>-->
+  
+  
+ <section class="intro">
+  <div class="bg-image h-100">
+    <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0,0,0, 0.5);">
+      <div class="container">
+        <p class="h2 mb-4 text-white">Search for Leela <br> shared by
+          Hemang$oni.</p>
+        <div class="card">
+          <div class="card-body p-4">
+            <div class="row">
+              <div class="col-12 mb-4">
+                <div class="input-group">
+                  <div class="form-outline flex-fill">
+                    <input type="search" id="text-search" class="form-control form-control-lg" />
+                    <label class="form-label" for="form1">Search for Words in Leela</label>
+					
+                    <div class="form-helper pt-2"><span class="font-weight-bold">Suggested:</span> 
+                      <a href="#!" class="text-black-50">Home,</a>  
+                      <a href="#!" class="text-black-50">Name,</a>  
+                      <a href="#!" class="text-black-50">Murti,</a>  
+                      <a href="#!" class="text-black-50">Leela,</a>  
+                      <a href="#!" class="text-black-50">Chesta,</a>  
+                    </div>
+                  </div>
+				<button type="button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
+<div id="filter"></div>
     
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 	<style>
-	h5 .ui-btn-text{ white-space:normal; word-break:break-all; }
-h5 { white-space:normal; word-break:break-all; }
-	mark { 
+
+	
+	
+	
+	
+.ui-listview > li a {
+  white-space: normal !important;
+}​
+h3 .ui-btn-text{ white-space: normal !important; word-break:break-all !important; }
+h3 { white-space: normal !important; word-break:break-all !important; }
+
+mark { 
   background-color: pink;
   color: black;
+}
+p {padding: 0 15px;
+style="font-size: 
+18px;font-family: Arial;
+text-align:justify
+}
+
+html,
+body,
+.intro {
+  height: 50vh;
 }
 </style>
 <script>
@@ -41,13 +138,16 @@ $('#text-search').keyup(function(){
 			
             var regex = new RegExp(searchField, "i");
             var output = '<div class="card mb-2">';
+			var result = 0;
             var count = 1;
 			  $.each(data, function(key, val){
 				if ((val.Aadi.search(regex) != -1 || val.Lila.search(regex) != -1)) {
 				  //output += '<div class="row p-2">';
 				  //output += '<div class="col-7">';
-				  output += '<h5>' + val.Aadi + '</h5>';
-				  output += '<p style="font-size: 18px;font-family: Arial;text-align:justify">' + val.Lila + '</p>'
+				  result = result + 1;
+				  output += '<h3>' + result + '</h3>';
+				  output += '<h3>' + val.Aadi + '</h3>';
+				  output += '<p class="mb-0" style="font-size: 18px;font-family: Arial;text-align:justify">' + val.Lila + '</p>'
 				  //output += '</div>';
 				  //output += '</div>';
 				  if(count%1 == 0){
