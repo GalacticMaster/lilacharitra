@@ -60,8 +60,25 @@ body {
   border-radius: 4px;
 }
 
+#myBtn {
+
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 20px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: hsl(0, 0%, 0%, 0); /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
 #myBtn:hover {
-  background-color: #555;
+  background-color: #555; /* Add a dark-grey background on hover */
 }
 
 .ui-collapsible-content {<!--   w ww.j av  a  2  s.  c  o m-->
@@ -87,9 +104,12 @@ ul li.ui-li {<!--from  www.  j a v a  2s .  c  om-->
 ul li.ui-li-divider {
   border-top: none !important;
 }
+
+
 </style>
 
 <script type='text/javascript'>
+
 
 
 function colllila(lilaID,Aadi,Lila,Tip,vachan,sthan,person){
@@ -98,15 +118,16 @@ $(document).ready(function() {
 //console.log(lilaID);
 
         //var content = "<div data-role='collapsible'><h3 style=\"word-break:break-all;white-space: normal;\">"+lilaID+"'&nbsp'"+Aadi+"'</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">लीळा : </span>'"+Lila+"'</p>";
-        var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p></div>'
+        var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right" style="white-space: normal !important;"><h3 style="white-space: normal !important;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Lila+'</p></div>'
 		$("#set").append( content ).collapsibleset( "refresh" );
+	
     });
 
 }
 
 function colltest(lilaID,Aadi,Lila,Tip,vachan,sthan,person){
 	$(document).ready(function() {
-		var content = "<div data-role='collapsible'><h3 style=\"word-break:break-all;\">"+lilaID+"&nbsp"+Aadi+"</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">लीळा : </span>"+Lila+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\"> तळ टीप :</span>"+Tip+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">परिवार  :</span>"+person+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">वचन : </span>"+vachan+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">स्थान :</span>"+sthan+"</p>"
+		var content = "<div data-role='collapsible' data-theme='a' data-content-theme='b'><h3 style=\"word-break:break-all;\">"+lilaID+"&nbsp"+Aadi+"</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">लीळा : </span>"+Lila+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">परिवार  :</span>"+person+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">वचन : </span>"+vachan+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">स्थान :</span>"+sthan+"</p>"
 				var src_str = content;
 			  var term = person;
 			  term = term.toString().replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
@@ -118,7 +139,7 @@ function colltest(lilaID,Aadi,Lila,Tip,vachan,sthan,person){
 
 function colltest_v(Aadi,Lila,Tip,Vachan,tika,lapika){
 	$(document).ready(function() {
-		var content = '<div data-role="collapsible"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> लापिका  : </span> '+lapika+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> टीका   : </span> '+tika+'</p></div>'
+		var content = '<div data-role="collapsible" data-theme="a" data-content-theme="b"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p></div><div><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> लापिका  : </span> '+lapika+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> टीका   : </span> '+tika+'</p></div>'
 			  var src_str = content;
 			  
 			  var term = $.trim(Vachan.split('(',1)[0]);
@@ -133,14 +154,14 @@ function colltest_v(Aadi,Lila,Tip,Vachan,tika,lapika){
 
 function colltest_d(Aadi,Lila,Tip,Vachan,drushtant,sambandh,lapnik,dvachan,drush,drashtantik,arth){
 	$(document).ready(function() {
-		var content = '<div data-role="collapsible"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Tip+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p></div><div><p style="font-size: 18px;font-family: Arial;text-align:justify;padding: 0 15px"><span style="color: #ff0000"> संबंध  : </span> '+sambandh+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> लापणिक   : </span> '+lapnik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टांत  : </span> '+drushtant+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> वचन  : </span> '+dvachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टान्त  : </span> '+drush+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दार्ष्टान्तिक  : </span> '+drashtantik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> भावार्थ  : </span> '+arth+'</p></div>'
+		var content = '<div data-role="collapsible" data-theme="a" data-content-theme="b"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p></div><div><p style="font-size: 18px;font-family: Arial;text-align:justify;padding: 0 15px"><span style="color: #ff0000"> संबंध  : </span> '+sambandh+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> लापणिक   : </span> '+lapnik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टांत  : </span> '+drushtant+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> वचन  : </span> '+dvachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टान्त  : </span> '+drush+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दार्ष्टान्तिक  : </span> '+drashtantik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> भावार्थ  : </span> '+arth+'</p></div>'
 		$( "#set" ).append( content ).collapsibleset( "refresh" );
 		});
 }
 
 function colltest_e(Aadi,Lila,Tip,avyav){
 	$(document).ready(function() {
-		var output = '<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Tip+'</p></div><div>'
+		var output = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p>'
 				var src_str = output;
 			  var term = avyav;
 			  term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
@@ -368,7 +389,7 @@ function collsmruti(aadi,smruti){
 	$(document).ready(function(){
 	console.log(aadi,smruti);
 		//$('[data-role="content"]').empty();
-		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">स्मृति : </span>'+smruti+'</p>'
+		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">स्मृति : </span>'+smruti+'</p>'
 		$( "#set" ).append( content ).collapsibleset( "refresh" );
 		});
 
@@ -399,7 +420,7 @@ function collbhav(aadi,lila){
 	$(document).ready(function(){
 	//console.log(aadi,smruti);
 		//$('[data-role="content"]').empty();
-		var content =  '<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">स्मृति : </span>'+lila+'</p>'
+		var content =  '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">स्मृति : </span>'+lila+'</p>'
 		$( "#set" ).append( content ).collapsibleset( "refresh" );
 		});
 
@@ -434,7 +455,7 @@ function collrc(lilaID,Aadi,Lila){
 	console.log(lilaID,Aadi,Lila);
 		//$('[data-role="content"]').empty();
 		
-		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">लीळा : </span>'+Lila+'</p>'
+		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">लीळा : </span>'+Lila+'</p>'
 		$( "#set" ).append( content ).collapsibleset( "refresh" );
 		});
 
@@ -480,6 +501,19 @@ $( function() {
 $(function(){
     $( "#popupMenu1" ).enhanceWithin().popup();
 });
+
+
+$(document).on("pageinit", "#page", function()
+{
+    $(document).on("filterablefilter", "#collapsiblesetForFilterChildren", function(event)
+    {
+        var results = $("[data-role=collapsible]:visible");
+        if (results.length !== 0)
+        	$(results[0]).collapsible("expand");
+    });
+});
+
+
 /*
 $(function(){
     $( "#demo-page" ).enhanceWithin().popup();
@@ -498,7 +532,7 @@ $(document).ready( function(){
 
 </head>
 <body>
-<button onclick="topFunction()" id="myBtn" title="Go to top" style='font-size:20px;'>&#11014;</button>
+<button onclick="topFunction()" id="myBtn" title="Go to top" style='font-size:30px;'>&#11014;</button>
 <script>
 // Get the button
 let mybutton = document.getElementById("myBtn");
@@ -509,6 +543,7 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.style.display = "block";
+
   } else {
     mybutton.style.display = "none";
   }
@@ -531,10 +566,10 @@ function topFunction() {
 
         <ul data-role="listview" data-inset="true" style="min-width:210px;">
             
-<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
+<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:Auto;">
 
 				<h3>॥ लीळाचरित्र ॥</h3>
-				<ul data-role="listview" data-inset="true">
+				<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b">
   			  	<li><a onclick="Alila('P');" href="#page"  data-transition="slide">🌷॥ पूर्वार्ध ॥🌷</a></li>
 				<li><a onclick="Alila('U');" href="#page"  data-transition="slide">&#127801;॥ उत्तरार्ध ॥&#127801;</a></li>
 				<li><a onclick="Alila('KC');" href="#page"  data-transition="slide">🌷॥ द्वापर चरित्र ॥🌷</a></li>
@@ -544,23 +579,23 @@ function topFunction() {
 				<li><a href="#pageeight"  data-transition="slide">🌷॥ भाव स्मरण ॥🌷</a></li>
 				</ul>
 				</div>
-				<div data-role="collapsible" data-collapsed="true"data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
+				<div data-role="collapsible" data-collapsed="true"data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:Auto;">
 				<h3>॥ आम्ही॥</h3>
-				<ul data-role="listview" data-inset="true">
+				<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b">
 								<li><a href="https://galacticmaster.github.io/lilacharitra/epubjs-reader-master/reader/index.html" rel="external">&#127801;॥पूर्वार्ध॥&#127801;</a></li>
 				<li><a href="https://galacticmaster.github.io/lilacharitra/epubjs-reader-master/reader/indexu.html" rel="external">🌷॥उत्तरार्ध॥🌷</a></li>
 				</ul>
 				</div>
-				<div data-role="collapsible" data-collapsed="true" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
+				<div data-role="collapsible" data-collapsed="true" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:Auto;">
 				<h3>॥ॠद्धपूर चरीत्र॥</h3>
-				<ul data-role="listview" data-inset="true">
+				<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b">
 				<li><a onclick="rclila('P');"  href="#page"  data-transition="slide">🌷॥पूर्वार्ध॥🌷</a></li>
 				<li><a onclick="rclila('U');"  href="#page"  data-transition="slide">🌷॥उत्तरार्ध॥🌷</a></li>
 				</ul>
 				</div>
-				<div data-role="collapsible" data-collapsed="true" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
+				<div data-role="collapsible" data-collapsed="true" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:Auto;">
 				<h3>॥सूत्र पाठ॥</h3>
-				<ul data-role="listview" data-inset="true">
+				<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b"> 
 				<li><a href="#pagetwo"  data-transition="slide">&#127801;॥ सूत्र पाठ ॥&#127801;</a></li>
 				<li><a href="#pagefour"  data-transition="slide">🌷॥ दृष्टांत पाठ ॥🌷</a></li>
 				<li><a href="#pagefive"  data-transition="slide">&#127801;॥ मूर्तिज्ञान ॥&#127801;</a></li>
@@ -583,7 +618,7 @@ function topFunction() {
 		<a class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-delete ui-btn-icon-notext" href="#" data-rel="close" >Button</a>
 		<a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a>
         <ul data-role="listview" data-inset="true">
-			<div data-role="collapsibleset" data-theme="a" data-content-theme="b" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
+			<div data-role="collapsibleset" data-theme="a" data-content-theme="b" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:Auto;">
 				<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 				<h3>॥ लीळाचरित्र ॥</h3>
 				<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b">
@@ -689,9 +724,9 @@ function topFunction() {
 	
 	
 			
-			 <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
+			 <div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			  <h3> ॥ अन्यव्यावृत्ति ॥ </h3>
-			  <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search...">
+			  <ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b" data-inset="true" data-divider-theme="a" data-count-theme="a"  data-filter="true" data-filter-placeholder="Search...">
 			  <li><a onclick="searchlila('vachan','कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)');" href="#page" data-transition="slide" > कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)</a></li> 
 			  <li><a onclick="searchlila('vachan','अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)');" value="अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)" href="#page" data-transition="slide">अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)</a></li>
 			<li><a onclick="searchlila('vachan','अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)');" value="अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)" href="#page" data-transition="slide">अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)</a></li>
@@ -705,9 +740,9 @@ function topFunction() {
 			</div>
 			
 		
-		<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
+		<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			  <h3> ॥ युगधर्म ॥</h3>
-			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-theme="a" data-content-theme="b" data-inset="true" data-divider-theme="a" data-count-theme="a" data-filter="true" data-filter-placeholder="Search...">
 				<li><a onclick="searchlila('vachan','बत्तीस लक्ष कृतयुग (युग. १)');" value="बत्तीस लक्ष कृतयुग (युग. १)'" href="#page" data-transition="slide">बत्तीस लक्ष कृतयुग (युग. १)</a></li>
 				<li><a onclick="searchlila('vachan','कृतयुगीं आत्मोपास्ति हा धर्मु (युग. २)');" value="कृतयुगीं आत्मोपास्ति हा धर्मु (युग. २)" href="#page" data-transition="slide">कृतयुगीं आत्मोपास्ति हा धर्मु (युग. २)</a></li>
 				<li><a onclick="searchlila('vachan','भक्ती अधर्मु (युग. ३)');" value="भक्ती अधर्मु (युग. ३)" href="#page" data-transition="slide">भक्ती अधर्मु (युग. ३)</a></li>
@@ -738,9 +773,9 @@ function topFunction() {
 				<li><a onclick="searchlila('vachan','या चहुयुगांचां धर्मीं परमेश्‍वरु नेणिजे न पविजे परमेश्‍वरें परमेश्‍वरु जाणिजे परमेश्‍वरें परमेश्‍वरु पाविजे (युग. २८)');" value="या चहुयुगांचां धर्मीं परमेश्‍वरु नेणिजे न पविजे परमेश्‍वरें परमेश्‍वरु जाणिजे परमेश्‍वरें परमेश्‍वरु पाविजे (युग. २८)" href="#page" data-transition="slide">या चहुयुगांचां धर्मीं परमेश्‍वरु नेणिजे न पविजे परमेश्‍वरें परमेश्‍वरु जाणिजे परमेश्‍वरें परमेश्‍वरु पाविजे (युग. २८)</a></li>
 			</ul>
 		</div>
-			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
+			<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b"data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ विद्यामार्ग ॥</h3>
-			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b" data-inset="true" data-divider-theme="a" data-count-theme="a" data-filter="true" data-filter-placeholder="Search...">
 				<li><a onclick="searchlila('vachan','एकि विद्या (विद्यामार्ग १)');"  href="#page" data-transition="slide"> एकि विद्या (विद्यामार्ग १)</a></li>
 				<li><a onclick="searchlila('vachan','दोनि विद्या (विद्यामार्ग २)');"  href="#page" data-transition="slide"> दोनि विद्या (विद्यामार्ग २)</a></li>
 				<li><a onclick="searchlila('vachan','आठि विद्या (विद्यामार्ग ३)');"  href="#page" data-transition="slide"> आठि विद्या (विद्यामार्ग ३)</a></li>
@@ -766,9 +801,9 @@ function topFunction() {
 			</ul>
 		</div>
 
-		<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
+		<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ संहार ॥</h3>
-			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b" data-inset="true" data-divider-theme="a" data-count-theme="a"  data-filter="true" data-filter-placeholder="Search...">
 				<li><a onclick="searchlila('vachan','परमेश्‍वरप्रवृत्ती माया सृष्टिसंहारू करी (संहार १)');"  href="#page" data-transition="slide"> परमेश्‍वरप्रवृत्ती माया सृष्टिसंहारू करी (संहार १)</a></li>
 				<li><a onclick="searchlila('vachan','विखा इंद्रियीं विलया जाए (संहार ३)');"  href="#page" data-transition="slide"> विखा इंद्रियीं विलया जाए (संहार ३)</a></li>
 				<li><a onclick="searchlila('vachan','अंत:करण देहीं विलया जाए (संहार ४)');"  href="#page" data-transition="slide"> अंत:करण देहीं विलया जाए (संहार ४)</a></li>
@@ -787,9 +822,9 @@ function topFunction() {
 			</ul>
 		</div>
 
-		<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
+		<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ संसरण ॥</h3>
-			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b" data-inset="true" data-divider-theme="a" data-count-theme="a"  data-filter="true" data-filter-placeholder="Search...">
 				<li><a onclick="searchlila('vachan','मायास्वरुपीं एकदेशीं तम असे (संसरण १)');"  href="#page" data-transition="slide"> मायास्वरुपीं एकदेशीं तम असे (संसरण १)</a></li>
 				<li><a onclick="searchlila('vachan','तमोनिमग्न जीव मायास्वरुपीं असति (संसरण २)');"  href="#page" data-transition="slide"> तमोनिमग्न जीव मायास्वरुपीं असति (संसरण २)</a></li>
 				<li><a onclick="searchlila('vachan','परमेश्‍वरप्रवृत्ती माया तमोनिग्नां जीवां चैतन्यमहं ऐसें उपजवी (संसरण ३)');"  href="#page" data-transition="slide"> परमेश्‍वरप्रवृत्ती माया तमोनिग्नां जीवां चैतन्यमहं ऐसें उपजवी (संसरण ३)</a></li>
@@ -821,9 +856,9 @@ function topFunction() {
 			</ul>
 		</div>			  
 
-		<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
+		<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ असति परी ॥</h3>
-			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b" data-inset="true" data-divider-theme="a" data-count-theme="a"  data-filter="true" data-filter-placeholder="Search...">
 					<li><a onclick="searchlila('vachan','विकारविकल्पशून्यें (असतिपरी १)');"  href="#page" data-transition="slide"> विकारविकल्पशून्यें (असतिपरी १)</a></li>
 					<li><a onclick="searchlila('vachan','स्वभावमात्रें (असतिपरी २)');"  href="#page" data-transition="slide"> स्वभावमात्रें (असतिपरी २)</a></li>
 					<li><a onclick="searchlila('vachan','निरालंबी (असतिपरी ३)');"  href="#page" data-transition="slide"> निरालंबी (असतिपरी ३)</a></li>
@@ -834,9 +869,9 @@ function topFunction() {
 			</ul>
 		</div>		
 
-		<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
+		<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ महावाक्य ॥</h3>
-			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b" data-inset="true" data-divider-theme="a" data-count-theme="a"  data-filter="true" data-filter-placeholder="Search...">
 				<li><a onclick="searchlila('vachan','जीवप्रपंचव्यतिरिक्त सच्चिदानंदस्वरुप परमेश्‍वरु एकु आति तो सर्वशक्तियुक्त (महावाक्य १)');"  href="#page" data-transition="slide"> जीवप्रपंचव्यतिरिक्त सच्चिदानंदस्वरुप परमेश्‍वरु एकु आति तो सर्वशक्तियुक्त (महावाक्य १)</a></li>
 				<li><a onclick="searchlila('vachan','नित्य केवळ अनादिअविद्यायुक्त वस्तु एकु आति ते जीवशब्दें बोलिजे (महावाक्य २)');"  href="#page" data-transition="slide"> नित्य केवळ अनादिअविद्यायुक्त वस्तु एकु आति ते जीवशब्दें बोलिजे (महावाक्य २)</a></li>
 				<li><a onclick="searchlila('vachan','विश्‍वरुपाचिये ठाउनि मृत्तिकापर्यंत प्रपंचु बोलिजे (महावाक्य ३)');"  href="#page" data-transition="slide"> विश्‍वरुपाचिये ठाउनि मृत्तिकापर्यंत प्रपंचु बोलिजे (महावाक्य ३)</a></li>
@@ -849,9 +884,9 @@ function topFunction() {
 			</ul>
 		</div>	
 
-		<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
+		<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ निर्वचन ॥</h3>
-			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b" data-inset="true" data-divider-theme="a" data-count-theme="a" data-filter="true" data-filter-placeholder="Search...">
 				<li><a onclick="searchlila('vachan','आनंदशब्दें ईश्‍वरु बोलिजें (निर्वचन १)');"  href="#page" data-transition="slide"> आनंदशब्दें ईश्‍वरु बोलिजें (निर्वचन १)</a></li>
 				<li><a onclick="searchlila('vachan','आनंद तो (निर्वचन २)');"  href="#page" data-transition="slide"> आनंद तो (निर्वचन २)</a></li>
 				<li><a onclick="searchlila('vachan','ब्रह्म तो (निर्वचन ३)');"  href="#page" data-transition="slide"> ब्रह्म तो (निर्वचन ३)</a></li>
@@ -880,9 +915,9 @@ function topFunction() {
 		</div>			
 			
 			
-		<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
+		<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ उद्धरण ॥</h3>
-			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b" data-inset="true" data-divider-theme="a" data-count-theme="a"  data-filter="true" data-filter-placeholder="Search...">
 				<li><a onclick="searchlila('vachan','सृष्टीमध्यें परमेश्‍वरु अवतरेति (उद्धरण १)');"  href="#page" data-transition="slide"> सृष्टीमध्यें परमेश्‍वरु अवतरेति (उद्धरण १)</a></li>
 				<li><a onclick="searchlila('vachan','मनुष्यवेषधारीए होति (उद्धरण २)');"  href="#page" data-transition="slide"> मनुष्यवेषधारीए होति (उद्धरण २)</a></li>
 				<li><a onclick="searchlila('vachan','मायावेषधारीए होति (उद्धरण ३)');"  href="#page" data-transition="slide"> मायावेषधारीए होति (उद्धरण ३)</a></li>
@@ -952,9 +987,9 @@ function topFunction() {
 
 			</ul>
 		</div>
-			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
+			<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ आचार स्थळ ॥</h3>
-								<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+								<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b" data-inset="true" data-divider-theme="a" data-count-theme="a"  data-filter="true" data-filter-placeholder="Search...">
 					<li><a onclick="searchlila('vachan','स्वदेशसंबंधु त्याज्य स्वग्रामसंबंधु त्याज्य संबंधियांचा संबंधु तो विशेषता त्याज्य (आ. १)');"  href="#page" data-transition="slide"> स्वदेशसंबंधु त्याज्य स्वग्रामसंबंधु त्याज्य संबंधियांचा संबंधु तो विशेषता त्याज्य (आ. १)</a></li>
 					<li><a onclick="searchlila('vachan','संबंधीं अधिकारु नाहीं (आ. २)');"  href="#page" data-transition="slide"> संबंधीं अधिकारु नाहीं (आ. २)</a></li>
 					<li><a onclick="searchlila('vachan','संबंधीं विकारु विकारीं रसु रसीं अभिमुख सेवा निवृत्ति (आ. ३)');"  href="#page" data-transition="slide"> संबंधीं विकारु विकारीं रसु रसीं अभिमुख सेवा निवृत्ति (आ. ३)</a></li>
@@ -1250,9 +1285,9 @@ function topFunction() {
 		</div>
 
 
-			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
+			<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ आचारमाळिका स्थळ ॥</h3>
-			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b" data-inset="true" data-divider-theme="a" data-count-theme="a" data-filter="true" data-filter-placeholder="Search...">
 					<li><a onclick="searchlila('vachan','स्वातंत्र्यु हा मोक्ष पारतंत्र्यु हा बंध (आ. मा. १)');"  href="#page" data-transition="slide"> स्वातंत्र्यु हा मोक्ष पारतंत्र्यु हा बंध (आ. मा. १)</a></li>
 					<li><a onclick="searchlila('vachan','मायाबहिनी आशंसिति आमचा दांडिये डोळिये कै जाइल परमेश्‍वरु आशंसिति कटंकटीयेमान गव्हरीं कपाटी ऐसा कै असेल (आ. मा. २)');"  href="#page" data-transition="slide"> मायाबहिनी आशंसिति आमचा दांडिये डोळिये कै जाइल परमेश्‍वरु आशंसिति कटंकटीयेमान गव्हरीं कपाटी ऐसा कै असेल (आ. मा. २)</a></li>
 					<li><a onclick="searchlila('vachan','पोरा जीवा कव्हणी सामग्री न होआवी (आ. मा. ३)');"  href="#page" data-transition="slide"> पोरा जीवा कव्हणी सामग्री न होआवी (आ. मा. ३)</a></li>
@@ -1510,9 +1545,9 @@ function topFunction() {
 
 			</ul>
 		</div>	
-			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
+			<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ विचार स्थळ ॥</h3>
-			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b" data-inset="true" data-divider-theme="a" data-count-theme="a"  data-filter="true" data-filter-placeholder="Search...">
 				<li><a onclick="searchlila('vachan','चैतन्य माया विदेह परा शक्ति (वि. १)');"  href="#page" data-transition="slide"> चैतन्य माया विदेह परा शक्ति (वि. १)</a></li>
 				<li><a onclick="searchlila('vachan','मुख्य तुल्य अंश रश्मि: (वि. २)');"  href="#page" data-transition="slide"> मुख्य तुल्य अंश रश्मि: (वि. २)</a></li>
 				<li><a onclick="searchlila('vachan','दिव्य दिनस्थ जळस्थ स्थळस्थ (वि. ३)');"  href="#page" data-transition="slide"> दिव्य दिनस्थ जळस्थ स्थळस्थ (वि. ३)</a></li>
@@ -1800,9 +1835,9 @@ function topFunction() {
 				<li><a onclick="searchlila('vachan','या मार्गासी श्रीदत्तात्रेयप्रभु आदिकारण (वि. २८५)');"  href="#page" data-transition="slide"> या मार्गासी श्रीदत्तात्रेयप्रभु आदिकारण (वि. २८५)</a></li>
 			</ul>
 		</div>				
-		<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="a" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
+		<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			<h3>॥ विचारमाळिका स्थळ ॥</h3>
-			<ul data-role="listview" data-inset="true" data-divider-theme="e" data-count-theme="e" data-filter="true" data-filter-placeholder="Search...">
+			<ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b" data-inset="true" data-divider-theme="a" data-count-theme="a"  data-filter="true" data-filter-placeholder="Search...">
 				<li><a onclick="searchlila('vachan','ज्ञान मोचक (वि. मा.. १)');"  href="#page" data-transition="slide"> ज्ञान मोचक (वि. मा.. १)</a></li>
 				<li><a onclick="searchlila('vachan','नित्य व्यापक परमेश्‍वर (वि. मा. २)');"  href="#page" data-transition="slide"> नित्य व्यापक परमेश्‍वर (वि. मा. २)</a></li>
 				<li><a onclick="searchlila('vachan','अप्रमेयु (वि. मा. ३)');"  href="#page" data-transition="slide"> अप्रमेयु (वि. मा. ३)</a></li>
