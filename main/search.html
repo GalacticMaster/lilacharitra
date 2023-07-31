@@ -3,8 +3,10 @@
  <head>
  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-     <title>Live Json Search</title>
+     
+	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	 <title>Live Json Search</title>
 	
 	<style>
 		html,
@@ -71,18 +73,14 @@ body,
                 <div class="input-group">
                   <div class="form-outline flex-fill">
                     <input type="search" id="text-search" class="form-control form-control-lg" />
+					<div id="count"></div>
                     <label class="form-label" for="form1">Search for Words in Leela</label>
 					
-                    <div class="form-helper pt-2"><span class="font-weight-bold">Suggested:</span> 
+                    <div class="form-helper pt-2"><span class="font-weight-bold">Suggested:</span>
+						
                       <a href="#!" class="text-black-50">Home,</a>  
-                      <a href="#!" class="text-black-50">Name,</a>  
-                      <a href="#!" class="text-black-50">Murti,</a>  
-                      <a href="#!" class="text-black-50">Leela,</a>  
-                      <a href="#!" class="text-black-50">Chesta,</a>  
                     </div>
                   </div>
-				<button type="button" class="btn btn-primary">
-                    <i class="fas fa-search"></i>
                 </div>
               </div>
             </div>
@@ -157,7 +155,7 @@ $('#text-search').keyup(function(){
 				}
 			  });
 			  output += '</div>';
-			  
+			  $('#count').html('<label class="form-label" for="form1"> Total '+result+' Leela Found with word '+ searchField+' </label>');
 			  var src_str = output;
 			  var term = searchField;
 			  term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
