@@ -151,7 +151,7 @@ $('#text-search').keyup(function(){
 				}
 			  });
 			  output += '</div>';
-			  $('#count').html('<span> Total <span>'+result+'</span> Leela Found with word <span>'+ searchField+'</span> </span>');
+			  $('#count').html('<p "font-size:18px;font-family:Arial;"> Total <span style="color:red">'+result+'</span> Leela Found with word <span style="color:red">'+ searchField+'</span> </p>');
 			  var src_str = output;
 			  var term = searchField;
 			  term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
