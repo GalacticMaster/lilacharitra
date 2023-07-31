@@ -61,25 +61,23 @@ body,
   
   
  <section class="intro">
-  <div class="bg-image h-100">
-    <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0,0,0, 0.5);">
+ 
+    <div class="mask d-flex align-items-center h-70" style="background-color: rgba(0,0,0, 0.5);">
       <div class="container">
-        <p class="h2 mb-4 text-white">Search for Leela <br> shared by
-          Hemang$oni.</p>
+        <p class="h5 mb-1 text-white">Search App by Hemang$oni.</p>
         <div class="card">
           <div class="card-body p-4">
             <div class="row">
-              <div class="col-12 mb-4">
+              <div class="col-12 mb-8">
                 <div class="input-group">
                   <div class="form-outline flex-fill">
                     <input type="search" id="text-search" class="form-control form-control-lg" />
-					<div id="count"></div>
                     <label class="form-label" for="form1">Search for Words in Leela</label>
-					
+					<div id="count"></div>
                     <div class="form-helper pt-2"><span class="font-weight-bold">Suggested:</span>
-						
                       <a href="#!" class="text-black-50">Home,</a>  
                     </div>
+					<div id="filter"></div>
                   </div>
                 </div>
               </div>
@@ -88,9 +86,8 @@ body,
         </div>
       </div>
     </div>
-  </div>
 </section>
-<div id="filter"></div>
+
     
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 	<style>
@@ -143,9 +140,9 @@ $('#text-search').keyup(function(){
 				  //output += '<div class="row p-2">';
 				  //output += '<div class="col-7">';
 				  result = result + 1;
-				  output += '<h3>' + result + '</h3>';
-				  output += '<h3>' + val.Aadi + '</h3>';
-				  output += '<p class="mb-0" style="font-size: 18px;font-family: Arial;text-align:justify">' + val.Lila + '</p>'
+				  output += '<h4>' + val.Aadi + '</h4>';
+				  output += '<hr></hr>'
+				  output += '<p style="font-size: 18px;font-family: Arial;text-align:justify">' + val.Lila + '</p>'
 				  //output += '</div>';
 				  //output += '</div>';
 				  if(count%1 == 0){
