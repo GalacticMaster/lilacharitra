@@ -74,10 +74,10 @@ body,
                     <input type="search" id="text-search" class="form-control form-control-lg" />
                     <label class="form-label" for="form1">Search for Words in Leela</label>
 					<div id="count"></div>
-                    <div class="form-helper pt-2"><span class="font-weight-bold">Suggested:</span>
-                      <a href="#!" class="text-black-50">Home,</a>  
+                    <!--<div class="form-helper pt-2"><span class="font-weight-bold">Suggested:</span>
+                      <a href="#!" class="text-black-50">Home,</a>  -->
                     </div>
-					<div id="filter"></div>
+					<div id="filter"><label class="form-label" for="form1"></div>
                   </div>
                 </div>
               </div>
@@ -140,8 +140,7 @@ $('#text-search').keyup(function(){
 				  //output += '<div class="row p-2">';
 				  //output += '<div class="col-7">';
 				  result = result + 1;
-				  output += '<h4>' + val.Aadi + '</h4>';
-				  output += '<hr></hr>'
+				  output += '<h2>' + val.Aadi + '</h2>';
 				  output += '<p style="font-size: 18px;font-family: Arial;text-align:justify">' + val.Lila + '</p>'
 				  //output += '</div>';
 				  //output += '</div>';
@@ -152,7 +151,7 @@ $('#text-search').keyup(function(){
 				}
 			  });
 			  output += '</div>';
-			  $('#count').html('<label class="form-label" for="form1"> Total '+result+' Leela Found with word '+ searchField+' </label>');
+			  $('#count').html('<span> Total <span>'+result+'</span> Leela Found with word <span>'+ searchField+'</span> </span>');
 			  var src_str = output;
 			  var term = searchField;
 			  term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
