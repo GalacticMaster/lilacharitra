@@ -14,14 +14,30 @@
 <link rel="stylesheet" href="themes/pershastra.min.css" />
 <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
 
 
 
 <style>
+ .ui-collapsible-content, .ui-page, .ui-popup, .ui-panel{ 
+
+    box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+    background: #fffef0;
+  filter: url(#wavy2);
+  white-space: normal !important; word-break:break-all !important;text-justify: auto !important;;
+}
+.ui-collapsible-heading-collapsed > .ui-collapsible-heading-toggle{white-space: normal !important; word-break:break-all !important;}
+.ui-collapsible-heading-toggle {
+       white-space: normal !important; word-break:break-all !important;
+}
+* {
+    text-shadow: none !important;
+}
+
 .ui-listview > li a {
   white-space: normal !important;
+  /*color:brown !important;*/
 }​
 h3 .ui-btn-text{ white-space: normal !important; word-break:break-all !important; }
 h3 { white-space: normal !important; word-break:break-all !important; }
@@ -30,10 +46,13 @@ mark {
   background-color: pink;
   color: black;
 }
+
 p {padding: 0 15px;
 style="font-size: 
 18px;font-family: Arial;
-text-align:justify
+text-align:justify;
+word-break:break-all !important;
+text-justify: auto !important;
 }
 p { margin-bottom: 15px; }
 #toTop { position: fixed; bottom: 50px; right: 30px; width: 84px; background-color: #CCC; cursor: pointer; display: none; }
@@ -81,9 +100,9 @@ body {
   background-color: #555; /* Add a dark-grey background on hover */
 }
 
-.ui-collapsible-content {<!--   w ww.j av  a  2  s.  c  o m-->
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
+.ui-collapsible-content {
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
   -ms-transition: all 1s;
   -o-transition: all 1s;
   transition: all 1s;
@@ -106,19 +125,44 @@ ul li.ui-li-divider {
 }
 
 
+
+
 </style>
 
 <script type='text/javascript'>
 
 
+/*geeta start*/
 
-function colllila(lilaID,Aadi,Lila,Tip,vachan,sthan,person){
+
+function geeta(){
+$.getJSON('geeta.json', function(jd)
+	{var json = jd;
+	console.log(json);
+	for(var i = 0; i<json.length; i++){
+	
+	console.log(json[i].text);
+	$(document).ready(function() {
+//console.log(lilaID);
+
+        //var content = "<div data-role='collapsible'><h3 style=\"word-break:break-all;white-space: normal;\">"+lilaID+"'&nbsp'"+Aadi+"'</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">लीळा : </span>'"+Lila+"'</p>";
+        var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3>chapter'+json[i].chapter_number+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify;text-justify: auto !important;">'+json[i].text+'</p></div>'
+		$("#set").append( content ).collapsibleset( "refresh" );
+	
+    });
+
+}
+})};
+
+/*Geeta End*/
+
+function colllila(lilaID,Aadi,Lila,Tip,vachan,sthan,person,shabda){
 
 $(document).ready(function() {
 //console.log(lilaID);
 
         //var content = "<div data-role='collapsible'><h3 style=\"word-break:break-all;white-space: normal;\">"+lilaID+"'&nbsp'"+Aadi+"'</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">लीळा : </span>'"+Lila+"'</p>";
-        var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="white-space: normal !important;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Lila+'</p></div>'
+        var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3>'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify;text-justify: auto !important;">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;text-justify: auto !important;"><span style=\"color: #ff0000\">शब्दार्थ  :</span>'+shabda+'</p></div>'
 		$("#set").append( content ).collapsibleset( "refresh" );
 	
     });
@@ -127,7 +171,7 @@ $(document).ready(function() {
 
 function colltest(lilaID,Aadi,Lila,Tip,vachan,sthan,person){
 	$(document).ready(function() {
-		var content = "<div data-role='collapsible' data-collapsed='true' data-theme='a' data-content-theme='b' data-collapsed-icon='carat-r' data-expanded-icon='carat-d' data-iconpos='right'><h3>"+lilaID+"&nbsp"+Aadi+"</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">लीळा : </span>"+Lila+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">परिवार  :</span>"+person+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">वचन : </span>"+vachan+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">स्थान :</span>"+sthan+"</p>"
+		var content = "<div data-role='collapsible' data-collapsed='true' data-theme='a' data-content-theme='b' data-collapsed-icon='carat-r' data-expanded-icon='carat-d' data-iconpos='right'><h3 style='white-space: normal !important'>"+lilaID+"&nbsp"+Aadi+"</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">लीळा : </span>"+Lila+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">परिवार  :</span>"+person+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">वचन : </span>"+vachan+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">स्थान :</span>"+sthan+"</p>"
 				//'<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="white-space: normal !important;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Lila+'</p></div>'
 				var src_str = content;
 			  var term = person;
@@ -206,7 +250,7 @@ $.getJSON('person.json', function(jd)
 			console.log(type);
 			
 			//console.log(json[i]);
-				colllila(json[i].lilaID,json[i].Aadi,json[i].Lila,json[i].Tip,json[i].vachan,json[i].sthan,json[i].person);
+				colllila(json[i].lilaID,json[i].Aadi,json[i].Lila,json[i].Tip,json[i].vachan,json[i].sthan,json[i].person,json[i].shabd);
 				}
 			}
 	
@@ -532,7 +576,19 @@ $(document).ready( function(){
 });
 
 </script>
-
+<script type="text/javascript">
+$(function() {
+    //Disable copy and paste
+    $('body').bind('copy paste', function (e) {
+        e.preventDefault();
+    });
+   
+    //Disable mouse right click
+    $("body").on("contextmenu",function(e){
+        return false;
+    });
+});
+</script>
 </head>
 <body>
 <button onclick="topFunction()" id="myBtn" title="Go to top" style='font-size:50px;'>&#11014;</button>
@@ -558,10 +614,12 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-
+$().find('a').on('click', function () {
+    $(this).closest('ul').find('a').removeClass('ui-btn-active');
+    $(this).addClass('ui-btn-active');
+});
 
 </script>
-
 
 
 <div data-role="popup" id="popupMenu1" data-theme="a">
@@ -609,6 +667,7 @@ function topFunction() {
 
 				<li>
                         <a onclick="smruti();" href="#page" data-transition="slide">🌷॥ स्मृतिस्थळ ॥🌷</a>
+						<!--<li><a onclick="geeta();" href="#page"  data-transition="slide">🌷॥ Geeta॥🌷</a></li>-->
                     </li>
 
 				<div data-theme="a" data-content-theme="b" class="ui-block-c"><a class="ui-shadow ui-btn ui-corner-all ui-icon-search ui-btn-icon-notext ui-btn-inline" href="https://galacticmaster.github.io/lilacharitra/main/search.html" rel="external">Button</a></div>
@@ -687,6 +746,13 @@ function topFunction() {
 			<br></br>
 			<h1 style = "font-size: 20px"><center> ॥ श्री परेशाए नम: ॥</center> </h1>
 			<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-icon-bars ui-btn-icon-left ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
+			<!--<input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
+
+<script type="text/javascript">
+    function showAndroidToast(toast) {
+        Android.showToast(toast);
+    }
+</script>-->
 			<h2><center><strong>सौजन्य आणि संकल्पना</strong></center></h2>
 				<h3><center>महानुभाव मठ, करंजे, सातारा.</center></h3>
 				<h3><center>गीता पाठशाळा, दादर, मुंबई.</center></h3>
@@ -705,6 +771,7 @@ function topFunction() {
 
 <!-- Page Two start -->
 <div data-role="page" data-theme="a" id="pagetwo" class="jqm-demos ui-responsive-panel" data-title="॥ परशास्त्र॥ ">
+
 
   <div data-role="header" data-position="fixed" data-fullscreen="true">
     <h1>🌷॥ सूत्र पाठ ॥🌷</h1>
@@ -725,7 +792,7 @@ function topFunction() {
 			 <div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right">
 			  <h3> ॥ अन्यव्यावृत्ति ॥ </h3>
 			  <ul data-role="listview" data-inset="true" data-theme="a" data-content-theme="b" data-inset="true" data-divider-theme="a" data-count-theme="a"  data-filter="true" data-filter-placeholder="Search...">
-			  <li><a onclick="searchlila('sthan','परमेश्वरपुर : (रिद्धपूर) ता. मोर्शी, जि. अमरावती');" href="#page" data-transition="slide" > परमेश्वरपुर : (रिद्धपूर) ता. मोर्शी, जि. अमरावती</a></li> 
+			  
 			  <li><a onclick="searchlila('vachan','कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)');" href="#page" data-transition="slide" > कर्मभूमीचिया देवता होति परि परमेश्‍वरु नव्हेति (अन्य १)</a></li> 
 			  <li><a onclick="searchlila('vachan','अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)');" value="अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)" href="#page" data-transition="slide">अष्टौदेवयोनि देवता होति परि परमेश्‍वरु नव्हेति (अन्य. २)</a></li>
 			<li><a onclick="searchlila('vachan','अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)');" value="अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)" href="#page" data-transition="slide">अंतराळीचे गंधर्व देवता होति परि परमेश्‍वरु नव्हेति (अन्य. ३)</a></li>
