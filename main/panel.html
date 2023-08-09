@@ -18,12 +18,15 @@
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
 
 <style>
-	font-face {
-  font-family: 'SHREE-DEV7-0714';
-  src: url('https://galacticmaster.github.io/lilacharitra/main/SHREE-DEV7-0714 Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+
+@font-face {
+font-family: SHREE-DEV7-0714;  
+src: url('https://galacticmaster.github.io/lilacharitra/main/SHREE-DEV7-0714 Regular.ttf') format('truetype');  
 }
+div {
+  font-family:SHREE-DEV7-0714;
+}
+
  .ui-collapsible-content, .ui-page, .ui-popup, .ui-panel{ 
 
     box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
@@ -61,6 +64,7 @@ text-justify: auto !important;
 p { margin-bottom: 15px; }
 #toTop { position: fixed; bottom: 50px; right: 30px; width: 84px; background-color: #CCC; cursor: pointer; display: none; }
 }
+
 
 
 
@@ -163,7 +167,7 @@ $(document).ready(function() {
 //console.log(lilaID);
 		console.log(shabda);
         //var content = "<div data-role='collapsible'><h3 style=\"word-break:break-all;white-space: normal;\">"+lilaID+"'&nbsp'"+Aadi+"'</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">लीळा : </span>'"+Lila+"'</p>";
-        var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3>'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify;text-justify: auto !important;">'+Lila+'</p><p style="font-size: 25px;text-align:justify;font-family:"SHREE-DEV7-0714 !important";src: url("https://galacticmaster.github.io/lilacharitra/main/SHREE-DEV7-0714 Regular.ttf") format("truetype");"><span style="font-size: 18px;color: #ff0000">शब्दार्थ  :</span>'+shabda+'</p></div>'
+        var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3>'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify;text-justify: auto !important;">'+Lila+'</p><p style="font-family:SHREE-DEV7-0714;"><span style="font-size: 18px;color: #ff0000">शब्दार्थ  :</span>'+shabda+'</p></div>'
 		$("#set").append( content ).collapsibleset( "refresh" );
 	
     });
