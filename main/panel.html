@@ -194,7 +194,7 @@ var array_two = new Array(
                 
 				 
 "ञ्च्","ज्ज्","च्च","ल्ल","ह्ण","ह्ल","ह्व","्व",                             //08  
-"ङ्क","ङ्ख","ङ्ग","ङ्घ","ङ्क्ष","ह्न","ड्ढ","श्व",                             	//08
+"फ","ङ्ख","ङ्ग","ङ्घ","ङ्क्ष","ह्न","ड्ढ","श्व",                             	//08
 "क्क", "य", "क्क","क्व","क्त","ख्र", "झ्र",  "ग्न", "ट्ट","ट्ठ","ठ्ठ","ड्ड","ड्ढ","म्",     		//13 
 "द्र","दृ","द्ग","द्घ","द्द","द्ध","द्न","द्ब","द्भ","द्म","द्य","द्व","न्न","प्र","प्त","ष्ट","ष्ठ",      //17 
 "स्र","स्त्र",    "ह्र","हृ","ह्म","ह्य",   "श्च","श्न", 						//08
@@ -823,6 +823,10 @@ $(function(){
     $( "#popupMenu1" ).enhanceWithin().popup();
 });
 
+$(function(){
+    $( "#popupMenu2" ).enhanceWithin().popup();
+});
+
 
 $(document).on("pageinit", "#page", function()
 {
@@ -949,6 +953,22 @@ $().find('a').on('click', function () {
         </ul>
 </div>
 
+<div data-role="popup" id="popupMenu2" data-theme="a">
+
+
+        <ul data-role="listview" data-inset="true" style="min-width:210px;">
+            
+<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:Auto;">
+
+				<h3>निर्वेद स्तोत्र</h3>
+				<li><a href="https://galacticmaster.github.io/lilacharitra/main/nirved.html" rel="external">🌷॥निर्वेद स्तोत्र॥🌷</a></li>
+				</div>
+
+				<div data-theme="a" data-content-theme="b" class="ui-block-c"><a class="ui-shadow ui-btn ui-corner-all ui-icon-search ui-btn-icon-notext ui-btn-inline" href="https://galacticmaster.github.io/lilacharitra/main/search.html" rel="external">Button</a></div>
+				<div data-theme="a" data-content-theme="b" class="ui-block-c"><a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a></div>
+        </ul>
+</div>
+
 <div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
 		<p><center>॥ परशास्त्र॥</center></p>
 		
@@ -1020,6 +1040,7 @@ $().find('a').on('click', function () {
 			<br></br>
 			<h1 style = "font-size: 20px"><center> ॥ श्री परेशाए नम: ॥</center> </h1>
 			<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-icon-bars ui-btn-icon-left ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
+			<center><a href="#popupMenu2" data-rel="popup" data-transition="slideup" class="ui-btn ui-icon-bars ui-btn-icon-left ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ पारायण॥ </a></center>
 			<!--<input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
 
 <script type="text/javascript">
