@@ -16,9 +16,12 @@
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+<script type="text/javascript" src="jquery.shorten.js"></script>
 
 <style>
-
+html {
+  scroll-behavior: smooth;
+}
 
 
  .ui-collapsible-content, .ui-page, .ui-popup, .ui-panel{ 
@@ -122,8 +125,6 @@ ul li.ui-li {<!--from  www.  j a v a  2s .  c  om-->
 ul li.ui-li-divider {
   border-top: none !important;
 }
-
-
 
 
 </style>
@@ -418,13 +419,14 @@ $.getJSON('geeta.json', function(jd)
         //var content = "<div data-role='collapsible'><h3 style=\"word-break:break-all;white-space: normal;\">"+lilaID+"'&nbsp'"+Aadi+"'</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">लीळा : </span>'"+Lila+"'</p>";
         var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3>chapter'+json[i].chapter_number+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify;text-justify: auto !important;">'+json[i].text+'</p></div>'
 		$("#set").append( content ).collapsibleset( "refresh" );
-	
+		
     });
-
 }
 })};
 
 /*Geeta End*/
+
+
 
 function colllila(lilaID,Aadi,Lila,Tip,vachan,sthan,person,convert){
 
@@ -432,18 +434,35 @@ $(document).ready(function() {
 //console.log(lilaID);
 		//console.log(processed_text);
         //var content = "<div data-role='collapsible'><h3 style=\"word-break:break-all;white-space: normal;\">"+lilaID+"'&nbsp'"+Aadi+"'</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">लीळा : </span>'"+Lila+"'</p>";
-        var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3>'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify;text-justify: auto !important;">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style=\"color: #ff0000\">शब्दार्थ :</span>'+convert+'</p></div>'
+        //length in characters
+var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3>'+lilaID+'&nbsp'+Aadi+'</h3><p class="comment" style="font-size: 18px;font-family: Arial;text-align:justify;text-justify: auto !important;">'+Lila+'</p><p class="comment" style="font-size: 18px;font-family: Arial;text-align:justify"><span style=\"color: #ff0000\">शब्दार्थ :</span>'+convert+'</p></div>'
+    
+		//console.log(content)
+		//console.log($(".comment").shorten());
+
 		$("#set").append( content ).collapsibleset( "refresh" );
-	
+
     });
 
 }
+
+$(document).on("pageshow","#page", function(){
+console.log($("comment"));
+$(".comment").shorten();
+})
+
+$(document).on("pageshow","#pagetwo", function(){
+$('ul').find('a').on('click', function () {
+    $(this).closest('ul').find('a').removeClass('ui-btn-active');
+    $(this).addClass('ui-btn-active');
+});
+})
 
 
 
 function colltest(lilaID,Aadi,Lila,Tip,vachan,sthan,person){
 	$(document).ready(function() {
-		var content = "<div data-role='collapsible' data-collapsed='true' data-theme='a' data-content-theme='b' data-collapsed-icon='carat-r' data-expanded-icon='carat-d' data-iconpos='right'><h3 style='white-space: normal !important'>"+lilaID+"&nbsp"+Aadi+"</h3><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">लीळा : </span>"+Lila+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">परिवार  :</span>"+person+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">वचन : </span>"+vachan+"</p><p class=MsoNormal style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">स्थान :</span>"+sthan+"</p>"
+		var content = "<div data-role='collapsible' data-collapsed='true' data-theme='a' data-content-theme='b' data-collapsed-icon='carat-r' data-expanded-icon='carat-d' data-iconpos='right'><h3 style='white-space: normal !important'>"+lilaID+"&nbsp"+Aadi+"</h3><p class=\"comment\" style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">लीळा : </span>"+Lila+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">परिवार  :</span>"+person+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">वचन : </span>"+vachan+"</p><p class=MsoNormal style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">स्थान :</span>"+sthan+"</p>"
 				//'<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="white-space: normal !important;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Lila+'</p></div>'
 				var src_str = content;
 			  var term = person;
@@ -456,7 +475,7 @@ function colltest(lilaID,Aadi,Lila,Tip,vachan,sthan,person){
 
 function colltest_v(Aadi,Lila,Tip,Vachan,tika,lapika){
 	$(document).ready(function() {
-		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p></div><div><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> लापिका  : </span> '+lapika+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> टीका   : </span> '+tika+'</p></div>'
+		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+Aadi+'</h3><p class="comment" style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p></div><div><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> लापिका  : </span> '+lapika+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> टीका   : </span> '+tika+'</p></div>'
 			  var src_str = content;
 			  
 			  var term = $.trim(Vachan.split('(',1)[0]);
@@ -471,14 +490,14 @@ function colltest_v(Aadi,Lila,Tip,Vachan,tika,lapika){
 
 function colltest_d(Aadi,Lila,Tip,Vachan,drushtant,sambandh,lapnik,dvachan,drush,drashtantik,arth){
 	$(document).ready(function() {
-		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p></div><div><p style="font-size: 18px;font-family: Arial;text-align:justify;padding: 0 15px"><span style="color: #ff0000"> संबंध  : </span> '+sambandh+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> लापणिक   : </span> '+lapnik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टांत  : </span> '+drushtant+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> वचन  : </span> '+dvachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टान्त  : </span> '+drush+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दार्ष्टान्तिक  : </span> '+drashtantik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> भावार्थ  : </span> '+arth+'</p></div>'
+		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+Aadi+'</h3><p class="comment" style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000">वचन</span>  : '+Vachan+'</p></div><div><p style="font-size: 18px;font-family: Arial;text-align:justify;padding: 0 15px"><span style="color: #ff0000"> संबंध  : </span> '+sambandh+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> लापणिक   : </span> '+lapnik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टांत  : </span> '+drushtant+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> वचन  : </span> '+dvachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दृष्टान्त  : </span> '+drush+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> दार्ष्टान्तिक  : </span> '+drashtantik+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"><span style="color: #ff0000"> भावार्थ  : </span> '+arth+'</p></div>'
 		$( "#set" ).append( content ).collapsibleset( "refresh" );
 		});
 }
 
 function colltest_e(Aadi,Lila,Tip,avyav){
 	$(document).ready(function() {
-		var output = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p>'
+		var output = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+Aadi+'</h3><p class="comment" style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p>'
 				var src_str = output;
 			  var term = avyav;
 			  term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
@@ -710,7 +729,7 @@ function collsmruti(aadi,smruti){
 	$(document).ready(function(){
 	console.log(aadi,smruti);
 		//$('[data-role="content"]').empty();
-		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">स्मृति : </span>'+smruti+'</p>'
+		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">स्मृति : </span>'+smruti+'</p>'
 		$( "#set" ).append( content ).collapsibleset( "refresh" );
 		});
 
@@ -741,7 +760,7 @@ function collbhav(aadi,lila){
 	$(document).ready(function(){
 	//console.log(aadi,smruti);
 		//$('[data-role="content"]').empty();
-		var content =  '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">लीळा :</span>'+lila+'</p>'
+		var content =  '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+aadi+'</h3><p class="comment" style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">लीळा :</span>'+lila+'</p>'
 		$( "#set" ).append( content ).collapsibleset( "refresh" );
 		});
 
@@ -776,7 +795,7 @@ function collrc(lilaID,Aadi,Lila){
 	console.log(lilaID,Aadi,Lila);
 		//$('[data-role="content"]').empty();
 		
-		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">लीळा : </span>'+Lila+'</p>'
+		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+lilaID+'&nbsp'+Aadi+'</h3><p class="comment" style="font-size: 18px;font-family: Arial;text-align:justify"> <span style="color: #ff0000">लीळा : </span>'+Lila+'</p>'
 		$( "#set" ).append( content ).collapsibleset( "refresh" );
 		});
 
@@ -897,6 +916,7 @@ $().find('a').on('click', function () {
     $(this).addClass('ui-btn-active');
 });
 
+
 </script>
 
 
@@ -960,8 +980,11 @@ $().find('a').on('click', function () {
             
 <div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:Auto;">
 
-				<h3>निर्वेद स्तोत्र</h3>
+				<h3>पारायण</h3>
 				<li><a href="https://galacticmaster.github.io/lilacharitra/main/nirved.html" rel="external">🌷॥निर्वेद स्तोत्र॥🌷</a></li>
+				<li><a href="https://galacticmaster.github.io/lilacharitra/main/pratpuja.html" rel="external">🌷॥प्रातःपूजावसर॥🌷</a></li>
+				<li><a href="https://galacticmaster.github.io/lilacharitra/main/midpuja.html" rel="external">🌷॥मध्यान्ह पूजावसर॥🌷</a></li>
+				<li><a href="https://galacticmaster.github.io/lilacharitra/main/midpuja.html" rel="external">🌷॥सायंपूजावसर॥🌷</a></li>
 				</div>
 
 				<div data-theme="a" data-content-theme="b" class="ui-block-c"><a class="ui-shadow ui-btn ui-corner-all ui-icon-search ui-btn-icon-notext ui-btn-inline" href="https://galacticmaster.github.io/lilacharitra/main/search.html" rel="external">Button</a></div>
