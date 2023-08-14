@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LilaCharitra</title>
+<link rel="stylesheet" href="./themes/pershastra.min.css" />
+<link rel="stylesheet" href="./themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+
+    <style>
+.ui-page { 
+
+    box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+    background: #fffef0;
+	white-space: normal !important; word-break:break-all !important;text-justify: auto !important;
+}
+* {
+    text-shadow: none !important;
+}
+
+
+.ui-listview > li a {
+  white-space: normal !important;
+  /*color:brown !important;*/
+}​
+h3 .ui-btn-text{ white-space: normal !important; word-break:break-all !important; }
+h3 { white-space: normal !important; word-break:break-all !important; }
+
+mark { 
+  background-color: pink;
+  color: black;
+}
+
+p { margin-bottom: 15px; }
+        center {
+            font-size: 1.2em;
+            font-weight: 600;
+            text-align: center;
+            color: #000;
+            line-height: normal;
+            margin-bottom: 0;
+			word-break:break-all !important;
+        }
+
+
+        p {
+		padding: 0 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-align: center;
+            color: #000;
+            line-height: normal;
+            margin-bottom: 0;
+			word-break:break-all !important;
+        }
+    </style>
+</head>
+<body data-dom-cache="false">
+    
+    <div>
+        
+<script>
+
+function convert_to_unicode(textstring)
+{
+
+var array_one = new Array(
+//PMPML ADDITIONS
+//"è", "Am¡Y", "H§y Ora", "©©", "« m", "H r",	"« r", "mm", "H _obm", "§ Q", "Šg©", "Jìh©_|Q>", "o«", "H Q", "} Q", "{H$bmoñH$a", "H d", "§ n", "gmdaH$a^dZ", "Ì ~", "w §", "¥ î", "S Z", "Ao", "R m", "o Ý", "åw`", "lrm", "½`w©",  
+//PMPML ADDITIONS DONE
+//"å", //Hemang
+
+">", "$","[", "p","“","”",                  //06
+"µH","™","˜","µJ","µO","µS","µT","µ\\",                                //08
+"ª", "£", "¤", "u", "v",      "}", "]",						 			//07
+"›","@","&","\"","'",                        		                  //05
+"ú","j","k","l","Ì","Í","Î",                        		            //07
+"®","¯","é","ê",                        		                        //04
+
+"#","‚","ƒ","„","†", "‡","ˆ","‰",                        		      //08 
+"’","“","”","•","¬","–","—","œ",                        		      //08
+"³", "¶",  "¸",  "¹","º","¼", "Ã", "¾","Å","Æ","Ç","È","É","å",             //13
+"Ð","Ñ","Ò","Ó","Ô","Õ","Ö","×","Ø","Ù","Ú","Û","Þ","à","á","ï","ð",    //17
+"ò","ó",   "õ","ö","÷","ø",    "ü","ý",                           		//08
+"ç", "Œ", "´",  "«",                       		                  		//04
+
+"Š","»","½", "¿","H","I","J","K","L",                                   //09
+"À","Á","Â","Ä","M","N","O","P",                                        //08
+"Q","R","S","T","Ê","U",                        		            	//06
+"Ë", "Ï", "Ü","Ý","V","W","X","Y","Z",                       	      	//09
+"ß","â","ã","ä","‘","n","\\","~", "^","_",                        		//10
+
+"æ", "ë","ì","í","î", "ù",  "û", "ñ","ô",                               //09
+"`","a","b","c","d","e","f","g","h","i",                        		//10
+
+"Am¡","Amo","Am°","Am","A","B©","B","C","D","F","G","Eo","E",           //13
+                        		           
+
+"m", "r","s", "t","ww","w","x","y","z","¥","¦","|","o","¡","¢","…","§§","§","¨","µ", //18
+"þ","ÿ","°","±","²",                                                       		//05
+
+//"0","1","2","3","4","5","6","7","8","9",
+
+
+"्ा","्ो","्ौ","अो","अा","आै","आे","ाो","ाॅ","ॅा","ाे",
+"ंु","ेे","अै","ाे","अे","ंा","अॅ","ाै","ैा","ंृ",
+"ँा","ँू","ेा","ंे","ाें","ॅं","ंॅ"," ः","ंू")     // Remove typing mistakes in the original file
+
+var array_two = new Array(
+//PMPML ADDITIONS
+//"ऱ्", "औंध", "कूंजीर", "©", "«m", "Hr", "«r", "आ", "कमेला", "§Q", "र्क्स", "गवर्नमेंट", "«o", "HQ", "}Q", "किर्लोस्कर", "Hd", "§n","gmdaH$a ^dZ", "Ì~", "w§", "¥î", "SZ", "ए", "Rm", "oÝ", "å`w", "lr", "र्ग्यु", 
+//PMPML ADDITIONS DONE
+//"म्ह" //Hemang 
+
+"","","{","{","\"","'",  		//06
+"क़","ख़्","ख़","ग़","ज़","ड़","ढ़","फ़", // one-byte varnas           		//08
+"ं©",  "ै©","ैं©","ी©","ीं©", "े©", "ें©",             		//07
+"ॐ","ऽ","।","‘","’",                                			//05 
+"क्ष्","क्ष","ज्ञ","श्र","त्र","त्र्","त्त्",                                 	//07 
+"्रु","्रू","रु","रू",   	                                      	//04 
+
+                
+				 
+"ञ्च्","ज्ज्","च्च","ल्ल","ह्ण","ह्ल","ह्व","्व",                             //08  
+"फ","ङ्ख","ङ्ग","ङ्घ","ङ्क्ष","ह्न","ड्ढ","श्व",                             	//08
+"क्क", "य", "क्क","क्व","क्त","ख्र", "झ्र",  "ग्न", "ट्ट","ट्ठ","ठ्ठ","ड्ड","ड्ढ","म्",     		//13 
+"द्र","दृ","द्ग","द्घ","द्द","द्ध","द्न","द्ब","द्भ","द्म","द्य","द्व","न्न","प्र","प्त","ष्ट","ष्ठ",      //17 
+"स्र","स्त्र",    "ह्र","हृ","ह्म","ह्य",   "श्च","श्न", 						//08
+"्य", "्र","्र","्र",                                          //04
+                                                        
+"क्","ख्", "ग्", "घ्","क","ख","ग","घ","ङ",                               //09 
+"च्","ज्","झ्","ञ्","च","छ","ज","झ",                                   //08
+"ट","ठ","ड","ढ","ण्","ण",                                         //06 
+"त्","थ्", "ध्","न्","त","थ","द","ध","न",                                //09
+"प्","फ्","ब्","भ्","म्","प","फ","ब","भ","म",                              //10
+                                                        
+"य्", "ल्","व्","श्","ष्", "ळ्", "श्", "स्","ह्",                             //09 
+"य","र","ल","ल","व","श","ष","स","ह","ळ",                              //10
+                                                        
+"औ","ओ","ऑ","आ","अ","ई","इ","उ","ऊ","ऋ","ॠ","ऐ","ए",                    //13
+
+"ा", "ी","ी", "ीं", "ु","ु","ु","ू","ू", "ृ","ॄ", "ें", "े", "ै","ैं", "ः", "ं","ं","ं","़",		//18
+"ु","ू","ॅ","ँ","्",                                                       //05
+
+
+//"०","१","२","३","४","५","६","७","८","९",
+
+"","े","ै","ओ","आ","औ","ओ","ो","ॉ","ॉ","ो",
+"ुं","े","अ‍ै","ो","अ‍े","ां","अ‍ॅ","ौ","ौ","ृं",
+"ाँ","ूँ","ो","ें","ों","ँ","ँ"," :","ूं")     // Remove typing mistakes in the original file 
+
+//**************************************************************************************
+//
+// Punctuation marks incorporated at the end
+//
+//**************************************************************************************
+// The following two characters are to be replaced through proper checking of locations:
+//**************************************************************************************
+//   "{",
+//   "ि",
+//
+//   "©",
+//   "र्" (reph)
+// 
+//**************************************************************************************
+
+    var array_one_length = array_one.length ;
+	console.log("Number of convert strings in array : " + array_one_length);
+
+    var modified_substring //= document.getElementById("legacy_text").value  ;
+	
+	modified_substring = textstring;
+
+    Replace_Symbols( ) ;
+
+    var processed_text = modified_substring ;
+    //console.log(processed_text); 
+    //document.getElementById("unicode_text").value = processed_text  ;
+
+// --------------------------------------------------
+
+
+function Replace_Symbols( )
+
+{
+
+//substitute array_two elements in place of corresponding array_one elements
+
+if ( modified_substring != "" )  // if stringto be converted is non-blank then no need of any processing.
+{
+for ( input_symbol_idx = 0;   input_symbol_idx < array_one_length;    input_symbol_idx++ )
+
+{ 
+
+//  alert(" modified substring = "+modified_substring)
+
+//***********************************************************
+// if (input_symbol_idx==106) 
+//  { alert(" input_symbol_idx = "+input_symbol_idx);
+//    alert(" input_symbol_idx = "+input_symbol_idx)
+//; alert(" character =" + modified_substring.CharCodeAt(input_symbol_idx))
+//     alert(" character = "+modified_string.fromCharCode(input_symbol_idx)) 
+//   }
+// if (input_symbol_idx == 107) 
+//   { alert(" input_symbol_idx = "+input_symbol_idx);
+//    alert(" character = ",+string.fromCharCode(input_symbol_idx)) 
+//   }
+//***********************************************************
+idx = 0  ;  // index of the symbol being searched for replacement
+
+while (idx != -1 ) //while-00
+{
+
+modified_substring = modified_substring.replace( array_one[ input_symbol_idx ] , array_two[input_symbol_idx] )
+idx = modified_substring.indexOf( array_one[input_symbol_idx] )
+
+} // end of while-00 loop
+// alert(" end of while loop")
+} // end of for loop
+// alert(" end of for loop")
+
+// alert(" modified substring2 = "+modified_substring)
+//*******************************************************
+var position_of_i = modified_substring.indexOf( "{" )  
+
+while ( position_of_i != -1 )  //while-02
+{
+var charecter_next_to_i = modified_substring.charAt( position_of_i + 1 )
+var charecter_to_be_replaced = "{" + charecter_next_to_i  
+modified_substring = modified_substring.replace( charecter_to_be_replaced , charecter_next_to_i + "ि" ) 
+position_of_i = modified_substring.search( /{/ , position_of_i + 1 ) // search for i ahead of the current position.
+
+} // end of while-02 loop
+
+//**********************************************************************************
+// End of Code for Replacing four Special glyphs
+//**********************************************************************************
+
+// code for replacing  and correcting its position too.
+//added q to try getting in matra like भिं
+
+modified_substring = modified_substring.replace(   /([q])([कखगघङचछजझञटठडड़ढढ़णतथदधनपफबभमयरलवशषसहक़ख़ग़ज़ड़ढ़फ़©])/g , "$2$1" ) ;
+
+modified_substring = modified_substring.replace(   /([q])(्)([कखगघङचछजझञटठडड़ढढ़णतथदधनपफबभमयरलवशषसहक़ख़ग़ज़ड़ढ़फ़©])/g , "$2$3$1" ) ;
+
+modified_substring = modified_substring.replace(   /([q])(्)([कखगघङचछजझञटठडड़ढढ़णतथदधनपफबभमयरलवशषसहक़ख़ग़ज़ड़ढ़फ़©])/g , "$2$3$1" ) ;
+
+modified_substring = modified_substring.replace( /q/g , "िं" ) ;
+// end of PMPML insert
+
+
+// following loop to eliminate 'chhotee ee kee maatraa' on half-letters as a result of above transformation.
+
+var position_of_wrong_ee = modified_substring.indexOf( "ि्" ) 
+
+while ( position_of_wrong_ee != -1 )  //while-03
+
+{
+var consonent_next_to_wrong_ee = modified_substring.charAt( position_of_wrong_ee + 2 )
+var charecter_to_be_replaced = "ि्" + consonent_next_to_wrong_ee 
+modified_substring = modified_substring.replace( charecter_to_be_replaced , "्" + consonent_next_to_wrong_ee + "ि" ) 
+position_of_wrong_ee = modified_substring.search( /ि्/ , position_of_wrong_ee + 2 ) // search for 'wrong ee' ahead of the current position. 
+
+} // end of while-03 loop
+
+// following loop to eliminate 'chhotee ee kee maatraa' on half-letters as a result of above transformation.
+
+var position_of_wrong_ee = modified_substring.indexOf( "िं्" ) 
+
+while ( position_of_wrong_ee != -1 )  //while-03
+
+{
+var consonent_next_to_wrong_ee = modified_substring.charAt( position_of_wrong_ee + 3 )
+var charecter_to_be_replaced = "िं्" + consonent_next_to_wrong_ee 
+modified_substring = modified_substring.replace( charecter_to_be_replaced , "्" + consonent_next_to_wrong_ee + "िं" ) 
+position_of_wrong_ee = modified_substring.search( /िं्/ , position_of_wrong_ee + 3 ) // search for 'wrong ee' ahead of the current position. 
+
+} // end of while-03 loop
+
+
+// Eliminating reph "Ô" and putting 'half - r' at proper position for this.
+set_of_matras = "ा ि ी ु ू ृ े ै ो ौ ं : ँ ॅ" 
+var position_of_R = modified_substring.indexOf( "©" )
+
+while ( position_of_R > 0 )  // while-04
+{
+probable_position_of_half_r = position_of_R - 1 ;
+var charecter_at_probable_position_of_half_r = modified_substring.charAt( probable_position_of_half_r )
+
+
+// trying to find non-maatra position left to current O (ie, half -r).
+console.log(charecter_at_probable_position_of_half_r);
+
+charecter_at_probable_position_of_half_r = charecter_at_probable_position_of_half_r.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+
+while ( set_of_matras.match( charecter_at_probable_position_of_half_r ) != null )  // while-05
+
+{
+probable_position_of_half_r = probable_position_of_half_r - 1 ;
+charecter_at_probable_position_of_half_r = modified_substring.charAt( probable_position_of_half_r ) ;
+
+} // end of while-05
+
+
+charecter_to_be_replaced = modified_substring.substr ( probable_position_of_half_r , ( position_of_R - probable_position_of_half_r ) ) ;
+new_replacement_string = "र्" + charecter_to_be_replaced ; 
+charecter_to_be_replaced = charecter_to_be_replaced + "©" ;
+modified_substring = modified_substring.replace( charecter_to_be_replaced , new_replacement_string ) ;
+position_of_R = modified_substring.indexOf( "©" ) ;
+
+} // end of while-04
+
+//**********punctuation marks ****************
+//    "¡","£","¤","¥","²","³","´","µ","¹","À","Á","Â","Ã","Ä","Å","Æ","Ç","È","Ê","Ñ","Ò","Õ",
+// "{","}","[","]","!","(",")","*","-","/",":",";","<","=",">","?","@","|",",","!","\\","√","-",
+
+//modified_substring = modified_substring.replace( /¡/g , "{" )   ;  
+
+} // end of IF  statement  meant to  supress processing of  blank  string.
+
+} // end of the function  Replace_Symbols
+
+//document.getElementById("unicode_text").select();
+return processed_text;
+
+} // end of convert_to_unicode function
+
+
+	
+ $(document).on("pageshow", "#pageone", function () {
+        if (localStorage.LilaID != null) {
+            var mainDiv = $("#pageone");
+            mainDiv.find('a').removeClass("ui-btn-active");
+            $("#lila_" + localStorage.LilaID).addClass("ui-btn-active");
+            scrollToView("lila_" + localStorage.LilaID);
+        }
+    });
+
+
+
+    function GetLila(LilaID) {
+		console.log(LilaID);
+        localStorage.LilaID = LilaID;
+		console.log(LilaID);
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "person.json",// + LilaID,
+            data: "json",
+            success: function (data) {
+			console.log(data.main[LilaID])
+                var pageDiv = $("#set");
+                pageDiv.empty();
+				
+                pageDiv.append('<center>'+data.main[LilaID].Aadi+'<center>')
+				pageDiv.append('<p>'+data.main[LilaID].Lila+'</p>')
+				var convert = convert_to_unicode(data.main[LilaID].shabd);
+				pageDiv.append('<p><span style="color: #ff0000"> शब्दार्थ : </span>'+convert+'</p>')
+				pageDiv.append('<p><span style="color: #ff0000"> परिवार  : </span>'+data.main[LilaID].person+'</p>')
+				if(data.main[LilaID].vachan != ""){
+				pageDiv.append('<p><span style="color: #ff0000"> वचन  : </span>'+data.main[LilaID].vachan+'</p>')
+				}
+				if(data.main[LilaID].sthan != ""){
+				pageDiv.append('<p><span style="color: #ff0000"> स्थान   : </span>'+data.main[LilaID].sthan+'</p>')
+				}
+				
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve Lila Please check your internet.');
+            }
+        });
+    }
+	
+
+    
+
+    function NextLila() {
+	console.log(localStorage.LilaID);
+	console.log(Number(localStorage.LilaID)+1);
+	GetLila(Number(localStorage.LilaID)+1);
+    }
+
+    function PreLila() {
+	console.log(localStorage.LilaID);
+	console.log(Number(localStorage.LilaID)-1);
+	GetLila(Number(localStorage.LilaID)-1);
+    }
+</script>
+
+
+    <div data-role="page" data-theme="a" id="pageone">
+
+        <div data-role="header" data-position="fixed" data-fullscreen="true">
+                        <h1>लीळाचरित्र - अज्ञात</h1>
+
+        </div>
+		
+
+        <div data-role="main" class="ui-content">
+           
+    <div data-role="content" id="ListDiv"></div>
+	<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search...">
+
+<li>
+        <a onclick="GetLila(1296)" href="#lilaout" data-transition="slide" id="lila_1296">१ महात्मेयां गुरुभक्ति१ अनुवादु</a>
+<li>
+        <a onclick="GetLila(1297)" href="#lilaout" data-transition="slide" id="lila_1297">२ वसो जैतानुवादु</a>
+<li>
+        <a onclick="GetLila(1298)" href="#lilaout" data-transition="slide" id="lila_1298">३ तथा वोसरी नीराकरणें</a>
+<li>
+        <a onclick="GetLila(1299)" href="#lilaout" data-transition="slide" id="lila_1299">४ तथा भोगसेवे स्मरणाभावो कथन</a>
+<li>
+        <a onclick="GetLila(1300)" href="#lilaout" data-transition="slide" id="lila_1300">५ तथा परमेश्वरपुर कापडी प्रसंसा</a>
+<li>
+        <a onclick="GetLila(1301)" href="#lilaout" data-transition="slide" id="lila_1301">६ गोपाळप्रसंसा</a>
+<li>
+        <a onclick="GetLila(1302)" href="#lilaout" data-transition="slide" id="lila_1302">७ जनवीहारीं अज्ञान कथन</a>
+<li>
+        <a onclick="GetLila(1303)" href="#lilaout" data-transition="slide" id="lila_1303">८ भटां प्रक्रमशक्त्यानुवादु</a>
+<li>
+        <a onclick="GetLila(1304)" href="#lilaout" data-transition="slide" id="lila_1304">९ भोजा अन्नेकसंग्रामारूढानुवादु</a>
+<li>
+        <a onclick="GetLila(1305)" href="#lilaout" data-transition="slide" id="lila_1305">१० बाइसां पदार्थ सांघणें</a>
+<li>
+        <a onclick="GetLila(1306)" href="#lilaout" data-transition="slide" id="lila_1306">११ तथा परिग्रहो परित्यजवणें</a>
+<li>
+        <a onclick="GetLila(1307)" href="#lilaout" data-transition="slide" id="lila_1307">१२ नष्ट नाथपंथानुवादु</a>
+<li>
+        <a onclick="GetLila(1308)" href="#lilaout" data-transition="slide" id="lila_1308">१३ दायंबा महंतप्रसंसा</a>
+<li>
+        <a onclick="GetLila(1309)" href="#lilaout" data-transition="slide" id="lila_1309">१४ तथा भीक्षान्नप्रसंगें थोरी प्रभाषणें</a>
+<li>
+        <a onclick="GetLila(1310)" href="#lilaout" data-transition="slide" id="lila_1310">१५ महदाइसां हंस अवतारू निरूपण</a>
+<li>
+        <a onclick="GetLila(1311)" href="#lilaout" data-transition="slide" id="lila_1311">१६ तथा अवतारांतर दैवी नीरूपण</a>
+<li>
+        <a onclick="GetLila(1312)" href="#lilaout" data-transition="slide" id="lila_1312">१७ भटां सयेमु नीरूपण</a>
+<li>
+        <a onclick="GetLila(1313)" href="#lilaout" data-transition="slide" id="lila_1313">१८ काकोसवचनस्वीकारू</a>
+<li>
+        <a onclick="GetLila(1314)" href="#lilaout" data-transition="slide" id="lila_1314">१९ तथा वेदवगतृत्व कथन</a>
+<li>
+        <a onclick="GetLila(1315)" href="#lilaout" data-transition="slide" id="lila_1315">२० तथा आगमवगतृत्व कथन</a>
+<li>
+        <a onclick="GetLila(1316)" href="#lilaout" data-transition="slide" id="lila_1316">२१ तथा पुराणवगतृत्व कथन</a>
+<li>
+        <a onclick="GetLila(1317)" href="#lilaout" data-transition="slide" id="lila_1317">२२ तथा मुक्ति कथन</a>
+<li>
+        <a onclick="GetLila(1318)" href="#lilaout" data-transition="slide" id="lila_1318">२३ तथा चतुर्विध त्यागु नीरूपण</a>
+<li>
+        <a onclick="GetLila(1319)" href="#lilaout" data-transition="slide" id="lila_1319">२४ तथा वाचा नीरूपण</a>
+<li>
+        <a onclick="GetLila(1320)" href="#lilaout" data-transition="slide" id="lila_1320">२५ श्रीकृष्णवेधु नीरूपण</a>
+<li>
+        <a onclick="GetLila(1321)" href="#lilaout" data-transition="slide" id="lila_1321">२६ तथा वटवृक्षा आयूष्य कथन</a>
+<li>
+        <a onclick="GetLila(1322)" href="#lilaout" data-transition="slide" id="lila_1322">२७ तथा वसीष्ट वीद्यावंतु कथन</a>
+<li>
+        <a onclick="GetLila(1323)" href="#lilaout" data-transition="slide" id="lila_1323">२८ महादेवोराज्यप्रसंसा</a>
+<li>
+        <a onclick="GetLila(1324)" href="#lilaout" data-transition="slide" id="lila_1324">२९ अन्यधर्मवचनप्रसंसा</a>
+<li>
+        <a onclick="GetLila(1325)" href="#lilaout" data-transition="slide" id="lila_1325">३० महदाइसाप्रश्नें अनुचीतीं संदेहनीवृत्यानुवादु</a>
+<li>
+        <a onclick="GetLila(1326)" href="#lilaout" data-transition="slide" id="lila_1326">३१ भावै सणीं जोगिया भलें अनुवादु</a>
+<li>
+        <a onclick="GetLila(1327)" href="#lilaout" data-transition="slide" id="lila_1327">३२ महदाइसाप्रश्नें लक्षमणा भक्तिप्रसंसा१</a>
+<li>
+        <a onclick="GetLila(1328)" href="#lilaout" data-transition="slide" id="lila_1328">३३ तथा तापस्पर्श कथन</a>
+<li>
+        <a onclick="GetLila(1329)" href="#lilaout" data-transition="slide" id="lila_1329">३४ तथा जनकु ब्रम्हवीदु कथन</a>
+<li>
+        <a onclick="GetLila(1330)" href="#lilaout" data-transition="slide" id="lila_1330">३५ फळद्वयेप्रसंसा</a>
+<li>
+        <a onclick="GetLila(1331)" href="#lilaout" data-transition="slide" id="lila_1331">३६ महदाइसाप्रश्नें आउ वीधिप्रसवानुवादु</a>
+<li>
+        <a onclick="GetLila(1332)" href="#lilaout" data-transition="slide" id="lila_1332">३७ शास्त्रइसाळुत्व कथन१</a>
+<li>
+        <a onclick="GetLila(1333)" href="#lilaout" data-transition="slide" id="lila_1333">३८ आउवर्त्तनश्रवणीं अभीमानानुवादु१</a>
+<li>
+        <a onclick="GetLila(1334)" href="#lilaout" data-transition="slide" id="lila_1334">३९ साधां कळंकिनाराएण पाहों धाडणें</a>
+<li>
+        <a onclick="GetLila(1335)" href="#lilaout" data-transition="slide" id="lila_1335">४० मृत्यपतीदहनागमनीं स्त्रीये स्वार्थानुवादु</a>
+<li>
+        <a onclick="GetLila(1336)" href="#lilaout" data-transition="slide" id="lila_1336">४१ पूर्वभक्तागमनीं कोल्हापूर संख्यानुवादु</a>
+<li>
+        <a onclick="GetLila(1337)" href="#lilaout" data-transition="slide" id="lila_1337">४२ तथा फटिकु दृष्टांत कथन</a>
+<li>
+        <a onclick="GetLila(1338)" href="#lilaout" data-transition="slide" id="lila_1338">४३ तथा मासीपोफळ दृष्टांत कथन</a>
+<li>
+        <a onclick="GetLila(1339)" href="#lilaout" data-transition="slide" id="lila_1339">४४ तथा थोंटेपारधि दृष्टांतु कथन</a>
+<li>
+        <a onclick="GetLila(1340)" href="#lilaout" data-transition="slide" id="lila_1340">४५ तथा अक्षेता दृष्टांत कथन</a>
+<li>
+        <a onclick="GetLila(1341)" href="#lilaout" data-transition="slide" id="lila_1341">४६ तथा तृणजळुका दृष्टांत कथन</a>
+<li>
+        <a onclick="GetLila(1342)" href="#lilaout" data-transition="slide" id="lila_1342">४७ तथा सुसरवाति दृष्टांतु कथन</a>
+<li>
+        <a onclick="GetLila(1343)" href="#lilaout" data-transition="slide" id="lila_1343">४८ अळंचु नीराकरण</a>
+<li>
+        <a onclick="GetLila(1344)" href="#lilaout" data-transition="slide" id="lila_1344">४९ दुधिकरंटें ममता कथन</a>
+<li>
+        <a onclick="GetLila(1345)" href="#lilaout" data-transition="slide" id="lila_1345">५० वामदेवां संतलक्षणप्रसंसा</a>
+<li>
+        <a onclick="GetLila(1346)" href="#lilaout" data-transition="slide" id="lila_1346">५१ भीक्षान्नाचा दधिभातु करवणें</a>
+<li>
+        <a onclick="GetLila(1347)" href="#lilaout" data-transition="slide" id="lila_1347">५२ तथा रूचिप्रसंसा</a>
+<li>
+        <a onclick="GetLila(1348)" href="#lilaout" data-transition="slide" id="lila_1348">५३ सौंदर्यानुवादु</a>
+<li>
+        <a onclick="GetLila(1349)" href="#lilaout" data-transition="slide" id="lila_1349">५४ लाखाइ कर्‍हाडुबाइ नामकरण</a>
+<li>
+        <a onclick="GetLila(1350)" href="#lilaout" data-transition="slide" id="lila_1350">५५ खेइभटां डखला नामकरण</a>
+<li>
+        <a onclick="GetLila(1351)" href="#lilaout" data-transition="slide" id="lila_1351">५६ माइंबाइ भूतानंदु नामकरण</a>
+<li>
+        <a onclick="GetLila(1352)" href="#lilaout" data-transition="slide" id="lila_1352">५७ रूपाइसां महदाइसा नामकरण</a>
+<li>
+        <a onclick="GetLila(1353)" href="#lilaout" data-transition="slide" id="lila_1353">५८ आबाइसां वृधाबाइ नामकरण</a>
+<li>
+        <a onclick="GetLila(1354)" href="#lilaout" data-transition="slide" id="lila_1354">५९ एकवीराबाइसें नामकरण</a>
+<li>
+        <a onclick="GetLila(1355)" href="#lilaout" data-transition="slide" id="lila_1355">६० प्राह्लादबाइसें नामकरण</a>
+<li>
+        <a onclick="GetLila(1356)" href="#lilaout" data-transition="slide" id="lila_1356">६१ द्रवीळासबाइसें नामकरण</a>
+<li>
+        <a onclick="GetLila(1357)" href="#lilaout" data-transition="slide" id="lila_1357">६२ खेइभटां भागेया नामकरण</a>
+<li>
+        <a onclick="GetLila(1358)" href="#lilaout" data-transition="slide" id="lila_1358">६३ महदाइसां प्रेतत्व नीरूपण</a>
+<li>
+        <a onclick="GetLila(1359)" href="#lilaout" data-transition="slide" id="lila_1359">६४ अन्यमहात्मयां संभाषणीं आऊ शीष्यापण</a>
+<li>
+        <a onclick="GetLila(1360)" href="#lilaout" data-transition="slide" id="lila_1360">६५ मदहाइसां गौलोकानुवादु</a>
+<li>
+        <a onclick="GetLila(1361)" href="#lilaout" data-transition="slide" id="lila_1361">६६ नाथोबा स्थाननीरीक्षणीं भटप्रसंसा</a>
+<li>
+        <a onclick="GetLila(1362)" href="#lilaout" data-transition="slide" id="lila_1362">६७ बाइसांकरवि पाणिभातु सांचवणें</a>
+<li>
+        <a onclick="GetLila(1363)" href="#lilaout" data-transition="slide" id="lila_1363">६८ भक्तां प्रश्नें जनीं अन्यथाज्ञानानुवादु</a>
+<li>
+        <a onclick="GetLila(1364)" href="#lilaout" data-transition="slide" id="lila_1364">६९ स्त्रीये वीकारज्ञान करणें</a>
+<li>
+        <a onclick="GetLila(1365)" href="#lilaout" data-transition="slide" id="lila_1365">७० तथा मृत्यपतीभार्ये वीकारज्ञान</a>
+<li>
+        <a onclick="GetLila(1366)" href="#lilaout" data-transition="slide" id="lila_1366">७१ भटां प्रश्नें अन्यत्र अन्य प्रपंचु कथन</a>
+<li>
+        <a onclick="GetLila(1367)" href="#lilaout" data-transition="slide" id="lila_1367">७२ महदाइसाप्रश्नें त्यागफळानुवादु</a>
+<li>
+        <a onclick="GetLila(1368)" href="#lilaout" data-transition="slide" id="lila_1368">७३ सीतासौंदर्यानुवादु</a>
+<li>
+        <a onclick="GetLila(1369)" href="#lilaout" data-transition="slide" id="lila_1369">७४ भोजया पातलेपण नीषेधु</a>
+<li>
+        <a onclick="GetLila(1370)" href="#lilaout" data-transition="slide" id="lila_1370">७५ आबाइप्रश्नें देहांतदुख नीरूपण१</a>
+<li>
+        <a onclick="GetLila(1371)" href="#lilaout" data-transition="slide" id="lila_1371">७६ वस्त्रसंख्या नीरूपण</a>
+<li>
+        <a onclick="GetLila(1372)" href="#lilaout" data-transition="slide" id="lila_1372">७७ दाइंबागीतश्रवणीं रवळेयां नीर्वंश कथन</a>
+<li>
+        <a onclick="GetLila(1373)" href="#lilaout" data-transition="slide" id="lila_1373">७८ महदाइसाप्रश्नें मासोपवास नीश्रयानुवादु</a>
+<li>
+        <a onclick="GetLila(1374)" href="#lilaout" data-transition="slide" id="lila_1374">७९ महदाइप्रश्नें स्थूळसूक्ष्मानुवादु</a>
+<li>
+        <a onclick="GetLila(1375)" href="#lilaout" data-transition="slide" id="lila_1375">८० स्त्रोवेव्हारानुवादु</a>
+<li>
+        <a onclick="GetLila(1376)" href="#lilaout" data-transition="slide" id="lila_1376">८१ स्त्रीवेखें अवतारू निराकरण</a>
+<li>
+        <a onclick="GetLila(1377)" href="#lilaout" data-transition="slide" id="lila_1377">८२ बाइसां अपरितोखु निराकरण</a>
+<li>
+        <a onclick="GetLila(1378)" href="#lilaout" data-transition="slide" id="lila_1378">८३ बाइसांकरवि भट पाणियें सींपवणें</a>
+<li>
+        <a onclick="GetLila(1379)" href="#lilaout" data-transition="slide" id="lila_1379">८४ अधिकत्वें गुरू कथन</a>
+<li>
+        <a onclick="GetLila(1380)" href="#lilaout" data-transition="slide" id="lila_1380">८५ एकाइमनोरथें देवकन्यानुवादु१</a>
+<li>
+        <a onclick="GetLila(1381)" href="#lilaout" data-transition="slide" id="lila_1381">८६ ज्ञानदेवां झोटींग प्रसन्न</a>
+<li>
+        <a onclick="GetLila(1382)" href="#lilaout" data-transition="slide" id="lila_1382">८७ वनिताक्षौरनिराकरण</a>
+<li>
+        <a onclick="GetLila(1383)" href="#lilaout" data-transition="slide" id="lila_1383">88</a>
+<li>
+        <a onclick="GetLila(1384)" href="#lilaout" data-transition="slide" id="lila_1384">८९ साधां आकासजंतु नीरूपण</a>
+<li>
+        <a onclick="GetLila(1385)" href="#lilaout" data-transition="slide" id="lila_1385">९० उजळलेयाचेनि संबंधें मैळला उजळे</a>
+<li>
+        <a onclick="GetLila(1386)" href="#lilaout" data-transition="slide" id="lila_1386">९१ बाइसीं वस्त्र थु थु करणें</a>
+<li>
+        <a onclick="GetLila(1387)" href="#lilaout" data-transition="slide" id="lila_1387">९२ प्रयागवटस्थान अनुवादु</a>
+<li>
+        <a onclick="GetLila(1388)" href="#lilaout" data-transition="slide" id="lila_1388">९३ आबाइसीं सेवेचें उणेंपुरें पुसणें</a>
+<li>
+        <a onclick="GetLila(1389)" href="#lilaout" data-transition="slide" id="lila_1389">९४ स्वप्न दाखवणें</a>
+<li>
+        <a onclick="GetLila(1390)" href="#lilaout" data-transition="slide" id="lila_1390">९५ आसु कथन</a>
+<li>
+        <a onclick="GetLila(1391)" href="#lilaout" data-transition="slide" id="lila_1391">९६ बाइसां स्नानप्रश्रू</a>
+<li>
+        <a onclick="GetLila(1392)" href="#lilaout" data-transition="slide" id="lila_1392">९७ भटीं आउसातें खवळणें</a>
+<li>
+        <a onclick="GetLila(1393)" href="#lilaout" data-transition="slide" id="lila_1393">९८ सुरजबुधि निराकरण</a>
+<li>
+        <a onclick="GetLila(1394)" href="#lilaout" data-transition="slide" id="lila_1394">९९ आसापतीत्वकथन</a>
+<li>
+        <a onclick="GetLila(1395)" href="#lilaout" data-transition="slide" id="lila_1395">१०० बहुरूपीयां बंधुनिरोध : आपानवायो प्रसंसा</a>
+<li>
+        <a onclick="GetLila(1396)" href="#lilaout" data-transition="slide" id="lila_1396">१०१ मतद्रव्यसेवनीं ब्रह्मपातक उपाहासु*</a>
+<li>
+        <a onclick="GetLila(1397)" href="#lilaout" data-transition="slide" id="lila_1397">१०२ ममतादुख कथन</a>
+<li>
+        <a onclick="GetLila(1398)" href="#lilaout" data-transition="slide" id="lila_1398">१०३ जोमाइ नामकरण</a>
+<li>
+        <a onclick="GetLila(1399)" href="#lilaout" data-transition="slide" id="lila_1399">१०४ महदाइसीं श्राध प्रश्नू करणें</a>
+<li>
+        <a onclick="GetLila(1400)" href="#lilaout" data-transition="slide" id="lila_1400">१०५ बाइसांचें वस्त्र वेढणें</a>
+<li>
+        <a onclick="GetLila(1401)" href="#lilaout" data-transition="slide" id="lila_1401">१०६ बाइसांचे गुरू</a>
+<li>
+        <a onclick="GetLila(1402)" href="#lilaout" data-transition="slide" id="lila_1402">१०७ श्रावणा भगति कथन</a>
+<li>
+        <a onclick="GetLila(1403)" href="#lilaout" data-transition="slide" id="lila_1403">१०८ आनो उपासनीयां सीरमेळवनीं दंड*</a>
+<li>
+        <a onclick="GetLila(1404)" href="#lilaout" data-transition="slide" id="lila_1404">१०९ साधातें अटनविजन निरूपण*</a>
+<li>
+        <a onclick="GetLila(1405)" href="#lilaout" data-transition="slide" id="lila_1405">११० चणा विखो निरूपण*</a>
+<li>
+        <a onclick="GetLila(1406)" href="#lilaout" data-transition="slide" id="lila_1406">१११ कळियुगीं ब्रह्मचर्ये त्रसले जीव*</a>
+<li>
+        <a onclick="GetLila(1407)" href="#lilaout" data-transition="slide" id="lila_1407">११२ योगक्षेम कथन*</a>
+<li>
+        <a onclick="GetLila(1408)" href="#lilaout" data-transition="slide" id="lila_1408">११३ महावाक्य गोष्टी रानींवनीं करणें*</a>
+<li>
+        <a onclick="GetLila(1409)" href="#lilaout" data-transition="slide" id="lila_1409">११४ तूप गाळोत्तर रस निरूपण*</a>
+<li>
+        <a onclick="GetLila(1410)" href="#lilaout" data-transition="slide" id="lila_1410">११५ अष्टभैरव विद्या आगम निरूपण*</a>
+<li>
+        <a onclick="GetLila(1411)" href="#lilaout" data-transition="slide" id="lila_1411">११६ साजात्यां साजात्यां वेध कथन*</a>
+<li>
+        <a onclick="GetLila(1412)" href="#lilaout" data-transition="slide" id="lila_1412">११७ अंशवेधें संपूर्णाची प्राप्ति निरूपण*</a>
+<li>
+        <a onclick="GetLila(1413)" href="#lilaout" data-transition="slide" id="lila_1413">११८ विद्यामार्ग अंतर्याग निरूपण*</a>
+<li>
+        <a onclick="GetLila(1414)" href="#lilaout" data-transition="slide" id="lila_1414">११९ आन्नवमहान्नवादि विभाग निरूपण*</a>
+<li>
+        <a onclick="GetLila(1415)" href="#lilaout" data-transition="slide" id="lila_1415">१२० इंद्रब्रह्मादिकां जीव कथन*</a>
+<li>
+        <a onclick="GetLila(1416)" href="#lilaout" data-transition="slide" id="lila_1416">१२१ तीन्हीं ग्रामे तीन्हीं राणे समान निरूपण*</a>
+<li>
+        <a onclick="GetLila(1417)" href="#lilaout" data-transition="slide" id="lila_1417">१२२ इतर विद्या जीव न मुंचे निरूपण*</a>
+<li>
+        <a onclick="GetLila(1418)" href="#lilaout" data-transition="slide" id="lila_1418">१२३ प्रमादिया अडनीक्रिये देहविद्यानिरूपण*</a>
+<li>
+        <a onclick="GetLila(1419)" href="#lilaout" data-transition="slide" id="lila_1419">१२४ गत्वामुक्ति निरूपण*</a>
+<li>
+        <a onclick="GetLila(1420)" href="#lilaout" data-transition="slide" id="lila_1420">१२५ ऐलपैल देवताव्याप : तथा देखणें*</a>
+<li>
+        <a onclick="GetLila(1421)" href="#lilaout" data-transition="slide" id="lila_1421">१२६ विधिभावातीत अनुष्ठान निरूपण*</a>
+<li>
+        <a onclick="GetLila(1422)" href="#lilaout" data-transition="slide" id="lila_1422">१२७ च्यारि ब्रह्में कथन*</a>
+<li>
+        <a onclick="GetLila(1423)" href="#lilaout" data-transition="slide" id="lila_1423">१२८ अविद्या : तथा प्रपंचस्वभाव निरूपण*</a>
+<li>
+        <a onclick="GetLila(1424)" href="#lilaout" data-transition="slide" id="lila_1424">१२९ युगधर्म निरूपण*</a>
+<li>
+        <a onclick="GetLila(1425)" href="#lilaout" data-transition="slide" id="lila_1425">१३० हीने युगीं बहिर्याग निरूपण*</a>
+<li>
+        <a onclick="GetLila(1426)" href="#lilaout" data-transition="slide" id="lila_1426">१३१ भक्ति जैसी रामाची लक्ष्मणें केली*</a>
+<li>
+        <a onclick="GetLila(1427)" href="#lilaout" data-transition="slide" id="lila_1427">१३२ परमेश्वरप्राप्ती जीवासि आधार निरूपण*</a>
+<li>
+        <a onclick="GetLila(1428)" href="#lilaout" data-transition="slide" id="lila_1428">१३३ विषयप्रेम निरूपण*</a>
+<li>
+        <a onclick="GetLila(1429)" href="#lilaout" data-transition="slide" id="lila_1429">१३४ मातापिता भक्ति : तथा स्नेह निरूपण*</a>
+<li>
+        <a onclick="GetLila(1430)" href="#lilaout" data-transition="slide" id="lila_1430">१३५ दाएंबा विषयवासनाभेद कथन*</a>
+<li>
+        <a onclick="GetLila(1431)" href="#lilaout" data-transition="slide" id="lila_1431">१३६ स्त्री सहसा प्रवतें ना निरूपण*</a>
+<li>
+        <a onclick="GetLila(1432)" href="#lilaout" data-transition="slide" id="lila_1432">१३७ देवो अछेद्यो अभेद्यो निरूपण*</a>
+<li>
+        <a onclick="GetLila(1433)" href="#lilaout" data-transition="slide" id="lila_1433">१३८ सन्निधानें विषयवासना नष्ट निरूपण*</a>
+<li>
+        <a onclick="GetLila(1434)" href="#lilaout" data-transition="slide" id="lila_1434">१३९ जरठ तथा कोमळ विरहीया निरूपण*</a>
+<li>
+        <a onclick="GetLila(1435)" href="#lilaout" data-transition="slide" id="lila_1435">१४० विद्या : विकल्पसंचार निरूपण*</a>
+<li>
+        <a onclick="GetLila(1436)" href="#lilaout" data-transition="slide" id="lila_1436">१४१ रसभेद निरूपण*</a>
+<li>
+        <a onclick="GetLila(1437)" href="#lilaout" data-transition="slide" id="lila_1437">१४२ साकार परमेश्वरव्यापार कथन*</a>
+<li>
+        <a onclick="GetLila(1438)" href="#lilaout" data-transition="slide" id="lila_1438">१४३ जीव जैसा संगीं ठेविजे तैसा ठाके*</a>
+<li>
+        <a onclick="GetLila(1439)" href="#lilaout" data-transition="slide" id="lila_1439">१४४ बळिभद्र : भीष्म अवतारू कथन*</a>
+<li>
+        <a onclick="GetLila(1440)" href="#lilaout" data-transition="slide" id="lila_1440">१४५ स्वर्गों इंद्रादिक विखो निरूपण*</a>
+<li>
+        <a onclick="GetLila(1441)" href="#lilaout" data-transition="slide" id="lila_1441">१४६ स्वप्न लटिका : सुचा साच*</a>
+<li>
+        <a onclick="GetLila(1442)" href="#lilaout" data-transition="slide" id="lila_1442">१४७ सुविद्या कुविद्या निरूपण*</a>
+<li>
+        <a onclick="GetLila(1443)" href="#lilaout" data-transition="slide" id="lila_1443">१४८ वराडीचे लोक प्रसंसा*</a>
+<li>
+        <a onclick="GetLila(1444)" href="#lilaout" data-transition="slide" id="lila_1444">१४९ चतुर्विध देवताफळें निरूपण*</a>
+<li>
+        <a onclick="GetLila(1445)" href="#lilaout" data-transition="slide" id="lila_1445">१५० त्रिविध वेध निरूपण*</a>
+<li>
+        <a onclick="GetLila(1446)" href="#lilaout" data-transition="slide" id="lila_1446">१५१ विद्यानामें निरूपण*</a>
+
+</ul>
+          
+</div>
+</div>
+	
+	
+    <div data-role="page" data-theme="a" id="lilaout">
+	<div data-role="header" data-position="fixed">
+                        <h1>लीळाचरित्र - अज्ञात</h1>
+
+        </div>
+	<div id="set"></div>
+	
+	<div data-role="footer" data-position="fixed">
+        <div class="ui-grid-d center">
+            <div class="ui-block-a">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="https://galacticmaster.github.io/lilacharitra/main/">Button</a>
+            </div>
+            <div class="ui-block-b">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline" data-transition="slide" onclick="PreLila()">Button</a>
+            </div>
+            <div class="ui-block-c">
+                <!--<a class="ui-shadow ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-inline" type="hidden" href="#pageone">Button</a>-->
+            </div>
+            <div class="ui-block-d">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-notext ui-btn-inline" data-transition="slide" onclick="NextLila()">Button</a>
+            </div>
+            <div class="ui-block-e">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-gear ui-btn-icon-notext ui-btn-inline">Button</a>
+            </div>
+        </div>
+	
+    </div>
+	
+
+    <div data-role="page" data-theme="a" id="pagethree">
+        <div data-role="header" data-position="fixed">
+            <h1>लीळाचरित्र Search</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <input type="search" name="search" id="searchlila" onchange="searchlila($(this).val())">
+        </div>
+    </div>
+
+
+    </div>
+	
+	
+</body>
+</html>
+
+<script>
+    /*Disable copy paste*/
+    (function ($) {
+
+        $.fn.blockCopy = function (options) {
+
+            var settings = $.extend({
+                blockPasteClass: null
+            }, options);
+
+
+            if (settings.blockPasteClass) {
+                $("." + settings.blockPasteClass).bind('copy paste cut drag drop', function (e) {
+                    e.preventDefault();
+                    return false;
+                });
+            }
+
+
+            function style_appender(rule) {
+                $('html > head').append($('<style>' + rule + '</style>'));
+            }
+
+            function html_appender(html) {
+                $("body").append(html);
+            }
+
+            function clearClipboard() {
+                var $temp = $("#bypasser");
+                $temp.val("You can't cheat !").select();
+                document.execCommand("copy");
+            }
+
+            function add_absolute_div(id) {
+                html_appender("<div id='noClick" + id + "' onclick='return false;' oncontextmenu='return false;'>&nbsp;</div>");
+            }
+
+
+            function absorbEvent_(event) {
+                var e = event || window.event;
+                e.preventDefault && e.preventDefault();
+                e.stopPropagation && e.stopPropagation();
+                e.cancelBubble = true;
+                e.returnValue = false;
+                return false;
+            }
+
+            function preventLongPressMenu(node) {
+                node.ontouchstart = absorbEvent_;
+                node.ontouchmove = absorbEvent_;
+                node.ontouchend = absorbEvent_;
+                node.ontouchcancel = absorbEvent_;
+            }
+
+            function set_absolute_div(element, id) {
+                var position = element.position();
+                var noclick = "#noClick" + id;
+
+                $(noclick).css({
+                    height: (element.height()),
+                    width: (element.width()),
+                    position: 'absolute',
+                    top: position.top,
+                    left: position.left,
+                    'z-index': 100
+                })
+            }
+
+
+            $("body").bind("contextmenu", function (e) {
+                e.preventDefault();
+            });
+
+
+
+            //Append needed rules to css
+            style_appender(
+                "* {-moz-user-select: none !important; -khtml-user-select: none !important;   -webkit-user-select: none !important; -ms-user-select: none !important;   user-select: none !important; }" +
+                ".content {position: relative !important; }" +
+                ".content .mask {position: absolute !important ; z-index: 1 !important; width: 100% !important; height: 100%!important;}" +
+                ".content a {position: relative !important; z-index: 3 !important;}" +
+                ".content, .content .mask{ pointer-events: none;}"
+            );
+
+
+            //Append an Input to clear clipboard
+            html_appender("<input id='bypasser' value='nothing' type='hidden'>");
+            //Clearing clipboard Intervali
+            setInterval(clearClipboard, 1000);
+
+
+
+            var id = 1;
+
+            return this.each(function () {
+
+                //Preventing using touch events
+                preventLongPressMenu($(this));
+
+                //Add CSS preventor rules to selected DOM & append mask to class
+                $(this).addClass("content").append("<div class='mask'></div>");
+
+                //Append an absolute div to body
+                add_absolute_div(id);
+                //Set position of the div to selected DOM
+                set_absolute_div($(this), id);
+
+
+                id++;
+
+            });
+
+        }
+
+    }(jQuery));
+
+    /*Disable copy paste action */
+    $(document).ready(function () {
+        $(this).blockCopy();
+    });
+
+    function scrollToView(id) {
+        if ($("#" + id).offset() != undefined) {
+            var toppadding = Math.floor($("#" + id).offset().top - 70);
+            $('html,body').animate({
+            scrollTop: toppadding
+        }, 0);
+        }
+    }
+</script>
