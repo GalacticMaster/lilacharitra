@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LilaCharitra</title>
+<link rel="stylesheet" href="./themes/pershastra.min.css" />
+<link rel="stylesheet" href="./themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+
+    <style>
+.ui-page { 
+
+    box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+    background: #fffef0;
+	white-space: normal !important; word-break:break-all !important;text-justify: auto !important;
+}
+* {
+    text-shadow: none !important;
+}
+
+
+.ui-listview > li a {
+  white-space: normal !important;
+  /*color:brown !important;*/
+}​
+h3 .ui-btn-text{ white-space: normal !important; word-break:break-all !important; }
+h3 { white-space: normal !important; word-break:break-all !important; }
+
+mark { 
+  background-color: pink;
+  color: black;
+}
+
+p { margin-bottom: 15px; }
+        center {
+            font-size: 1.2em;
+            font-weight: 600;
+            text-align: center;
+            color: #000;
+            line-height: normal;
+            margin-bottom: 0;
+			word-break:break-all !important;
+        }
+
+
+        p {
+		padding: 0 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-align: center;
+            color: #000;
+            line-height: normal;
+            margin-bottom: 0;
+			word-break:break-all !important;
+        }
+    </style>
+</head>
+<body data-dom-cache="false">
+    
+    <div>
+        
+<script>
+
+function convert_to_unicode(textstring)
+{
+
+var array_one = new Array(
+//PMPML ADDITIONS
+//"è", "Am¡Y", "H§y Ora", "©©", "« m", "H r",	"« r", "mm", "H _obm", "§ Q", "Šg©", "Jìh©_|Q>", "o«", "H Q", "} Q", "{H$bmoñH$a", "H d", "§ n", "gmdaH$a^dZ", "Ì ~", "w §", "¥ î", "S Z", "Ao", "R m", "o Ý", "åw`", "lrm", "½`w©",  
+//PMPML ADDITIONS DONE
+//"å", //Hemang
+
+">", "$","[", "p","“","”",                  //06
+"µH","™","˜","µJ","µO","µS","µT","µ\\",                                //08
+"ª", "£", "¤", "u", "v",      "}", "]",						 			//07
+"›","@","&","\"","'",                        		                  //05
+"ú","j","k","l","Ì","Í","Î",                        		            //07
+"®","¯","é","ê",                        		                        //04
+
+"#","‚","ƒ","„","†", "‡","ˆ","‰",                        		      //08 
+"’","“","”","•","¬","–","—","œ",                        		      //08
+"³", "¶",  "¸",  "¹","º","¼", "Ã", "¾","Å","Æ","Ç","È","É","å",             //13
+"Ð","Ñ","Ò","Ó","Ô","Õ","Ö","×","Ø","Ù","Ú","Û","Þ","à","á","ï","ð",    //17
+"ò","ó",   "õ","ö","÷","ø",    "ü","ý",                           		//08
+"ç", "Œ", "´",  "«",                       		                  		//04
+
+"Š","»","½", "¿","H","I","J","K","L",                                   //09
+"À","Á","Â","Ä","M","N","O","P",                                        //08
+"Q","R","S","T","Ê","U",                        		            	//06
+"Ë", "Ï", "Ü","Ý","V","W","X","Y","Z",                       	      	//09
+"ß","â","ã","ä","‘","n","\\","~", "^","_",                        		//10
+
+"æ", "ë","ì","í","î", "ù",  "û", "ñ","ô",                               //09
+"`","a","b","c","d","e","f","g","h","i",                        		//10
+
+"Am¡","Amo","Am°","Am","A","B©","B","C","D","F","G","Eo","E",           //13
+                        		           
+
+"m", "r","s", "t","ww","w","x","y","z","¥","¦","|","o","¡","¢","…","§§","§","¨","µ", //18
+"þ","ÿ","°","±","²",                                                       		//05
+
+//"0","1","2","3","4","5","6","7","8","9",
+
+
+"्ा","्ो","्ौ","अो","अा","आै","आे","ाो","ाॅ","ॅा","ाे",
+"ंु","ेे","अै","ाे","अे","ंा","अॅ","ाै","ैा","ंृ",
+"ँा","ँू","ेा","ंे","ाें","ॅं","ंॅ"," ः","ंू")     // Remove typing mistakes in the original file
+
+var array_two = new Array(
+//PMPML ADDITIONS
+//"ऱ्", "औंध", "कूंजीर", "©", "«m", "Hr", "«r", "आ", "कमेला", "§Q", "र्क्स", "गवर्नमेंट", "«o", "HQ", "}Q", "किर्लोस्कर", "Hd", "§n","gmdaH$a ^dZ", "Ì~", "w§", "¥î", "SZ", "ए", "Rm", "oÝ", "å`w", "lr", "र्ग्यु", 
+//PMPML ADDITIONS DONE
+//"म्ह" //Hemang 
+
+"","","{","{","\"","'",  		//06
+"क़","ख़्","ख़","ग़","ज़","ड़","ढ़","फ़", // one-byte varnas           		//08
+"ं©",  "ै©","ैं©","ी©","ीं©", "े©", "ें©",             		//07
+"ॐ","ऽ","।","‘","’",                                			//05 
+"क्ष्","क्ष","ज्ञ","श्र","त्र","त्र्","त्त्",                                 	//07 
+"्रु","्रू","रु","रू",   	                                      	//04 
+
+                
+				 
+"ञ्च्","ज्ज्","च्च","ल्ल","ह्ण","ह्ल","ह्व","्व",                             //08  
+"फ","ङ्ख","ङ्ग","ङ्घ","ङ्क्ष","ह्न","ड्ढ","श्व",                             	//08
+"क्क", "य", "क्क","क्व","क्त","ख्र", "झ्र",  "ग्न", "ट्ट","ट्ठ","ठ्ठ","ड्ड","ड्ढ","म्",     		//13 
+"द्र","दृ","द्ग","द्घ","द्द","द्ध","द्न","द्ब","द्भ","द्म","द्य","द्व","न्न","प्र","प्त","ष्ट","ष्ठ",      //17 
+"स्र","स्त्र",    "ह्र","हृ","ह्म","ह्य",   "श्च","श्न", 						//08
+"्य", "्र","्र","्र",                                          //04
+                                                        
+"क्","ख्", "ग्", "घ्","क","ख","ग","घ","ङ",                               //09 
+"च्","ज्","झ्","ञ्","च","छ","ज","झ",                                   //08
+"ट","ठ","ड","ढ","ण्","ण",                                         //06 
+"त्","थ्", "ध्","न्","त","थ","द","ध","न",                                //09
+"प्","फ्","ब्","भ्","म्","प","फ","ब","भ","म",                              //10
+                                                        
+"य्", "ल्","व्","श्","ष्", "ळ्", "श्", "स्","ह्",                             //09 
+"य","र","ल","ल","व","श","ष","स","ह","ळ",                              //10
+                                                        
+"औ","ओ","ऑ","आ","अ","ई","इ","उ","ऊ","ऋ","ॠ","ऐ","ए",                    //13
+
+"ा", "ी","ी", "ीं", "ु","ु","ु","ू","ू", "ृ","ॄ", "ें", "े", "ै","ैं", "ः", "ं","ं","ं","़",		//18
+"ु","ू","ॅ","ँ","्",                                                       //05
+
+
+//"०","१","२","३","४","५","६","७","८","९",
+
+"","े","ै","ओ","आ","औ","ओ","ो","ॉ","ॉ","ो",
+"ुं","े","अ‍ै","ो","अ‍े","ां","अ‍ॅ","ौ","ौ","ृं",
+"ाँ","ूँ","ो","ें","ों","ँ","ँ"," :","ूं")     // Remove typing mistakes in the original file 
+
+//**************************************************************************************
+//
+// Punctuation marks incorporated at the end
+//
+//**************************************************************************************
+// The following two characters are to be replaced through proper checking of locations:
+//**************************************************************************************
+//   "{",
+//   "ि",
+//
+//   "©",
+//   "र्" (reph)
+// 
+//**************************************************************************************
+
+    var array_one_length = array_one.length ;
+	console.log("Number of convert strings in array : " + array_one_length);
+
+    var modified_substring //= document.getElementById("legacy_text").value  ;
+	
+	modified_substring = textstring;
+
+    Replace_Symbols( ) ;
+
+    var processed_text = modified_substring ;
+    //console.log(processed_text); 
+    //document.getElementById("unicode_text").value = processed_text  ;
+
+// --------------------------------------------------
+
+
+function Replace_Symbols( )
+
+{
+
+//substitute array_two elements in place of corresponding array_one elements
+
+if ( modified_substring != "" )  // if stringto be converted is non-blank then no need of any processing.
+{
+for ( input_symbol_idx = 0;   input_symbol_idx < array_one_length;    input_symbol_idx++ )
+
+{ 
+
+//  alert(" modified substring = "+modified_substring)
+
+//***********************************************************
+// if (input_symbol_idx==106) 
+//  { alert(" input_symbol_idx = "+input_symbol_idx);
+//    alert(" input_symbol_idx = "+input_symbol_idx)
+//; alert(" character =" + modified_substring.CharCodeAt(input_symbol_idx))
+//     alert(" character = "+modified_string.fromCharCode(input_symbol_idx)) 
+//   }
+// if (input_symbol_idx == 107) 
+//   { alert(" input_symbol_idx = "+input_symbol_idx);
+//    alert(" character = ",+string.fromCharCode(input_symbol_idx)) 
+//   }
+//***********************************************************
+idx = 0  ;  // index of the symbol being searched for replacement
+
+while (idx != -1 ) //while-00
+{
+
+modified_substring = modified_substring.replace( array_one[ input_symbol_idx ] , array_two[input_symbol_idx] )
+idx = modified_substring.indexOf( array_one[input_symbol_idx] )
+
+} // end of while-00 loop
+// alert(" end of while loop")
+} // end of for loop
+// alert(" end of for loop")
+
+// alert(" modified substring2 = "+modified_substring)
+//*******************************************************
+var position_of_i = modified_substring.indexOf( "{" )  
+
+while ( position_of_i != -1 )  //while-02
+{
+var charecter_next_to_i = modified_substring.charAt( position_of_i + 1 )
+var charecter_to_be_replaced = "{" + charecter_next_to_i  
+modified_substring = modified_substring.replace( charecter_to_be_replaced , charecter_next_to_i + "ि" ) 
+position_of_i = modified_substring.search( /{/ , position_of_i + 1 ) // search for i ahead of the current position.
+
+} // end of while-02 loop
+
+//**********************************************************************************
+// End of Code for Replacing four Special glyphs
+//**********************************************************************************
+
+// code for replacing  and correcting its position too.
+//added q to try getting in matra like भिं
+
+modified_substring = modified_substring.replace(   /([q])([कखगघङचछजझञटठडड़ढढ़णतथदधनपफबभमयरलवशषसहक़ख़ग़ज़ड़ढ़फ़©])/g , "$2$1" ) ;
+
+modified_substring = modified_substring.replace(   /([q])(्)([कखगघङचछजझञटठडड़ढढ़णतथदधनपफबभमयरलवशषसहक़ख़ग़ज़ड़ढ़फ़©])/g , "$2$3$1" ) ;
+
+modified_substring = modified_substring.replace(   /([q])(्)([कखगघङचछजझञटठडड़ढढ़णतथदधनपफबभमयरलवशषसहक़ख़ग़ज़ड़ढ़फ़©])/g , "$2$3$1" ) ;
+
+modified_substring = modified_substring.replace( /q/g , "िं" ) ;
+// end of PMPML insert
+
+
+// following loop to eliminate 'chhotee ee kee maatraa' on half-letters as a result of above transformation.
+
+var position_of_wrong_ee = modified_substring.indexOf( "ि्" ) 
+
+while ( position_of_wrong_ee != -1 )  //while-03
+
+{
+var consonent_next_to_wrong_ee = modified_substring.charAt( position_of_wrong_ee + 2 )
+var charecter_to_be_replaced = "ि्" + consonent_next_to_wrong_ee 
+modified_substring = modified_substring.replace( charecter_to_be_replaced , "्" + consonent_next_to_wrong_ee + "ि" ) 
+position_of_wrong_ee = modified_substring.search( /ि्/ , position_of_wrong_ee + 2 ) // search for 'wrong ee' ahead of the current position. 
+
+} // end of while-03 loop
+
+// following loop to eliminate 'chhotee ee kee maatraa' on half-letters as a result of above transformation.
+
+var position_of_wrong_ee = modified_substring.indexOf( "िं्" ) 
+
+while ( position_of_wrong_ee != -1 )  //while-03
+
+{
+var consonent_next_to_wrong_ee = modified_substring.charAt( position_of_wrong_ee + 3 )
+var charecter_to_be_replaced = "िं्" + consonent_next_to_wrong_ee 
+modified_substring = modified_substring.replace( charecter_to_be_replaced , "्" + consonent_next_to_wrong_ee + "िं" ) 
+position_of_wrong_ee = modified_substring.search( /िं्/ , position_of_wrong_ee + 3 ) // search for 'wrong ee' ahead of the current position. 
+
+} // end of while-03 loop
+
+
+// Eliminating reph "Ô" and putting 'half - r' at proper position for this.
+set_of_matras = "ा ि ी ु ू ृ े ै ो ौ ं : ँ ॅ" 
+var position_of_R = modified_substring.indexOf( "©" )
+
+while ( position_of_R > 0 )  // while-04
+{
+probable_position_of_half_r = position_of_R - 1 ;
+var charecter_at_probable_position_of_half_r = modified_substring.charAt( probable_position_of_half_r )
+
+
+// trying to find non-maatra position left to current O (ie, half -r).
+console.log(charecter_at_probable_position_of_half_r);
+
+charecter_at_probable_position_of_half_r = charecter_at_probable_position_of_half_r.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+
+while ( set_of_matras.match( charecter_at_probable_position_of_half_r ) != null )  // while-05
+
+{
+probable_position_of_half_r = probable_position_of_half_r - 1 ;
+charecter_at_probable_position_of_half_r = modified_substring.charAt( probable_position_of_half_r ) ;
+
+} // end of while-05
+
+
+charecter_to_be_replaced = modified_substring.substr ( probable_position_of_half_r , ( position_of_R - probable_position_of_half_r ) ) ;
+new_replacement_string = "र्" + charecter_to_be_replaced ; 
+charecter_to_be_replaced = charecter_to_be_replaced + "©" ;
+modified_substring = modified_substring.replace( charecter_to_be_replaced , new_replacement_string ) ;
+position_of_R = modified_substring.indexOf( "©" ) ;
+
+} // end of while-04
+
+//**********punctuation marks ****************
+//    "¡","£","¤","¥","²","³","´","µ","¹","À","Á","Â","Ã","Ä","Å","Æ","Ç","È","Ê","Ñ","Ò","Õ",
+// "{","}","[","]","!","(",")","*","-","/",":",";","<","=",">","?","@","|",",","!","\\","√","-",
+
+//modified_substring = modified_substring.replace( /¡/g , "{" )   ;  
+
+} // end of IF  statement  meant to  supress processing of  blank  string.
+
+} // end of the function  Replace_Symbols
+
+//document.getElementById("unicode_text").select();
+return processed_text;
+
+} // end of convert_to_unicode function
+
+
+	
+ $(document).on("pageshow", "#pageone", function () {
+        if (localStorage.LilaID != null) {
+            var mainDiv = $("#pageone");
+            mainDiv.find('a').removeClass("ui-btn-active");
+            $("#lila_" + localStorage.LilaID).addClass("ui-btn-active");
+            scrollToView("lila_" + localStorage.LilaID);
+        }
+    });
+
+
+
+    function GetLila(LilaID) {
+		console.log(LilaID);
+        localStorage.LilaID = LilaID;
+		console.log(LilaID);
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "person.json",// + LilaID,
+            data: "json",
+            success: function (data) {
+			console.log(data.main[LilaID])
+                var pageDiv = $("#set");
+                pageDiv.empty();
+				
+                pageDiv.append('<center>'+data.main[LilaID].Aadi+'<center>')
+				pageDiv.append('<p>'+data.main[LilaID].Lila+'</p>')
+				var convert = convert_to_unicode(data.main[LilaID].shabd);
+				pageDiv.append('<p><span style="color: #ff0000"> शब्दार्थ : </span>'+convert+'</p>')
+				pageDiv.append('<p><span style="color: #ff0000"> परिवार  : </span>'+data.main[LilaID].person+'</p>')
+				if(data.main[LilaID].vachan != ""){
+				pageDiv.append('<p><span style="color: #ff0000"> वचन  : </span>'+data.main[LilaID].vachan+'</p>')
+				}
+				if(data.main[LilaID].sthan != ""){
+				pageDiv.append('<p><span style="color: #ff0000"> स्थान   : </span>'+data.main[LilaID].sthan+'</p>')
+				}
+				
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve Lila Please check your internet.');
+            }
+        });
+    }
+	
+
+    
+
+    function NextLila() {
+	console.log(localStorage.LilaID);
+	console.log(Number(localStorage.LilaID)+1);
+	GetLila(Number(localStorage.LilaID)+1);
+    }
+
+    function PreLila() {
+	console.log(localStorage.LilaID);
+	console.log(Number(localStorage.LilaID)-1);
+	GetLila(Number(localStorage.LilaID)-1);
+    }
+</script>
+
+
+    <div data-role="page" data-theme="a" id="pageone">
+
+        <div data-role="header" data-position="fixed" data-fullscreen="true">
+                        <h1>लीळाचरित्र - श्रीकृष्णचरित्र</h1>
+
+        </div>
+		
+
+        <div data-role="main" class="ui-content">
+           
+    <div data-role="content" id="ListDiv"></div>
+	<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search...">
+
+<li>
+        <a onclick="GetLila(1248)" href="#lilaout" data-transition="slide" id="lila_1248">१ श्रीकृष्ण अवतार निरूपण</a>
+<li>
+        <a onclick="GetLila(1249)" href="#lilaout" data-transition="slide" id="lila_1249">२ मुखामाजि विश्व दाखवणें</a>
+<li>
+        <a onclick="GetLila(1250)" href="#lilaout" data-transition="slide" id="lila_1250">३ नंदादिकां आग्रहो निवृत्ति१</a>
+<li>
+        <a onclick="GetLila(1251)" href="#lilaout" data-transition="slide" id="lila_1251">४ कूबजीके भेटि</a>
+<li>
+        <a onclick="GetLila(1252)" href="#lilaout" data-transition="slide" id="lila_1252">५ उद्धवदेवां प्रेमदान</a>
+<li>
+        <a onclick="GetLila(1253)" href="#lilaout" data-transition="slide" id="lila_1253">६ कुबजीकाभवना बीजें करणें१</a>
+<li>
+        <a onclick="GetLila(1254)" href="#lilaout" data-transition="slide" id="lila_1254">७ चतुर्दस विद्याअभ्यासू</a>
+<li>
+        <a onclick="GetLila(1255)" href="#lilaout" data-transition="slide" id="lila_1255">८ गुरूपूत्रानएन</a>
+<li>
+        <a onclick="GetLila(1256)" href="#lilaout" data-transition="slide" id="lila_1256">९ उद्धवदेवां गोकूळा पाठवणें</a>
+<li>
+        <a onclick="GetLila(1257)" href="#lilaout" data-transition="slide" id="lila_1257">१० जरासंदा पाठिवर्ण१</a>
+<li>
+        <a onclick="GetLila(1258)" href="#lilaout" data-transition="slide" id="lila_1258">११ रकूमीणी अवस्था श्रवण</a>
+<li>
+        <a onclick="GetLila(1259)" href="#lilaout" data-transition="slide" id="lila_1259">१२ रथावरि पतन</a>
+<li>
+        <a onclick="GetLila(1260)" href="#lilaout" data-transition="slide" id="lila_1260">१३ मदनदर्पहरण</a>
+<li>
+        <a onclick="GetLila(1261)" href="#lilaout" data-transition="slide" id="lila_1261">१४ कामू अवतारू कथन</a>
+<li>
+        <a onclick="GetLila(1262)" href="#lilaout" data-transition="slide" id="lila_1262">१५ सत्यभामे अधीनत्व</a>
+<li>
+        <a onclick="GetLila(1263)" href="#lilaout" data-transition="slide" id="lila_1263">१६ रेवांतका सत्यलोका गमन</a>
+<li>
+        <a onclick="GetLila(1264)" href="#lilaout" data-transition="slide" id="lila_1264">१७ श्रीमंतपंचकीं गोकूळस्तां वेधु</a>
+<li>
+        <a onclick="GetLila(1265)" href="#lilaout" data-transition="slide" id="lila_1265">१८ अनुर्धा वाढतें१</a>
+<li>
+        <a onclick="GetLila(1266)" href="#lilaout" data-transition="slide" id="lila_1266">१९ समुद्रीं जळक्रीडा१</a>
+<li>
+        <a onclick="GetLila(1267)" href="#lilaout" data-transition="slide" id="lila_1267">२० राजसूइं अग्रपूजा स्वीकारू१</a>
+<li>
+        <a onclick="GetLila(1268)" href="#lilaout" data-transition="slide" id="lila_1268">२१ श्रीकृष्णीं अष्टविध ब्रह्मचर्यानुवादु१</a>
+<li>
+        <a onclick="GetLila(1269)" href="#lilaout" data-transition="slide" id="lila_1269">२२ बळिभूवना बीजें करणें</a>
+<li>
+        <a onclick="GetLila(1270)" href="#lilaout" data-transition="slide" id="lila_1270">२३ क्षीराब्धी गमन१</a>
+<li>
+        <a onclick="GetLila(1271)" href="#lilaout" data-transition="slide" id="lila_1271">२४ मीथळे सूतदेवां जनकां भेटि१</a>
+<li>
+        <a onclick="GetLila(1272)" href="#lilaout" data-transition="slide" id="lila_1272">२५ भीवंदर्पहरण</a>
+<li>
+        <a onclick="GetLila(1273)" href="#lilaout" data-transition="slide" id="lila_1273">२६ नारददर्पहरण</a>
+<li>
+        <a onclick="GetLila(1274)" href="#lilaout" data-transition="slide" id="lila_1274">२७ हनुमंतदर्पहरण</a>
+<li>
+        <a onclick="GetLila(1275)" href="#lilaout" data-transition="slide" id="lila_1275">२८ कौरवां सवावो</a>
+<li>
+        <a onclick="GetLila(1276)" href="#lilaout" data-transition="slide" id="lila_1276">२९ योद्धसमइं अर्जुनां ज्ञानदान१</a>
+<li>
+        <a onclick="GetLila(1277)" href="#lilaout" data-transition="slide" id="lila_1277">३० विभूति निरूपण</a>
+<li>
+        <a onclick="GetLila(1278)" href="#lilaout" data-transition="slide" id="lila_1278">३१ विश्वरूप दाखवणे</a>
+<li>
+        <a onclick="GetLila(1279)" href="#lilaout" data-transition="slide" id="lila_1279">३२ संजयो प्रतीति</a>
+<li>
+        <a onclick="GetLila(1280)" href="#lilaout" data-transition="slide" id="lila_1280">३३ जेद्रथ वधु</a>
+<li>
+        <a onclick="GetLila(1281)" href="#lilaout" data-transition="slide" id="lila_1281">३४ वीस्वरूप उपदेसें अर्जूना पूनस्मरण</a>
+<li>
+        <a onclick="GetLila(1282)" href="#lilaout" data-transition="slide" id="lila_1282">३५ उधवदेवां आज्ञाभंग अभावो१</a>
+<li>
+        <a onclick="GetLila(1283)" href="#lilaout" data-transition="slide" id="lila_1283">३६ उधवदेवां अपरोक्ष</a>
+<li>
+        <a onclick="GetLila(1284)" href="#lilaout" data-transition="slide" id="lila_1284">३७ वीदुरउद्धवदेवां भेटि</a>
+<li>
+        <a onclick="GetLila(1285)" href="#lilaout" data-transition="slide" id="lila_1285">३८ श्रीकृस्णपूरत्यागु</a>
+<li>
+        <a onclick="GetLila(1286)" href="#lilaout" data-transition="slide" id="lila_1286">३९ भीला पूतने फळाअनूवादु</a>
+<li>
+        <a onclick="GetLila(1287)" href="#lilaout" data-transition="slide" id="lila_1287">४० गोपिकां नीरे नीरोपणें</a>
+<li>
+        <a onclick="GetLila(1288)" href="#lilaout" data-transition="slide" id="lila_1288">४१ कोंतीये देहअवसान</a>
+<li>
+        <a onclick="GetLila(1289)" href="#lilaout" data-transition="slide" id="lila_1289">४२ वज्रप्रतिष्ठा१</a>
+<li>
+        <a onclick="GetLila(1290)" href="#lilaout" data-transition="slide" id="lila_1290">४३ पांडवां हीमवंता परीखू</a>
+<li>
+        <a onclick="GetLila(1291)" href="#lilaout" data-transition="slide" id="lila_1291">४४ यौधीष्ठीरां नीरेदर्सन</a>
+<li>
+        <a onclick="GetLila(1292)" href="#lilaout" data-transition="slide" id="lila_1292">४५ आयुष्य कथन</a>
+<li>
+        <a onclick="GetLila(1293)" href="#lilaout" data-transition="slide" id="lila_1293">४६ भक्तां राज्य अनूवादु</a>
+<li>
+        <a onclick="GetLila(1294)" href="#lilaout" data-transition="slide" id="lila_1294">४७ बळिभद्रीं साजात्यां वेधु१</a>
+<li>
+        <a onclick="GetLila(1295)" href="#lilaout" data-transition="slide" id="lila_1295">४८ माहादाइसां दस अवतार नीरोपणें</a>
+
+</ul>
+          
+</div>
+</div>
+	
+	
+    <div data-role="page" data-theme="a" id="lilaout">
+	<div data-role="header" data-position="fixed">
+                        <h1>लीळाचरित्र - श्रीकृष्णचरित्र</h1>
+
+        </div>
+	<div id="set"></div>
+	
+	<div data-role="footer" data-position="fixed">
+        <div class="ui-grid-d center">
+            <div class="ui-block-a">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="https://galacticmaster.github.io/lilacharitra/main/">Button</a>
+            </div>
+            <div class="ui-block-b">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline" data-transition="slide" onclick="PreLila()">Button</a>
+            </div>
+            <div class="ui-block-c">
+                <!--<a class="ui-shadow ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-inline" type="hidden" href="#pageone">Button</a>-->
+            </div>
+            <div class="ui-block-d">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-notext ui-btn-inline" data-transition="slide" onclick="NextLila()">Button</a>
+            </div>
+            <div class="ui-block-e">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-gear ui-btn-icon-notext ui-btn-inline">Button</a>
+            </div>
+        </div>
+	
+    </div>
+	
+
+
+    </div>
+	
+	
+</body>
+</html>
+
+<script>
+    /*Disable copy paste*/
+    (function ($) {
+
+        $.fn.blockCopy = function (options) {
+
+            var settings = $.extend({
+                blockPasteClass: null
+            }, options);
+
+
+            if (settings.blockPasteClass) {
+                $("." + settings.blockPasteClass).bind('copy paste cut drag drop', function (e) {
+                    e.preventDefault();
+                    return false;
+                });
+            }
+
+
+            function style_appender(rule) {
+                $('html > head').append($('<style>' + rule + '</style>'));
+            }
+
+            function html_appender(html) {
+                $("body").append(html);
+            }
+
+            function clearClipboard() {
+                var $temp = $("#bypasser");
+                $temp.val("You can't cheat !").select();
+                document.execCommand("copy");
+            }
+
+            function add_absolute_div(id) {
+                html_appender("<div id='noClick" + id + "' onclick='return false;' oncontextmenu='return false;'>&nbsp;</div>");
+            }
+
+
+            function absorbEvent_(event) {
+                var e = event || window.event;
+                e.preventDefault && e.preventDefault();
+                e.stopPropagation && e.stopPropagation();
+                e.cancelBubble = true;
+                e.returnValue = false;
+                return false;
+            }
+
+            function preventLongPressMenu(node) {
+                node.ontouchstart = absorbEvent_;
+                node.ontouchmove = absorbEvent_;
+                node.ontouchend = absorbEvent_;
+                node.ontouchcancel = absorbEvent_;
+            }
+
+            function set_absolute_div(element, id) {
+                var position = element.position();
+                var noclick = "#noClick" + id;
+
+                $(noclick).css({
+                    height: (element.height()),
+                    width: (element.width()),
+                    position: 'absolute',
+                    top: position.top,
+                    left: position.left,
+                    'z-index': 100
+                })
+            }
+
+
+            $("body").bind("contextmenu", function (e) {
+                e.preventDefault();
+            });
+
+
+
+            //Append needed rules to css
+            style_appender(
+                "* {-moz-user-select: none !important; -khtml-user-select: none !important;   -webkit-user-select: none !important; -ms-user-select: none !important;   user-select: none !important; }" +
+                ".content {position: relative !important; }" +
+                ".content .mask {position: absolute !important ; z-index: 1 !important; width: 100% !important; height: 100%!important;}" +
+                ".content a {position: relative !important; z-index: 3 !important;}" +
+                ".content, .content .mask{ pointer-events: none;}"
+            );
+
+
+            //Append an Input to clear clipboard
+            html_appender("<input id='bypasser' value='nothing' type='hidden'>");
+            //Clearing clipboard Intervali
+            setInterval(clearClipboard, 1000);
+
+
+
+            var id = 1;
+
+            return this.each(function () {
+
+                //Preventing using touch events
+                preventLongPressMenu($(this));
+
+                //Add CSS preventor rules to selected DOM & append mask to class
+                $(this).addClass("content").append("<div class='mask'></div>");
+
+                //Append an absolute div to body
+                add_absolute_div(id);
+                //Set position of the div to selected DOM
+                set_absolute_div($(this), id);
+
+
+                id++;
+
+            });
+
+        }
+
+    }(jQuery));
+
+    /*Disable copy paste action */
+    $(document).ready(function () {
+        $(this).blockCopy();
+    });
+
+    function scrollToView(id) {
+        if ($("#" + id).offset() != undefined) {
+            var toppadding = Math.floor($("#" + id).offset().top - 70);
+            $('html,body').animate({
+            scrollTop: toppadding
+        }, 0);
+        }
+    }
+</script>
