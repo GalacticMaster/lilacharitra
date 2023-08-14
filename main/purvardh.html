@@ -80,7 +80,7 @@ p { margin-bottom: 15px; }
         localStorage.LilaID = LilaID;
 		console.log(LilaID);
         $.ajax({
-            cache: false,
+            cache: true,
             type: "GET",
             url: "person.json",// + LilaID,
             data: "json",
