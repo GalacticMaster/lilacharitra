@@ -346,7 +346,7 @@ return processed_text;
         localStorage.LilaID = LilaID;
 		console.log(LilaID);
         $.ajax({
-            cache: false,
+            cache: true,
             type: "GET",
             url: "person.json",// + LilaID,
             data: "json",
