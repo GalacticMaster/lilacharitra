@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LilaCharitra</title>
+<link rel="stylesheet" href="./themes/pershastra.min.css" />
+<link rel="stylesheet" href="./themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+
+    <style>
+.ui-page { 
+
+    box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+    background: #fffef0;
+	white-space: normal !important; word-break:break-all !important;text-justify: auto !important;
+}
+* {
+    text-shadow: none !important;
+}
+
+
+.ui-listview > li a {
+  white-space: normal !important;
+  /*color:brown !important;*/
+}​
+h3 .ui-btn-text{ white-space: normal !important; word-break:break-all !important; }
+h3 { white-space: normal !important; word-break:break-all !important; }
+
+mark { 
+  background-color: pink;
+  color: black;
+}
+
+p { margin-bottom: 15px; }
+        center {
+            font-size: 1.2em;
+            font-weight: 600;
+            text-align: center;
+            color: #000;
+            line-height: normal;
+            margin-bottom: 0;
+			word-break:break-all !important;
+        }
+
+
+        p {
+		padding: 0 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-align: center;
+            color: #000;
+            line-height: normal;
+            margin-bottom: 0;
+			word-break:break-all !important;
+        }
+    </style>
+</head>
+<body data-dom-cache="false">
+    
+    <div>
+        
+<script>
+
+function convert_to_unicode(textstring)
+{
+
+var array_one = new Array(
+//PMPML ADDITIONS
+//"è", "Am¡Y", "H§y Ora", "©©", "« m", "H r",	"« r", "mm", "H _obm", "§ Q", "Šg©", "Jìh©_|Q>", "o«", "H Q", "} Q", "{H$bmoñH$a", "H d", "§ n", "gmdaH$a^dZ", "Ì ~", "w §", "¥ î", "S Z", "Ao", "R m", "o Ý", "åw`", "lrm", "½`w©",  
+//PMPML ADDITIONS DONE
+//"å", //Hemang
+
+">", "$","[", "p","“","”",                  //06
+"µH","™","˜","µJ","µO","µS","µT","µ\\",                                //08
+"ª", "£", "¤", "u", "v",      "}", "]",						 			//07
+"›","@","&","\"","'",                        		                  //05
+"ú","j","k","l","Ì","Í","Î",                        		            //07
+"®","¯","é","ê",                        		                        //04
+
+"#","‚","ƒ","„","†", "‡","ˆ","‰",                        		      //08 
+"’","“","”","•","¬","–","—","œ",                        		      //08
+"³", "¶",  "¸",  "¹","º","¼", "Ã", "¾","Å","Æ","Ç","È","É","å",             //13
+"Ð","Ñ","Ò","Ó","Ô","Õ","Ö","×","Ø","Ù","Ú","Û","Þ","à","á","ï","ð",    //17
+"ò","ó",   "õ","ö","÷","ø",    "ü","ý",                           		//08
+"ç", "Œ", "´",  "«",                       		                  		//04
+
+"Š","»","½", "¿","H","I","J","K","L",                                   //09
+"À","Á","Â","Ä","M","N","O","P",                                        //08
+"Q","R","S","T","Ê","U",                        		            	//06
+"Ë", "Ï", "Ü","Ý","V","W","X","Y","Z",                       	      	//09
+"ß","â","ã","ä","‘","n","\\","~", "^","_",                        		//10
+
+"æ", "ë","ì","í","î", "ù",  "û", "ñ","ô",                               //09
+"`","a","b","c","d","e","f","g","h","i",                        		//10
+
+"Am¡","Amo","Am°","Am","A","B©","B","C","D","F","G","Eo","E",           //13
+                        		           
+
+"m", "r","s", "t","ww","w","x","y","z","¥","¦","|","o","¡","¢","…","§§","§","¨","µ", //18
+"þ","ÿ","°","±","²",                                                       		//05
+
+//"0","1","2","3","4","5","6","7","8","9",
+
+
+"्ा","्ो","्ौ","अो","अा","आै","आे","ाो","ाॅ","ॅा","ाे",
+"ंु","ेे","अै","ाे","अे","ंा","अॅ","ाै","ैा","ंृ",
+"ँा","ँू","ेा","ंे","ाें","ॅं","ंॅ"," ः","ंू")     // Remove typing mistakes in the original file
+
+var array_two = new Array(
+//PMPML ADDITIONS
+//"ऱ्", "औंध", "कूंजीर", "©", "«m", "Hr", "«r", "आ", "कमेला", "§Q", "र्क्स", "गवर्नमेंट", "«o", "HQ", "}Q", "किर्लोस्कर", "Hd", "§n","gmdaH$a ^dZ", "Ì~", "w§", "¥î", "SZ", "ए", "Rm", "oÝ", "å`w", "lr", "र्ग्यु", 
+//PMPML ADDITIONS DONE
+//"म्ह" //Hemang 
+
+"","","{","{","\"","'",  		//06
+"क़","ख़्","ख़","ग़","ज़","ड़","ढ़","फ़", // one-byte varnas           		//08
+"ं©",  "ै©","ैं©","ी©","ीं©", "े©", "ें©",             		//07
+"ॐ","ऽ","।","‘","’",                                			//05 
+"क्ष्","क्ष","ज्ञ","श्र","त्र","त्र्","त्त्",                                 	//07 
+"्रु","्रू","रु","रू",   	                                      	//04 
+
+                
+				 
+"ञ्च्","ज्ज्","च्च","ल्ल","ह्ण","ह्ल","ह्व","्व",                             //08  
+"फ","ङ्ख","ङ्ग","ङ्घ","ङ्क्ष","ह्न","ड्ढ","श्व",                             	//08
+"क्क", "य", "क्क","क्व","क्त","ख्र", "झ्र",  "ग्न", "ट्ट","ट्ठ","ठ्ठ","ड्ड","ड्ढ","म्",     		//13 
+"द्र","दृ","द्ग","द्घ","द्द","द्ध","द्न","द्ब","द्भ","द्म","द्य","द्व","न्न","प्र","प्त","ष्ट","ष्ठ",      //17 
+"स्र","स्त्र",    "ह्र","हृ","ह्म","ह्य",   "श्च","श्न", 						//08
+"्य", "्र","्र","्र",                                          //04
+                                                        
+"क्","ख्", "ग्", "घ्","क","ख","ग","घ","ङ",                               //09 
+"च्","ज्","झ्","ञ्","च","छ","ज","झ",                                   //08
+"ट","ठ","ड","ढ","ण्","ण",                                         //06 
+"त्","थ्", "ध्","न्","त","थ","द","ध","न",                                //09
+"प्","फ्","ब्","भ्","म्","प","फ","ब","भ","म",                              //10
+                                                        
+"य्", "ल्","व्","श्","ष्", "ळ्", "श्", "स्","ह्",                             //09 
+"य","र","ल","ल","व","श","ष","स","ह","ळ",                              //10
+                                                        
+"औ","ओ","ऑ","आ","अ","ई","इ","उ","ऊ","ऋ","ॠ","ऐ","ए",                    //13
+
+"ा", "ी","ी", "ीं", "ु","ु","ु","ू","ू", "ृ","ॄ", "ें", "े", "ै","ैं", "ः", "ं","ं","ं","़",		//18
+"ु","ू","ॅ","ँ","्",                                                       //05
+
+
+//"०","१","२","३","४","५","६","७","८","९",
+
+"","े","ै","ओ","आ","औ","ओ","ो","ॉ","ॉ","ो",
+"ुं","े","अ‍ै","ो","अ‍े","ां","अ‍ॅ","ौ","ौ","ृं",
+"ाँ","ूँ","ो","ें","ों","ँ","ँ"," :","ूं")     // Remove typing mistakes in the original file 
+
+//**************************************************************************************
+//
+// Punctuation marks incorporated at the end
+//
+//**************************************************************************************
+// The following two characters are to be replaced through proper checking of locations:
+//**************************************************************************************
+//   "{",
+//   "ि",
+//
+//   "©",
+//   "र्" (reph)
+// 
+//**************************************************************************************
+
+    var array_one_length = array_one.length ;
+	console.log("Number of convert strings in array : " + array_one_length);
+
+    var modified_substring //= document.getElementById("legacy_text").value  ;
+	
+	modified_substring = textstring;
+
+    Replace_Symbols( ) ;
+
+    var processed_text = modified_substring ;
+    //console.log(processed_text); 
+    //document.getElementById("unicode_text").value = processed_text  ;
+
+// --------------------------------------------------
+
+
+function Replace_Symbols( )
+
+{
+
+//substitute array_two elements in place of corresponding array_one elements
+
+if ( modified_substring != "" )  // if stringto be converted is non-blank then no need of any processing.
+{
+for ( input_symbol_idx = 0;   input_symbol_idx < array_one_length;    input_symbol_idx++ )
+
+{ 
+
+//  alert(" modified substring = "+modified_substring)
+
+//***********************************************************
+// if (input_symbol_idx==106) 
+//  { alert(" input_symbol_idx = "+input_symbol_idx);
+//    alert(" input_symbol_idx = "+input_symbol_idx)
+//; alert(" character =" + modified_substring.CharCodeAt(input_symbol_idx))
+//     alert(" character = "+modified_string.fromCharCode(input_symbol_idx)) 
+//   }
+// if (input_symbol_idx == 107) 
+//   { alert(" input_symbol_idx = "+input_symbol_idx);
+//    alert(" character = ",+string.fromCharCode(input_symbol_idx)) 
+//   }
+//***********************************************************
+idx = 0  ;  // index of the symbol being searched for replacement
+
+while (idx != -1 ) //while-00
+{
+
+modified_substring = modified_substring.replace( array_one[ input_symbol_idx ] , array_two[input_symbol_idx] )
+idx = modified_substring.indexOf( array_one[input_symbol_idx] )
+
+} // end of while-00 loop
+// alert(" end of while loop")
+} // end of for loop
+// alert(" end of for loop")
+
+// alert(" modified substring2 = "+modified_substring)
+//*******************************************************
+var position_of_i = modified_substring.indexOf( "{" )  
+
+while ( position_of_i != -1 )  //while-02
+{
+var charecter_next_to_i = modified_substring.charAt( position_of_i + 1 )
+var charecter_to_be_replaced = "{" + charecter_next_to_i  
+modified_substring = modified_substring.replace( charecter_to_be_replaced , charecter_next_to_i + "ि" ) 
+position_of_i = modified_substring.search( /{/ , position_of_i + 1 ) // search for i ahead of the current position.
+
+} // end of while-02 loop
+
+//**********************************************************************************
+// End of Code for Replacing four Special glyphs
+//**********************************************************************************
+
+// code for replacing  and correcting its position too.
+//added q to try getting in matra like भिं
+
+modified_substring = modified_substring.replace(   /([q])([कखगघङचछजझञटठडड़ढढ़णतथदधनपफबभमयरलवशषसहक़ख़ग़ज़ड़ढ़फ़©])/g , "$2$1" ) ;
+
+modified_substring = modified_substring.replace(   /([q])(्)([कखगघङचछजझञटठडड़ढढ़णतथदधनपफबभमयरलवशषसहक़ख़ग़ज़ड़ढ़फ़©])/g , "$2$3$1" ) ;
+
+modified_substring = modified_substring.replace(   /([q])(्)([कखगघङचछजझञटठडड़ढढ़णतथदधनपफबभमयरलवशषसहक़ख़ग़ज़ड़ढ़फ़©])/g , "$2$3$1" ) ;
+
+modified_substring = modified_substring.replace( /q/g , "िं" ) ;
+// end of PMPML insert
+
+
+// following loop to eliminate 'chhotee ee kee maatraa' on half-letters as a result of above transformation.
+
+var position_of_wrong_ee = modified_substring.indexOf( "ि्" ) 
+
+while ( position_of_wrong_ee != -1 )  //while-03
+
+{
+var consonent_next_to_wrong_ee = modified_substring.charAt( position_of_wrong_ee + 2 )
+var charecter_to_be_replaced = "ि्" + consonent_next_to_wrong_ee 
+modified_substring = modified_substring.replace( charecter_to_be_replaced , "्" + consonent_next_to_wrong_ee + "ि" ) 
+position_of_wrong_ee = modified_substring.search( /ि्/ , position_of_wrong_ee + 2 ) // search for 'wrong ee' ahead of the current position. 
+
+} // end of while-03 loop
+
+// following loop to eliminate 'chhotee ee kee maatraa' on half-letters as a result of above transformation.
+
+var position_of_wrong_ee = modified_substring.indexOf( "िं्" ) 
+
+while ( position_of_wrong_ee != -1 )  //while-03
+
+{
+var consonent_next_to_wrong_ee = modified_substring.charAt( position_of_wrong_ee + 3 )
+var charecter_to_be_replaced = "िं्" + consonent_next_to_wrong_ee 
+modified_substring = modified_substring.replace( charecter_to_be_replaced , "्" + consonent_next_to_wrong_ee + "िं" ) 
+position_of_wrong_ee = modified_substring.search( /िं्/ , position_of_wrong_ee + 3 ) // search for 'wrong ee' ahead of the current position. 
+
+} // end of while-03 loop
+
+
+// Eliminating reph "Ô" and putting 'half - r' at proper position for this.
+set_of_matras = "ा ि ी ु ू ृ े ै ो ौ ं : ँ ॅ" 
+var position_of_R = modified_substring.indexOf( "©" )
+
+while ( position_of_R > 0 )  // while-04
+{
+probable_position_of_half_r = position_of_R - 1 ;
+var charecter_at_probable_position_of_half_r = modified_substring.charAt( probable_position_of_half_r )
+
+
+// trying to find non-maatra position left to current O (ie, half -r).
+console.log(charecter_at_probable_position_of_half_r);
+
+charecter_at_probable_position_of_half_r = charecter_at_probable_position_of_half_r.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+
+while ( set_of_matras.match( charecter_at_probable_position_of_half_r ) != null )  // while-05
+
+{
+probable_position_of_half_r = probable_position_of_half_r - 1 ;
+charecter_at_probable_position_of_half_r = modified_substring.charAt( probable_position_of_half_r ) ;
+
+} // end of while-05
+
+
+charecter_to_be_replaced = modified_substring.substr ( probable_position_of_half_r , ( position_of_R - probable_position_of_half_r ) ) ;
+new_replacement_string = "र्" + charecter_to_be_replaced ; 
+charecter_to_be_replaced = charecter_to_be_replaced + "©" ;
+modified_substring = modified_substring.replace( charecter_to_be_replaced , new_replacement_string ) ;
+position_of_R = modified_substring.indexOf( "©" ) ;
+
+} // end of while-04
+
+//**********punctuation marks ****************
+//    "¡","£","¤","¥","²","³","´","µ","¹","À","Á","Â","Ã","Ä","Å","Æ","Ç","È","Ê","Ñ","Ò","Õ",
+// "{","}","[","]","!","(",")","*","-","/",":",";","<","=",">","?","@","|",",","!","\\","√","-",
+
+//modified_substring = modified_substring.replace( /¡/g , "{" )   ;  
+
+} // end of IF  statement  meant to  supress processing of  blank  string.
+
+} // end of the function  Replace_Symbols
+
+//document.getElementById("unicode_text").select();
+return processed_text;
+
+} // end of convert_to_unicode function
+
+
+	
+ $(document).on("pageshow", "#pageone", function () {
+        if (localStorage.LilaID != null) {
+            var mainDiv = $("#pageone");
+            mainDiv.find('a').removeClass("ui-btn-active");
+            $("#lila_" + localStorage.LilaID).addClass("ui-btn-active");
+            scrollToView("lila_" + localStorage.LilaID);
+        }
+    });
+
+
+
+    function GetLila(LilaID) {
+		console.log(LilaID);
+        localStorage.LilaID = LilaID;
+		console.log(LilaID);
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "person.json",// + LilaID,
+            data: "json",
+            success: function (data) {
+			console.log(data.main[LilaID])
+                var pageDiv = $("#set");
+                pageDiv.empty();
+				
+                pageDiv.append('<center>'+data.main[LilaID].Aadi+'<center>')
+				pageDiv.append('<p>'+data.main[LilaID].Lila+'</p>')
+				var convert = convert_to_unicode(data.main[LilaID].shabd);
+				pageDiv.append('<p><span style="color: #ff0000"> शब्दार्थ : </span>'+convert+'</p>')
+				pageDiv.append('<p><span style="color: #ff0000"> परिवार  : </span>'+data.main[LilaID].person+'</p>')
+				if(data.main[LilaID].vachan != ""){
+				pageDiv.append('<p><span style="color: #ff0000"> वचन  : </span>'+data.main[LilaID].vachan+'</p>')
+				}
+				if(data.main[LilaID].sthan != ""){
+				pageDiv.append('<p><span style="color: #ff0000"> स्थान   : </span>'+data.main[LilaID].sthan+'</p>')
+				}
+				
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve Lila Please check your internet.');
+            }
+        });
+    }
+	
+
+    
+
+    function NextLila() {
+	console.log(localStorage.LilaID);
+	console.log(Number(localStorage.LilaID)+1);
+	GetLila(Number(localStorage.LilaID)+1);
+    }
+
+    function PreLila() {
+	console.log(localStorage.LilaID);
+	console.log(Number(localStorage.LilaID)-1);
+	GetLila(Number(localStorage.LilaID)-1);
+    }
+</script>
+
+
+    <div data-role="page" data-theme="a" id="pageone">
+
+        <div data-role="header" data-position="fixed" data-fullscreen="true">
+                        <h1>लीळाचरित्र - उत्तरार्ध</h1>
+
+        </div>
+		
+
+        <div data-role="main" class="ui-content">
+           
+    <div data-role="content" id="ListDiv"></div>
+	<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search...">
+	<li>
+        <a onclick="GetLila(593)" href="#lilaout" data-transition="slide" id="lila_593">१ खडकुलीए अवस्थान : भटां अनुसरण (खडकुली)</a>
+<li>
+        <a onclick="GetLila(594)" href="#lilaout" data-transition="slide" id="lila_594">२ भटां झोळी देणें* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(595)" href="#lilaout" data-transition="slide" id="lila_595">३ भटां भिक्षाधर्मनिरूपण* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(596)" href="#lilaout" data-transition="slide" id="lila_596">४ लुखदेवोबा भेटि (खडकुली)</a>
+<li>
+        <a onclick="GetLila(597)" href="#lilaout" data-transition="slide" id="lila_597">५ आपलो भेटि* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(598)" href="#lilaout" data-transition="slide" id="lila_598">६ भोजया इंद्रवणी (खडकुली)</a>
+<li>
+        <a onclick="GetLila(599)" href="#lilaout" data-transition="slide" id="lila_599">७ नीरसें विरसें अन्नें अनुवादु* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(600)" href="#lilaout" data-transition="slide" id="lila_600">८ आपलो चणकभोजनीं भटां घ्रणानिरासु (खडकुली)</a>
+<li>
+        <a onclick="GetLila(601)" href="#lilaout" data-transition="slide" id="lila_601">९ आउ घरटीकरणीं स्तीति आवेसु (खडकुली)</a>
+<li>
+        <a onclick="GetLila(602)" href="#lilaout" data-transition="slide" id="lila_602">१० सर्पदस्ट माळी रक्षणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(603)" href="#lilaout" data-transition="slide" id="lila_603">११ पर्वी१ दाइंबा प्रमादवचनीं सीक्षापन (खडकुली)</a>
+<li>
+        <a onclick="GetLila(604)" href="#lilaout" data-transition="slide" id="lila_604">१२ आपलो अनुसरण* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(605)" href="#lilaout" data-transition="slide" id="lila_605">१३ माहादाइनीवारीत स्त्रिये केळदान (खडकुली)</a>
+<li>
+        <a onclick="GetLila(606)" href="#lilaout" data-transition="slide" id="lila_606">१४ रात्रीं वीहरणीं१ वोंबीया आरोगण (खडकुली)</a>
+<li>
+        <a onclick="GetLila(607)" href="#lilaout" data-transition="slide" id="lila_607">१५ अनुचरचोरीकृत उळा आरोगण (खडकुली)</a>
+<li>
+        <a onclick="GetLila(608)" href="#lilaout" data-transition="slide" id="lila_608">१६ भट नाथोबा सीतपीडानिवृति(खडकुली)</a>
+<li>
+        <a onclick="GetLila(609)" href="#lilaout" data-transition="slide" id="lila_609">१७ इंद्रोबा वीधानपूर्वक फुटा प्रसाददान (खडकुली)</a>
+<li>
+        <a onclick="GetLila(610)" href="#lilaout" data-transition="slide" id="lila_610">१८ भटमुक्ष अनोज्ञाकृत सांडोवा बांधवणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(611)" href="#lilaout" data-transition="slide" id="lila_611">१९ भटोबासातें स्वानमुखें१ खीरि खाववणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(612)" href="#lilaout" data-transition="slide" id="lila_612">२० भुतानंदाकरवि पुरीया खाववणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(613)" href="#lilaout" data-transition="slide" id="lila_613">२१ रामीचीयां बाइयां पुर्वप्रतीभीज्ञा करणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(614)" href="#lilaout" data-transition="slide" id="lila_614">२२ कोलाचा दृष्टांत निरूपणें* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(615)" href="#lilaout" data-transition="slide" id="lila_615">२३ सारंगपंडितां भेटी भए प्रश्नू करणे (खडकुली)</a>
+<li>
+        <a onclick="GetLila(616)" href="#lilaout" data-transition="slide" id="lila_616">२४ सीमुगां सारंगपंडितांचें सींपणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(617)" href="#lilaout" data-transition="slide" id="lila_617">२५ तथा पासवडी प्रसाददान (खडकुली)</a>
+<li>
+        <a onclick="GetLila(618)" href="#lilaout" data-transition="slide" id="lila_618">२६ रामदेवां स्नानप्रसंगें सीक्षांसि१ कोपणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(619)" href="#lilaout" data-transition="slide" id="lila_619">२७ लाहिभटां१ टीळातांबोळ साहावणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(620)" href="#lilaout" data-transition="slide" id="lila_620">२८ लाहिभटां प्रश्नें बीढारनीक्षेदु१ (खडकुली)</a>
+<li>
+        <a onclick="GetLila(621)" href="#lilaout" data-transition="slide" id="lila_621">२९ दैवाद्य मार्गू निरूपण (खडकुली)</a>
+<li>
+        <a onclick="GetLila(622)" href="#lilaout" data-transition="slide" id="lila_622">३० गुणकार्य निरूपण (खडकुली)</a>
+<li>
+        <a onclick="GetLila(623)" href="#lilaout" data-transition="slide" id="lila_623">३१ गंगाइसां भेटी (खडकुली)</a>
+<li>
+        <a onclick="GetLila(624)" href="#lilaout" data-transition="slide" id="lila_624">३२ तथा मृत्य भट दाखवणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(625)" href="#lilaout" data-transition="slide" id="lila_625">३३ भटां आश्रमु प्रष्णु करणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(626)" href="#lilaout" data-transition="slide" id="lila_626">३४ ग्रहेसारंगपाणी मृतीका१ वाहावणें२ (खडकुली)</a>
+<li>
+        <a onclick="GetLila(627)" href="#lilaout" data-transition="slide" id="lila_627">३५ पांगुळवेखें भटीं स्तुति करणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(628)" href="#lilaout" data-transition="slide" id="lila_628">३६ भटां गोवींददेहत्यागु दाखवणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(629)" href="#lilaout" data-transition="slide" id="lila_629">३७ मार्कंडा पडदणीं प्रकास दर्सन (खडकुली)</a>
+<li>
+        <a onclick="GetLila(630)" href="#lilaout" data-transition="slide" id="lila_630">३८ तथा प्रमाणनीराकरण (खडकुली)</a>
+<li>
+        <a onclick="GetLila(631)" href="#lilaout" data-transition="slide" id="lila_631">३९ निरूपितां भटां ईश्वरअप्राप्ति करणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(632)" href="#lilaout" data-transition="slide" id="lila_632">४० आउ जखीणित्व नीक्षेदु (खडकुली)</a>
+<li>
+        <a onclick="GetLila(633)" href="#lilaout" data-transition="slide" id="lila_633">४१ नाथोबा कुंडलनि उकलली म्हणणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(634)" href="#lilaout" data-transition="slide" id="lila_634">४२ तथा धोतर फाडौनि जाणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(635)" href="#lilaout" data-transition="slide" id="lila_635">४३ नाथोबा स्तितीअधीनत्व निषेधु* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(636)" href="#lilaout" data-transition="slide" id="lila_636">४४ कामाइ सोवासीनि म्हणणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(637)" href="#lilaout" data-transition="slide" id="lila_637">४५ सारंगपंडितां कार्यनीक्षेदु (खडकुली)</a>
+<li>
+        <a onclick="GetLila(638)" href="#lilaout" data-transition="slide" id="lila_638">४६ आउसां आगाधत्व निरूपण (खडकुली)</a>
+<li>
+        <a onclick="GetLila(639)" href="#lilaout" data-transition="slide" id="lila_639">४७ खेइगोइत्यागुप्रसंसा (खडकुली)</a>
+<li>
+        <a onclick="GetLila(640)" href="#lilaout" data-transition="slide" id="lila_640">४८ भटां पोळीयाभोजनीं संतोखू (खडकुली)</a>
+<li>
+        <a onclick="GetLila(641)" href="#lilaout" data-transition="slide" id="lila_641">४९ लखुबाइसां प्रश्नें देओ उदेवो म्हणणें१ (खडकुली)</a>
+<li>
+        <a onclick="GetLila(642)" href="#lilaout" data-transition="slide" id="lila_642">५० आउसां स्वानहननीं सीक्षापण (खडकुली)</a>
+<li>
+        <a onclick="GetLila(643)" href="#lilaout" data-transition="slide" id="lila_643">५१ आउ वींगुळीवधीं सीक्षापण (खडकुली)</a>
+<li>
+        <a onclick="GetLila(644)" href="#lilaout" data-transition="slide" id="lila_644">५२ भवीक्ष नगर कथन (खडकुली)</a>
+<li>
+        <a onclick="GetLila(645)" href="#lilaout" data-transition="slide" id="lila_645">५३ भटां विषयव्यवहार निरूपण* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(646)" href="#lilaout" data-transition="slide" id="lila_646">५४ तथा अटण निरूपण* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(647)" href="#lilaout" data-transition="slide" id="lila_647">५५ ज्ञातविरक्तभेद कथन* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(648)" href="#lilaout" data-transition="slide" id="lila_648">५६ खरूज खाजवी ना तो विरक्त* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(649)" href="#lilaout" data-transition="slide" id="lila_649">५७ स्मशानवस्त्र अनुवादु* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(650)" href="#lilaout" data-transition="slide" id="lila_650">५८ आचार्या नरक अनुवादु* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(651)" href="#lilaout" data-transition="slide" id="lila_651">५९ संदेहत्रुटि अनुवादु* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(652)" href="#lilaout" data-transition="slide" id="lila_652">६० नामाचे दाहा ठाए : तथा पंचकृष्ण निरूपण* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(653)" href="#lilaout" data-transition="slide" id="lila_653">६१ भट रीधपुरा पाठवणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(654)" href="#lilaout" data-transition="slide" id="lila_654">६२ भटां बोलाउं पाठवणें (खडकुली)</a>
+<li>
+        <a onclick="GetLila(655)" href="#lilaout" data-transition="slide" id="lila_655">६३ सशिखं वपनं कुर्यात्* (खडकुली)</a>
+<li>
+        <a onclick="GetLila(656)" href="#lilaout" data-transition="slide" id="lila_656">६४ सवितां नागनाथीं वस्ति ॥ पिंपळवाडिये अग्निष्टिके वस्ति ॥ (शेवता / तारुपिंपळ्वाडी, पैठण)</a>
+<li>
+        <a onclick="GetLila(657)" href="#lilaout" data-transition="slide" id="lila_657">६५ प्रतिष्टानीं गणपति मठीं अवस्थान : चासीं भटां भेटि (पैठण)</a>
+<li>
+        <a onclick="GetLila(658)" href="#lilaout" data-transition="slide" id="lila_658">६६ भट श्रांत विसांवा* (पैठण)</a>
+<li>
+        <a onclick="GetLila(659)" href="#lilaout" data-transition="slide" id="lila_659">६७ जोगेस्वरीं अवस्थान (पैठण)</a>
+<li>
+        <a onclick="GetLila(660)" href="#lilaout" data-transition="slide" id="lila_660">६८ भट पुर्वपटिप्रसंसा (पैठण)</a>
+<li>
+        <a onclick="GetLila(661)" href="#lilaout" data-transition="slide" id="lila_661">६९ भट राक्षसभुवनां पाठवणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(662)" href="#lilaout" data-transition="slide" id="lila_662">७० एकाइ भगत१ परीहासु (पैठण)</a>
+<li>
+        <a onclick="GetLila(663)" href="#lilaout" data-transition="slide" id="lila_663">७१ इंद्रोउपाहारीं तीवाडिभार्ये फळदान देणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(664)" href="#lilaout" data-transition="slide" id="lila_664">७२ मातांगमोदकप्रसाददान (पैठण)</a>
+<li>
+        <a onclick="GetLila(665)" href="#lilaout" data-transition="slide" id="lila_665">७३ मंडळीका सेणीं नागीणि दरीसनीं सीक्षापण (पैठण)</a>
+<li>
+        <a onclick="GetLila(666)" href="#lilaout" data-transition="slide" id="lila_666">७४ तथा सेणीं वेंचितां भेडवणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(667)" href="#lilaout" data-transition="slide" id="lila_667">७५ जिव्हारोग माळिणि रक्षणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(668)" href="#lilaout" data-transition="slide" id="lila_668">७६ मुर्तिअवळोकनीं राउतां विस्मो (पैठण)</a>
+<li>
+        <a onclick="GetLila(669)" href="#lilaout" data-transition="slide" id="lila_669">७७ गंगोतरणीं साधीं नांम उचारणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(670)" href="#lilaout" data-transition="slide" id="lila_670">७८ पटिसाळे वाउनि साधां पाणिपात्र देणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(671)" href="#lilaout" data-transition="slide" id="lila_671">७९ साधां क्रीमि ब्रह्मवीद नीरूपण (पैठण)</a>
+<li>
+        <a onclick="GetLila(672)" href="#lilaout" data-transition="slide" id="lila_672">८० जाखुबाइ वेख परीहासु (पैठण)</a>
+<li>
+        <a onclick="GetLila(673)" href="#lilaout" data-transition="slide" id="lila_673">८१ आउ पवनुगुरू उपाहासु (पैठण)</a>
+<li>
+        <a onclick="GetLila(674)" href="#lilaout" data-transition="slide" id="lila_674">८२ आउ इटाप्रसंगीं सीक्षापण (पैठण)</a>
+<li>
+        <a onclick="GetLila(675)" href="#lilaout" data-transition="slide" id="lila_675">८३ पौळि सीळा वाणें१ (पैठण)</a>
+<li>
+        <a onclick="GetLila(676)" href="#lilaout" data-transition="slide" id="lila_676">८४ दाइंबाप्रति गंगा द्रीष्टान्तु निरोपणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(677)" href="#lilaout" data-transition="slide" id="lila_677">८५ नाथोबा पदींपदीं नीधान कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(678)" href="#lilaout" data-transition="slide" id="lila_678">८६ इंद्रियार्थ रसव्यतिरिक्त अन्नप्रशंसा* (पैठण)</a>
+<li>
+        <a onclick="GetLila(679)" href="#lilaout" data-transition="slide" id="lila_679">८७ छींनपापीं गुंफे अवस्थान* (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(680)" href="#lilaout" data-transition="slide" id="lila_680">८८ गुंफा करवणें (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(681)" href="#lilaout" data-transition="slide" id="lila_681">८९ भटां उदरवेथानिवृति (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(682)" href="#lilaout" data-transition="slide" id="lila_682">९० पींपळे वामनभटखीरिभोजनीं भटां वीस्मो (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(683)" href="#lilaout" data-transition="slide" id="lila_683">९१ स्त्रीपानाळव्येथा बाइसां कोपणें (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(684)" href="#lilaout" data-transition="slide" id="lila_684">९२ रेइनाएका ज्वरूनिवृति (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(685)" href="#lilaout" data-transition="slide" id="lila_685">९३ पंच मोदक स्वीकारू (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(686)" href="#lilaout" data-transition="slide" id="lila_686">९४ नाथोबाकरवि तांदुळजा खूडवणें (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(687)" href="#lilaout" data-transition="slide" id="lila_687">९५ आउस्तुतिकरणीं गणपति आपयो कोपणें (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(688)" href="#lilaout" data-transition="slide" id="lila_688">९६ भट नाथोबा पूरप्रवीष्ट१ मंडळीकू रक्षणें (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(689)" href="#lilaout" data-transition="slide" id="lila_689">९७ पुरप्रवीष्ट स्त्री तारणें (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(690)" href="#lilaout" data-transition="slide" id="lila_690">९८ आउ फुटाक्षेपणीं जळघोखु निवारणें (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(691)" href="#lilaout" data-transition="slide" id="lila_691">९९ आउ पींडउपाहारूस्वीकारू (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(692)" href="#lilaout" data-transition="slide" id="lila_692">१०० देवद्रोणीं देवतापूजा स्वीकारू (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(693)" href="#lilaout" data-transition="slide" id="lila_693">१०१ भांडेभेदनीं भीक्षांन आरोगण (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(694)" href="#lilaout" data-transition="slide" id="lila_694">१०२ सारंगपंडितां स्त्रीअधिकारू निरूपण (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(695)" href="#lilaout" data-transition="slide" id="lila_695">१०३ गोविंदधावणीं सारंगपंडितीं स्तुति करणें (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(696)" href="#lilaout" data-transition="slide" id="lila_696">१०४ खेइगोइ भेटि१ (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(697)" href="#lilaout" data-transition="slide" id="lila_697">१०५ ताकवताची भाजी रांधवणें (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(698)" href="#lilaout" data-transition="slide" id="lila_698">१०६ भटां पातलेपण अनुवादु (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(699)" href="#lilaout" data-transition="slide" id="lila_699">१०७ पंचगंगा अनुवादु (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(700)" href="#lilaout" data-transition="slide" id="lila_700">१०८ मंडळीकु विज्ञापनें स्त्रीए भेटि (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(701)" href="#lilaout" data-transition="slide" id="lila_701">१०९ मंडळीका भीक्षानएनीं स्त्री-विकारू कथन (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(702)" href="#lilaout" data-transition="slide" id="lila_702">११० भोजेया संकतुळसी अनुवादु (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(703)" href="#lilaout" data-transition="slide" id="lila_703">१११ दायंबा स्त्रीनीमीत्य दुख करणें (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(704)" href="#lilaout" data-transition="slide" id="lila_704">११२ भोजेया आधड तरू निरूपण (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(705)" href="#lilaout" data-transition="slide" id="lila_705">११३ दायंबा सीखासुत्रत्यागु अनुवादु (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(706)" href="#lilaout" data-transition="slide" id="lila_706">११४ धर्मनष्ट आति : परि विषयनष्ट नाहीं* (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(707)" href="#lilaout" data-transition="slide" id="lila_707">११५ भटां अवक्रीयत्व कथन (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(708)" href="#lilaout" data-transition="slide" id="lila_708">११६ तथा तरूदुख निरूपण (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(709)" href="#lilaout" data-transition="slide" id="lila_709">११७ वेसाइ सरवळीं चोरी प्रगटीए करणें (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(710)" href="#lilaout" data-transition="slide" id="lila_710">११८ आउ दुधा कवडे मागणें (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(711)" href="#lilaout" data-transition="slide" id="lila_711">११९ भटीं सुस्नात दंडवत घालणें (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(712)" href="#lilaout" data-transition="slide" id="lila_712">१२० अग्निकुंडीं श्रीकरू दरीसन (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(713)" href="#lilaout" data-transition="slide" id="lila_713">१२१ माहादाइसां निरए१ नीरूपण (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(714)" href="#lilaout" data-transition="slide" id="lila_714">१२२ शास्त्र दृष्टा अदृष्टा कारण निरूपण* (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(715)" href="#lilaout" data-transition="slide" id="lila_715">१२३ मासोपवासिनीवींज्ञापनीं लखुमियां कपाटनीराकरण (छिन्नापापी)</a>
+<li>
+        <a onclick="GetLila(716)" href="#lilaout" data-transition="slide" id="lila_716">१२४ डोंबेग्रामीं मठीं अवस्थान१ (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(717)" href="#lilaout" data-transition="slide" id="lila_717">१२५ नाथोबाकरवि भट बाहीरि घालवणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(718)" href="#lilaout" data-transition="slide" id="lila_718">१२६ सरभंजनीं देमतीप्रति हिंसापाप नीरूपण (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(719)" href="#lilaout" data-transition="slide" id="lila_719">१२७ श्राधभोजनअपराधें भटनाथोबा बाहीरि घालवणें ॥ उडीयां घालवणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(720)" href="#lilaout" data-transition="slide" id="lila_720">१२८ निधिवासेया गमनीं१ भटा ज्वरूनिवृति (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(721)" href="#lilaout" data-transition="slide" id="lila_721">१२९ प्रार्धबाइसां१ देओ निरूपणीं भटां उपाहार स्वीकार (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(722)" href="#lilaout" data-transition="slide" id="lila_722">१३० मुर्तीप्रकासे रेइनाएका वीस्मो (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(723)" href="#lilaout" data-transition="slide" id="lila_723">१३१ मंडकगोपनअपराधें मार्कंडा सीक्षापण (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(724)" href="#lilaout" data-transition="slide" id="lila_724">१३२ नीरूपण दुखाक्रांत पाठका आसु ज्ञान करणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(725)" href="#lilaout" data-transition="slide" id="lila_725">१३३ म्हांइंभटां उदग्रहणीकापुर्वक ईश्वरप्रतीति करणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(726)" href="#lilaout" data-transition="slide" id="lila_726">१३४ म्हांइंभटां बोध प्रकरण निरूपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(727)" href="#lilaout" data-transition="slide" id="lila_727">१३५ प्रवृत्ताचा तथा निवृत्ताचा आचार कथन* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(728)" href="#lilaout" data-transition="slide" id="lila_728">१३६ म्हांइंभटां अनुसरलेयाची चर्या निरूपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(729)" href="#lilaout" data-transition="slide" id="lila_729">१३७ भीक्षाविधी तया अटणविधी निरूपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(730)" href="#lilaout" data-transition="slide" id="lila_730">१३८ तथा परमेश्वर चतुर्विध लक्षण निरोपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(731)" href="#lilaout" data-transition="slide" id="lila_731">१३९ परमेश्वरशास्त्र सिद्धांत* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(732)" href="#lilaout" data-transition="slide" id="lila_732">१४० म्हाइंभटां महावाक्य निरूपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(733)" href="#lilaout" data-transition="slide" id="lila_733">१४१ तथा संसरण निरूपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(734)" href="#lilaout" data-transition="slide" id="lila_734">१४२ म्हाइंभटां देवता तथा क्रियास्वरूप निरूपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(735)" href="#lilaout" data-transition="slide" id="lila_735">१४३ गदोनाएकजायावस्त्रपुजास्वीकारें वरदान : मालगंठी अवस्वरू (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(736)" href="#lilaout" data-transition="slide" id="lila_736">१४४ देमतिप्रति कुष्टधर्मनिरूपण (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(737)" href="#lilaout" data-transition="slide" id="lila_737">१४५ सहस्त्रार्जुना वरप्रदान१ (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(738)" href="#lilaout" data-transition="slide" id="lila_738">१४६ परसरामां भेटि (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(739)" href="#lilaout" data-transition="slide" id="lila_739">१४७ मेंडकासि वेंधे आकरखणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(740)" href="#lilaout" data-transition="slide" id="lila_740">१४८ इंद्रेया पर्णानएनीं भटां कौसाल्य प्रसंसा (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(741)" href="#lilaout" data-transition="slide" id="lila_741">१४९ दाको आर्पीत जाडि चमरी स्वीकारू (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(742)" href="#lilaout" data-transition="slide" id="lila_742">१५० साधा गुडभेदु१ कथन (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(743)" href="#lilaout" data-transition="slide" id="lila_743">१५१ आक्षेत्रीतीए लाहामाइसां आनीत उदकपान (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(744)" href="#lilaout" data-transition="slide" id="lila_744">१५२ साधां वैस्यगृहवासअभियोगें परीहासु (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(745)" href="#lilaout" data-transition="slide" id="lila_745">१५३ मंडळीकुपुष्टींअरोहणीं साधां जोगिदंडदानअभीमूख (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(746)" href="#lilaout" data-transition="slide" id="lila_746">१५४ साधां मागावेया अनोज्ञा (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(747)" href="#lilaout" data-transition="slide" id="lila_747">१५५ सींपे भोजनअपराधें आउ दवडणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(748)" href="#lilaout" data-transition="slide" id="lila_748">१५६ दारवठां जिव्हादागस्त्रवणें भटां मारकंडा खिरोदन भोजन (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(749)" href="#lilaout" data-transition="slide" id="lila_749">१५७ तथा पुर्वामुखे मढीं माहादाइसास्वेतउपाहारीं भट चमरीदंडें ताडणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(750)" href="#lilaout" data-transition="slide" id="lila_750">१५८ दीगांबर श्रीमूर्ति श्रीप्रभूवस्त्रस्वीकारु (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(751)" href="#lilaout" data-transition="slide" id="lila_751">१५९ वाराणसी मुक्तिक्षेत्र निषेध* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(752)" href="#lilaout" data-transition="slide" id="lila_752">१६० साभिमानियांचे साभिमानु निरूपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(753)" href="#lilaout" data-transition="slide" id="lila_753">१६१ माहादाइसां वाराणसी गमन निक्षेदु (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(754)" href="#lilaout" data-transition="slide" id="lila_754">१६२ वीद्यावंत१ निवारणीं भटां कोपणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(755)" href="#lilaout" data-transition="slide" id="lila_755">१६३ मार्गीं अरद्रवस्त्रवीमोचनीं रेइनाएकाचीं वस्त्रें वेढणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(756)" href="#lilaout" data-transition="slide" id="lila_756">१६४ अस्वथमुळीं इंद्रोपाहारीं इंद्रया दैवप्रसंसा (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(757)" href="#lilaout" data-transition="slide" id="lila_757">१६५ चांचलमुदीं आसन१ (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(758)" href="#lilaout" data-transition="slide" id="lila_758">१६६ भट तुरंगमारोहणीं गुंफे माहापुजा (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(759)" href="#lilaout" data-transition="slide" id="lila_759">१६७ भट नाथोबा सिरमेळवणीं सुखा प्रादुर्भाओ१ (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(760)" href="#lilaout" data-transition="slide" id="lila_760">१६८ मासोउपवासिनीं परसोधनीं१ मार्कंडा कोपणें२ (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(761)" href="#lilaout" data-transition="slide" id="lila_761">१६९ नाथोबा सुएर करवणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(762)" href="#lilaout" data-transition="slide" id="lila_762">१७० मंडळिका दुधानयेनि जीवपरीहारु भाव कथन (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(763)" href="#lilaout" data-transition="slide" id="lila_763">१७१ भटां अद्वैत१ समर्थनीं म्हांइंभटां कुमति हरणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(764)" href="#lilaout" data-transition="slide" id="lila_764">१७२ अग्नसोधनीं कथनीं आउ रुसणें१ (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(765)" href="#lilaout" data-transition="slide" id="lila_765">१७३ भटां स्तुतिकरणीं सर्वसास्त्रप्रतिभिज्ञा करणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(766)" href="#lilaout" data-transition="slide" id="lila_766">१७४ डोंबेग्राम प्रांतीं मार्कंडादीकांसि जुझतां भटांसि पराजयो करणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(767)" href="#lilaout" data-transition="slide" id="lila_767">१७५ अस्वथआरोहणीं भट गुंडेवरि१ घेववणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(768)" href="#lilaout" data-transition="slide" id="lila_768">१७६ त्रीयंबका गमनीं लखूबाइसां राहावणें : भटा स्वस्वरूपवैजात्य निरूपण (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(769)" href="#lilaout" data-transition="slide" id="lila_769">१७७ छिन्नवृक्षभपास भटांप्रति कर्मज्ञाननिरुपण (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(770)" href="#lilaout" data-transition="slide" id="lila_770">१७८ मेंडुकभीत स्त्रीए१ भएनिवृति : वर्णभातीं रुचि करणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(771)" href="#lilaout" data-transition="slide" id="lila_771">१७९ साधां जळक्रीडे बोलावणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(772)" href="#lilaout" data-transition="slide" id="lila_772">१८० तथा आंगी देयावेया अभीमुखता (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(773)" href="#lilaout" data-transition="slide" id="lila_773">१८१ नाथोबा तुप वाढणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(774)" href="#lilaout" data-transition="slide" id="lila_774">१८२ नाथोबा समरणवीधान (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(775)" href="#lilaout" data-transition="slide" id="lila_775">१८३ नाथोबा हृदयसुन्यता (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(776)" href="#lilaout" data-transition="slide" id="lila_776">१८४ मंडळीका देवता अनुवर्जित एणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(777)" href="#lilaout" data-transition="slide" id="lila_777">१८५ मनुष्यबंधनश्रवणें भीतां साधां अभयदान* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(778)" href="#lilaout" data-transition="slide" id="lila_778">१८६ साधां बीढारा पाठवणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(779)" href="#lilaout" data-transition="slide" id="lila_779">१८७ तथा कंटकु फेडणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(780)" href="#lilaout" data-transition="slide" id="lila_780">१८८ तथा शास्त्रकथन निषेध* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(781)" href="#lilaout" data-transition="slide" id="lila_781">१८९ तथा रंगमाळिकाप्रसंगें प्रतीति पुसणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(782)" href="#lilaout" data-transition="slide" id="lila_782">१९० वैराग्य मिरउं आवडे हाही एकु विकारचि* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(783)" href="#lilaout" data-transition="slide" id="lila_783">१९१ मृतीकापींडुग्रहणीं वीकारज्ञान (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(784)" href="#lilaout" data-transition="slide" id="lila_784">१९२ दाइभागवताकरवि ओटेया चुना पीटवणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(785)" href="#lilaout" data-transition="slide" id="lila_785">१९३ देवा सीखासुत्रत्यागु नीरुपणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(786)" href="#lilaout" data-transition="slide" id="lila_786">१९४ बाइसीं नीरोपण पुसणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(787)" href="#lilaout" data-transition="slide" id="lila_787">१९५ आपुलेयाचा सुश्रका वीधी नीरोपणें* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(788)" href="#lilaout" data-transition="slide" id="lila_788">१९६ पचन-पाचननिषेध निरूपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(789)" href="#lilaout" data-transition="slide" id="lila_789">१९७ उपासनीयां रीद्धपुरीं वासु निक्षेदु (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(790)" href="#lilaout" data-transition="slide" id="lila_790">१९८ नाथवाणिप्रसंसा (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(791)" href="#lilaout" data-transition="slide" id="lila_791">१९९ आबाइसां गुरु लक्ष कथन (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(792)" href="#lilaout" data-transition="slide" id="lila_792">२०० चंद्रदेवा खीरिभोजना पाठवणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(793)" href="#lilaout" data-transition="slide" id="lila_793">२०१ तथा लाडुभोजना पाठवणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(794)" href="#lilaout" data-transition="slide" id="lila_794">२०२ भुतानंदा कोल्हापुरा पाठवणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(795)" href="#lilaout" data-transition="slide" id="lila_795">२०३ अन्यवार्तानिषेध निरूपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(796)" href="#lilaout" data-transition="slide" id="lila_796">२०४ अध्रीत शास्त्र निरूपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(797)" href="#lilaout" data-transition="slide" id="lila_797">२०५ ज्ञानभक्तिवैराग्य निरूपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(798)" href="#lilaout" data-transition="slide" id="lila_798">२०६ म्हांइंभटां संहार निरूपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(799)" href="#lilaout" data-transition="slide" id="lila_799">२०७ भटां नाथोबां शास्त्रविषयत्व* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(800)" href="#lilaout" data-transition="slide" id="lila_800">२०८ बोडी गंगा समान अनुवादु* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(801)" href="#lilaout" data-transition="slide" id="lila_801">२०९ भटां दुसरेनि अन्यव्यावृत्ति निरूपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(802)" href="#lilaout" data-transition="slide" id="lila_802">२१० तथा पाहालें म्हणणें* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(803)" href="#lilaout" data-transition="slide" id="lila_803">२११ देइगांवीं देउळउद्यापनीं पातळीं आरोगण (देइगाव, गंगापूर, औरंगाबाद)</a>
+<li>
+        <a onclick="GetLila(804)" href="#lilaout" data-transition="slide" id="lila_804">२१२ सरालां गणपति आपैयोप्रति कुष्टहरणीं अनुसरण कथन (वैजापूर, औरंगाबाद)</a>
+<li>
+        <a onclick="GetLila(805)" href="#lilaout" data-transition="slide" id="lila_805">२१३ माळेकार दृष्टांत निरूपणें*</a>
+<li>
+        <a onclick="GetLila(806)" href="#lilaout" data-transition="slide" id="lila_806">२१४ टाकळीए डो वीसरणें (टाकळीभान, नेवासा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(807)" href="#lilaout" data-transition="slide" id="lila_807">२१५ नीवासांहुनि एतां रात्रीं घोगरगांवीं स्वानध्वनी करवणें (घोगरगाव, नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(808)" href="#lilaout" data-transition="slide" id="lila_808">२१६ असक्तां सुश्रूका विधी निरोपणें१ (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(809)" href="#lilaout" data-transition="slide" id="lila_809">२१७ बाइसांचे लखुबाइसीं पाए धुणें (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(810)" href="#lilaout" data-transition="slide" id="lila_810">२१८ पोगीफळ द्रीस्टांतु कथन (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(811)" href="#lilaout" data-transition="slide" id="lila_811">२१९ पर्‍हीवां भीक्षांनत्यागीं मंडळीका सीक्षापण (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(812)" href="#lilaout" data-transition="slide" id="lila_812">२२० भिक्षान्नीं अमृत निरूपण* (डोमेग्राम)</a>
+<li>
+        <a onclick="GetLila(813)" href="#lilaout" data-transition="slide" id="lila_813">२२१ डोंबेग्रामुनि नीधिवासां : चाचळमुदीं आसन१ (बेलपिंपळगाव, नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(814)" href="#lilaout" data-transition="slide" id="lila_814">२२२ तथा वीज्ञापनीं भटा अभयेदान (बेलपिंपळगाव, नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(815)" href="#lilaout" data-transition="slide" id="lila_815">२२३ कुसमेस्वरींहुनि मंडळीकु पुढां पाठवणें (बेलपिंपळगाव ते नेवसा मार्गी)</a>
+<li>
+        <a onclick="GetLila(816)" href="#lilaout" data-transition="slide" id="lila_816">२२४ निवासां पुरादितीं अवस्थान ॥ रात्रीं सपरीवारीं आरोगण (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(817)" href="#lilaout" data-transition="slide" id="lila_817">२२५ गोळकहोडें भटां पराजयो करणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(818)" href="#lilaout" data-transition="slide" id="lila_818">२२६ पुरादित्यामागां हातगुंडां भटां पराजयो करणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(819)" href="#lilaout" data-transition="slide" id="lila_819">२२७ उर्णपटानएनीं मार्कंडा चोरी प्रकटीए करणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(820)" href="#lilaout" data-transition="slide" id="lila_820">२२८ म्हांइंभटागमनीं प्रसंसा (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(821)" href="#lilaout" data-transition="slide" id="lila_821">२२९ म्हाळसीभुवनीं बडुवीं पुजा (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(822)" href="#lilaout" data-transition="slide" id="lila_822">२३० माडावरौनि सींपणें अवळोकणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(823)" href="#lilaout" data-transition="slide" id="lila_823">२३१ साधांसि म्हाळसी पांहों पाठवणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(824)" href="#lilaout" data-transition="slide" id="lila_824">२३२ वाळहुंटीं सांइंभटांचीं कर्दळीफळें आरोगण (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(825)" href="#lilaout" data-transition="slide" id="lila_825">२३३ यात्राहाटीं ग्राहीकवेखुस्वीकारु (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(826)" href="#lilaout" data-transition="slide" id="lila_826">२३४ देवतायात्राआकर्खणीं सर्व वेवस्था कथन (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(827)" href="#lilaout" data-transition="slide" id="lila_827">२३५ माहात्मेयां दीवाळी सणु करवणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(828)" href="#lilaout" data-transition="slide" id="lila_828">२३६ पास नीरोपण (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(829)" href="#lilaout" data-transition="slide" id="lila_829">२३७ पद्मनाभिभेटिकथनीं प्रसंसा (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(830)" href="#lilaout" data-transition="slide" id="lila_830">२३८ बाइसीं वर्णित वीरक्ताचें भटां सोपहासु दरिसन (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(831)" href="#lilaout" data-transition="slide" id="lila_831">२३९ भटां होडें केळें खाववणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(832)" href="#lilaout" data-transition="slide" id="lila_832">२४० दाइंबा उपाहारीं संतोखू करणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(833)" href="#lilaout" data-transition="slide" id="lila_833">२४१ मार्कंडमोदकचोरी प्रगटीए करणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(834)" href="#lilaout" data-transition="slide" id="lila_834">२४२ मंडळिकातिरस्कारीं देवता गार्‍हाणेनसीं एणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(835)" href="#lilaout" data-transition="slide" id="lila_835">२४३ अनो अधिकार्यातें जाओं नेदणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(836)" href="#lilaout" data-transition="slide" id="lila_836">२४४ बाइसांकरवि काळबोटा दवडवणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(837)" href="#lilaout" data-transition="slide" id="lila_837">२४५ अनो सीखासुत्रत्यागु प्रसंसा (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(838)" href="#lilaout" data-transition="slide" id="lila_838">२४६ भटां केंसतोडा पाणिकापड बांधवणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(839)" href="#lilaout" data-transition="slide" id="lila_839">२४७ म्हाळसा दरीसनां एणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(840)" href="#lilaout" data-transition="slide" id="lila_840">२४८ नाथोबा मनोर्थउपहारीं क्रीया चरीतार्थ करणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(841)" href="#lilaout" data-transition="slide" id="lila_841">२४९ तथा एळौर मांगळौर म्हणवणें* (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(842)" href="#lilaout" data-transition="slide" id="lila_842">२५० निरोधद्योतननिषेध* (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(843)" href="#lilaout" data-transition="slide" id="lila_843">२५१ संतोखा पासवडी अवीधिपरिहारू (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(844)" href="#lilaout" data-transition="slide" id="lila_844">२५२ वस्त्रेंकरुनि वींचु धरवणें (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(845)" href="#lilaout" data-transition="slide" id="lila_845">२५३ भटां ज्ञानभक्तिवैराग्य निरूपण* (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(846)" href="#lilaout" data-transition="slide" id="lila_846">२५४ गोपाळमढीं देवां भेटि (नेवसा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(847)" href="#lilaout" data-transition="slide" id="lila_847">२५५ प्रयाण अवस्वरीं देवां दीनदान प्रष्णू</a>
+<li>
+        <a onclick="GetLila(848)" href="#lilaout" data-transition="slide" id="lila_848">२५६ राजणगांवीं रात्रीं राणाइ उदकानएनीं देवां कोपणें</a>
+<li>
+        <a onclick="GetLila(849)" href="#lilaout" data-transition="slide" id="lila_849">२५७ मीरीए देवीं माहालक्षुमींए अवस्थान (मिरी,पाथर्डी, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(850)" href="#lilaout" data-transition="slide" id="lila_850">२५८ भटां अटणविधि निरूपण*</a>
+<li>
+        <a onclick="GetLila(851)" href="#lilaout" data-transition="slide" id="lila_851">२५९ देवांतें पाठवणें : साधांतें पुढें पाठवणें</a>
+<li>
+        <a onclick="GetLila(852)" href="#lilaout" data-transition="slide" id="lila_852">२६० मार्गीं साधांतें वाहाणा लेववणें</a>
+<li>
+        <a onclick="GetLila(853)" href="#lilaout" data-transition="slide" id="lila_853">२६१ खांडेगांवी१ मळां पुजा (खांडगाव, लोहसर, पाथर्डी)</a>
+<li>
+        <a onclick="GetLila(854)" href="#lilaout" data-transition="slide" id="lila_854">२६२ मढपींपळगांवीं वस्ति : साधींकृत उष्णोदकें पुजा (केळीपिंपळगाव, आष्टी, बीड)</a>
+<li>
+        <a onclick="GetLila(855)" href="#lilaout" data-transition="slide" id="lila_855">२६३ भटां पयोवर्त सीक्षापण (केळीपिंपळगाव, आष्टी, बीड)</a>
+<li>
+        <a onclick="GetLila(856)" href="#lilaout" data-transition="slide" id="lila_856">२६४ साधां प्रसादग्रहण : एकादसीं वर्तखंडन (केळीपिंपळगाव, आष्टी, बीड)</a>
+<li>
+        <a onclick="GetLila(857)" href="#lilaout" data-transition="slide" id="lila_857">२६५ चीचौंडीए साधांचा टीळा प्रेस्नु (चिचोंडी(पाटील), अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(858)" href="#lilaout" data-transition="slide" id="lila_858">२६६ साधांतें राहावणें : रंगमाळिके नेमु (चिचोंडी(पाटील), अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(859)" href="#lilaout" data-transition="slide" id="lila_859">२६७ नारोबा भेटि : भटां संबंधू विज्ञापन (मढपिंपरी, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(860)" href="#lilaout" data-transition="slide" id="lila_860">२६८ नारोबातें वाहाणा घेओं पाठवणें (मढपिंपरी, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(861)" href="#lilaout" data-transition="slide" id="lila_861">२६९ पारिपळ नाम करणें (मढपिंपरी, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(862)" href="#lilaout" data-transition="slide" id="lila_862">२७० वांकीए मठीं अवस्थान : मंडळिका हटवादें जोगीया पराजयो करणें (वाकी, आष्टी, बीड)</a>
+<li>
+        <a onclick="GetLila(863)" href="#lilaout" data-transition="slide" id="lila_863">२७१ पारेगावीं जोगेस्वरीं वस्ति : अभीयोगें वेव्हारा रक्षणें (पारेगाव, आष्टी, बीड)</a>
+<li>
+        <a onclick="GetLila(864)" href="#lilaout" data-transition="slide" id="lila_864">२७२ वांकीएहुनि मीरडां रेमेस्वरीं वसति (मिरजगाव, कर्जत, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(865)" href="#lilaout" data-transition="slide" id="lila_865">२७३ मांडवगणीं सीधनाथीं वस्ति : भर्जित चींचा भोजन करवणें (मंडनगाव, श्रीगोंदा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(866)" href="#lilaout" data-transition="slide" id="lila_866">२७४ मंडळीकु साधांतें बोलाउं पाठवणें (मंडनगाव, श्रीगोंदा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(867)" href="#lilaout" data-transition="slide" id="lila_867">२७५ साधां निरोपु ठेवणें : अरणग्रामीं गुंफे अवस्थान (अरणगाव, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(868)" href="#lilaout" data-transition="slide" id="lila_868">२७६ सोंडीएवरि द्रळसबाइसां सीक्षापण (अरणगाव, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(869)" href="#lilaout" data-transition="slide" id="lila_869">२७७ स्वजनअभियोगें गुजरा नार्यळ कथन (अरणगाव, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(870)" href="#lilaout" data-transition="slide" id="lila_870">२७८ साधांचा चणकसाकु भोजन (अरणगाव, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(871)" href="#lilaout" data-transition="slide" id="lila_871">२७९ लाइमाइ ज्वरीं पडिताळणें (अरणगाव, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(872)" href="#lilaout" data-transition="slide" id="lila_872">२८० साधां सोमवारीये पुढारु (अरणगाव, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(873)" href="#lilaout" data-transition="slide" id="lila_873">२८१ भींगारीं आदीतीं अवस्थान : साधां सोमवारी देणें (भिंगार, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(874)" href="#lilaout" data-transition="slide" id="lila_874">२८२ तथा अटनविधी निरूपण (भिंगार, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(875)" href="#lilaout" data-transition="slide" id="lila_875">२८३ खेइगोइप्रति चतुर्विध दान निरूपण* (भिंगार, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(876)" href="#lilaout" data-transition="slide" id="lila_876">२८४ नेपतीए वस्ति (नेप्ती, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(877)" href="#lilaout" data-transition="slide" id="lila_877">२८५ पारनेरीं सीतळोदकीं अवस्थान (पारनेर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(878)" href="#lilaout" data-transition="slide" id="lila_878">२८६ गुंफा करवणें (पारनेर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(879)" href="#lilaout" data-transition="slide" id="lila_879">२८७ भक्ता पाणिकोंडानिमीत्यें प्राएण : गुंफे रीगवणी : नीगवणी</a>
+<li>
+        <a onclick="GetLila(880)" href="#lilaout" data-transition="slide" id="lila_880">२८८ लोणीए वस्ति : रात्रीं भीक्षान घुगरीया आरोगण (लोणी, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(881)" href="#lilaout" data-transition="slide" id="lila_881">२८९ जांबगांवीं वस्ति (जामगाव, पारनेर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(882)" href="#lilaout" data-transition="slide" id="lila_882">२९० नागापुरीं वस्ति (नागापूर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(883)" href="#lilaout" data-transition="slide" id="lila_883">२९१ बामौरीं वस्ति ॥ (वांबोरी, राहुरी, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(884)" href="#lilaout" data-transition="slide" id="lila_884">२९२ अव्हाणां वस्ति ॥ (आव्हाणे बु॥, शेवगाव, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(885)" href="#lilaout" data-transition="slide" id="lila_885">२९३ देउळाणां वस्ति</a>
+<li>
+        <a onclick="GetLila(886)" href="#lilaout" data-transition="slide" id="lila_886">२९४ काउळगांवीं वस्ति</a>
+<li>
+        <a onclick="GetLila(887)" href="#lilaout" data-transition="slide" id="lila_887">२९५ जोगेस्वरीं वस्ति : साधां भेटि</a>
+<li>
+        <a onclick="GetLila(888)" href="#lilaout" data-transition="slide" id="lila_888">२९६ जांबगांवीं सींगेस्वरीं वस्ति (जामगाव, पारनेर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(889)" href="#lilaout" data-transition="slide" id="lila_889">२९७ गव्हाणां मढीं वस्ति ॥ बागडीए मढीं वस्ति ॥ (ममदापूर/बगडी, गंगापूर, औरंगाबाद)</a>
+<li>
+        <a onclick="GetLila(890)" href="#lilaout" data-transition="slide" id="lila_890">२९८ नेउरगांवीं धाएखडकीं इंद्रभटां हनवीं पुजा (नेवरगाव, गंगापूर, औरंगाबाद)</a>
+<li>
+        <a onclick="GetLila(891)" href="#lilaout" data-transition="slide" id="lila_891">२९९ गदोनाएका घरीं अवस्थान (नेवरगाव, गंगापूर, औरंगाबाद)</a>
+<li>
+        <a onclick="GetLila(892)" href="#lilaout" data-transition="slide" id="lila_892">३०० इंद्रभटां दारवठां सौरसु करणें (नेवरगाव, गंगापूर, औरंगाबाद)</a>
+<li>
+        <a onclick="GetLila(893)" href="#lilaout" data-transition="slide" id="lila_893">३०१ गदोनाएकाची पुजा : द्रव्यादिभजनें ईश्वरप्राप्ति निषेध (नेवरगाव, गंगापूर, औरंगाबाद)</a>
+<li>
+        <a onclick="GetLila(894)" href="#lilaout" data-transition="slide" id="lila_894">३०२ सुरेगावीं मार्गी मार्कंडामौन्यें इंद्रभटां भेटि (सुरेगाव, नेवासा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(895)" href="#lilaout" data-transition="slide" id="lila_895">३०३ मार्गी कागसूक्रदृष्टांतद्वारें इंद्रभटां सीक्षापण</a>
+<li>
+        <a onclick="GetLila(896)" href="#lilaout" data-transition="slide" id="lila_896">३०४ पेहरासंगमीं टोंकेगव्हाणीं मढीं अवस्थान</a>
+<li>
+        <a onclick="GetLila(897)" href="#lilaout" data-transition="slide" id="lila_897">३०५ हंसराजा भेटि : डांगुरेया प्रसादेंवीण न जेवणें</a>
+<li>
+        <a onclick="GetLila(898)" href="#lilaout" data-transition="slide" id="lila_898">३०६ सोमवारीये आकर्षणीं जनुपुजा</a>
+<li>
+        <a onclick="GetLila(899)" href="#lilaout" data-transition="slide" id="lila_899">३०७ पेहरासंगमीं वचीष्टदेवांचे अंन्न आरोगण</a>
+<li>
+        <a onclick="GetLila(900)" href="#lilaout" data-transition="slide" id="lila_900">३०८ वचीष्टदेवांचीए गुंफे अवस्थान</a>
+<li>
+        <a onclick="GetLila(901)" href="#lilaout" data-transition="slide" id="lila_901">३०९ रामाइदरीसनकृत नार्येळ कथन</a>
+<li>
+        <a onclick="GetLila(902)" href="#lilaout" data-transition="slide" id="lila_902">३१० रामाइपाठवणींप्रसंगें धर्मार्थी स्वीकारु</a>
+<li>
+        <a onclick="GetLila(903)" href="#lilaout" data-transition="slide" id="lila_903">३११ गळनींबा वस्ति : भुतानंदानीनादें ग्रहो दवडणें (गळनिंब)</a>
+<li>
+        <a onclick="GetLila(904)" href="#lilaout" data-transition="slide" id="lila_904">३१२ दुसरां गळनींबा मढीं वस्ति : कोळेस्वरीं अवस्थान (दुसरे गळनिंब, नेवासा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(905)" href="#lilaout" data-transition="slide" id="lila_905">३१३ प्रसनाएका स्तीतिमरणीं वानरादि संबोखू (दुसरे गळनिंब, नेवासा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(906)" href="#lilaout" data-transition="slide" id="lila_906">३१४ सुरेगांवीं अग्नीष्टिके वस्ति१ ॥ कर्णौशधश्रवणें उपहासु* (सुरेगाव, नेवासा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(907)" href="#lilaout" data-transition="slide" id="lila_907">३१५ मेंढखडकीं आसन</a>
+<li>
+        <a onclick="GetLila(908)" href="#lilaout" data-transition="slide" id="lila_908">३१६ वाडेगांवीं धाबां आसन : हींसानिमीत्यें गमन</a>
+<li>
+        <a onclick="GetLila(909)" href="#lilaout" data-transition="slide" id="lila_909">३१७ कपाटीं दधीभातु आरोगणा</a>
+<li>
+        <a onclick="GetLila(910)" href="#lilaout" data-transition="slide" id="lila_910">३१८ रावणा पेंधया भावानुवादु* (वरखेड, नेवासा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(911)" href="#lilaout" data-transition="slide" id="lila_911">३१९ सीधनाथा वीडा वाणें१ (वरखेड, नेवासा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(912)" href="#lilaout" data-transition="slide" id="lila_912">३२० ब्राम्हणीए वस्ति*</a>
+<li>
+        <a onclick="GetLila(913)" href="#lilaout" data-transition="slide" id="lila_913">३२१ प्रतीस्थानीं गणपतिमठीं अवस्थान१ (पैठण)</a>
+<li>
+        <a onclick="GetLila(914)" href="#lilaout" data-transition="slide" id="lila_914">३२२ भटां वतांगफाळिगमनीं आस्चर्ये दाखवणें१ (पैठण)</a>
+<li>
+        <a onclick="GetLila(915)" href="#lilaout" data-transition="slide" id="lila_915">३२३ घांटेयां हरिभटां प्रपंचविस्मुर्ति करणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(916)" href="#lilaout" data-transition="slide" id="lila_916">३२४ स्त्रीदत्त दरीसनपुण्यें ब्राम्हणा बळदत्वनिवृति (पैठण)</a>
+<li>
+        <a onclick="GetLila(917)" href="#lilaout" data-transition="slide" id="lila_917">३२५ भट माहादेओ पाठक उदग्रहणिके कन्याक्रीडा भाखण (पैठण)</a>
+<li>
+        <a onclick="GetLila(918)" href="#lilaout" data-transition="slide" id="lila_918">३२६ हंसराजु आयागमनीं आबैसातें रीधपुरा पाठवणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(919)" href="#lilaout" data-transition="slide" id="lila_919">३२७ सारंगपंडीतकृताव्यतिरेकें भटअभीमानु स्वीकारु (पैठण)</a>
+<li>
+        <a onclick="GetLila(920)" href="#lilaout" data-transition="slide" id="lila_920">३२८ त्रुप्तपर्यंत अनुचर भोजनीं सारंगपंडितां उपालंभु (पैठण)</a>
+<li>
+        <a onclick="GetLila(921)" href="#lilaout" data-transition="slide" id="lila_921">३२९ भट उदकानएनीं दासी द्रीस्टांतु कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(922)" href="#lilaout" data-transition="slide" id="lila_922">३३० नागाराउळभुवनीं भुखणधारणपुर्वक मोदक आरोगण (पैठण)</a>
+<li>
+        <a onclick="GetLila(923)" href="#lilaout" data-transition="slide" id="lila_923">३३१ लजीत उपाध्यांची रोटी आरोगण (पैठण)</a>
+<li>
+        <a onclick="GetLila(924)" href="#lilaout" data-transition="slide" id="lila_924">३३२ सांरगपंडितां भोग प्रत्यक्ष (पैठण)</a>
+<li>
+        <a onclick="GetLila(925)" href="#lilaout" data-transition="slide" id="lila_925">३३३ दुधपक्वानाक्षाइका स्त्रवण१ (पैठण)</a>
+<li>
+        <a onclick="GetLila(926)" href="#lilaout" data-transition="slide" id="lila_926">३३४ तथा आंघ्रीवेथाक्षाइका स्त्रवण (पैठण)</a>
+<li>
+        <a onclick="GetLila(927)" href="#lilaout" data-transition="slide" id="lila_927">३३५ पाखाणजाती नीरुपणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(928)" href="#lilaout" data-transition="slide" id="lila_928">३३६ साधांप्रति मुंडीत जोगी प्रसंसा (पैठण)</a>
+<li>
+        <a onclick="GetLila(929)" href="#lilaout" data-transition="slide" id="lila_929">३३७ चुनापीटनीं उपाध्यें अनृत्यनीक्षेदु (पैठण)</a>
+<li>
+        <a onclick="GetLila(930)" href="#lilaout" data-transition="slide" id="lila_930">३३८ सारंगपंडितीं सोमपर्वी पुजा (पैठण)</a>
+<li>
+        <a onclick="GetLila(931)" href="#lilaout" data-transition="slide" id="lila_931">३३९ तथा उमाइचे रोट आरोगण (पैठण)</a>
+<li>
+        <a onclick="GetLila(932)" href="#lilaout" data-transition="slide" id="lila_932">३४० देमाइसांची स्रमनिवृति करवणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(933)" href="#lilaout" data-transition="slide" id="lila_933">३४१ डांगुरेया देहावसान (पैठण)</a>
+<li>
+        <a onclick="GetLila(934)" href="#lilaout" data-transition="slide" id="lila_934">३४२ वैराग्यदेव नामकरण (पैठण)</a>
+<li>
+        <a onclick="GetLila(935)" href="#lilaout" data-transition="slide" id="lila_935">३४३ आउवेचा नागदेओ करणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(936)" href="#lilaout" data-transition="slide" id="lila_936">३४४ आउ पींडपातुनीखेदु (पैठण)</a>
+<li>
+        <a onclick="GetLila(937)" href="#lilaout" data-transition="slide" id="lila_937">३४५ देमतीगाएनप्रसंगीं वीकारु निराकारणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(938)" href="#lilaout" data-transition="slide" id="lila_938">३४६ तथा देमती वोवीगाएनीं मासु दीसु असों देणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(939)" href="#lilaout" data-transition="slide" id="lila_939">३४७ तथा अवस्वरअनअवस्वरु कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(940)" href="#lilaout" data-transition="slide" id="lila_940">३४८ तथा आर्तीं कोंपरा पान्हा एणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(941)" href="#lilaout" data-transition="slide" id="lila_941">३४९ माइंतेया हरी स्वपनीं भेटि : आरोगण (पैठण)</a>
+<li>
+        <a onclick="GetLila(942)" href="#lilaout" data-transition="slide" id="lila_942">३५० हरिनायकाप्रश्नें उद्धरणगुणनिरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(943)" href="#lilaout" data-transition="slide" id="lila_943">३५१ आउ श्रीप्रभूदरीसन नीराकारण (पैठण)</a>
+<li>
+        <a onclick="GetLila(944)" href="#lilaout" data-transition="slide" id="lila_944">३५२ आउ वरप्रदान (पैठण)</a>
+<li>
+        <a onclick="GetLila(945)" href="#lilaout" data-transition="slide" id="lila_945">३५३ भटां ज्ञान भक्ति वैराग्य निरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(946)" href="#lilaout" data-transition="slide" id="lila_946">३५४ आर्तातें परमेश्वरू वाडोवाडीं गीवसीति* (पैठण)</a>
+<li>
+        <a onclick="GetLila(947)" href="#lilaout" data-transition="slide" id="lila_947">३५५ विषयनिरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(948)" href="#lilaout" data-transition="slide" id="lila_948">३५६ गर्भस्थितासि चैतन्यविद्या निरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(949)" href="#lilaout" data-transition="slide" id="lila_949">३५७ पाठकनीमीत्यें ढोरेस्वरीं बीजें करणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(950)" href="#lilaout" data-transition="slide" id="lila_950">३५८ ढोरेस्वरीं अवस्थान : मास दाहा (पैठण)</a>
+<li>
+        <a onclick="GetLila(951)" href="#lilaout" data-transition="slide" id="lila_951">३५९ जात्यंधक्रीडे लघुत्व प्रगटीये करणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(952)" href="#lilaout" data-transition="slide" id="lila_952">३६० पर्‍हीवां सर्पा संनिधान देणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(953)" href="#lilaout" data-transition="slide" id="lila_953">३६१ मंडळिकाकरवि सर्पु धरवणें : नीराकारणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(954)" href="#lilaout" data-transition="slide" id="lila_954">३६२ तथा नागीणि खेळवणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(955)" href="#lilaout" data-transition="slide" id="lila_955">३६३ मंडळिका स्तीति : फळभक्षेणिं भुतानंदा नालकोलु अनुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(956)" href="#lilaout" data-transition="slide" id="lila_956">३६४ अनो मंडळीकु उदकानएनीं अनोसि घटांतरा धाडणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(957)" href="#lilaout" data-transition="slide" id="lila_957">३६५ मंडळीकावारीत भक्तभोजनीं साल्योदन करवणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(958)" href="#lilaout" data-transition="slide" id="lila_958">३६६ मंडळिका स्तीतिभोजनीं देवकीपुपुर्वक वीखयेनींदा (पैठण)</a>
+<li>
+        <a onclick="GetLila(959)" href="#lilaout" data-transition="slide" id="lila_959">३६७ मंडळीका आटासुग्रामुभयजननीं कोपणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(960)" href="#lilaout" data-transition="slide" id="lila_960">३६८ प्रागवटपर्णानएनीं प्रेक्षित मंडळीका अव्हानणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(961)" href="#lilaout" data-transition="slide" id="lila_961">३६९ इंद्रभटां वसुवार देणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(962)" href="#lilaout" data-transition="slide" id="lila_962">३७० सारंगपंडितां भीडबंधन कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(963)" href="#lilaout" data-transition="slide" id="lila_963">३७१ गौवेधें सारंगपंडितवचनस्वीकारु (पैठण)</a>
+<li>
+        <a onclick="GetLila(964)" href="#lilaout" data-transition="slide" id="lila_964">३७२ देत श्रीकरावलंबनीं सारंगपंडितां अनुसरण : उधरण कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(965)" href="#lilaout" data-transition="slide" id="lila_965">३७३ भट सारंगपंडीत भुमिविकर्खणीं क्रीडा (पैठण)</a>
+<li>
+        <a onclick="GetLila(966)" href="#lilaout" data-transition="slide" id="lila_966">३७४ पण्यस्त्रीविटकानीत पर्णस्वीकारु (पैठण)</a>
+<li>
+        <a onclick="GetLila(967)" href="#lilaout" data-transition="slide" id="lila_967">३७५ भिक्षामंडणनिषेधपूर्वक कुत्साहता आउदुखनिराकरण (पैठण)</a>
+<li>
+        <a onclick="GetLila(968)" href="#lilaout" data-transition="slide" id="lila_968">३७६ आउ पडवा मागणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(969)" href="#lilaout" data-transition="slide" id="lila_969">३७७ अमर्वक तपोधनें देवता अज्ञान कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(970)" href="#lilaout" data-transition="slide" id="lila_970">३७८ बळानीत डखलेयां उर्धदेहीक क्रीया करवणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(971)" href="#lilaout" data-transition="slide" id="lila_971">३७९ सारंगपंडिंता पाहुंणां प्रस्नु करणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(972)" href="#lilaout" data-transition="slide" id="lila_972">३८० सारंगपंडितां धातुकरवणीं लबुधत्व कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(973)" href="#lilaout" data-transition="slide" id="lila_973">३८१ अनोनीवारणीं उपाध्यां कोपणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(974)" href="#lilaout" data-transition="slide" id="lila_974">३८२ सीनलीयें कृष्णा म्हणणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(975)" href="#lilaout" data-transition="slide" id="lila_975">३८३ उमाइनमस्कारे आंगुठा लावणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(976)" href="#lilaout" data-transition="slide" id="lila_976">३८४ दाइंबा जवळीक नीराकरण१ (पैठण)</a>
+<li>
+        <a onclick="GetLila(977)" href="#lilaout" data-transition="slide" id="lila_977">३८५ क्षेउरक्षोभें नीराकरण (पैठण)</a>
+<li>
+        <a onclick="GetLila(978)" href="#lilaout" data-transition="slide" id="lila_978">३८६ भटां निषेध निरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(979)" href="#lilaout" data-transition="slide" id="lila_979">३८७ पुरूष जवं जवं पळे निरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(980)" href="#lilaout" data-transition="slide" id="lila_980">३८८ कळीयुगीं तस्करत्व पुश्चळत्व निरुपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(981)" href="#lilaout" data-transition="slide" id="lila_981">३८९ पळे तो परतो लाहे* (पैठण)</a>
+<li>
+        <a onclick="GetLila(982)" href="#lilaout" data-transition="slide" id="lila_982">३९० नागवेयां नसावें* (पैठण)</a>
+<li>
+        <a onclick="GetLila(983)" href="#lilaout" data-transition="slide" id="lila_983">३९१ सारंगपंडितासीं कवडां खेळु* (पैठण)</a>
+<li>
+        <a onclick="GetLila(984)" href="#lilaout" data-transition="slide" id="lila_984">३९२ घाटीं खवासा वेधु* (पैठण)</a>
+<li>
+        <a onclick="GetLila(985)" href="#lilaout" data-transition="slide" id="lila_985">३९३ निंबातळीं कैवल्यदान प्रगटीए करणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(986)" href="#lilaout" data-transition="slide" id="lila_986">३९४ भट बाइसें श्रीप्रभूचेया दरीसनां पाठवणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(987)" href="#lilaout" data-transition="slide" id="lila_987">३९५ उदास्यस्वीकारें अनिएत१ वासु* (पैठण)</a>
+<li>
+        <a onclick="GetLila(988)" href="#lilaout" data-transition="slide" id="lila_988">३९६ मुसळबुडी निरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(989)" href="#lilaout" data-transition="slide" id="lila_989">३९७ आउसांप्रति भांडेदानीं स्वरूपदर्शनभाओ कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(990)" href="#lilaout" data-transition="slide" id="lila_990">३९८ लखुबाइ वस्त्रपुजास्वीकारू (पैठण)</a>
+<li>
+        <a onclick="GetLila(991)" href="#lilaout" data-transition="slide" id="lila_991">३९९ यंत्रवासनाएका अस्तीती* (पैठण)</a>
+<li>
+        <a onclick="GetLila(992)" href="#lilaout" data-transition="slide" id="lila_992">४०० तथा वरप्रदान (पैठण)</a>
+<li>
+        <a onclick="GetLila(993)" href="#lilaout" data-transition="slide" id="lila_993">४०१ वासनाएका पुरूषोत्तम क्षेत्र निषेध* (पैठण)</a>
+<li>
+        <a onclick="GetLila(994)" href="#lilaout" data-transition="slide" id="lila_994">४०२ सारंगपंडीता कवीत्व नीराकरणें* (पैठण)</a>
+<li>
+        <a onclick="GetLila(995)" href="#lilaout" data-transition="slide" id="lila_995">४०३ सारंगपंडितांसि कवडां खेळु* (पैठण)</a>
+<li>
+        <a onclick="GetLila(996)" href="#lilaout" data-transition="slide" id="lila_996">४०४ तथा सारीं खेळु (पैठण)</a>
+<li>
+        <a onclick="GetLila(997)" href="#lilaout" data-transition="slide" id="lila_997">४०५ सारंगपंडितां छर्दितान्न भोजन (पैठण)</a>
+<li>
+        <a onclick="GetLila(998)" href="#lilaout" data-transition="slide" id="lila_998">४०६ रांजणवटिकेचे वोखद कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(999)" href="#lilaout" data-transition="slide" id="lila_999">४०७ लळिताइसांसीं खुबटां खेळु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1000)" href="#lilaout" data-transition="slide" id="lila_1000">४०८ खडखांबुलां खेळु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1001)" href="#lilaout" data-transition="slide" id="lila_1001">४०९ साधां स्नाना पाठवणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1002)" href="#lilaout" data-transition="slide" id="lila_1002">४१० मार्तेडां स्त्रीसौच्यदर्शन (पैठण)</a>
+<li>
+        <a onclick="GetLila(1003)" href="#lilaout" data-transition="slide" id="lila_1003">४११ मोकानंद चरित्रानुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1004)" href="#lilaout" data-transition="slide" id="lila_1004">४१२ सप्तमात्री क्रीतवेदिका: देवपुजिका अनिता प्रतारणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1005)" href="#lilaout" data-transition="slide" id="lila_1005">४१३ तीकवनाएकाउपहारीं आउ स्वइछा भोजन (पैठण)</a>
+<li>
+        <a onclick="GetLila(1006)" href="#lilaout" data-transition="slide" id="lila_1006">४१४ आचरे तयाचा धर्म* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1007)" href="#lilaout" data-transition="slide" id="lila_1007">४१५ माइतेया हरी उपाहारीं भटांबाइसां भेटि (पैठण)</a>
+<li>
+        <a onclick="GetLila(1008)" href="#lilaout" data-transition="slide" id="lila_1008">४१६ रवळमढीं सारंगपंडितां प्रस्नें बाइसां उदासपरीहारू (पैठण)</a>
+<li>
+        <a onclick="GetLila(1009)" href="#lilaout" data-transition="slide" id="lila_1009">४१७ वर्‍हारदेवीं भटां प्रष्णें माहादाइसां उदास्यपरिहारू१ (पैठण)</a>
+<li>
+        <a onclick="GetLila(1010)" href="#lilaout" data-transition="slide" id="lila_1010">४१८ भटां१ अरीसें प्रश्नु करणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1011)" href="#lilaout" data-transition="slide" id="lila_1011">४१९ उग्रादैत्यों सारंगपंडितां निरए निरूपण (पैठण)</a>
+<li>
+        <a onclick="GetLila(1012)" href="#lilaout" data-transition="slide" id="lila_1012">४२० तथा हरळत्व नीरूपण (पैठण)</a>
+<li>
+        <a onclick="GetLila(1013)" href="#lilaout" data-transition="slide" id="lila_1013">४२१ नागनाथीं उपाधीयांचीया उततीया स्वीकारू (पैठण)</a>
+<li>
+        <a onclick="GetLila(1014)" href="#lilaout" data-transition="slide" id="lila_1014">४२२ स्त्रीरूदनीं उदरवेथा कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(1015)" href="#lilaout" data-transition="slide" id="lila_1015">४२३ भक्तां निंबु पींपळु दाखवणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1016)" href="#lilaout" data-transition="slide" id="lila_1016">४२४ सारंगपंडितां तांबोळ गर्वहरण (पैठण)</a>
+<li>
+        <a onclick="GetLila(1017)" href="#lilaout" data-transition="slide" id="lila_1017">४२५ तथा तांबोळा आंकुरू निगणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1018)" href="#lilaout" data-transition="slide" id="lila_1018">४२६ उमाइगाएनीं आपण गाणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1019)" href="#lilaout" data-transition="slide" id="lila_1019">४२७ उमाइ कोळीग्रहीं भेडवणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1020)" href="#lilaout" data-transition="slide" id="lila_1020">४२८ अन्यनमस्कारें भीतें माहादाइसें देवांचीए भेटि धाडणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1021)" href="#lilaout" data-transition="slide" id="lila_1021">४२९ महादाइसां उमाइसां भेटी (पैठण)</a>
+<li>
+        <a onclick="GetLila(1022)" href="#lilaout" data-transition="slide" id="lila_1022">४३० तथा संन्यास निरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1023)" href="#lilaout" data-transition="slide" id="lila_1023">४३१ सोमवारीए रामदेवों पुजा: उपाहारू (पैठण)</a>
+<li>
+        <a onclick="GetLila(1024)" href="#lilaout" data-transition="slide" id="lila_1024">४३२ साधां स्नाना पाठवणें: स्त्रिये पंचगुरू निरूपण (पैठण)</a>
+<li>
+        <a onclick="GetLila(1025)" href="#lilaout" data-transition="slide" id="lila_1025">४३३ साधां क्षीरिभोजनपूर्वक टीळातांबोळमाळदान (पैठण)</a>
+<li>
+        <a onclick="GetLila(1026)" href="#lilaout" data-transition="slide" id="lila_1026">४३४ तथा नींब मौळी माधुर्यकृत प्रसाददान (पैठण)</a>
+<li>
+        <a onclick="GetLila(1027)" href="#lilaout" data-transition="slide" id="lila_1027">४३५ बहुडी स्तीति ताडणीं देवां कोपणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1028)" href="#lilaout" data-transition="slide" id="lila_1028">४३६ देवकोपखेदखींन माहादाइसां यादव गुरू नीरूपणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1029)" href="#lilaout" data-transition="slide" id="lila_1029">४३७ माहादाइ हस्तिभंगापराधें दंडु करणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1030)" href="#lilaout" data-transition="slide" id="lila_1030">४३८ तथा वोवीयागाएनीं सुहृदत्व स्वीकारू (पैठण)</a>
+<li>
+        <a onclick="GetLila(1031)" href="#lilaout" data-transition="slide" id="lila_1031">४३९ महादाइ अकृरवोवियागाएनीं नीषेधु* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1032)" href="#lilaout" data-transition="slide" id="lila_1032">४४० देवमातृकास्वपात्रुका आकर्खणीं माहादाइवचनप्रसंसा (पैठण)</a>
+<li>
+        <a onclick="GetLila(1033)" href="#lilaout" data-transition="slide" id="lila_1033">४४१ तथा अनुवर्जनीं अनृत्यवादा माहादाइसां क्षेदाउपनोति (पैठण)</a>
+<li>
+        <a onclick="GetLila(1034)" href="#lilaout" data-transition="slide" id="lila_1034">४४२ माहादाइ मोदकप्रोतानएनीं अविधिपरिहारू कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(1035)" href="#lilaout" data-transition="slide" id="lila_1035">४४३ सारंगपंडितां तारांगोळीक्रीडे माहादाइसां प्रास्चीत कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(1036)" href="#lilaout" data-transition="slide" id="lila_1036">४४४ देवआव्हानीं माहादाइसा अपक्षेपण अवलोकणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1037)" href="#lilaout" data-transition="slide" id="lila_1037">४४५ शब्दार्थुनीर्वचनपुर्वक माहादाइसां अनुभवदेव नामकरण (पैठण)</a>
+<li>
+        <a onclick="GetLila(1038)" href="#lilaout" data-transition="slide" id="lila_1038">४४६ माहादाइसां आत्मज्ञान निरूपणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1039)" href="#lilaout" data-transition="slide" id="lila_1039">४४७ विषयव्यवस्था निरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1040)" href="#lilaout" data-transition="slide" id="lila_1040">४४८ माहादाइसां कळीधर्म नीरूपणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1041)" href="#lilaout" data-transition="slide" id="lila_1041">४४९ चिंचकरटां अन्ननिष्पत्ति माहादाइसां विस्मयो (पैठण)</a>
+<li>
+        <a onclick="GetLila(1042)" href="#lilaout" data-transition="slide" id="lila_1042">४५० माहादाइसां राजकुमरू अनुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1043)" href="#lilaout" data-transition="slide" id="lila_1043">४५१ माहादाइसां नित्यउपवासीत्व कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(1044)" href="#lilaout" data-transition="slide" id="lila_1044">४५२ तथा भिक्षाकाळ निरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1045)" href="#lilaout" data-transition="slide" id="lila_1045">४५३ श्रीदत्तात्रयप्रभुमहिमा निरूपण: अळर्का भेटि* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1046)" href="#lilaout" data-transition="slide" id="lila_1046">४५४ एकवीरे भोगा अनुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1047)" href="#lilaout" data-transition="slide" id="lila_1047">४५५ एकवीरे प्रतीष्टा (पैठण)</a>
+<li>
+        <a onclick="GetLila(1048)" href="#lilaout" data-transition="slide" id="lila_1048">४५६ मेरूवाळां जलक्रीडा (पैठण)</a>
+<li>
+        <a onclick="GetLila(1049)" href="#lilaout" data-transition="slide" id="lila_1049">४५७ श्रीकृष्णीं अष्टविध ब्रह्मचर्यानुवादु* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1050)" href="#lilaout" data-transition="slide" id="lila_1050">४५८ श्रीकृष्णबळिभद्रीं वेधु निरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1051)" href="#lilaout" data-transition="slide" id="lila_1051">४५९ राजसूइं अग्रपूजा स्वीकारू* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1052)" href="#lilaout" data-transition="slide" id="lila_1052">४६० अर्जुनाप्रति ज्ञानदान: विभूति निरूपण: अपरोक्ष दर्शन* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1053)" href="#lilaout" data-transition="slide" id="lila_1053">४६१ गीता श्रीकृष्णोक्ति निरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1054)" href="#lilaout" data-transition="slide" id="lila_1054">४६२ जीवु आपलें मात्रागमन न देखे निरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1055)" href="#lilaout" data-transition="slide" id="lila_1055">४६३ मातापिताश्राध्दानुवादु* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1056)" href="#lilaout" data-transition="slide" id="lila_1056">४६४ गुजरीया भाखा गुजरेंसी गोष्टि करणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1057)" href="#lilaout" data-transition="slide" id="lila_1057">४६५ लखुबाइसां लखुमीयां वीरू कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(1058)" href="#lilaout" data-transition="slide" id="lila_1058">४६६ माहादाइसां आर्य अनुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1059)" href="#lilaout" data-transition="slide" id="lila_1059">४६७ संकीयातें पुजा पाहों धाडणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1060)" href="#lilaout" data-transition="slide" id="lila_1060">४६८ साधांतें चक्रपाणि पाहों धाडणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1061)" href="#lilaout" data-transition="slide" id="lila_1061">४६९ एकाइसां स्नाननीखेदु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1062)" href="#lilaout" data-transition="slide" id="lila_1062">४७० एकाइसांकरवि मुद्रिका फेडवणें* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1063)" href="#lilaout" data-transition="slide" id="lila_1063">४७१ तथा वीस्वपति नीरुपणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1064)" href="#lilaout" data-transition="slide" id="lila_1064">४७२ पार्वतीभुवनीं पुरुखोतमदेवांचे पागडे स्वीकारु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1065)" href="#lilaout" data-transition="slide" id="lila_1065">४७३ सायागोपाळीं स्त्रीभुखनस्वीकारू (पैठण)</a>
+<li>
+        <a onclick="GetLila(1066)" href="#lilaout" data-transition="slide" id="lila_1066">४७४ नरनारी वेध कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(1067)" href="#lilaout" data-transition="slide" id="lila_1067">४७५ सास्त्रमढीं संन्यासीयां वेधु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1068)" href="#lilaout" data-transition="slide" id="lila_1068">४७६ एंत्रासनपुर्वक माहादेओ आस्त्रमाची पूजास्वीकारु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1069)" href="#lilaout" data-transition="slide" id="lila_1069">४७७ पींपळेघाटीं भुतानंदाकरवि दधीभातु भोजन करवणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1070)" href="#lilaout" data-transition="slide" id="lila_1070">४७८ तथा गंधर्वपति नीरुपण (पैठण)</a>
+<li>
+        <a onclick="GetLila(1071)" href="#lilaout" data-transition="slide" id="lila_1071">४७९ उपासनीयां देहत्यागु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1072)" href="#lilaout" data-transition="slide" id="lila_1072">४८० सेनपुंजीपात्रुत्व कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(1073)" href="#lilaout" data-transition="slide" id="lila_1073">४८१ सर्दोबा भेटि१ (पैठण)</a>
+<li>
+        <a onclick="GetLila(1074)" href="#lilaout" data-transition="slide" id="lila_1074">४८२ श्रेष्ठत्व नष्टत्व प्रकाशन निषेध* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1075)" href="#lilaout" data-transition="slide" id="lila_1075">४८३ त्रिविध वेध निरुपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1076)" href="#lilaout" data-transition="slide" id="lila_1076">४८४ घुइनाएका कर्मनिरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1077)" href="#lilaout" data-transition="slide" id="lila_1077">४८५ माहादाइसां उतमरस्मिरहस्य निरुपण (पैठण)</a>
+<li>
+        <a onclick="GetLila(1078)" href="#lilaout" data-transition="slide" id="lila_1078">४८६ भोजेया काळवंचना कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(1079)" href="#lilaout" data-transition="slide" id="lila_1079">४८७ तथा वस्त्रतुल्यत्व अनुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1080)" href="#lilaout" data-transition="slide" id="lila_1080">४८८ पांडेयां प्रीति निराकरणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1081)" href="#lilaout" data-transition="slide" id="lila_1081">४८९ द्रीष्टमुर्तिसाद्रीस्य भटां शास्त्र अनुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1082)" href="#lilaout" data-transition="slide" id="lila_1082">४९० माहादाइसां नेत्रदीप अनुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1083)" href="#lilaout" data-transition="slide" id="lila_1083">४९१ रामदेवीं ब्रह्मविद्या निराकरणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1084)" href="#lilaout" data-transition="slide" id="lila_1084">४९२ सकळ शास्त्रांचा सीधांत जाणें म्हणणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1085)" href="#lilaout" data-transition="slide" id="lila_1085">४९३ जीवाअवीद्ये वीभागु करुं जाणें म्हणणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1086)" href="#lilaout" data-transition="slide" id="lila_1086">४९४ अविद्याछेद निरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1087)" href="#lilaout" data-transition="slide" id="lila_1087">४९५ प्रज्ञासागरां आत्मज्ञानें मोक्ष निरूपण* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1088)" href="#lilaout" data-transition="slide" id="lila_1088">४९६ भोजेया नामकरण (पैठण)</a>
+<li>
+        <a onclick="GetLila(1089)" href="#lilaout" data-transition="slide" id="lila_1089">४९७ मंडळीका नाम करणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1090)" href="#lilaout" data-transition="slide" id="lila_1090">४९८ मारकंडा पंचनामकरण (पैठण)</a>
+<li>
+        <a onclick="GetLila(1091)" href="#lilaout" data-transition="slide" id="lila_1091">४९९ श्रीप्रभु परम गुरु निक्षेदु१ (पैठण)</a>
+<li>
+        <a onclick="GetLila(1092)" href="#lilaout" data-transition="slide" id="lila_1092">५०० गुरुप्रसंगें श्रीप्रभू थापे अनुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1093)" href="#lilaout" data-transition="slide" id="lila_1093">५०१ बाइसां प्रस्णें संन्यधानीं कर्म बळिवंत कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(1094)" href="#lilaout" data-transition="slide" id="lila_1094">५०२ पाठकअज्ञानप्रसंगें कोढावरि दादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1095)" href="#lilaout" data-transition="slide" id="lila_1095">५०३ तथा भीक्षाप्रसंगें चेष्टा अनुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1096)" href="#lilaout" data-transition="slide" id="lila_1096">५०४ पाठक भीक्षा भटीं प्रस्नु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1097)" href="#lilaout" data-transition="slide" id="lila_1097">५०५ सुद्रसुखा अनुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1098)" href="#lilaout" data-transition="slide" id="lila_1098">५०६ मोळिकारसुखा अनुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1099)" href="#lilaout" data-transition="slide" id="lila_1099">५०७ ग्रामेस्वरा गर्वा अनुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1100)" href="#lilaout" data-transition="slide" id="lila_1100">५०८ सुद्रवेखें देवो पाहाणें दाखवणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1101)" href="#lilaout" data-transition="slide" id="lila_1101">५०९ चक्रवाकां अनुवादें गुरुसिक्षां अज्ञान (पैठण)</a>
+<li>
+        <a onclick="GetLila(1102)" href="#lilaout" data-transition="slide" id="lila_1102">५१० स्त्रीपादा अनुवादें ब्राह्मणां अज्ञान (पैठण)</a>
+<li>
+        <a onclick="GetLila(1103)" href="#lilaout" data-transition="slide" id="lila_1103">५११ गोलटी गाए (पैठण)</a>
+<li>
+        <a onclick="GetLila(1104)" href="#lilaout" data-transition="slide" id="lila_1104">५१२ आउसांप्रति वाकमु दीघमु अनुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1105)" href="#lilaout" data-transition="slide" id="lila_1105">५१३ वचीष्टलवणाक्षान कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(1106)" href="#lilaout" data-transition="slide" id="lila_1106">५१४ दायंबा भगवा वाहाणा सांडणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1107)" href="#lilaout" data-transition="slide" id="lila_1107">५१५ दायंबाप्रति जनु ठकला म्हणणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1108)" href="#lilaout" data-transition="slide" id="lila_1108">५१६ द्रीढ पुरुष महात्मे उपहासु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1109)" href="#lilaout" data-transition="slide" id="lila_1109">५१७ स्त्री म्हणिजे मेंढिएचें खाजें* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1110)" href="#lilaout" data-transition="slide" id="lila_1110">५१८ गोवींदचंदा उपदेसें जळांधरि अवज्ञा कथन (पैठण)</a>
+<li>
+        <a onclick="GetLila(1111)" href="#lilaout" data-transition="slide" id="lila_1111">५१९ काळदासभटा मध्यमोदघाटनीक्षेद्</a>
+<li>
+        <a onclick="GetLila(1112)" href="#lilaout" data-transition="slide" id="lila_1112">५२० वनिताचंदनें स्त्रीए प्रीति (पैठण)</a>
+<li>
+        <a onclick="GetLila(1113)" href="#lilaout" data-transition="slide" id="lila_1113">५२१ जोगी ब्रह्मउपदेसु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1114)" href="#lilaout" data-transition="slide" id="lila_1114">५२२ कणेरी गुरुभक्ति (पैठण)</a>
+<li>
+        <a onclick="GetLila(1115)" href="#lilaout" data-transition="slide" id="lila_1115">५२३ वैजुवे परीछेदु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1116)" href="#lilaout" data-transition="slide" id="lila_1116">५२४ जोगरेया अनुतापानुवादु* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1117)" href="#lilaout" data-transition="slide" id="lila_1117">५२५ भर्तुहरीवैराग्यप्रशंसा* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1118)" href="#lilaout" data-transition="slide" id="lila_1118">५२६ गृहत्यागी त्यागुप्रसंसा* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1119)" href="#lilaout" data-transition="slide" id="lila_1119">५२७ प्रज्ञासागरां स्वयं ईश्वरत्वसूचन* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1120)" href="#lilaout" data-transition="slide" id="lila_1120">५२८ चौबारां आसन: बाइसांचा कंटकु फेडणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1121)" href="#lilaout" data-transition="slide" id="lila_1121">५२९ देवातें कुमहात्मा म्हणणे* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1122)" href="#lilaout" data-transition="slide" id="lila_1122">५३० उपालंबश्रवणें देवां बुद्धिनाशानुवादु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1123)" href="#lilaout" data-transition="slide" id="lila_1123">५३१ वृधासंगम: आउ पुष्टीं आरोहण (पैठण)</a>
+<li>
+        <a onclick="GetLila(1124)" href="#lilaout" data-transition="slide" id="lila_1124">५३२ भयचकित आउ समसानीं बैसवणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1125)" href="#lilaout" data-transition="slide" id="lila_1125">533</a>
+<li>
+        <a onclick="GetLila(1126)" href="#lilaout" data-transition="slide" id="lila_1126">534</a>
+<li>
+        <a onclick="GetLila(1127)" href="#lilaout" data-transition="slide" id="lila_1127">५३५ तथा गोरक्ष फोकरणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1128)" href="#lilaout" data-transition="slide" id="lila_1128">५३६ आउ दीपू उजळणे (पैठण)</a>
+<li>
+        <a onclick="GetLila(1129)" href="#lilaout" data-transition="slide" id="lila_1129">५३७ तथा नमस्कारू करवणीं अनोज्ञा (पैठण)</a>
+<li>
+        <a onclick="GetLila(1130)" href="#lilaout" data-transition="slide" id="lila_1130">५३८ माहादाइसीं उदरवेथा प्रस्णू (पैठण)</a>
+<li>
+        <a onclick="GetLila(1131)" href="#lilaout" data-transition="slide" id="lila_1131">५३९ महदाइसां सदन भीक्षानुवाद* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1132)" href="#lilaout" data-transition="slide" id="lila_1132">५४० तथा तीर्थदेवता प्रकटीए करणें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1133)" href="#lilaout" data-transition="slide" id="lila_1133">५४१ तथा भोजन प्रस्णु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1134)" href="#lilaout" data-transition="slide" id="lila_1134">५४२ तथा माउंदीयें (पैठण)</a>
+<li>
+        <a onclick="GetLila(1135)" href="#lilaout" data-transition="slide" id="lila_1135">५४३ आउ एळावृधाउतरणीं अंब्रभोजन वचनस्वीकारु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1136)" href="#lilaout" data-transition="slide" id="lila_1136">५४४ देवतेचा ठाइं वेचलेपण होआवें कीं (पैठण)</a>
+<li>
+        <a onclick="GetLila(1137)" href="#lilaout" data-transition="slide" id="lila_1137">५४५ सस्त्रधरागमनीं भटां आवेसु१ (पैठण)</a>
+<li>
+        <a onclick="GetLila(1138)" href="#lilaout" data-transition="slide" id="lila_1138">५४६ ईश्वरवीयोगें बाइसां देहत्यागु (पैठण)</a>
+<li>
+        <a onclick="GetLila(1139)" href="#lilaout" data-transition="slide" id="lila_1139">५४७ मुधाआदितीं पूजास्वीकारू* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1140)" href="#lilaout" data-transition="slide" id="lila_1140">५४८ मायिता हरी: प्रज्ञासागर: देशत्याग* (पैठण)</a>
+<li>
+        <a onclick="GetLila(1141)" href="#lilaout" data-transition="slide" id="lila_1141">५४९ चापडगांवीं आउसां भेटि* (चाफडगाव, नेवासा, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1142)" href="#lilaout" data-transition="slide" id="lila_1142">५५० भटां देउळ पाहों धाडणें* (जळगाव, पाथर्डी, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1143)" href="#lilaout" data-transition="slide" id="lila_1143">५५१ जळगांवीं दाइंबा भेटि (जळगाव, पाथर्डी, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1144)" href="#lilaout" data-transition="slide" id="lila_1144">५५२ नागार्जुनीं अवस्थान* (नागलवाडी, शेवगाव, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1145)" href="#lilaout" data-transition="slide" id="lila_1145">५५३ वीवरसीधि कथन (नागलवाडी, शेवगाव, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1146)" href="#lilaout" data-transition="slide" id="lila_1146">५५४ कमळभैरवभोजनीं दाइंबा कोपणें (नागलवाडी, शेवगाव, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1147)" href="#lilaout" data-transition="slide" id="lila_1147">५५५ भोजेया इंद्रवणीं* (नागलवाडी, शेवगाव, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1148)" href="#lilaout" data-transition="slide" id="lila_1148">५५६ भटीं मादणें करणें (नागलवाडी, शेवगाव, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1149)" href="#lilaout" data-transition="slide" id="lila_1149">५५७ भोजेया सत्रसींगा पाठवणें१ (नागलवाडी, शेवगाव, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1150)" href="#lilaout" data-transition="slide" id="lila_1150">५५८ आंबा एकवीरे१ अवस्थान॥ (चकलांबा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1151)" href="#lilaout" data-transition="slide" id="lila_1151">५५९ भट प्रसनाएकु सत्रा जेउं पाठवणें (चकलांबा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1152)" href="#lilaout" data-transition="slide" id="lila_1152">५६० घूइनाएकाची वस्त्रपुजा (चकलांबा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1153)" href="#lilaout" data-transition="slide" id="lila_1153">५६१ भट आउ दुखकरणीं अस्वासन: तथा अवेवु स्वीकार (चकलांबा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1154)" href="#lilaout" data-transition="slide" id="lila_1154">५६२ ब्रह्मचारि गाळिदानीं आउ सीक्षापण (चकलांबा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1155)" href="#lilaout" data-transition="slide" id="lila_1155">५६३ एकाइ रीणयाचनीं लखूबाइसीं उरीण करणें (चकलांबा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1156)" href="#lilaout" data-transition="slide" id="lila_1156">५६४ देमाइसांतें राहावणें (चकलांबा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1157)" href="#lilaout" data-transition="slide" id="lila_1157">५६५ आउ ताटकरणीं भटां दाखवणें (चकलांबा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1158)" href="#lilaout" data-transition="slide" id="lila_1158">५६६ उमाइअव्हानीं भटांप्रति सेवाभाव कथन (चकलांबा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1159)" href="#lilaout" data-transition="slide" id="lila_1159">५६७ हंसराजु म्हांइंभटांतें बोलाउं धाडणें (चकलांबा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1160)" href="#lilaout" data-transition="slide" id="lila_1160">५६८ खचले प्राणीए अनुवादु* (चकलांबा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1161)" href="#lilaout" data-transition="slide" id="lila_1161">५६९ मार्गीं पुरू उतरणें (चकलांबा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1162)" href="#lilaout" data-transition="slide" id="lila_1162">५७० सेकुटां वंकनाथीं अवस्थान (शेकटा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1163)" href="#lilaout" data-transition="slide" id="lila_1163">५७१ माहांडुळमार्गीं भटांलखूबाइसां भांडण (शेकटा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1164)" href="#lilaout" data-transition="slide" id="lila_1164">५७२ आंबां पंचलिंगी वस्ति ॥ (चकलांबा, गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1165)" href="#lilaout" data-transition="slide" id="lila_1165">५७३ पारेगांवीं वस्ति ॥ (पारगाव(घोगस), गेवराई, बीड)</a>
+<li>
+        <a onclick="GetLila(1166)" href="#lilaout" data-transition="slide" id="lila_1166">५७४ आंबेखरवंडीए वस्ति ॥ (खरवंडी(कासार), पाथर्डी, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1167)" href="#lilaout" data-transition="slide" id="lila_1167">५७५ मार्गीं म्हांइंभटा भेटि:निर्गमन स्त्रवण (भेटीचा वड, पाथर्डी, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1168)" href="#lilaout" data-transition="slide" id="lila_1168">५७६ म्हांइंभटां वस्तुसंबंधनिरुपण* (भेटीचा वड, पाथर्डी, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1169)" href="#lilaout" data-transition="slide" id="lila_1169">५७७ वटपत्रानएनीं म्हांइंभटां कोपणें (येळी, पाथर्डी, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1170)" href="#lilaout" data-transition="slide" id="lila_1170">५७८ म्हांइंभटां अन्यसामग्रीनिषेध* (येळीमार्गी, पाथर्डी, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1171)" href="#lilaout" data-transition="slide" id="lila_1171">५७९ भोंकरी माहालक्ष्मिए वस्ति ॥ (भोकर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1172)" href="#lilaout" data-transition="slide" id="lila_1172">५८० बेलोपुरीं सीधनाथीं अवस्थान (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1173)" href="#lilaout" data-transition="slide" id="lila_1173">५८१ वनदेवीं अवस्थान (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1174)" href="#lilaout" data-transition="slide" id="lila_1174">५८२ तृण मोडणें*</a>
+<li>
+        <a onclick="GetLila(1175)" href="#lilaout" data-transition="slide" id="lila_1175">५८३ सेनि उपरतणें*</a>
+<li>
+        <a onclick="GetLila(1176)" href="#lilaout" data-transition="slide" id="lila_1176">५८४ बेलोपुरीं आदीतीं अवस्थान (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1177)" href="#lilaout" data-transition="slide" id="lila_1177">५८५ वायो निरोपण (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1178)" href="#lilaout" data-transition="slide" id="lila_1178">५८६ लखुबाइसांउपरि भटां निरुपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1179)" href="#lilaout" data-transition="slide" id="lila_1179">५८७ भटां वस्तुसंबंधु निरुपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1180)" href="#lilaout" data-transition="slide" id="lila_1180">५८८ म्हांइंभटां अंतराय निरुपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1181)" href="#lilaout" data-transition="slide" id="lila_1181">५८९ म्हाइंभटां लोकीचें श्रेष्ठत्व निषेध* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1182)" href="#lilaout" data-transition="slide" id="lila_1182">५९० भटां गुरूअनुगमन निरूपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1183)" href="#lilaout" data-transition="slide" id="lila_1183">५९१ बुद्धिभेद तथा कर्मजड भक्तिजड निरुपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1184)" href="#lilaout" data-transition="slide" id="lila_1184">५९२ जागृती: सुषुप्ती: स्वप्न: उन्मनी निरुपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1185)" href="#lilaout" data-transition="slide" id="lila_1185">५९३ हंसपरमहंसानुवादु* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1186)" href="#lilaout" data-transition="slide" id="lila_1186">५९४ भटां करणीएप्रसंगें म्हाइंभटां संनिधान निरुपणें (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1187)" href="#lilaout" data-transition="slide" id="lila_1187">५९५ भटां असन्निधानधर्म निरुपणें (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1188)" href="#lilaout" data-transition="slide" id="lila_1188">५९६ म्हाइंभटां असन्निधानधर्म निरुपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1189)" href="#lilaout" data-transition="slide" id="lila_1189">५९७ म्हांइंभटां द्रव्यानएनीं अनोज्ञा (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1190)" href="#lilaout" data-transition="slide" id="lila_1190">५९८ भट म्हांइंभटांते बोलाउं पाठवणें (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1191)" href="#lilaout" data-transition="slide" id="lila_1191">५९९ माहादाइसां भेटि (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1192)" href="#lilaout" data-transition="slide" id="lila_1192">६०० ज्ञानांकुस आक्षाइका स्त्रवण (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1193)" href="#lilaout" data-transition="slide" id="lila_1193">६०१ मादणेउपकर्मी लखूबाइसां व्यापारू कथन (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1194)" href="#lilaout" data-transition="slide" id="lila_1194">६०२ म्हांइंभटां अधिकारू प्रसंसा (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1195)" href="#lilaout" data-transition="slide" id="lila_1195">६०३ नीबातळिं भटां भेटि (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1196)" href="#lilaout" data-transition="slide" id="lila_1196">६०४ माहादाइसां तुप वाढितां स्वयं प्रयोक्ती भोजन कथन१ (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1197)" href="#lilaout" data-transition="slide" id="lila_1197">६०५ सारंगपंडितां व्यावृति: भटां: माहादाइसां: म्हांइंभटां बोधानुवादु (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1198)" href="#lilaout" data-transition="slide" id="lila_1198">६०६ भटां माहादाइसां प्रकोपु (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1199)" href="#lilaout" data-transition="slide" id="lila_1199">६०७ श्रीप्रभुपासौनि कैवल्यदान* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1200)" href="#lilaout" data-transition="slide" id="lila_1200">६०८ स्मरण : माहादाइसां जाप्यकरणीं अनोज्ञा* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1201)" href="#lilaout" data-transition="slide" id="lila_1201">६०९ माहादाइसाप्रश्नें नाम:लीळा:स्मरणाऩुवादु* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1202)" href="#lilaout" data-transition="slide" id="lila_1202">६१० माहादाइसां असन्निधानधर्म निरूपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1203)" href="#lilaout" data-transition="slide" id="lila_1203">६११ एथिचेयासि प्राणापदीची पीडा नाहीं* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1204)" href="#lilaout" data-transition="slide" id="lila_1204">६१२ माहादाइसां नृसिंहअवतार निरुपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1205)" href="#lilaout" data-transition="slide" id="lila_1205">६१३ नाथोबातें वोडबुरुडन्याय निरुपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1206)" href="#lilaout" data-transition="slide" id="lila_1206">६१४ भटां राष्ट्रासि विनश्यंती निरुपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1207)" href="#lilaout" data-transition="slide" id="lila_1207">६१५ बाइसां त्रिदोषउच्छेदानुवादु* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1208)" href="#lilaout" data-transition="slide" id="lila_1208">६१६ माहादाइसां जीवप्रपंचानुवादु (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1209)" href="#lilaout" data-transition="slide" id="lila_1209">६१७ माहादाइसां प्रश्नें धातुसाम्य नीरूपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1210)" href="#lilaout" data-transition="slide" id="lila_1210">६१८ माहादाइसां ज्ञानप्रेमसाधन नीरुपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1211)" href="#lilaout" data-transition="slide" id="lila_1211">६१९ तथा सां मासां अपरोक्ष अनुवादु१ (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1212)" href="#lilaout" data-transition="slide" id="lila_1212">६२० सास्त्रचरितार्थ अनुवादु (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1213)" href="#lilaout" data-transition="slide" id="lila_1213">६२१ भक्तीउपावो नीरुपणें (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1214)" href="#lilaout" data-transition="slide" id="lila_1214">६२२ आचार्या नामकरण (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1215)" href="#lilaout" data-transition="slide" id="lila_1215">६२३ अधिकरण करुनि ज्ञानदान (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1216)" href="#lilaout" data-transition="slide" id="lila_1216">६२४ माहादाइ अधीक प्रसाददानीं अविधिकथन (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1217)" href="#lilaout" data-transition="slide" id="lila_1217">६२५ भटां एकलेपण अनुवादु (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1218)" href="#lilaout" data-transition="slide" id="lila_1218">६२६ दाइबां प्रेष्णें बाइसां पुन:संबंधु अनुवादु (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1219)" href="#lilaout" data-transition="slide" id="lila_1219">६२७ मार्ग चुकलेया दायंबातें उपदेशु* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1220)" href="#lilaout" data-transition="slide" id="lila_1220">६२८ दायंबां व्यक्ताव्यक्तीं निमित्त निरुपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1221)" href="#lilaout" data-transition="slide" id="lila_1221">६२९ दायंबा देहांतदु:ख निरुपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1222)" href="#lilaout" data-transition="slide" id="lila_1222">६३० दाइंबा श्रीप्रभुदर्शना पाठवणे* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1223)" href="#lilaout" data-transition="slide" id="lila_1223">६३१ माहादाइसां सर्वतोमुख वीखो निरुपणें (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1224)" href="#lilaout" data-transition="slide" id="lila_1224">६३२ माहादाइसा वजीरी घडीतां पाहाणें (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1225)" href="#lilaout" data-transition="slide" id="lila_1225">६३३ भटां सास्त्रसीधांत कथन (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1226)" href="#lilaout" data-transition="slide" id="lila_1226">६३४ भटां माहादाइसां शास्त्रअभ्यास निरुपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1227)" href="#lilaout" data-transition="slide" id="lila_1227">६३५ शास्त्रकथन निरूपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1228)" href="#lilaout" data-transition="slide" id="lila_1228">६३६ संखराचार्या वरप्रदान* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1229)" href="#lilaout" data-transition="slide" id="lila_1229">६३७ देहदमनीं भटांनाथोबा वैजात्य* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1230)" href="#lilaout" data-transition="slide" id="lila_1230">६३८ विकल्पे प्रतिदेहानुवादु* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1231)" href="#lilaout" data-transition="slide" id="lila_1231">६३९ परमेश्वर:ब्रह्मविद्या अमूर्त निरुपण* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1232)" href="#lilaout" data-transition="slide" id="lila_1232">६४० प्रतिक्षणीं त्यागानुवादु* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1233)" href="#lilaout" data-transition="slide" id="lila_1233">६४१ भलतैसा भलेतेथ परमेश्वरू एकु* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1234)" href="#lilaout" data-transition="slide" id="lila_1234">६४२ ज्ञान : ध्यान : भजन ईश्वरींचि* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1235)" href="#lilaout" data-transition="slide" id="lila_1235">६४३ जीवां देवतां परस्परदर्शन* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1236)" href="#lilaout" data-transition="slide" id="lila_1236">६४४ जीवसंलग्नानुवादु* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1237)" href="#lilaout" data-transition="slide" id="lila_1237">६४५ सृष्टि दीर्घत्व अनुवादु* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1238)" href="#lilaout" data-transition="slide" id="lila_1238">६४६ आतां तुम्हां नवेया संबंधु* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1239)" href="#lilaout" data-transition="slide" id="lila_1239">६४७ भटा लग्नघडी अनुवादु: तथा रुदन नीक्षेद* (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1240)" href="#lilaout" data-transition="slide" id="lila_1240">६४८ मलैसामध्यें अवतरण१ (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1241)" href="#lilaout" data-transition="slide" id="lila_1241">६४९ राजेया अव्हानीं आउप्रति उत्तर देणें (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1242)" href="#lilaout" data-transition="slide" id="lila_1242">६५० दांडीए आरोहण:बीजें करणें (बेलापूर, श्रीरामपुर, अहमदनगर)</a>
+<li>
+        <a onclick="GetLila(1243)" href="#lilaout" data-transition="slide" id="lila_1243">651</a>
+<li>
+        <a onclick="GetLila(1244)" href="#lilaout" data-transition="slide" id="lila_1244">६५२ महादेओपुर घाटी पाल्हा डांगीया भेटि* (दौलताबाद-वेरुळ मार्गावरील गाव)</a>
+<li>
+        <a onclick="GetLila(1245)" href="#lilaout" data-transition="slide" id="lila_1245">६५३ पुनरपि सारंगपंडितां भेटि* </a>
+<li>
+        <a onclick="GetLila(1246)" href="#lilaout" data-transition="slide" id="lila_1246">६५४ वींझीं चाटेया भेटि</a>
+<li>
+        <a onclick="GetLila(1247)" href="#lilaout" data-transition="slide" id="lila_1247">६५५ उजनीए अवस्थान (उजैन, मद्यप्रदेश)</a>
+
+
+</ul>
+          
+</div>
+</div>
+	
+	
+    <div data-role="page" data-theme="a" id="lilaout">
+	<div data-role="header" data-position="fixed">
+                        <h1>लीळाचरित्र - उत्तरार्ध</h1>
+
+        </div>
+	<div id="set"></div>
+	
+	<div data-role="footer" data-position="fixed">
+        <div class="ui-grid-d center">
+            <div class="ui-block-a">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="https://galacticmaster.github.io/lilacharitra/main/">Button</a>
+            </div>
+            <div class="ui-block-b">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline" data-transition="slide" onclick="PreLila()">Button</a>
+            </div>
+            <div class="ui-block-c">
+                <!--<a class="ui-shadow ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-inline" type="hidden" href="#pageone">Button</a>-->
+            </div>
+            <div class="ui-block-d">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-notext ui-btn-inline" data-transition="slide" onclick="NextLila()">Button</a>
+            </div>
+            <div class="ui-block-e">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-gear ui-btn-icon-notext ui-btn-inline">Button</a>
+            </div>
+        </div>
+	
+    </div>
+	
+
+    <div data-role="page" data-theme="a" id="pagethree">
+        <div data-role="header" data-position="fixed">
+            <h1>लीळाचरित्र Search</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <input type="search" name="search" id="searchlila" onchange="searchlila($(this).val())">
+        </div>
+    </div>
+
+
+    </div>
+	
+	
+</body>
+</html>
+
+<script>
+    /*Disable copy paste*/
+    (function ($) {
+
+        $.fn.blockCopy = function (options) {
+
+            var settings = $.extend({
+                blockPasteClass: null
+            }, options);
+
+
+            if (settings.blockPasteClass) {
+                $("." + settings.blockPasteClass).bind('copy paste cut drag drop', function (e) {
+                    e.preventDefault();
+                    return false;
+                });
+            }
+
+
+            function style_appender(rule) {
+                $('html > head').append($('<style>' + rule + '</style>'));
+            }
+
+            function html_appender(html) {
+                $("body").append(html);
+            }
+
+            function clearClipboard() {
+                var $temp = $("#bypasser");
+                $temp.val("You can't cheat !").select();
+                document.execCommand("copy");
+            }
+
+            function add_absolute_div(id) {
+                html_appender("<div id='noClick" + id + "' onclick='return false;' oncontextmenu='return false;'>&nbsp;</div>");
+            }
+
+
+            function absorbEvent_(event) {
+                var e = event || window.event;
+                e.preventDefault && e.preventDefault();
+                e.stopPropagation && e.stopPropagation();
+                e.cancelBubble = true;
+                e.returnValue = false;
+                return false;
+            }
+
+            function preventLongPressMenu(node) {
+                node.ontouchstart = absorbEvent_;
+                node.ontouchmove = absorbEvent_;
+                node.ontouchend = absorbEvent_;
+                node.ontouchcancel = absorbEvent_;
+            }
+
+            function set_absolute_div(element, id) {
+                var position = element.position();
+                var noclick = "#noClick" + id;
+
+                $(noclick).css({
+                    height: (element.height()),
+                    width: (element.width()),
+                    position: 'absolute',
+                    top: position.top,
+                    left: position.left,
+                    'z-index': 100
+                })
+            }
+
+
+            $("body").bind("contextmenu", function (e) {
+                e.preventDefault();
+            });
+
+
+
+            //Append needed rules to css
+            style_appender(
+                "* {-moz-user-select: none !important; -khtml-user-select: none !important;   -webkit-user-select: none !important; -ms-user-select: none !important;   user-select: none !important; }" +
+                ".content {position: relative !important; }" +
+                ".content .mask {position: absolute !important ; z-index: 1 !important; width: 100% !important; height: 100%!important;}" +
+                ".content a {position: relative !important; z-index: 3 !important;}" +
+                ".content, .content .mask{ pointer-events: none;}"
+            );
+
+
+            //Append an Input to clear clipboard
+            html_appender("<input id='bypasser' value='nothing' type='hidden'>");
+            //Clearing clipboard Intervali
+            setInterval(clearClipboard, 1000);
+
+
+
+            var id = 1;
+
+            return this.each(function () {
+
+                //Preventing using touch events
+                preventLongPressMenu($(this));
+
+                //Add CSS preventor rules to selected DOM & append mask to class
+                $(this).addClass("content").append("<div class='mask'></div>");
+
+                //Append an absolute div to body
+                add_absolute_div(id);
+                //Set position of the div to selected DOM
+                set_absolute_div($(this), id);
+
+
+                id++;
+
+            });
+
+        }
+
+    }(jQuery));
+
+    /*Disable copy paste action */
+    $(document).ready(function () {
+        $(this).blockCopy();
+    });
+
+    function scrollToView(id) {
+        if ($("#" + id).offset() != undefined) {
+            var toppadding = Math.floor($("#" + id).offset().top - 70);
+            $('html,body').animate({
+            scrollTop: toppadding
+        }, 0);
+        }
+    }
+</script>
