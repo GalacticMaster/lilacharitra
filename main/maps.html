@@ -82,7 +82,7 @@ $(document).on("pageshow", "#pageone", function () {
                 var pageDiv = $("#set");
                 pageDiv.empty();
 				pageDiv.append('<p>'+data[id].District+'</p>')
-				pageDiv.append('<p><a rel="external" href="http://maps.google.com/?q='+data[id].Latitude+','+data[id].Longitude+'" target="_blank">'+data[id].Location+'</a></p>')
+				pageDiv.append('<p><a rel="external" href="http://maps.google.com/?q='+data[id].Latitude+','+data[id].Longitude+'">'+data[id].Location+'</a></p>')
 				pageDiv.append('<p>'+data[id].MarathiShortDescription+'</p>')
 				pageDiv.append('<p>'+data[id].MarathiLongDescription+'</p>')
             },
