@@ -70,19 +70,22 @@ $(document).on("pageshow", "#pageone", function () {
 
 
     function GetMap(id) {
+	//id = id + 1;
+	console.log(id)
         $.ajax({
             cache: false,
             type: "GET",
             url: "maps.json",// + LilaID,
             data: "json",
             success: function (data) {
-			console.log(data[id])
-			console.log(data[id].Latitude)
+			console.log(data)
+			//console.log(data[0].ID)
+			//console.log(data[id].Latitude)
 				
                 var pageDiv = $("#set");
                 pageDiv.empty();
 				pageDiv.append('<p>'+data[id].District+'</p>')
-				pageDiv.append('<p><a rel="external" href="http://maps.google.com/?q='+data[id].Latitude+','+data[id].Longitude+'">'+data[id].Location+'</a></p>')
+				pageDiv.append('<p><a rel="external" href="http://maps.google.com/?q='+data[id].Latitude+','+data[id].Longitude+'" target="_blank" >'+data[id].Location+'</a></p>')
 				pageDiv.append('<p>'+data[id].MarathiShortDescription+'</p>')
 				pageDiv.append('<p>'+data[id].MarathiLongDescription+'</p>')
             },
@@ -111,16 +114,15 @@ $(document).on("pageshow", "#pageone", function () {
 <li><a onclick="GetMap(4);" href="#lilaout" data-transition="slide">Phaltan (Rangshila)</a></li>
 <li><a onclick="GetMap(5);" href="#lilaout" data-transition="slide">Phaltan (Maltan Tale)</a></li>
 <li><a onclick="GetMap(6);" href="#lilaout" data-transition="slide">Phaltan (Maltan Datta Mandir)</a></li>
-<li><a onclick="GetMap(13);" href="#lilaout" data-transition="slide">Nagapur</a></li>
-<li><a onclick="GetMap(15);" href="#lilaout" data-transition="slide">Dongargan</a></li>
 <li><a onclick="GetMap(7);" href="#lilaout" data-transition="slide">Phaltan (Maltan Viharan Sthaan)</a></li>
 <li><a onclick="GetMap(8);" href="#lilaout" data-transition="slide">Parner</a></li>
 <li><a onclick="GetMap(9);" href="#lilaout" data-transition="slide">Loni (Haveli)</a></li>
 <li><a onclick="GetMap(10);" href="#lilaout" data-transition="slide">Jamgaon</a></li>
 <li><a onclick="GetMap(11);" href="#lilaout" data-transition="slide">Nepti</a></li>
 <li><a onclick="GetMap(12);" href="#lilaout" data-transition="slide">Arangaon</a></li>
+<li><a onclick="GetMap(13);" href="#lilaout" data-transition="slide">Nagapur</a></li>
 <li><a onclick="GetMap(14);" href="#lilaout" data-transition="slide">Shendi (Pokhardi)</a></li>
-<li><a onclick="GetMap(62);" href="#lilaout" data-transition="slide">Tryambak (Parvat)</a></li>
+<li><a onclick="GetMap(15);" href="#lilaout" data-transition="slide">Dongargan</a></li>
 <li><a onclick="GetMap(16);" href="#lilaout" data-transition="slide">Vambori</a></li>
 <li><a onclick="GetMap(17);" href="#lilaout" data-transition="slide">Bhingar</a></li>
 <li><a onclick="GetMap(18);" href="#lilaout" data-transition="slide">Chinchodi (Patil)</a></li>
@@ -130,7 +132,6 @@ $(document).on("pageshow", "#pageone", function () {
 <li><a onclick="GetMap(22);" href="#lilaout" data-transition="slide">Ghogargaon (Tal. Shrigonda)</a></li>
 <li><a onclick="GetMap(23);" href="#lilaout" data-transition="slide">Mirajgaon</a></li>
 <li><a onclick="GetMap(24);" href="#lilaout" data-transition="slide">Sakat</a></li>
-<li><a onclick="GetMap(53);" href="#lilaout" data-transition="slide">Koteshwar</a></li>
 <li><a onclick="GetMap(25);" href="#lilaout" data-transition="slide">Lad Jalgaon</a></li>
 <li><a onclick="GetMap(26);" href="#lilaout" data-transition="slide">Nagalwadi</a></li>
 <li><a onclick="GetMap(27);" href="#lilaout" data-transition="slide">Kharvandi (Kasar)</a></li>
@@ -156,19 +157,21 @@ $(document).on("pageshow", "#pageone", function () {
 <li><a onclick="GetMap(47);" href="#lilaout" data-transition="slide">Takli Bhan</a></li>
 <li><a onclick="GetMap(48);" href="#lilaout" data-transition="slide">Ghogargaon (Tal. Nevasa)</a></li>
 <li><a onclick="GetMap(49);" href="#lilaout" data-transition="slide">Bel Pimpalgaon</a></li>
+<li><a onclick="GetMap(50);" href="#lilaout" data-transition="slide">Suregaon (Bhalgaon)</a></li>
 <li><a onclick="GetMap(51);" href="#lilaout" data-transition="slide">Nevasa</a></li>
 <li><a onclick="GetMap(52);" href="#lilaout" data-transition="slide">Dusre Galnimb June</a></li>
-<li><a onclick="GetMap(50);" href="#lilaout" data-transition="slide">Suregaon (Bhalgaon)</a></li>
+<li><a onclick="GetMap(53);" href="#lilaout" data-transition="slide">Koteshwar</a></li>
 <li><a onclick="GetMap(54);" href="#lilaout" data-transition="slide">Suregaon (Dahigaon)</a></li>
 <li><a onclick="GetMap(55);" href="#lilaout" data-transition="slide">Warkhed (Ghat Siddhanath)</a></li>
 <li><a onclick="GetMap(56);" href="#lilaout" data-transition="slide">Chapadgaon</a></li>
 <li><a onclick="GetMap(57);" href="#lilaout" data-transition="slide">Ghotan</a></li>
 <li><a onclick="GetMap(58);" href="#lilaout" data-transition="slide">Khopdi</a></li>
-<li><a onclick="GetMap(63);" href="#lilaout" data-transition="slide">Anjneri</a></li>
-<li><a onclick="GetMap(64);" href="#lilaout" data-transition="slide">Govardhan (Gangapur)</a></li>
 <li><a onclick="GetMap(59);" href="#lilaout" data-transition="slide">Sinnar</a></li>
 <li><a onclick="GetMap(60);" href="#lilaout" data-transition="slide">Sinnar (Bhojanta Sthaan)</a></li>
 <li><a onclick="GetMap(61);" href="#lilaout" data-transition="slide">Tryambak (Tryambakeshwar Temple)</a></li>
+<li><a onclick="GetMap(62);" href="#lilaout" data-transition="slide">Tryambak (Parvat)</a></li>
+<li><a onclick="GetMap(63);" href="#lilaout" data-transition="slide">Anjneri</a></li>
+<li><a onclick="GetMap(64);" href="#lilaout" data-transition="slide">Govardhan (Gangapur)</a></li>
 <li><a onclick="GetMap(65);" href="#lilaout" data-transition="slide">Nashik (Panchavati)</a></li>
 <li><a onclick="GetMap(66);" href="#lilaout" data-transition="slide">Nashik (Sundarnarayan)</a></li>
 <li><a onclick="GetMap(67);" href="#lilaout" data-transition="slide">Aadgaon (Adgaon)</a></li>
@@ -177,8 +180,6 @@ $(document).on("pageshow", "#pageone", function () {
 <li><a onclick="GetMap(70);" href="#lilaout" data-transition="slide">Niphad</a></li>
 <li><a onclick="GetMap(71);" href="#lilaout" data-transition="slide">Shivre</a></li>
 <li><a onclick="GetMap(72);" href="#lilaout" data-transition="slide">Nandur</a></li>
-<li><a onclick="GetMap(93);" href="#lilaout" data-transition="slide">Khadkuli</a></li>
-<li><a onclick="GetMap(94);" href="#lilaout" data-transition="slide">Sangameshwar</a></li>
 <li><a onclick="GetMap(73);" href="#lilaout" data-transition="slide">Nandur (Madhyameshwar)</a></li>
 <li><a onclick="GetMap(74);" href="#lilaout" data-transition="slide">Kanlad (Kanlas)</a></li>
 <li><a onclick="GetMap(75);" href="#lilaout" data-transition="slide">Purangaon</a></li>
@@ -199,6 +200,8 @@ $(document).on("pageshow", "#pageone", function () {
 <li><a onclick="GetMap(90);" href="#lilaout" data-transition="slide">Galnib June</a></li>
 <li><a onclick="GetMap(91);" href="#lilaout" data-transition="slide">June Agervadgaon</a></li>
 <li><a onclick="GetMap(92);" href="#lilaout" data-transition="slide">Paithan</a></li>
+<li><a onclick="GetMap(93);" href="#lilaout" data-transition="slide">Khadkuli</a></li>
+<li><a onclick="GetMap(94);" href="#lilaout" data-transition="slide">Sangameshwar</a></li>
 <li><a onclick="GetMap(95);" href="#lilaout" data-transition="slide">Wadvali</a></li>
 <li><a onclick="GetMap(96);" href="#lilaout" data-transition="slide">Mayagaon</a></li>
 <li><a onclick="GetMap(97);" href="#lilaout" data-transition="slide">Navgaon</a></li>
@@ -211,7 +214,6 @@ $(document).on("pageshow", "#pageone", function () {
 <li><a onclick="GetMap(104);" href="#lilaout" data-transition="slide">Vitkheda</a></li>
 <li><a onclick="GetMap(105);" href="#lilaout" data-transition="slide">Mategao</a></li>
 <li><a onclick="GetMap(106);" href="#lilaout" data-transition="slide">Kannad</a></li>
-<li><a onclick="GetMap(156);" href="#lilaout" data-transition="slide">Shiral</a></li>
 <li><a onclick="GetMap(107);" href="#lilaout" data-transition="slide">Hatnur</a></li>
 <li><a onclick="GetMap(108);" href="#lilaout" data-transition="slide">Ellora</a></li>
 <li><a onclick="GetMap(109);" href="#lilaout" data-transition="slide">Gadana</a></li>
@@ -261,6 +263,7 @@ $(document).on("pageshow", "#pageone", function () {
 <li><a onclick="GetMap(153);" href="#lilaout" data-transition="slide">Mahur  (Dohi Deva Bheti Sthaan)</a></li>
 <li><a onclick="GetMap(154);" href="#lilaout" data-transition="slide">Keli Pimpalgaon</a></li>
 <li><a onclick="GetMap(155);" href="#lilaout" data-transition="slide">Waki</a></li>
+<li><a onclick="GetMap(156);" href="#lilaout" data-transition="slide">Shiral</a></li>
 <li><a onclick="GetMap(157);" href="#lilaout" data-transition="slide">Pargaon (Jogeshwari)</a></li>
 <li><a onclick="GetMap(158);" href="#lilaout" data-transition="slide">Ashti</a></li>
 <li><a onclick="GetMap(159);" href="#lilaout" data-transition="slide">Matkuli</a></li>
@@ -274,13 +277,13 @@ $(document).on("pageshow", "#pageone", function () {
 <li><a onclick="GetMap(167);" href="#lilaout" data-transition="slide">Shekta</a></li>
 <li><a onclick="GetMap(168);" href="#lilaout" data-transition="slide">Chaklamba</a></li>
 <li><a onclick="GetMap(169);" href="#lilaout" data-transition="slide">Pargaon (Ghogas)</a></li>
-<li><a onclick="GetMap(176);" href="#lilaout" data-transition="slide">Agar Nandur</a></li>
 <li><a onclick="GetMap(170);" href="#lilaout" data-transition="slide">Rokda (Kada)</a></li>
 <li><a onclick="GetMap(171);" href="#lilaout" data-transition="slide">Panchaleshwar</a></li>
 <li><a onclick="GetMap(172);" href="#lilaout" data-transition="slide">Khamgaon</a></li>
 <li><a onclick="GetMap(173);" href="#lilaout" data-transition="slide">BagPimpalgaon</a></li>
 <li><a onclick="GetMap(174);" href="#lilaout" data-transition="slide">Gevrai</a></li>
 <li><a onclick="GetMap(175);" href="#lilaout" data-transition="slide">Sangam Jalgaon</a></li>
+<li><a onclick="GetMap(176);" href="#lilaout" data-transition="slide">Agar Nandur</a></li>
 <li><a onclick="GetMap(177);" href="#lilaout" data-transition="slide">Mirgaon</a></li>
 <li><a onclick="GetMap(178);" href="#lilaout" data-transition="slide">Pandhri (Papvinashani)</a></li>
 <li><a onclick="GetMap(179);" href="#lilaout" data-transition="slide">Waghli</a></li>
@@ -331,12 +334,12 @@ $(document).on("pageshow", "#pageone", function () {
 <li><a onclick="GetMap(224);" href="#lilaout" data-transition="slide">Katsur</a></li>
 <li><a onclick="GetMap(225);" href="#lilaout" data-transition="slide">Belora</a></li>
 <li><a onclick="GetMap(226);" href="#lilaout" data-transition="slide">Ridhpur (Rajmath)</a></li>
-<li><a onclick="GetMap(230);" href="#lilaout" data-transition="slide">Ridhpur (Gudha Sthaan)</a></li>
-<li><a onclick="GetMap(232);" href="#lilaout" data-transition="slide">Ridhpur (Pivaltaloli)</a></li>
 <li><a onclick="GetMap(227);" href="#lilaout" data-transition="slide">Ridhpur (Vajeshwar)</a></li>
 <li><a onclick="GetMap(228);" href="#lilaout" data-transition="slide">Ridhpur (Bhairavburuj)</a></li>
 <li><a onclick="GetMap(229);" href="#lilaout" data-transition="slide">Ridhpur (Dwarka Darshan)</a></li>
+<li><a onclick="GetMap(230);" href="#lilaout" data-transition="slide">Ridhpur (Gudha Sthaan)</a></li>
 <li><a onclick="GetMap(231);" href="#lilaout" data-transition="slide">Ridhpur (Kshetrakhaj)</a></li>
+<li><a onclick="GetMap(232);" href="#lilaout" data-transition="slide">Ridhpur (Pivaltaloli)</a></li>
 <li><a onclick="GetMap(233);" href="#lilaout" data-transition="slide">Dabheri</a></li>
 <li><a onclick="GetMap(234);" href="#lilaout" data-transition="slide">Talegaon (Shri Chakra. Sthaan)</a></li>
 <li><a onclick="GetMap(235);" href="#lilaout" data-transition="slide">Talegaon (Shri Go. Sthaan)</a></li>
@@ -365,11 +368,11 @@ $(document).on("pageshow", "#pageone", function () {
 <li><a onclick="GetMap(258);" href="#lilaout" data-transition="slide">Sonori (Sonjay)</a></li>
 <li><a onclick="GetMap(259);" href="#lilaout" data-transition="slide">Domak</a></li>
 <li><a onclick="GetMap(260);" href="#lilaout" data-transition="slide">Ashtoli</a></li>
-<li><a onclick="GetMap(263);" href="#lilaout" data-transition="slide">Pala</a></li>
-<li><a onclick="GetMap(265);" href="#lilaout" data-transition="slide">Shirked (Sthaan No.2)</a></li>
 <li><a onclick="GetMap(261);" href="#lilaout" data-transition="slide">Kolvihir</a></li>
 <li><a onclick="GetMap(262);" href="#lilaout" data-transition="slide">Khed</a></li>
+<li><a onclick="GetMap(263);" href="#lilaout" data-transition="slide">Pala</a></li>
 <li><a onclick="GetMap(264);" href="#lilaout" data-transition="slide">Shirkhed (Sthaan No.1)</a></li>
+<li><a onclick="GetMap(265);" href="#lilaout" data-transition="slide">Shirked (Sthaan No.2)</a></li>
 <li><a onclick="GetMap(266);" href="#lilaout" data-transition="slide">Shirkhed (Sthaan No.3-9)</a></li>
 <li><a onclick="GetMap(267);" href="#lilaout" data-transition="slide">Katpur</a></li>
 <li><a onclick="GetMap(268);" href="#lilaout" data-transition="slide">Akhatwada</a></li>
@@ -392,6 +395,8 @@ $(document).on("pageshow", "#pageone", function () {
 <li><a onclick="GetMap(285);" href="#lilaout" data-transition="slide">Sukli (Dakram) </a></li>
 <li><a onclick="GetMap(286);" href="#lilaout" data-transition="slide">Salbardi (Sasa Rakshan)</a></li>
 <li><a onclick="GetMap(287);" href="#lilaout" data-transition="slide">Salbardi (Aasan Sthaan)</a></li>
+
+
 </ul>
 </div>
 </div>
