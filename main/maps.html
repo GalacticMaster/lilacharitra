@@ -70,7 +70,8 @@ $(document).on("pageshow", "#pageone", function () {
 
 
     function GetMap(id) {
-	//id = id + 1;
+	//id = id - 1;
+	localStorage.id = id;
 	console.log(id)
         $.ajax({
             cache: false,
@@ -79,16 +80,16 @@ $(document).on("pageshow", "#pageone", function () {
             data: "json",
             success: function (data) {
 			console.log(data)
-			//console.log(data[0].ID)
+			//console.log(data[id].ID)
 			//console.log(data[id].Latitude)
 				
                 var pageDiv = $("#set");
                 pageDiv.empty();
-				pageDiv.append('<p>'+data[id].District+'</p>')
-				pageDiv.append('<p><a rel="external" href="http://maps.google.com/?q='+data[id].Latitude+','+data[id].Longitude+'" target="_blank" >For Web Site'+data[id].Location+'</a></p>')
-				pageDiv.append('<p><a rel="external" href="geo:'+data[id].Latitude+','+data[id].Longitude+'?q='+data[id].Latitude+','+data[id].Longitude+'">For Android App'+data[id].Location+'</a></p>')
-				pageDiv.append('<p>'+data[id].MarathiShortDescription+'</p>')
-				pageDiv.append('<p>'+data[id].MarathiLongDescription+'</p>')
+				pageDiv.append('<p>'+data[id].field2+'</p>')
+				pageDiv.append('<p><a rel="external" href="http://maps.google.com/?q='+data[id].field6+','+data[id].field7+'" target="_blank" >For Web Site'+data[id].field4+'</a></p>')
+				pageDiv.append('<p><a rel="external" href="geo:'+data[id].field6+','+data[id].field7+'?q='+data[id].field6+','+data[id].field7+'">For Android App'+data[id].field4+'</a></p>')
+				pageDiv.append('<p>'+data[id].field8+'</p>')
+				pageDiv.append('<p>'+data[id].field9+'</p>')
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert('Failed to retrieve Lila Please check your internet.');
@@ -108,9 +109,7 @@ $(document).on("pageshow", "#pageone", function () {
 	  <div data-role="main" class="ui-content">
            
     <div data-role="content" id="ListDiv"></div>
-	<a href="geo:48.959630, 9.125670?q=48.959630, 9.125670">Hemang</a>
 	<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search...">
-	<li><a href="geo:48.959630, 9.125670?q=48.959630, 9.125670">Hemang</a></li>
 <li><a onclick="GetMap(1);" href="#lilaout" data-transition="slide">Phaltan (Janmasthaan)</a></li>
 <li><a onclick="GetMap(2);" href="#lilaout" data-transition="slide">Phaltan (Sarvatirth)</a></li>
 <li><a onclick="GetMap(3);" href="#lilaout" data-transition="slide">Phaltan (Avasthan)</a></li>
