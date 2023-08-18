@@ -76,21 +76,37 @@ $(document).on("pageshow", "#pageone", function () {
         $.ajax({
             cache: false,
             type: "GET",
-            url: "maps.json",// + LilaID,
+            url: "maps.json",
             data: "json",
             success: function (data) {
-			console.log(data)
+										var pageDiv = $("#set");
+							pageDiv.empty();
+							pageDiv.append('<p>'+data[id].field2+'</p>')
+							pageDiv.append('<p>For Web Site => <a rel="external" href="http://maps.google.com/?q='+data[id].field6+','+data[id].field7+'" target="_blank" >'+data[id].field4+'</a></p>')
+							pageDiv.append('<p>For Android App => <a rel="external" href="geo:'+data[id].field6+','+data[id].field7+'?q='+data[id].field6+','+data[id].field7+'">'+data[id].field4+'</a></p>')
+							pageDiv.append('<p>'+data[id].field8+'</p>')
+							pageDiv.append('<p>'+data[id].field9+'</p>')
+							pageDiv.append('<hr></hr>')
+							
+					$.getJSON('person.json', function(jd)
+						{var json = jd.main;
+						for (let i = 1; i < json.length; i++){
+						var Aadi = json[i].Aadi;
+						console.log(Aadi);
+						let result = Aadi.includes(data[id].field5);
+						if (result){
 			//console.log(data[id].ID)
 			//console.log(data[id].Latitude)
 				
-                var pageDiv = $("#set");
-                pageDiv.empty();
-				pageDiv.append('<p>'+data[id].field2+'</p>')
-				pageDiv.append('<p>For Web Site => <a rel="external" href="http://maps.google.com/?q='+data[id].field6+','+data[id].field7+'" target="_blank" >'+data[id].field4+'</a></p>')
-				pageDiv.append('<p>For Android App => <a rel="external" href="geo:'+data[id].field6+','+data[id].field7+'?q='+data[id].field6+','+data[id].field7+'">'+data[id].field4+'</a></p>')
-				pageDiv.append('<p>'+data[id].field8+'</p>')
-				pageDiv.append('<p>'+data[id].field9+'</p>')
-            },
+
+							pageDiv.append('<p>Aadi :'+Aadi+'</p>')
+							
+							pageDiv.append('<p>Leela: '+json[i].Lila+'</p>')
+							pageDiv.append('<hr></hr>')
+								}
+						}
+			});
+			},
             error: function (xhr, ajaxOptions, thrownError) {
                 alert('Failed to retrieve Lila Please check your internet.');
             }
