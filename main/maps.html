@@ -86,8 +86,8 @@ $(document).on("pageshow", "#pageone", function () {
                 var pageDiv = $("#set");
                 pageDiv.empty();
 				pageDiv.append('<p>'+data[id].field2+'</p>')
-				pageDiv.append('<p><a rel="external" href="http://maps.google.com/?q='+data[id].field6+','+data[id].field7+'" target="_blank" >For Web Site'+data[id].field4+'</a></p>')
-				pageDiv.append('<p><a rel="external" href="geo:'+data[id].field6+','+data[id].field7+'?q='+data[id].field6+','+data[id].field7+'">For Android App'+data[id].field4+'</a></p>')
+				pageDiv.append('<p>For Web Site => <a rel="external" href="http://maps.google.com/?q='+data[id].field6+','+data[id].field7+'" target="_blank" >'+data[id].field4+'</a></p>')
+				pageDiv.append('<p>For Android App => <a rel="external" href="geo:'+data[id].field6+','+data[id].field7+'?q='+data[id].field6+','+data[id].field7+'">'+data[id].field4+'</a></p>')
 				pageDiv.append('<p>'+data[id].field8+'</p>')
 				pageDiv.append('<p>'+data[id].field9+'</p>')
             },
