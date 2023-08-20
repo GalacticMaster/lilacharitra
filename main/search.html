@@ -141,6 +141,7 @@ Select Book :
     <option id="leela">Leela</option>
     <option id="RC">RC</option>
     <option id="Smruti">Smruti</option>
+	<option id="shabda">shabda</option>
 </select>
 </button>
 
@@ -354,6 +355,54 @@ $('#text-search').keyup(function(){
   });
 	}
 	/*Smruti Search End*/
+
+/*start of shabda*/
+  else if (type == "shabda")
+  {
+  $(document).ready(function(){
+     $.getJSON('dict.json', function(jd) {
+	var data = jd
+	console.log(jd)
+$('#text-search').keyup(function(){
+            var searchField = $(this).val();
+			if(searchField === '')  {
+				$('#filter').html('');
+				return;
+			}
+            var regex = new RegExp(searchField, "i");
+            var output = '<div class="card mb-2">';
+			var result = 0;
+            var count = 1;
+			  $.each(data, function(key, val){
+				if ((val.field1.search(regex) != -1 || val.field2.search(regex) != -1)) {
+				  //output += '<div class="row p-2">';
+				  //output += '<div class="col-7">';
+				  result = result + 1;
+				  output += '<h2>' + val.field1 + '</h2>';
+				  output += '<p style="font-size: 18px;font-family: Arial;text-align:justify">' + val.field2 + '</p>'
+				  //output += '</div>';
+				  //output += '</div>';
+				  if(count%1 == 0){
+					output += '</div><div class="card mb-2">'
+				  }
+				  count++;
+				}
+			  });
+			  output += '</div>';
+			  $('#count').html('<p "font-size:18px;font-family:Arial;"> Total <span style="color:red">'+result+'</span> Leela Found with word <span style="color:red">'+ searchField+'</span> </p>');
+			  var src_str = output;
+			  var term = searchField;
+			  term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
+			  var pattern = new RegExp("("+term+")", "gi");
+			  src_str = src_str.replace(pattern, "<mark>$1</mark>");
+			  src_str = src_str.replace(/(<mark>[^<>]*)((<[^>]+>)+)([^<>]*<\/mark>)/,"$1</mark>$2<mark>$4");
+			  $('#filter').html(src_str)
+			  //$('#filter').html(output);
+        });
+  });
+  });
+	}
+	/*shabda Search End*/
 });
 });
 
