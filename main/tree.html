@@ -14,12 +14,14 @@ html, body {
     height: 100%;
     font-family: Helvetica;
     overflow: hidden;
+	font-size: 50px
 }
 
 #tree {
     width: 100%;
     height: 100%;
 }
+
 </style>
 <html>
 <script src="https://balkan.app/js/FamilyTree.js"></script>
@@ -27,14 +29,45 @@ html, body {
 </html>
 <script>
 //JavaScript
+
+FamilyTree.templates.hugo_female.field_0 ='<text width="230" style="font-size: 30px;" fill="#ffffff" x="125" y="95" text-anchor="middle" class="field_0">{val}</text>';
+FamilyTree.templates.hugo_male.field_0 ='<text width="230" style="font-size: 30px;" fill="#ffffff" x="125" y="95" text-anchor="middle" class="field_0">{val}</text>';
+
 var chart = new FamilyTree(document.getElementById("tree"), {
-    mouseScrool: FamilyTree.none,
+	//enableTouch: true,
+	
+    mouseScrool: FamilyTree.action.zoom,
     siblingSeparation: 120,
+	anim: {func: FamilyTree.anim.outBack, duration: 500},
     template: 'hugo',
+	min: true,
+	mode: "dark",
+	nodeTreeMenu: true,
+	showXScroll: true,
+	showYScroll: true,
+	padding: 20,
+	     toolbar: {
+         layout: true,
+         zoom: true,
+         fit: true,
+         expandAll: false,
+         fullScreen: true
+     },
+	 editForm: {
+        buttons: {
+            edit: null,
+            share: null,
+            pdf: null,
+            remove: null
+        }
+    },
+	//collapse: {level: 5, allChildren: false},
     nodeBinding: {
+	
         field_0: "name",
         field_1: "title",
-    }
+    },
+	
 });
 
 
@@ -64,6 +97,8 @@ chart.load([
 	{ id: 18, mid:14,  name: "लखुदेवभट",  gender: 'male',relation:"श्रीनागदेवाचार्यांचे नातु, महेश्वरपंडितांचे पुत्र", detail:"वृ.२" },
 	{ id: 18, mid:14,  name: "चक्रपाणीभट",  gender: 'male',relation:"श्रीनागदेवाचार्यांचे नातु, महेश्वरपंडितांचे पुत्र", detail:"वृ.२" },
 	{ id: 19, mid:14,  name: "नागाइसा",  gender: 'female',relation:"शश्रीनागदेवचार्यांची नात, महेश्वरपंडितांचे पुत्र", detail:"वृ.२" },
+	
+	{ id: 20, pids:[11],  name: "गंगाइसा",  gender: 'female',relation:"", detail:"" }
 
     /*{ id: 12, fid: 6, mid: 7, pids: [14], name: "Prince William", title: "Duch of Cambridge", img: "https://cdn.balkan.app/shared/f14.png", gender: 'male' },
     { id: 13, fid: 6, mid: 7, pids: [15], name: "Prince Harry", img: "https://cdn.balkan.app/shared/f15.png", gender: 'male' },
