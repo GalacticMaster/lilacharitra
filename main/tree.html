@@ -1,0 +1,77 @@
+<html>
+ <head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<script src="https://balkan.app/js/FamilyTree.js"></script>
+
+<style>
+html, body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    font-family: Helvetica;
+    overflow: hidden;
+}
+
+#tree {
+    width: 100%;
+    height: 100%;
+}
+</style>
+<html>
+<script src="https://balkan.app/js/FamilyTree.js"></script>
+<div id="tree"></div>
+</html>
+<script>
+//JavaScript
+var chart = new FamilyTree(document.getElementById("tree"), {
+    mouseScrool: FamilyTree.none,
+    siblingSeparation: 120,
+    template: 'john',
+    nodeBinding: {
+        field_0: "name",
+        field_1: "title",
+        img_0: "img",
+    }
+});
+
+
+chart.load([
+    { id: 1, name: "अनंताचार्य", img: "", gender: 'male', relation:"श्रीनागदेवाचार्ाांचेपणजोबा, वडिलांचेआजोबा", detail:"अज्ञातपाठ पू. १९५"},
+    //{ id: 2, pids: [1], name: "Queen Elizabeth", title: "The Queen Mother", img: "https://cdn.balkan.app/shared/f2.png", gender: 'female' },
+
+    { id: 3, mid: 2, fid: 1, name: "दामोदराचार्य", img: "", gender: 'male', relation:"श्रीनागदेवाचार्यांचे आजोबा", detail:"अज्ञातपाठपू. १९५"},
+
+
+    { id: 6, mid: 3, fid: 4,  name: "वायनायक", img: "", gender: 'male', relation:"श्रीनागदेवाचार्याचे चुलते, दामोदराचार्यांचे धाकटे पुत्र", detail:"अज्ञातपाठ पू. १९५" },
+    { id: 7, mid: 3, fid: 4,  name: "माधवभट", img: "", gender: 'male',relation:"श्रीनागदेवाचार्यांचे वडील, दामोदराचार्यांचे पुत्र आबाइसा : श्रीनागदेवाचार्याची आई ", detail:"अज्ञातपाठ पू. १९५ पू. २३८" },
+	
+	{ id: 8, mid:6,  name: "आपोलो", img: "", gender: 'male',relation:"श्रीनागदेवचार्यांचे चुलतभाऊ, वायनायकाचे पुत्र", detail:"पू.४६५" },
+	{ id: 9, mid:6,  name: "माहादाइसा", img: "", gender: 'female',relation:"श्रीनागदेवचार्यांची चुलत बहीण, वायनायकाची कन्या", detail:"पू. २३८" },
+	
+	{ id: 10, mid:7,  name: "सारंगपाणीभट", img: "", gender: 'male',relation:"श्रीनागदेवाचार्यांचे थोरले बंधु", detail:"अज्ञातपाठ पू. १९५" },
+	{ id: 11, mid:7,  name: "श्रीनागदेवाचार्य", img: "", gender: 'male',relation:"", detail:"" },
+	{ id: 12, mid:7,  name: "वैजोबा", img: "", gender: 'male',relation:"श्रीनागदेवाचार्यांचे धाकटे बंधू", detail:"पू. ४९९" },
+	{ id: 13, mid:7,  name: "उमाइसा", img: "", gender: 'female',relation:"श्रीनागदेवाचार्याची लहान बहीण ", detail:"पू. २३८" },
+	
+	{ id: 14, mid:11,  name: "महेश्वरपंडित", img: "", gender: 'male',relation:"श्रीनागदेवाचार्यांचे थोरले पुत्र", detail:"उत्त. ३१" },
+	{ id: 15, mid:11,  name: "वैराग्यदेव", img: "", gender: 'male',relation:"श्रीनागदेवाचार्यांचे धाकटे पुत्र", detail:"उत्त. ३४२" },
+	
+	{ id: 16, mid:14,  name: "धनेश्वरभट", img: "", gender: 'male',relation:"श्रीनागदेवाचार्यांचे नातु, महेश्वरपंडितांचे पुत्र", detail:"वृ.२" },
+	{ id: 17, mid:14,  name: "जयदेवभट", img: "", gender: 'male',relation:"श्रीनागदेवाचार्यांचे नातु, महेश्वरपंडितांचे पुत्र", detail:"वृ.२" },
+	{ id: 18, mid:14,  name: "लखुदेवभट", img: "", gender: 'male',relation:"श्रीनागदेवाचार्यांचे नातु, महेश्वरपंडितांचे पुत्र", detail:"वृ.२" },
+	{ id: 18, mid:14,  name: "चक्रपाणीभट", img: "", gender: 'male',relation:"श्रीनागदेवाचार्यांचे नातु, महेश्वरपंडितांचे पुत्र", detail:"वृ.२" },
+	{ id: 19, mid:14,  name: "नागाइसा", img: "", gender: 'female',relation:"शश्रीनागदेवचार्यांची नात, महेश्वरपंडितांचे पुत्र", detail:"वृ.२" },
+
+    /*{ id: 12, fid: 6, mid: 7, pids: [14], name: "Prince William", title: "Duch of Cambridge", img: "https://cdn.balkan.app/shared/f14.png", gender: 'male' },
+    { id: 13, fid: 6, mid: 7, pids: [15], name: "Prince Harry", img: "https://cdn.balkan.app/shared/f15.png", gender: 'male' },
+    { id: 14, pids: [12], name: "Catherine", title: "Duchess of Cambridge", img: "https://cdn.balkan.app/shared/f13.png", gender: 'female' },
+    { id: 15, pids: [13], name: "Meghan Markle", img: "https://cdn.balkan.app/shared/f16.png", gender: 'female' },
+    { id: 16, fid: 12, mid: 14, name: "Prince George", img: "https://cdn.balkan.app/shared/f17.png", gender: 'male' },
+    { id: 17, fid: 12, mid: 14, name: "Prince Charlotte", img: "https://cdn.balkan.app/shared/f18.png", gender: 'female' },
+    { id: 18, fid: 12, mid: 14, name: "Prince Louis", img: "https://cdn.balkan.app/shared/f19.png", gender: 'male' }*/
+]);
+</script>
