@@ -462,13 +462,13 @@ $('ul').find('a').on('click', function () {
 
 function colltest(lilaID,Aadi,Lila,Tip,vachan,sthan,person){
 	$(document).ready(function() {
-		var content = "<div data-role='collapsible' data-collapsed='true' data-theme='a' data-content-theme='b' data-collapsed-icon='carat-r' data-expanded-icon='carat-d' data-iconpos='right'><h3 style='white-space: normal !important'>"+lilaID+"&nbsp"+Aadi+"</h3><p class=\"comment\" style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">लीळा : </span>"+Lila+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"> <span style=\"color: #ff0000\">परिवार  :</span>"+person+"</p><p style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">वचन : </span>"+vachan+"</p><p class=MsoNormal style=\"font-size: 18px;font-family: Arial;text-align:justify\"><span style=\"color: #ff0000\">स्थान :</span>"+sthan+"</p>"
+		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+Aadi+'</h3><p class="comment" style="font-size: 18px;font-family: Arial;text-align:justify">'+Lila+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000">वचन</span>  : '+vachan+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> परिवार : </span> '+person+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify;"><span style="color: #ff0000"> स्थान   : </span> '+sthan+'</p></div>'
 				//'<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="white-space: normal !important;">'+lilaID+'&nbsp'+Aadi+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify;">'+Lila+'</p></div>'
 				var src_str = content;
-			  var term = person;
-			  term = term.toString().replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
-			  var pattern = new RegExp("("+term+")", "gi");
-			  src_str = src_str.replace(pattern, "<span style=\"color: #ff0000\">$1</span>");
+			  //var term = person;
+			  //term = term.toString().replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
+			  //var pattern = new RegExp("("+term+")", "gi");
+			  //src_str = src_str.replace(pattern, "<span style=\"color: #ff0000\">$1</span>");
 		$( "#set" ).append( src_str ).collapsibleset( "refresh" );
 		});
 }
