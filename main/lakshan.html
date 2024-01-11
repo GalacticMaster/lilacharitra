@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>लक्षणान्वयार्थ</title>
+<link rel="stylesheet" href="./themes/pershastra.min.css" />
+<link rel="stylesheet" href="./themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+
+    <style>
+.ui-page { 
+
+    box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+    background: #fffef0;
+	white-space: normal !important; word-break:break-all !important;text-justify: auto !important;
+}
+* {
+    text-shadow: none !important;
+}
+
+
+.ui-listview > li a {
+  white-space: normal !important;
+  /*color:brown !important;*/
+}​
+h3 .ui-btn-text{ white-space: normal !important; word-break:break-all !important; }
+h3 { white-space: normal !important; word-break:break-all !important; }
+
+mark { 
+  background-color: pink;
+  color: black;
+}
+
+p { margin-bottom: 15px; }
+        center {
+            font-size: 1.2em;
+            font-weight: 600;
+            text-align: center;
+            color: #000;
+            line-height: normal;
+            margin-bottom: 0;
+			word-break:break-all !important;
+        }
+
+
+        p {
+		padding: 0 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-align: center;
+            color: #000;
+            line-height: normal;
+            margin-bottom: 0;
+			word-break:break-all !important;
+        }
+    </style>
+</head>
+<body data-dom-cache="false">
+    
+    <div>
+        
+<script>
+function collsmruti(field1,field2,field3,field4,field5){
+//console.log(aadi,smruti);
+	//$('[data-role="content"]').empty();
+	//$("#set div").empty();
+	$(document).ready(function(){
+	//console.log(field2,field3,field4);
+		//$('[data-role="content"]').empty();
+		var content = '<p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">वचन: </span>'+field1+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000"> लापिका:</span>'+field2+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">वचन संबंध:  </span>'+field3+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">वचनार्थ: </span>'+field4+'</p> <p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">टीकार्थ: </span>'+field5+'</p><hr></hr>'
+		console.log(content);
+		$( "#set" ).append( content );
+		});
+
+}
+
+
+function smruti(prkran){
+//console.log(prkran);
+$('[data-role="content"]').empty()
+$("#set").empty();
+$.getJSON('lakshan_maha.json', function(jd)
+	{var json = jd;
+	//console.log(json);
+	
+	for (let i = 0; i < json.length; i++){
+	//console.log(json[i].field1);
+	//let result = json[i].field1 === prkran;
+	//if (result)
+	//{
+	//console.log(json[ID]);
+	//console.log(result);
+	//console.log(json[i].field1,json[i].field2,json[i].field3);
+		collsmruti(json[i].field1,json[i].field2,json[i].field3,json[i].field4,json[i].field5);
+		//}
+	}
+	});
+}
+
+
+/*
+	for (let i = 1; i < json.length; i++)
+		console.log(json[i].field1);
+		//console.log(json[i].field2);
+		{
+	let result = json[i].field1 === prkran;
+	if (result)
+	{
+	//console.log(json[ID]);
+	console.log(json[i].field1,json[i].field2,json[i].field3);
+		collsmruti(json[i].field1,json[i].field2,json[i].field3);
+		}
+	}
+		//collsmruti(json[i].field1,json[i].field2,json[i].field3);
+	//}
+	});
+
+}*/
+
+</script>
+
+
+    <div data-role="page" data-theme="a" id="pageone">
+
+        <div data-role="header" data-position="fixed" data-fullscreen="true">
+                        <h1>लक्षण महाभाष्य</h1>
+
+        </div>
+		
+
+        <div data-role="main" class="ui-content">
+           
+    <div data-role="content" id="ListDiv"></div>
+	
+	<p><a onclick="smruti('1');" href="#page" data-transition="slide">।॥ लक्षण महाभाष्य ।॥</a></p>
+	
+	</div>
+	</div>
+
+
+<div data-role="page" data-theme="a" data-content-theme="b" id="page" data-title="॥ परशास्त्र॥ ">
+<div data-role="main" class="ui-content">
+<div id="set">
+
+</div>
+</div>
+</div>
+
+	
+	
+</body>
+</html>
