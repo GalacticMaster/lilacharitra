@@ -79,10 +79,10 @@ function collsmruti(field1,field2,field3,field4,field5,field6){
 }
 */
 function collsmruti(field1,field2,field3,field4,field5,field6){
-//console.log(lilaID,Aadi,Lila);
+console.log(field1,field2,field3,field4,field5,field6);
 	//$('[data-role="content"]').empty();
 	$(document).ready(function(){
-	//console.log(aadi,smruti);
+	console.log(field1,field2,field3,field4,field5,field6);
 		//$('[data-role="content"]').empty();
 		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+field2+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">लापिका: </span>'+field3+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">वचन संबंध:</span>'+field4+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">वचनार्थ:</span>'+field5+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">टीकार्थ:</span>'+field6+'</p>'
 		$( "#set" ).append( content ).collapsibleset( "refresh" );
