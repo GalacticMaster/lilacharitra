@@ -63,43 +63,55 @@ p { margin-bottom: 15px; }
     <div>
         
 <script>
-function collsmruti(field1,field2,field3,field4,field5){
+/*
+function collsmruti(field1,field2,field3,field4,field5,field6){
 //console.log(aadi,smruti);
 	//$('[data-role="content"]').empty();
 	//$("#set div").empty();
 	$(document).ready(function(){
 	//console.log(field2,field3,field4);
 		//$('[data-role="content"]').empty();
-		var content = '<p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">वचन: </span>'+field1+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000"> लापिका:</span>'+field2+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">वचन संबंध:  </span>'+field3+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">वचनार्थ: </span>'+field4+'</p> <p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">टीकार्थ: </span>'+field5+'</p><hr></hr>'
+		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">वचन: </span>'+field2+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000"> लापिका:</span>'+field3+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">वचन संबंध:  </span>'+field4+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">वचनार्थ: </span>'+field5+'</p> <p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">टीकार्थ: </span>'+field6+'</p><hr></hr>'
 		console.log(content);
-		$( "#set" ).append( content );
+		$( "#set" ).append( content ).collapsibleset( "refresh" );;
+		});
+
+}
+*/
+function collsmruti(field1,field2,field3,field4,field5,field6){
+//console.log(lilaID,Aadi,Lila);
+	//$('[data-role="content"]').empty();
+	$(document).ready(function(){
+	//console.log(aadi,smruti);
+		//$('[data-role="content"]').empty();
+		var content = '<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="carat-r" data-expanded-icon="carat-d" data-iconpos="right"><h3 style="word-break:break-all;">'+field2+'</h3><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">लापिका: </span>'+field3+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">वचन संबंध:</span>'+field4+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">वचनार्थ:</span>'+field5+'</p><p style="font-size: 18px;font-family: Arial;text-align:justify"> <span class="comment" style="color: #ff0000">टीकार्थ:</span>'+field6+'</p>'
+		$( "#set" ).append( content ).collapsibleset( "refresh" );
 		});
 
 }
 
-
 function smruti(prkran){
-//console.log(prkran);
+//console.log(typeof(prkran));
 $('[data-role="content"]').empty()
-$("#set").empty();
+//$("#set").empty();
+$("#set div").empty();
 $.getJSON('lakshan_maha.json', function(jd)
 	{var json = jd;
 	//console.log(json);
 	
 	for (let i = 0; i < json.length; i++){
-	//console.log(json[i].field1);
-	//let result = json[i].field1 === prkran;
-	//if (result)
-	//{
+	//console.log(typeof(json[i].field1));
+	let result = json[i].field1 === prkran;
+	if (result)
+	{
 	//console.log(json[ID]);
 	//console.log(result);
 	//console.log(json[i].field1,json[i].field2,json[i].field3);
-		collsmruti(json[i].field1,json[i].field2,json[i].field3,json[i].field4,json[i].field5);
-		//}
+		collsmruti(json[i].field1,json[i].field2,json[i].field3,json[i].field4,json[i].field5,json[i].field6);
+		}
 	}
 	});
 }
-
 
 /*
 	for (let i = 1; i < json.length; i++)
@@ -126,7 +138,7 @@ $.getJSON('lakshan_maha.json', function(jd)
     <div data-role="page" data-theme="a" id="pageone">
 
         <div data-role="header" data-position="fixed" data-fullscreen="true">
-                        <h1>लक्षण महाभाष्य</h1>
+                        <h1>लक्षणान्वयार्थ</h1>
 
         </div>
 		
@@ -134,20 +146,104 @@ $.getJSON('lakshan_maha.json', function(jd)
         <div data-role="main" class="ui-content">
            
     <div data-role="content" id="ListDiv"></div>
-	
-	<p><a onclick="smruti('1');" href="#page" data-transition="slide">।॥ लक्षण महाभाष्य ।॥</a></p>
-	
+	<p>सृष्टी म्ह. छप्पन कोटी ब्रह्मांड : मध्ये म्ह. तयाचा मध्य कर्मभूमी : तेथ कव्हणे म्ह.
+जीवदेवताचेनि : करणे म्ह. सेवादास्येकरुन साधनेकरून : अंतर्याग, बहिर्याग,भावसाधन
+आणि निरनिराळी पुण्यकर्मेकरून (आचरल्याने ) मुंचीजेना म्ह. संसृतीबंधनापासून
+: जन्मणे, मरणे,रहाट घटिकेचेनि दृष्टांते चतुर्विध कर्मफळी भ्रमण करणे यापासून जीव मुक्त
+होत नाही : एके परमेश्वरे बीण म्ह. एका परमेश्वराशिवाय : तोचि परमेश्वरु निर्वेबो निराकारु
+असे म्ह.तो परमेश्वर हात, पाय, कान, डोळे,नाक इ. कुठलेच अवयव नाही असा निरवयव
+असून त्रिकोण, चौकोन, लंबगोल, वर्तुळ असा कोणताच आकार नाही : निराकार,
+निस्सीम, अनंत, अगाध असा आहे : परि म्ह. परंतु : कृपावशे म्ह. त्या परमेश्वराच्या
+ठिकाणी असाधारण अद्भुत असा कृपानामक शक्तीरुप गुण आहे: त्यामुळे : सावेबो साकारु
+होए म्ह. हात, पाय, कान, नाक, डोळे इत्यादि अवयवांनी युक्त असा मनुष्याकार धारण
+करुन रुपास येतो: व्यक्त होतो : अवतरे म्ह. ज्ञानाप्रेमाचे अधिकार असलेल्या जीवांना मीच
+तो परमेश्वर आहे, अशी प्रतिती आणून देतो : आपुले सन्निधान दे म्ह. आपल्या श्रीचरणाची
+जवळीक देतो सेवादास्य स्वीकारतो : ते दास्य म्ह. परमेश्वराच्या आज्ञेप्रमाणे केले जाणारे
+निर्हेतुक दास्य : मोचक म्ह.जीवास संसृतीबंधनापासुन कायमचे मुक्त करते :
+पूर्वीचा विशेष अर्थ ॥ सृष्टी म्ह. चतुर्विध कर्मफळे : तयाचा मध्ये म्ह.मनुष्य देही : कव्हणे
+करणे म्ह. जीव तथा देवताचेनि दास्ये : वर्णाश्रमधर्मेकरुन तथा पुराणधर्मेकरून
+आगमधर्मेकरून : मुंचीजेना म्ह. जीवाच्या ठाई जे अनंत
+दोष असति : राग, द्रेष, काम, क्रोध, मद, मत्सर, अहंता, ममता, अभिलाष, अभिमान,
+असूया, परश्रीसंताप एवबमादिक अनंत दोषापासून जीव मुक्त होत नाही : एके परमेश्वरेबीण
+म्ह. एका परमेश्वराच्या साधनाशिवाय : एवं परमेश्वर साधन आचडरलेया पूर्वोक्त दोषापासून
+जीव मुक्त होऊन शुद्ध होत असे: तोचि परमेश्वर निर्वेवो म्ह. जयास आदि नाही, मध्य नाही,
+अंत नाही ऐसा अनंत, अमुर्त असे: निराकारु म्ह. कव्हणी ज्ञानेंद्रियास तथा मनास : बुद्धीस
+जाणवे ना कल्पवे ना ऐसा अगोचर असे : परि म्ह. परंतु : कृपावशे म्ह. कृपेमुळे त्या
+परमेश्वराच्या ठाई जीवाचे अनंत दोष नासुन गोमटे करावे ऐसी कृपानामक गुणरुप शक्ती
+असे: त्या कृपेमुळे सावेबो साकारु होए म्ह. युक्त मनुष्यदेह धरीता होए: अवतरे म्ह. आपल्या
+श्रीमूर्तीवरी व्यक्त स्वरुपावरी अधिकार्या जीवासि हाच तो परमेश्वर ऐसी प्रतिती आणिता
+होए : आपुले म्ह. श्रीमूर्तीचे एवं व्यक्त अवताराचे : सन्निधान दे म्ह. जीवास अनुसरवुन
+आठापरीचे सान्निध्य देतो: जीव आपुल्या स्वातंत्रिया अनुसरे आणि परमेश्वराचे म्हणितले
+करी: तरच आपुले सन्निधान दे: ते दास्य मोचक म्ह. परमेश्वर सन्निधानात तयाचे म्हणितले
+करणे याते म्हणावे दास्य (दासीचेनि दृष्टांते निर्हतुकपणे करणे अथवा पतित्रतेचेनि दृष्टांते
+भरलेपणे करणे.) तेणे करुन परमेश्वरास कृपा उपजे आणि ते कृपा मोचक म्ह. जीवास सर्व
+दोषापासुन मुक्त करते :)।
+प्रकरण संबंध : पूर्वी प्रकरणात परमेश्वर सावेब साकार होतो : अवतरतो हे सांगितले. तर
+परमेश्वर सावेब साकार होतो तो कोण ? त्याचे नाव काय ? म्हणुन पुढे पंचकृष्ण प्रकरण
+संबंधीले : ॥ जेसे द्वापरी श्रीकृष्ण चक्रवर्ती : जैसे सैह्याद्री श्रीदत्तात्रेय प्रभु : जैसे द्वारावतीए
+श्रीचांगदेब राउळ जेसे क्रर्द्धपुरी श्रीगुंडम राउळ : जैसे प्रतिष्ठानी श्रीचांगदेब राउळ ।॥।०॥।०॥।०॥।
+प्रकरण संबंध : पंचकृष्ण प्रकरणापुढे पंचनाम प्रकरण का मांडिले ? सन्निधानी
+श्रीमूर्तीचे सेवादास्य केल्याने जीव मुक्त होतो परंतु असन्निधानात जीवास मुक्त होण्यास
+कवण उपाय आहे?ना ते स्मरण: म्हणून पंचकृष्ण प्रकरणापुढे पंचनाम हे प्रकरण संबंधीले
+: (१) ठ्वापरी श्रीकृष्ण चक्रवर्ती गोसावियांचे चरण शरण :(२) सेह्याद्री श्रीदत्तात्रेय प्रभू
+गोसावियांचे चरण शरण : (३) द्वारावतीए श्रीचांगदेब राउळ गोसावियांचे चरण शरण
+:(४) क्रवद्धपुरी श्रीगुंडम राउळ गोसावियांचे चरण शरण (५) प्रतिष्ठानी श्रीचांगदेब राउळ
+गोसावियांचे चरण शरण : ।।
+प्रकरण संबंध:पंचनामापुढा अन्यव्यावृत्ती का संबंधीले: मांडीले ?पंचकृष्ण आणि
+पंचनाम प्रकरणात परमेश्वर ब त्याचे नाम मंत्र सांगितले : त्या परमेश्वराची महिमा थोरवी
+कशाने उमटते : ना अन्य ज्या देवता त्यांची व्यावृत्ती केल्याने उमटते कळते म्हणुन पुढे
+अन्यव्यावृत्ती प्रकरण मांडीले :</p>
+	<p><a onclick="smruti(1);" href="#page" data-transition="slide">।॥ अन्यव्यावृत्ती ।॥</a></p>
+	<p>अन्यव्यावृत्ती म्हणजे काय आणि या
+प्रकरणास अन्यव्यावृत्ती का म्हणावे ? अन्य म्हणजे इतर ज्या देवता त्यांची व्यावृत्ती म्हणजे
+खंडन: त्यांच्या ठिकाणी परमेश्वरत्व नाही
+जीव उद्धारक भाव नाही : हे सांगणे यास म्हणावे अन्यव्यावृत्ती : या प्रकरणात अन्य ज्या
+देवता त्यांची व्यावृत्ती सांगितली आहे : म्हणून या प्रकरणास अन्यव्यावृत्ती म्हणावे : ।।</p>
+<p>॥।०॥प्रकरण संबंध ।।
+अन्यव्यावृत्तीमध्ये सकळ देवता सांगितल्या त्या देवतांची फळप्राप्ती कशाने होते?ना त्या
+त्या देवतेचा धर्म (बहिर्याग) त्या त्या देवतेच्या युगात आचरला असता होते : म्हणुन पुढे
+युगधर्म प्रकरण संबंधिले : मांडिले :</p>
+	<p><a onclick="smruti(2);" href="#page" data-transition="slide">॥युगधर्म ॥</a></p>
+<p>प्रकरण संबंध ॥ युगधर्म साधनानेच
+देवतांची फळ प्राप्ती होते काय ?ना विद्यामार्ग (अंतर्याग) साधनानेही फळप्राप्ती होते म्हणून
+युगधर्म प्रकरणापुढा विद्यामार्ग प्रकरण संबंधिले :॥</p>
+<p><a onclick="smruti(3);" href="#page" data-transition="slide">॥विद्यामार्ग ॥</a></p>
+<p>प्रकरण संबंध :-युगधर्मात व विद्यामार्गात सांगितलेली फळे साधने नित्य असतील? ना
+अनित्य आहेत म्हणून पुढे संहार प्रकरण संबंधिले.</p>
+<p><a onclick="smruti(4);" href="#page" data-transition="slide">॥संहार ॥</a></p>
+<p>प्रकरण संबंध ।॥ असा संहार झाल्यावर पुन्हा रचना होत नसेल ? ना होते म्हणून पुढा
+संसरण प्रकरण मांडीले :।</p>
+<p><a onclick="smruti(5);" href="#page" data-transition="slide">॥संसरणा॥</a></p>
+<p>प्रकरण संबंध :-अशी सृष्टीची रचना मायेकरवी करवून परमेश्वर काय करतात ? ना स्वतः:
+अवतरून उद्धरण करतात म्हणून पुढे उद्धरण प्रकरण मांडीले :</p>
+<p><a onclick="smruti(6);" href="#page" data-transition="slide">॥ उद्धरण ॥ </a></p>
 	</div>
 	</div>
 
+  <div data-role="page" data-theme="a" data-content-theme="b" id="page" data-title="॥ परशास्त्र॥ ">
+  
+           <div data-role = "header" data-position="fixed" data-fullscreen="true">
+            <h2> &#128591दंडवत प्रणाम &#128591</h2>
+			<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+			<a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
+			<form>
+    <input data-type="search" id="searchForCollapsibleSetChildren">
+</form>
+         </div>
 
-<div data-role="page" data-theme="a" data-content-theme="b" id="page" data-title="॥ परशास्त्र॥ ">
 <div data-role="main" class="ui-content">
-<div id="set">
 
+<br></br>
+<br></br>
+<br></br>
+<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-icon-bars ui-btn-icon-left ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a></center>
+
+<div data-role="collapsibleset" id="set" data-theme="a" data-content-theme="b" data-filter="true" data-children="> div, > div div ul li" data-inset="true" id="collapsiblesetForFilterChildren" data-input="#searchForCollapsibleSetChildren">
 </div>
-</div>
-</div>
+</div> 
+	<div id="toTop"><p>Back to Top</p></div>
+ 
+      </div>
 
 	
 	
