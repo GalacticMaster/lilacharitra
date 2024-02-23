@@ -846,6 +846,10 @@ $(function(){
     $( "#popupMenu2" ).enhanceWithin().popup();
 });
 
+$(function(){
+    $( "#popupMenu3" ).enhanceWithin().popup();
+});
+
 
 $(document).on("pageinit", "#page", function()
 {
@@ -979,6 +983,8 @@ $().find('a').on('click', function () {
         </ul>
 </div>
 
+
+
 <div data-role="popup" id="popupMenu2" data-theme="a">
 
 
@@ -1000,6 +1006,26 @@ $().find('a').on('click', function () {
 				<div data-theme="a" data-content-theme="b" class="ui-block-c"><a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a></div>
         </ul>
 </div>
+
+<div data-role="popup" id="popupMenu3" data-theme="a">
+
+
+        <ul data-role="listview" data-inset="true" style="min-width:210px;">
+            
+<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="b" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:Auto;">
+
+				<h3>समरण पाठ</h3>
+				<ul data-role="listview" data-inset="true" style="min-width:210px;">
+				<li><a href="https://galacticmaster.github.io/lilacharitra/main/smaran_path_p.html" rel="external">🌷लीळाचरित्र - पूर्वार्ध🌷</a></li>
+				<li><a href="https://galacticmaster.github.io/lilacharitra/main/smaran_path_u.html" rel="external">🌷लीळाचरित्र - उत्तरार्ध🌷</a></li>
+				</ul>
+				</div>
+
+				<div data-theme="a" data-content-theme="b" class="ui-block-c"><a class="ui-shadow ui-btn ui-corner-all ui-icon-search ui-btn-icon-notext ui-btn-inline" href="https://galacticmaster.github.io/lilacharitra/main/search.html" rel="external">Button</a></div>
+				<div data-theme="a" data-content-theme="b" class="ui-block-c"><a class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="#pageone">Button</a></div>
+        </ul>
+</div>
+
 
 <div data-role="panel" data-display="overlay" data-theme="a" id="nav-panel">
 		<p><center>॥ परशास्त्र॥</center></p>
@@ -1073,6 +1099,7 @@ $().find('a').on('click', function () {
 			<h1 style = "font-size: 20px"><center> ॥ श्री परेशाए नम: ॥</center> </h1>
 			<center><a href="#popupMenu1" data-rel="popup" data-transition="slideup" class="ui-btn ui-icon-bars ui-btn-icon-left ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ परशास्त्र॥ </a>
 			<a href="#popupMenu2" data-rel="popup" data-transition="slideup" class="ui-btn ui-icon-bars ui-btn-icon-left ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥ पारायण॥ </a>
+			<a href="#popupMenu3" data-rel="popup" data-transition="slideup" class="ui-btn ui-icon-bars ui-btn-icon-left ui-corner-all ui-shadow ui-btn-inline ui-btn-a">समरण पाठ</a>
 			<a href="maps.html" rel="external" data-transition="slideup" class="ui-btn ui-icon-bars ui-btn-icon-left ui-corner-all ui-shadow ui-btn-inline ui-btn-a">॥स्थान मॅप्स॥ </a></center>
 			<!--<input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
 
