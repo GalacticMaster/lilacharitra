@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LilaCharitra</title>
+<link rel="stylesheet" href="./themes/pershastra.min.css" />
+<link rel="stylesheet" href="./themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+
+    <style>
+.ui-page { 
+
+    box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+    background: #fffef0;
+	white-space: normal !important; word-break:break-all !important;text-justify: auto !important;
+}
+* {
+    text-shadow: none !important;
+}
+
+
+.ui-listview > li a {
+  white-space: normal !important;
+  /*color:brown !important;*/
+}​
+h3 .ui-btn-text{ white-space: normal !important; word-break:break-all !important; }
+h3 { white-space: normal !important; word-break:break-all !important; }
+
+mark { 
+  background-color: pink;
+  color: black;
+}
+
+p { margin-bottom: 15px; }
+        center {
+            font-size: 1.2em;
+            font-weight: 600;
+            text-align: center;
+            color: #000;
+            line-height: normal;
+            margin-bottom: 0;
+			word-break:break-all !important;
+        }
+
+
+        p {
+		padding: 0 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-align: center;
+            color: #000;
+            line-height: normal;
+            margin-bottom: 0;
+			word-break:break-all !important;
+        }
+    </style>
+</head>
+<body data-dom-cache="false">
+    
+    <div>
+        
+<script>
+
+
+	
+ $(document).on("pageshow", "#pageone", function () {
+        if (localStorage.LilaID != null) {
+            var mainDiv = $("#pageone");
+            mainDiv.find('a').removeClass("ui-btn-active");
+            $("#lila_" + localStorage.LilaID).addClass("ui-btn-active");
+            scrollToView("lila_" + localStorage.LilaID);
+        }
+    });
+
+
+
+    function GetLila(LilaID) {
+		console.log(LilaID);
+        localStorage.LilaID = LilaID;
+		console.log(LilaID);
+        $.ajax({
+            cache: true,
+            type: "GET",
+            url: "smruti.json",// + LilaID,
+            data: "json",
+            success: function (data) {
+			console.log(data[LilaID])
+			
+                var pageDiv = $("#set");
+                pageDiv.empty();
+				
+                pageDiv.append('<center>'+data[LilaID].aadi+'<center>')
+				pageDiv.append('<p><span style="color: #ff0000"> स्मृती  : </span>'+data[LilaID].smruti+'</p>')
+
+				
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve Lila Please check your internet.');
+            }
+        });
+    }
+	
+
+    
+
+    function NextLila() {
+	console.log(localStorage.LilaID);
+	console.log(Number(localStorage.LilaID)+1);
+	GetLila(Number(localStorage.LilaID)+1);
+    }
+
+    function PreLila() {
+	console.log(localStorage.LilaID);
+	console.log(Number(localStorage.LilaID)-1);
+	GetLila(Number(localStorage.LilaID)-1);
+    }
+</script>
+
+
+    <div data-role="page" data-theme="a" id="pageone">
+
+        <div data-role="header" data-position="fixed" data-fullscreen="true">
+                        <h1 style="color:Tomato;text-align: center">॥ स्मृतिस्थळ॥ </h1>
+
+        </div>
+		
+
+        <div data-role="main" class="ui-content">
+           
+    <div data-role="content" id="ListDiv"></div>
+	<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search...">
+<li><a onclick="GetLila(0)" href="#lilaout" data-transition="slide" id="lila_0">१) श्रीपरेसाएनम: ॥०॥</a>
+<li><a onclick="GetLila(1)" href="#lilaout" data-transition="slide" id="lila_1">२) भटोबासां ईश्वरवियोगें अवस्था ॥</a>
+<li><a onclick="GetLila(2)" href="#lilaout" data-transition="slide" id="lila_2">३) माहादाइसें श्रीप्रभु - अवतार - प्रकासीं माझा श्रीचक्रधरू म्हणणें ॥</a>
+<li><a onclick="GetLila(3)" href="#lilaout" data-transition="slide" id="lila_3">४) श्रीप्रभुसन्निधाना गमन ॥</a>
+<li><a onclick="GetLila(4)" href="#lilaout" data-transition="slide" id="lila_4">५) श्रीप्रभुप्रवृत्यंतरें भटोबास गंगातीरागमनि तीर नमस्करणे ॥</a>
+<li><a onclick="GetLila(5)" href="#lilaout" data-transition="slide" id="lila_5">६) बाइदेवोबा प्रसाद - ग्रहणीं अती दुख नीराकरणें ॥</a>
+<li><a onclick="GetLila(6)" href="#lilaout" data-transition="slide" id="lila_6">७) राजमठीं सप्तरात्र घालणें ॥</a>
+<li><a onclick="GetLila(7)" href="#lilaout" data-transition="slide" id="lila_7">८) उंबरवट काढूनि तिर्थत्रय करणें ॥</a>
+<li><a onclick="GetLila(8)" href="#lilaout" data-transition="slide" id="lila_8">९) बाइदेवोबा - दुखातिस (श) यो - दर्शनें बेलोपुरा न वचणें ॥</a>
+<li><a onclick="GetLila(9)" href="#lilaout" data-transition="slide" id="lila_9">१०) शोध: ॥ राजौर लक्ष्मीधरभटां श्रवणानुसरण ॥</a>
+<li><a onclick="GetLila(10)" href="#lilaout" data-transition="slide" id="lila_10">११) म्हाइंभटां भेटि ॥</a>
+<li><a onclick="GetLila(11)" href="#lilaout" data-transition="slide" id="lila_11">१२) केसोबासां भेटि: अनुसरण ॥</a>
+<li><a onclick="GetLila(12)" href="#lilaout" data-transition="slide" id="lila_12">१३) तथा संबंधी - संबंधु - प्रदानिं माझा केसव सुकयोगिंद्र म्हणणें ॥</a>
+<li><a onclick="GetLila(13)" href="#lilaout" data-transition="slide" id="lila_13">१४) तथा ‘रत्नमाळा’ स्तोत्र - दर्शणिं ईश्वरार्चनप्रसंसा ॥</a>
+<li><a onclick="GetLila(14)" href="#lilaout" data-transition="slide" id="lila_14">१५) तथा ‘उद्धरणस्तोत्र’ बंध निष्करणें ॥</a>
+<li><a onclick="GetLila(15)" href="#lilaout" data-transition="slide" id="lila_15">१६) तथा ‘शास्त्रप्रकरणान्वया’ नुज्ञा ॥</a>
+<li><a onclick="GetLila(16)" href="#lilaout" data-transition="slide" id="lila_16">१७) तथा ‘दृष्टान्तप्रकरणान्वया’ नुज्ञा ॥</a>
+<li><a onclick="GetLila(17)" href="#lilaout" data-transition="slide" id="lila_17">१८) विरहें लक्ष्मीधरभटीं ईश्वरविरहें ‘ज्ञानभास्कर’ प्रसंसा ॥</a>
+<li><a onclick="GetLila(18)" href="#lilaout" data-transition="slide" id="lila_18">१९) लक्षमीधरबा - म्हाइंभटां संवादीं योगभ्रष्ट निर्वचनें ॥</a>
+<li><a onclick="GetLila(19)" href="#lilaout" data-transition="slide" id="lila_19">२०) म्हाइंभटां तस्करबंधनिमितें मौन निषेधु ॥</a>
+<li><a onclick="GetLila(20)" href="#lilaout" data-transition="slide" id="lila_20">२१) कृष्णभटां प्रश्नें श्रम - निवृति - वाक्य - निरूपण ॥</a>
+<li><a onclick="GetLila(21)" href="#lilaout" data-transition="slide" id="lila_21">२२) भटोबासा क्षतबंधनि माहादाइसें सेवा - वचन - स्वीकारू ॥</a>
+<li><a onclick="GetLila(22)" href="#lilaout" data-transition="slide" id="lila_22">२३) आपलो भेटि अनुसरण ॥</a>
+<li><a onclick="GetLila(23)" href="#lilaout" data-transition="slide" id="lila_23">२४) वासनिका देहांतीं झोळी - अर्धोदककथन ॥</a>
+<li><a onclick="GetLila(24)" href="#lilaout" data-transition="slide" id="lila_24">२५) वृश्चिकदुखदर्शने देवतासंबंधी माहादेवोबानुसरणि वरप्रदान ॥</a>
+<li><a onclick="GetLila(25)" href="#lilaout" data-transition="slide" id="lila_25">२६) चांगदेवभट प्रीतिविधानश्रवणिं सूचिकानुवादु ॥</a>
+<li><a onclick="GetLila(26)" href="#lilaout" data-transition="slide" id="lila_26">२७) आवडी आवांका निराकरणें ॥</a>
+<li><a onclick="GetLila(27)" href="#lilaout" data-transition="slide" id="lila_27">२८) माहात्मा - उदक - प्रदानिं बोडि गंगा - विभेद - निरूपण ॥</a>
+<li><a onclick="GetLila(28)" href="#lilaout" data-transition="slide" id="lila_28">२९) माहात्मेयां चातुर्मासि व्यवस्थाकथन ॥</a>
+<li><a onclick="GetLila(29)" href="#lilaout" data-transition="slide" id="lila_29">३०) काळेयां कृष्णभटां जनविरोधप्रदानिं मौन्यनिषेधु ॥</a>
+<li><a onclick="GetLila(30)" href="#lilaout" data-transition="slide" id="lila_30">३१) रजतम - निर्वचन - पूर्वक सत्वस्थपरी सांघणें ॥</a>
+<li><a onclick="GetLila(31)" href="#lilaout" data-transition="slide" id="lila_31">३२) पंचनामपूर्वक क्षेपणें प्रसंसा ॥</a>
+<li><a onclick="GetLila(32)" href="#lilaout" data-transition="slide" id="lila_32">३३) साकाइसा गृहस्मरणनिषेधें विजनप्रकाशीं कवणचा गोल्हो म्हणणें ॥</a>
+<li><a onclick="GetLila(33)" href="#lilaout" data-transition="slide" id="lila_33">३४) महात्मेयां विधिव्यतिरिक्त ग्राम - गमन - निषेधु ॥</a>
+<li><a onclick="GetLila(34)" href="#lilaout" data-transition="slide" id="lila_34">३५) अवतारु विशेषें उद्धरण प्रसंसा ॥</a>
+<li><a onclick="GetLila(35)" href="#lilaout" data-transition="slide" id="lila_35">३६) रूपदेवोबा मिठाची पिसवी निषेधु ॥</a>
+<li><a onclick="GetLila(36)" href="#lilaout" data-transition="slide" id="lila_36">३७) अनुसरलेया वासनिका परस्परें पात्रीं भोजननिषेधु ॥</a>
+<li><a onclick="GetLila(37)" href="#lilaout" data-transition="slide" id="lila_37">३८) भोजनाअवस्वरीं स्वयंदास्यपूर्वक करवतिस्वीकारुं ॥</a>
+<li><a onclick="GetLila(38)" href="#lilaout" data-transition="slide" id="lila_38">३९) संबंधस्थान - नमस्कारणि लीळास्मरणानुवाद ॥</a>
+<li><a onclick="GetLila(39)" href="#lilaout" data-transition="slide" id="lila_39">४०) वासनिक - पूजा - स्वीकारीं अनुतप्तांत:करणें ‘असतीपरी’ प्रकाशणें ॥</a>
+<li><a onclick="GetLila(40)" href="#lilaout" data-transition="slide" id="lila_40">४१) चुली - भानवसी निषेधपूर्वक भीक्षुत्व - ज्ञान करणें ॥</a>
+<li><a onclick="GetLila(41)" href="#lilaout" data-transition="slide" id="lila_41">४२) पूर्वयामें अशनदर्शनें ब्राह्मणा शूद्राचारुप्रकाशी भिक्षा देणें ॥</a>
+<li><a onclick="GetLila(42)" href="#lilaout" data-transition="slide" id="lila_42">४३) रुसला महात्मा पचनक्रिये चुकला म्हणणें ॥</a>
+<li><a onclick="GetLila(43)" href="#lilaout" data-transition="slide" id="lila_43">४४) तथा कीर्तिपर वैराग्य तर्‍हीं निकें म्हणणें ॥</a>
+<li><a onclick="GetLila(44)" href="#lilaout" data-transition="slide" id="lila_44">४५) अनुचरोदक - स्वीकारीं उपाहासश्रवणें महात्मा निभर्षणें : ॥</a>
+<li><a onclick="GetLila(45)" href="#lilaout" data-transition="slide" id="lila_45">४६) नित्य नैमित्यकु विधिप्रकासीं सेनपुंजी - दृष्टांत - कथन ॥</a>
+<li><a onclick="GetLila(46)" href="#lilaout" data-transition="slide" id="lila_46">४७) तथा निमीत्यक करणीये प्रसंसा ॥</a>
+<li><a onclick="GetLila(47)" href="#lilaout" data-transition="slide" id="lila_47">४८) अधिकरणा ज्ञानदानी गंधर्व - उपपति कथन ॥</a>
+<li><a onclick="GetLila(48)" href="#lilaout" data-transition="slide" id="lila_48">४९) सभर्तृका स्त्रीयें काळसंख्या ज्ञानें अनुसंरण सांघणें ॥</a>
+<li><a onclick="GetLila(49)" href="#lilaout" data-transition="slide" id="lila_49">५०) आचार्य - पदार्थ - निर्वडी सुश्रुषितानुज्ञा ॥</a>
+<li><a onclick="GetLila(50)" href="#lilaout" data-transition="slide" id="lila_50">५१) उचितानुचित स्थानें निर्वचु ॥</a>
+<li><a onclick="GetLila(51)" href="#lilaout" data-transition="slide" id="lila_51">५२) माहात्मा - स्तवन - श्रवणें आयुष्यांतु अप्राप्यानुवादु ॥</a>
+<li><a onclick="GetLila(52)" href="#lilaout" data-transition="slide" id="lila_52">५३) अनुसरण - द्दढत्व - श्रवणें अदृष्टार्थीये प्रसंसा ॥</a>
+<li><a onclick="GetLila(53)" href="#lilaout" data-transition="slide" id="lila_53">५४) हिराइसां अनुसरण ॥</a>
+<li><a onclick="GetLila(54)" href="#lilaout" data-transition="slide" id="lila_54">५५) बोरीकरां भानुभटां अनुसरण ॥</a>
+<li><a onclick="GetLila(55)" href="#lilaout" data-transition="slide" id="lila_55">५६) रामदेवां परीछेदें आकाइ-हेतु-पाळणिं परतारकु-आचार्यानुवादु ॥</a>
+<li><a onclick="GetLila(56)" href="#lilaout" data-transition="slide" id="lila_56">५७) तथा निरूपणि साध्यप्रसंसा ॥</a>
+<li><a onclick="GetLila(57)" href="#lilaout" data-transition="slide" id="lila_57">५८) पंडितां अनुसरण ॥</a>
+<li><a onclick="GetLila(58)" href="#lilaout" data-transition="slide" id="lila_58">५९) रामदेवां अटनिं निर्गमणिं शारीरोष्णतानुवादु ॥</a>
+<li><a onclick="GetLila(59)" href="#lilaout" data-transition="slide" id="lila_59">६०) पंडित : केशोबासांतें सवें पाठवणे ॥</a>
+<li><a onclick="GetLila(60)" href="#lilaout" data-transition="slide" id="lila_60">६१) तथा केशव - मयंकाद्यागमनि काहाळेकांड - पतनानुवादु ॥</a>
+<li><a onclick="GetLila(61)" href="#lilaout" data-transition="slide" id="lila_61">६२) ‘श्रीचक्रधरू’उच्चारश्रवणें महादाइ अपत्यालिंगन देणें ॥</a>
+<li><a onclick="GetLila(62)" href="#lilaout" data-transition="slide" id="lila_62">६३) रामदरां पंडित : केशवदेव आपोसनें : भटोबास सिष्यां कोपणें ॥</a>
+<li><a onclick="GetLila(63)" href="#lilaout" data-transition="slide" id="lila_63">६४) वासनिका बुझावणी करणें ॥</a>
+<li><a onclick="GetLila(64)" href="#lilaout" data-transition="slide" id="lila_64">६५) साधां अक्षमत्वगमनि निंबां वास करणें ॥</a>
+<li><a onclick="GetLila(65)" href="#lilaout" data-transition="slide" id="lila_65">६६) केशव - पंडिता प्रश्नें अस्मात्कस्मान्निराकरणें ॥</a>
+<li><a onclick="GetLila(66)" href="#lilaout" data-transition="slide" id="lila_66">६७) पंडिता अभ्यासिं उमटु - प्रसंसा ॥</a>
+<li><a onclick="GetLila(67)" href="#lilaout" data-transition="slide" id="lila_67">६८) म्हाइंभट - लक्षमीधरबा - व्यावृत्ति केशवपंडित - प्रसंसा ॥</a>
+<li><a onclick="GetLila(68)" href="#lilaout" data-transition="slide" id="lila_68">६९) इंद्रभट फुटा न प्रदायेनीं मार्गहेतु प्रकासपूर्वक फुटा मागणें ॥</a>
+<li><a onclick="GetLila(69)" href="#lilaout" data-transition="slide" id="lila_69">७०) महात्मेया सप्रसादें अटन निराकरणें ॥</a>
+<li><a onclick="GetLila(70)" href="#lilaout" data-transition="slide" id="lila_70">७१) प्रज्ञा - प्रकाश - प्रश्नें केसोबासां विधि - निरूपण ॥</a>
+<li><a onclick="GetLila(71)" href="#lilaout" data-transition="slide" id="lila_71">७२) वाळुके रामदेवां रसुनिराकरणिं अनुचितप्रकाशपूर्वक शिक्षापण ॥</a>
+<li><a onclick="GetLila(72)" href="#lilaout" data-transition="slide" id="lila_72">७३) तथा वस्त्रक्षाळणि दास्यत्व निरूपण ॥</a>
+<li><a onclick="GetLila(73)" href="#lilaout" data-transition="slide" id="lila_73">७४) कविश्वरीं विजन - प्रत्यागीं उचितप्रसंसा ॥</a>
+<li><a onclick="GetLila(74)" href="#lilaout" data-transition="slide" id="lila_74">७५) अनंतदेव - देहत्याग - श्रवणी प्रात्यंतर (प्रवृत्त्यंतर) निरूपण ॥</a>
+<li><a onclick="GetLila(75)" href="#lilaout" data-transition="slide" id="lila_75">७६) गौराइसां निरूपणि कोथळोबा झाड कथन ॥</a>
+<li><a onclick="GetLila(76)" href="#lilaout" data-transition="slide" id="lila_76">७७) तथा अटनि साहाये - अनुवादु ॥</a>
+<li><a onclick="GetLila(77)" href="#lilaout" data-transition="slide" id="lila_77">७८) दीवसाचां भोजनि संग्रहें तांबुळ नेघणें ॥</a>
+<li><a onclick="GetLila(78)" href="#lilaout" data-transition="slide" id="lila_78">७९) हिराइसा दृढत्वानुवादु ॥</a>
+<li><a onclick="GetLila(79)" href="#lilaout" data-transition="slide" id="lila_79">८०) विरूपाख्य महादेवोबा पंगती बैसका - ज्ञान करणें ॥</a>
+<li><a onclick="GetLila(80)" href="#lilaout" data-transition="slide" id="lila_80">८१) महात्मेया प्रश्नें पदार्थीं वासनादि भावो निषेध ॥</a>
+<li><a onclick="GetLila(81)" href="#lilaout" data-transition="slide" id="lila_81">८२) माहात्मा - नामपूर्वक घृतयाचनिं गौराइ - सिक्षापण ॥</a>
+<li><a onclick="GetLila(82)" href="#lilaout" data-transition="slide" id="lila_82">८३) राजीक - उपद्रवें आंबैसा - वैजोबा भुवनिं राहवणें ॥</a>
+<li><a onclick="GetLila(83)" href="#lilaout" data-transition="slide" id="lila_83">८४) परकीये साधांतें राहावणें ॥</a>
+<li><a onclick="GetLila(84)" href="#lilaout" data-transition="slide" id="lila_84">८५) शकट - भंगानुवादें आबैसें धरीतां चुकली म्हणणें ॥</a>
+<li><a onclick="GetLila(85)" href="#lilaout" data-transition="slide" id="lila_85">८६) राजाभविष्यानुवादु ॥</a>
+<li><a onclick="GetLila(86)" href="#lilaout" data-transition="slide" id="lila_86">८७) राज्यांतरशमनीं पुन: निंबां वासु करणें ॥</a>
+<li><a onclick="GetLila(87)" href="#lilaout" data-transition="slide" id="lila_87">८८) केशव : पंडित - बोलना - भाषाभेद - कथन ॥</a>
+<li><a onclick="GetLila(88)" href="#lilaout" data-transition="slide" id="lila_88">८९) विजनि पंडितां गितगायेनि निषेधु ॥</a>
+<li><a onclick="GetLila(89)" href="#lilaout" data-transition="slide" id="lila_89">९०) तथा गीतगायनानुज्ञा ॥</a>
+<li><a onclick="GetLila(90)" href="#lilaout" data-transition="slide" id="lila_90">९१) तथा गायेनश्रवणें ब्राह्मणा - अनुसरणि हाकारा म्हणणें ॥</a>
+<li><a onclick="GetLila(91)" href="#lilaout" data-transition="slide" id="lila_91">९२) नाथोबा - आव्हानि कटकदेमाइसांचिये भेटि जाणें ॥</a>
+<li><a onclick="GetLila(92)" href="#lilaout" data-transition="slide" id="lila_92">९३) तथान्यरसाशनीं : नीरसास्वादन - परीहारु सुचणें ॥</a>
+<li><a onclick="GetLila(93)" href="#lilaout" data-transition="slide" id="lila_93">९४) केशव : पंडित - येकवळा करणि अभिमानु - स्वीकारू ॥</a>
+<li><a onclick="GetLila(94)" href="#lilaout" data-transition="slide" id="lila_94">९५) तथा केशवादीकागमनिं केशव - पंडित - स्वनेत्रानुवादु ॥</a>
+<li><a onclick="GetLila(95)" href="#lilaout" data-transition="slide" id="lila_95">९६) धर्मबळवतरें वडिल - धाकुटा निराकरणें ॥</a>
+<li><a onclick="GetLila(96)" href="#lilaout" data-transition="slide" id="lila_96">९७) लुखाइ अनुसरण - दृढत्वी परीहारार्थ संबंधा पाठवणें ॥</a>
+<li><a onclick="GetLila(97)" href="#lilaout" data-transition="slide" id="lila_97">९८) खेइभटां प्रश्नें द्रावकानुवादु ॥</a>
+<li><a onclick="GetLila(98)" href="#lilaout" data-transition="slide" id="lila_98">९९) तथा अनुसरण ॥</a>
+<li><a onclick="GetLila(99)" href="#lilaout" data-transition="slide" id="lila_99">१००) तथाधिकारु - प्रसंसा ॥</a>
+<li><a onclick="GetLila(100)" href="#lilaout" data-transition="slide" id="lila_100">१०१) तथा कुहीरीसाधन निभर्षणपूर्वक पुरुषाचारु निरूपणें ॥</a>
+<li><a onclick="GetLila(101)" href="#lilaout" data-transition="slide" id="lila_101">१०२) ब्राम्हणा प्रश्ने अंतर - प्रकाशानुवादु ॥</a>
+<li><a onclick="GetLila(102)" href="#lilaout" data-transition="slide" id="lila_102">१०३) वृषभावरूनि गोपाळपंडितां रक्षणप्रसंसा ॥</a>
+<li><a onclick="GetLila(103)" href="#lilaout" data-transition="slide" id="lila_103">१०४) निद्राप्रसंगें माहादाइसीं केशोबासां सिक्षापणें ॥</a>
+<li><a onclick="GetLila(104)" href="#lilaout" data-transition="slide" id="lila_104">१०५) अनिष्टत्यागीं केशवुमार्गरक्षणानुवादु ॥</a>
+<li><a onclick="GetLila(105)" href="#lilaout" data-transition="slide" id="lila_105">१०६) तथा पुनरागमनि जोगीणि : पोतें अनुवादु ॥</a>
+<li><a onclick="GetLila(106)" href="#lilaout" data-transition="slide" id="lila_106">१०७) म्हातारदामपूर्वक भटोबासीं मार्गा प्रार्थणें ॥</a>
+<li><a onclick="GetLila(107)" href="#lilaout" data-transition="slide" id="lila_107">१०८) साकाइ - पिते - मृतानुवादीं दशक्रीया निराकरणें ॥</a>
+<li><a onclick="GetLila(108)" href="#lilaout" data-transition="slide" id="lila_108">१०९) महात्मेया विजन - निरोधानुवादु ॥</a>
+<li><a onclick="GetLila(109)" href="#lilaout" data-transition="slide" id="lila_109">११०) रांधवनकारी अन्नप्रदानि : गौराइसां सिक्षापण ॥</a>
+<li><a onclick="GetLila(110)" href="#lilaout" data-transition="slide" id="lila_110">१११) केशोबा प्रश्नें आन (ण) - निर्वचु करणें ॥</a>
+<li><a onclick="GetLila(111)" href="#lilaout" data-transition="slide" id="lila_111">११२) अटनि वीनायेकबासिं अनकूळीं संभाषण करणें ॥</a>
+<li><a onclick="GetLila(112)" href="#lilaout" data-transition="slide" id="lila_112">११३) नरींद्रबासां भेटि : अनुसरण ॥</a>
+<li><a onclick="GetLila(113)" href="#lilaout" data-transition="slide" id="lila_113">११४) काळे कृष्णभट गीतगायेनि प्रसंसणें ॥</a>
+<li><a onclick="GetLila(114)" href="#lilaout" data-transition="slide" id="lila_114">११५) स्थाननिर्देशें बाइदेवोबासां अटन सांघणें ॥</a>
+<li><a onclick="GetLila(115)" href="#lilaout" data-transition="slide" id="lila_115">११६) केशवाचार्य उद्ग्रहणिकें कवीस्वरीं पराजयो करणें ॥</a>
+<li><a onclick="GetLila(116)" href="#lilaout" data-transition="slide" id="lila_116">११७) तथा विज्ञापणि भटोबासी भिक्षा देणें ॥</a>
+<li><a onclick="GetLila(117)" href="#lilaout" data-transition="slide" id="lila_117">११८) तथा परधर्म हरणें ॥</a>
+<li><a onclick="GetLila(118)" href="#lilaout" data-transition="slide" id="lila_118">११९) विद्वांस उद्ग्रहणिकें बोरीकर भानु प्रकासणें ॥</a>
+<li><a onclick="GetLila(119)" href="#lilaout" data-transition="slide" id="lila_119">१२०) अन्यत्र कथारसावतारणनिषेधीं कवीस्वर भागवत - व्याख्या सन्निधी नेमु करणें ॥</a>
+<li><a onclick="GetLila(120)" href="#lilaout" data-transition="slide" id="lila_120">१२१) तथा गीताव्याख्यानी हरीभटां आज्ञा देणें ॥</a>
+<li><a onclick="GetLila(121)" href="#lilaout" data-transition="slide" id="lila_121">१२२) कविस्वरां सौकर्यत्वदर्शनें प्रावर्णविधि सांवणें ॥</a>
+<li><a onclick="GetLila(122)" href="#lilaout" data-transition="slide" id="lila_122">१२३) माहादाइ - वोवीया - गायेन - श्रवणिं रूपैची सीध (द्ध) वाणि म्हणणें ॥</a>
+<li><a onclick="GetLila(123)" href="#lilaout" data-transition="slide" id="lila_123">१२४) वीजनि काळव्यतिरेकें चर्चाकरणीं केशव: पंडितां सिक्षापण ॥</a>
+<li><a onclick="GetLila(124)" href="#lilaout" data-transition="slide" id="lila_124">१२५) भिक्षुपात्रीं सीतभ (भो) जनें मेरुभ (भो) जनानुवादु ॥</a>
+<li><a onclick="GetLila(125)" href="#lilaout" data-transition="slide" id="lila_125">१२६) भट - नाम - श्रवणें ब्राह्मणा अज्ञाननिवृत्ति करणें ॥</a>
+<li><a onclick="GetLila(126)" href="#lilaout" data-transition="slide" id="lila_126">१२७) पायेवणि - निराकरणि वासनिक - प्रत्योतर - स्वीकार ॥</a>
+<li><a onclick="GetLila(127)" href="#lilaout" data-transition="slide" id="lila_127">१२८) वीसीष्ट नमस्कारीं आपणयातें धिष्करणें ॥</a>
+<li><a onclick="GetLila(128)" href="#lilaout" data-transition="slide" id="lila_128">१२९) अन्य प्रश्नें स्वनिष्टीं भक्तानुवादु ॥</a>
+<li><a onclick="GetLila(129)" href="#lilaout" data-transition="slide" id="lila_129">१३०) आकाइ -नमस्कार - तिरस्कारी पंडितप्रश्नें वाक्य - विरोध - स्वीकार ॥</a>
+<li><a onclick="GetLila(130)" href="#lilaout" data-transition="slide" id="lila_130">१३१) कटक देमाइसें भेटि - वीधानि केशोबासीं वंकीं इष्टि योजणें ॥</a>
+<li><a onclick="GetLila(131)" href="#lilaout" data-transition="slide" id="lila_131">१३२) उज (ज्ज) नि - निषेधपूर्वकानुसरण - निर्वचीं देमाइसां पुनसंबंधानुवादु ॥</a>
+<li><a onclick="GetLila(132)" href="#lilaout" data-transition="slide" id="lila_132">१३३) तथा अनुसरण ॥</a>
+<li><a onclick="GetLila(133)" href="#lilaout" data-transition="slide" id="lila_133">१३४) तथा उपालंब - परीहारार्थ कटका पाठवणें ॥</a>
+<li><a onclick="GetLila(134)" href="#lilaout" data-transition="slide" id="lila_134">१३५) तथा भ (भो) जनिं आग्रहें कोमळा रसु निराकरणें ॥</a>
+<li><a onclick="GetLila(135)" href="#lilaout" data-transition="slide" id="lila_135">१३६) तथा भिक्षान्नदर्शनि उष्ण - सीळे म्हणणे ॥</a>
+<li><a onclick="GetLila(136)" href="#lilaout" data-transition="slide" id="lila_136">१३७) रेमाइसां अनुसरणि ‘कुमरें’ नावं ठेवणें ॥</a>
+<li><a onclick="GetLila(137)" href="#lilaout" data-transition="slide" id="lila_137">१३८) तथा उद्ग्रहणिकापूर्वक वांकुडे दाइंभट योग्य करूनि भटोबासीं भिक्षा देणें ॥</a>
+<li><a onclick="GetLila(138)" href="#lilaout" data-transition="slide" id="lila_138">१३९) अटनि गदोनायेक - दर्शनाप्रकासीं म्हाइंभटीं अपरीतोषु करणें ॥</a>
+<li><a onclick="GetLila(139)" href="#lilaout" data-transition="slide" id="lila_139">१४०) तथा ईश्वरलीळा - श्रवणें प्रसादोदकपूर्वक खेइभट - भ (भो) जन - स्वीकारु ॥</a>
+<li><a onclick="GetLila(140)" href="#lilaout" data-transition="slide" id="lila_140">१४१) म्हाइंभटां लीळाश्रवणें भटीं लीळाशोधनानुज्ञा ॥</a>
+<li><a onclick="GetLila(141)" href="#lilaout" data-transition="slide" id="lila_141">१४२) तथा सारंगपंडित - क्षीरभोजन - परीत्यजनिं अनुचितानुवादु ॥</a>
+<li><a onclick="GetLila(142)" href="#lilaout" data-transition="slide" id="lila_142">१४३) म्हाइंभट अद्वैतसमर्थनप्रश्नें दैवाद्य - व्यापारु - कथन ॥</a>
+<li><a onclick="GetLila(143)" href="#lilaout" data-transition="slide" id="lila_143">१४४) तथा वीपरीतानुष्ठानव्याख्यानकरणि भटीं गोसावियांतें पुसों विसरलां म्हणणें ॥</a>
+<li><a onclick="GetLila(144)" href="#lilaout" data-transition="slide" id="lila_144">१४५) भद्रकार कामाइसां भेटि : श्रवण करणें ॥</a>
+<li><a onclick="GetLila(145)" href="#lilaout" data-transition="slide" id="lila_145">१४६) तथा आगमनीं विरोदी प्रकासणें ॥</a>
+<li><a onclick="GetLila(146)" href="#lilaout" data-transition="slide" id="lila_146">१४७) तथा स्मरणप्रश्नें प्रतिष्टान - नाम - स्मरणिये निरूपण ॥</a>
+<li><a onclick="GetLila(147)" href="#lilaout" data-transition="slide" id="lila_147">१४८) तथा भिक्षा - निराकरण ॥</a>
+<li><a onclick="GetLila(148)" href="#lilaout" data-transition="slide" id="lila_148">१४९) तथा अग्निप्रवेसिं आदिभावो - निराकारण ॥</a>
+<li><a onclick="GetLila(149)" href="#lilaout" data-transition="slide" id="lila_149">१५०) तथा अज्ञी (ग्नी) प्रवेसु - श्रवणें ईश्वरदान - निर्वचु ॥</a>
+<li><a onclick="GetLila(150)" href="#lilaout" data-transition="slide" id="lila_150">१५१) पाठकसुतागमनीं पाठक ज्ञान करणें ॥</a>
+<li><a onclick="GetLila(151)" href="#lilaout" data-transition="slide" id="lila_151">१५२) अनुचित द्रव्य - स्वीकारें दींडोरी गोंदोबा - सिक्षापण ॥</a>
+<li><a onclick="GetLila(152)" href="#lilaout" data-transition="slide" id="lila_152">१५३) ब्राह्मणा प्रश्नें सितोदकानुवादु ॥</a>
+<li><a onclick="GetLila(153)" href="#lilaout" data-transition="slide" id="lila_153">१५४) सृष्टि - निर्वचीं शास्त्र - अभ्यासु कथन ॥</a>
+<li><a onclick="GetLila(154)" href="#lilaout" data-transition="slide" id="lila_154">१५५) कटककारा भानुभटां अनुसरण ॥</a>
+<li><a onclick="GetLila(155)" href="#lilaout" data-transition="slide" id="lila_155">१५६) तथा प्रसाद - ग्रंथिका - करणि व्यक्तिभंगा - भावो - कथन ॥</a>
+<li><a onclick="GetLila(156)" href="#lilaout" data-transition="slide" id="lila_156">१५७) तथा पोफळ फोड (व) णें ॥</a>
+<li><a onclick="GetLila(157)" href="#lilaout" data-transition="slide" id="lila_157">१५८) तथा बुझावणिये ‘पोफळ - फोडणा’ म्हणणें ॥</a>
+<li><a onclick="GetLila(158)" href="#lilaout" data-transition="slide" id="lila_158">१५९) झोळीये भोजन - दर्शनीं केशोबासिं माहात्मा सिक्षापणें ॥</a>
+<li><a onclick="GetLila(159)" href="#lilaout" data-transition="slide" id="lila_159">१६०) तथा कंदर्प - शाक - निषेधीं भटोबासांची आन घालणें ॥</a>
+<li><a onclick="GetLila(160)" href="#lilaout" data-transition="slide" id="lila_160">१६१) अन्य वार्ताश्रवणें रंभायो दवडणें ॥</a>
+<li><a onclick="GetLila(161)" href="#lilaout" data-transition="slide" id="lila_161">१६२) तथा उचिष्ठाज्ञा - करणिं मी तियेचा धर्मु म्हणणें ॥</a>
+<li><a onclick="GetLila(162)" href="#lilaout" data-transition="slide" id="lila_162">१६३) नाइकबाइ - आग्रहीं माहादाइसीं श्रवण करणें ॥</a>
+<li><a onclick="GetLila(163)" href="#lilaout" data-transition="slide" id="lila_163">१६४) तथा भिक्षा देणें ॥</a>
+<li><a onclick="GetLila(164)" href="#lilaout" data-transition="slide" id="lila_164">१६५) तथा वियोगपूर्वक पदें महादाइसीं आइकणें ॥</a>
+<li><a onclick="GetLila(165)" href="#lilaout" data-transition="slide" id="lila_165">१६६) माहादाइसीं भिक्षुकाचारु सोधूनि बाइयां शिक्षापणें ॥</a>
+<li><a onclick="GetLila(166)" href="#lilaout" data-transition="slide" id="lila_166">१६७) तथा ‘रुक्मिणिसैंवर’ - गायेणीं बाइयां अव्हेरणें ॥</a>
+<li><a onclick="GetLila(167)" href="#lilaout" data-transition="slide" id="lila_167">१६८) म्हातारी धर्मरक्षणानुवादें भटीं बाइया सिक्षापणें ॥</a>
+<li><a onclick="GetLila(168)" href="#lilaout" data-transition="slide" id="lila_168">१६९) अटनि वीजनप्रसंगें म्हाइंभटा महादाइसीं सिक्षापणें ॥</a>
+<li><a onclick="GetLila(169)" href="#lilaout" data-transition="slide" id="lila_169">१७०) गळितफळानुवादु ॥</a>
+<li><a onclick="GetLila(170)" href="#lilaout" data-transition="slide" id="lila_170">१७१) बाइयां शब्दार्थ घोकवणें ॥</a>
+<li><a onclick="GetLila(171)" href="#lilaout" data-transition="slide" id="lila_171">१७२) म्हाइंभटीं ब्राह्मणा प्रत्योतर देणें ॥</a>
+<li><a onclick="GetLila(172)" href="#lilaout" data-transition="slide" id="lila_172">१७३) तथा शुद्रा ‘शुभं नास्ति ’ श्रवणें : ब्राह्मणाप्रति वाक्य देणें ॥</a>
+<li><a onclick="GetLila(173)" href="#lilaout" data-transition="slide" id="lila_173">१७४) म्हाइंभटीं ‘रुक्मिणिसैंवर’ करणें ॥</a>
+<li><a onclick="GetLila(174)" href="#lilaout" data-transition="slide" id="lila_174">१७५) महादाइसा - प्रश्नें जेचि गति बाइसां तेचि असन्निधानिचेयां म्हणणें ॥</a>
+<li><a onclick="GetLila(175)" href="#lilaout" data-transition="slide" id="lila_175">१७६) तथा प्रश्नें पर्वागमनिं द्विगुणानुष्ठान - कथन ॥</a>
+<li><a onclick="GetLila(176)" href="#lilaout" data-transition="slide" id="lila_176">१७७) नौगावी महादाइसां भेटि : दिवस - संख्यावीधानिं कोथळेनसीं वीधान सांघणें ॥</a>
+<li><a onclick="GetLila(177)" href="#lilaout" data-transition="slide" id="lila_177">१७८) भिक्षु वराडागमनीं श्रीप्रभुकन्या आउ बळवतरें सांघणें ॥</a>
+<li><a onclick="GetLila(178)" href="#lilaout" data-transition="slide" id="lila_178">१७९) उपानौह सांघणें ॥</a>
+<li><a onclick="GetLila(179)" href="#lilaout" data-transition="slide" id="lila_179">१८०) गौराइ - भिक्षासीधि - कथन ॥</a>
+<li><a onclick="GetLila(180)" href="#lilaout" data-transition="slide" id="lila_180">१८१) लखुदेवोबा झोळीये लग्नानुवादु ॥</a>
+<li><a onclick="GetLila(181)" href="#lilaout" data-transition="slide" id="lila_181">१८२) उपाध्यां रावंसगांवीं वासु सांघणें ॥</a>
+<li><a onclick="GetLila(182)" href="#lilaout" data-transition="slide" id="lila_182">१८३) तथा कमळाइसां अनुसरण ॥</a>
+<li><a onclick="GetLila(183)" href="#lilaout" data-transition="slide" id="lila_183">१८४) अभ्यागतागमनिं धर्मवार्ता - भविष्य कथन ॥</a>
+<li><a onclick="GetLila(184)" href="#lilaout" data-transition="slide" id="lila_184">१८५) रिक्दोदकपानभाषणि आनोबाणित जळु - स्वीकारु : ॥</a>
+<li><a onclick="GetLila(185)" href="#lilaout" data-transition="slide" id="lila_185">१८६) तथा पुनरागमनिं जाया- दुख - निवृति ॥</a>
+<li><a onclick="GetLila(186)" href="#lilaout" data-transition="slide" id="lila_186">१८७) अनंताकोचा पैकु - अनुसरणानुवादु ॥</a>
+<li><a onclick="GetLila(187)" href="#lilaout" data-transition="slide" id="lila_187">१८८) ब्राह्मणा प्रत्युतर - प्रदायेनी भीक्षा देणें ॥</a>
+<li><a onclick="GetLila(188)" href="#lilaout" data-transition="slide" id="lila_188">१८९) महात्मेया गौराइ - सदृशाचारु - कथन ॥</a>
+<li><a onclick="GetLila(189)" href="#lilaout" data-transition="slide" id="lila_189">१९०) ऋद्धिपुरा प्रयाण ॥</a>
+<li><a onclick="GetLila(190)" href="#lilaout" data-transition="slide" id="lila_190">१९१) आउ भेटि : मढु नमस्करणें ॥</a>
+<li><a onclick="GetLila(191)" href="#lilaout" data-transition="slide" id="lila_191">१९२) ईश्वरसदृश पुरुषागमनिं म्हाइंभटांकरविं पूर्वप्रश्न करवणें ॥</a>
+<li><a onclick="GetLila(192)" href="#lilaout" data-transition="slide" id="lila_192">१९३) कोथळोबा - जळावग्रहणीं उमाइ - कोपनिं म्हाइंभटीं सिक्षापण ॥</a>
+<li><a onclick="GetLila(193)" href="#lilaout" data-transition="slide" id="lila_193">१९४) तथा म्हाइंभट - विज्ञापणिं ‘महावाक्य’ सांघणें ॥</a>
+<li><a onclick="GetLila(194)" href="#lilaout" data-transition="slide" id="lila_194">१९५) निरालंबनता -श्रवणें कोथळोबा - निर्गमनिं एकांतस्थानप्रसंसा ॥</a>
+<li><a onclick="GetLila(195)" href="#lilaout" data-transition="slide" id="lila_195">१९६) आउ - अभ्यागत - निराकरणी म्हाइंभटां सीक्षापणें ॥</a>
+<li><a onclick="GetLila(196)" href="#lilaout" data-transition="slide" id="lila_196">१९७) तथा अनुतप्त म्हाइंभटीं आउसां भोजन मागणें ॥</a>
+<li><a onclick="GetLila(197)" href="#lilaout" data-transition="slide" id="lila_197">१९८) म्हाइंभटा देहावसान ॥</a>
+<li><a onclick="GetLila(198)" href="#lilaout" data-transition="slide" id="lila_198">१९९) गंगातीराप्रयाणिं आउ चाल म्हणणें ॥</a>
+<li><a onclick="GetLila(199)" href="#lilaout" data-transition="slide" id="lila_199">२००) मार्गी परंडकर गौराइदत (त्त) डोचें उदक - स्वीकारु ॥</a>
+<li><a onclick="GetLila(200)" href="#lilaout" data-transition="slide" id="lila_200">२०१) प्रतिष्टाना येणें ॥</a>
+<li><a onclick="GetLila(201)" href="#lilaout" data-transition="slide" id="lila_201">२०२) प्रतिष्टानीं भटाज्ञा भास्करभटीं संन्यासीयां पराजयो करणें ॥</a>
+<li><a onclick="GetLila(202)" href="#lilaout" data-transition="slide" id="lila_202">२०३) तथा पींपळेस्वरां न वच म्हणणें ॥</a>
+<li><a onclick="GetLila(203)" href="#lilaout" data-transition="slide" id="lila_203">२०४) पींपळेस्वरीं कवीस्वर - चर्चा ॥</a>
+<li><a onclick="GetLila(204)" href="#lilaout" data-transition="slide" id="lila_204">२०५) निंबेयागमनिं पुडती वास करणें ॥</a>
+<li><a onclick="GetLila(205)" href="#lilaout" data-transition="slide" id="lila_205">२०६) विहीटेकारां गौराइसां संबंधूनि बोलावणें ॥</a>
+<li><a onclick="GetLila(206)" href="#lilaout" data-transition="slide" id="lila_206">२०७) काळाक्षरीं वेधु (- बोधु -) निराकरण ॥</a>
+<li><a onclick="GetLila(207)" href="#lilaout" data-transition="slide" id="lila_207">२०८) रजतमाश्रयें धर्महानी - कथन ॥</a>
+<li><a onclick="GetLila(208)" href="#lilaout" data-transition="slide" id="lila_208">२०९) नागाइ - शास्त्रसंवाद - शोधनि उभयां लाभानुवादु ॥</a>
+<li><a onclick="GetLila(209)" href="#lilaout" data-transition="slide" id="lila_209">२१०) तिर्येंच - अवतार - कथन ॥</a>
+<li><a onclick="GetLila(210)" href="#lilaout" data-transition="slide" id="lila_210">२११) अनृत्य (त) - भाषण - निषेधु ॥</a>
+<li><a onclick="GetLila(211)" href="#lilaout" data-transition="slide" id="lila_211">२१२) बाइ - अटन - प्रश्नीं ग्रामेग्रामा - दर्शन - कथन ॥</a>
+<li><a onclick="GetLila(212)" href="#lilaout" data-transition="slide" id="lila_212">२१३) बाइ - प्रत्यजित - शाकावग्रहणि अर्ध सुपीं अर्ध कुपीं म्हणणें ॥</a>
+<li><a onclick="GetLila(213)" href="#lilaout" data-transition="slide" id="lila_213">२१४) माहात्मेया नित्याटनिं अवस्थान - संख्या - कथन ॥</a>
+<li><a onclick="GetLila(214)" href="#lilaout" data-transition="slide" id="lila_214">२१५) ब्राम्हणां गीतु - निर्भर्षणि भिक्षा देणें ॥</a>
+<li><a onclick="GetLila(215)" href="#lilaout" data-transition="slide" id="lila_215">२१६) सारंगपंडित - देहावसानीं उमाइसां भेटि : अनुसरण ॥</a>
+<li><a onclick="GetLila(216)" href="#lilaout" data-transition="slide" id="lila_216">२१७) शास्त्राचार निरूपणें ॥</a>
+<li><a onclick="GetLila(217)" href="#lilaout" data-transition="slide" id="lila_217">२१८) अन्यदूषणश्रवणें केशवदेव - उपानहौ - त्यागी ‘तूंचि माझा महात्मा’ म्हणणें ॥</a>
+<li><a onclick="GetLila(218)" href="#lilaout" data-transition="slide" id="lila_218">२१९) भटां भिक्षायाचनिं जनां वेधु ॥</a>
+<li><a onclick="GetLila(219)" href="#lilaout" data-transition="slide" id="lila_219">२२०) साधां निरयेज्ञानें पुरुषु - ज्ञान करणें ॥</a>
+<li><a onclick="GetLila(220)" href="#lilaout" data-transition="slide" id="lila_220">२२१) दादोसां देहावसानि उपाध्यीं नाथोबायें सांभाळणें ॥</a>
+<li><a onclick="GetLila(221)" href="#lilaout" data-transition="slide" id="lila_221">२२२) उपाध्यां देहावसान ॥</a>
+<li><a onclick="GetLila(222)" href="#lilaout" data-transition="slide" id="lila_222">२२३) नाथोबा लोहेदर्शनें अवकास करणें ॥</a>
+<li><a onclick="GetLila(223)" href="#lilaout" data-transition="slide" id="lila_223">२२४) नाथोबा - देहत्यागु : भुवनीं निद्रा - स्वीकारु ॥</a>
+<li><a onclick="GetLila(224)" href="#lilaout" data-transition="slide" id="lila_224">२२५) केशवदेवोद्यमें मार्गौं उपयोगानुवादु ॥</a>
+<li><a onclick="GetLila(225)" href="#lilaout" data-transition="slide" id="lila_225">२२६) अधिष्ठानसंबंधें वडीलु म्हणणें ॥</a>
+<li><a onclick="GetLila(226)" href="#lilaout" data-transition="slide" id="lila_226">२२७) वीजनीं भिक्षु दर्शनें दंडवत घालणें ॥</a>
+<li><a onclick="GetLila(227)" href="#lilaout" data-transition="slide" id="lila_227">२२८) धर्मवार्ताश्रवणें ब्राह्मणा वेध - संचारु : भिक्षाप्रदान ॥</a>
+<li><a onclick="GetLila(228)" href="#lilaout" data-transition="slide" id="lila_228">२२९) आश्चर्यार्थ तर्‍हीं अनुसरा म्हणणें ॥</a>
+<li><a onclick="GetLila(229)" href="#lilaout" data-transition="slide" id="lila_229">२३०) केली क्रीया वायां न वचे म्हणणें ॥</a>
+<li><a onclick="GetLila(230)" href="#lilaout" data-transition="slide" id="lila_230">२३१) धडवस्त्र - निषेधे भिक्षेचें अन्न - वस्त्र - प्रसंसा ॥</a>
+<li><a onclick="GetLila(231)" href="#lilaout" data-transition="slide" id="lila_231">२३२) उजनिये अवस्थान - श्रवणें : आज्ञा वीशेषु पाळणें ॥</a>
+<li><a onclick="GetLila(232)" href="#lilaout" data-transition="slide" id="lila_232">२३३) लक्ष्मीधरबा - अनुवादें अनिष्टत्यागिं स्वल्पाचारें ईश्वरगति मानणें ॥</a>
+<li><a onclick="GetLila(233)" href="#lilaout" data-transition="slide" id="lila_233">२३४) परस्परें सांघातु - निष्ठानुवादु ॥</a>
+<li><a onclick="GetLila(234)" href="#lilaout" data-transition="slide" id="lila_234">२३५) उजळनें - मैळनें - अनुवादु ॥</a>
+<li><a onclick="GetLila(235)" href="#lilaout" data-transition="slide" id="lila_235">२३६) शास्त्रस्थळनियेमें अर्थनिष्पत्यनुवादु ॥</a>
+<li><a onclick="GetLila(236)" href="#lilaout" data-transition="slide" id="lila_236">२३७) धर्मवार्ताप्रसंगीं केशवदेवीं कवीस्वरां कोपणें ॥</a>
+<li><a onclick="GetLila(237)" href="#lilaout" data-transition="slide" id="lila_237">२३८) गतिगोंदोबा श्रवण ॥</a>
+<li><a onclick="GetLila(238)" href="#lilaout" data-transition="slide" id="lila_238">२३९) वेधाचार्ये - श्रवणे वीद्वांसाउद्ग्रहणिके भिक्षा देणें ॥</a>
+<li><a onclick="GetLila(239)" href="#lilaout" data-transition="slide" id="lila_239">२४०) मात्रा - शब्दु - समर्थन ॥</a>
+<li><a onclick="GetLila(240)" href="#lilaout" data-transition="slide" id="lila_240">२४१) हीराइ विरक्तां कसवटी म्हणणें ॥</a>
+<li><a onclick="GetLila(241)" href="#lilaout" data-transition="slide" id="lila_241">२४२) भ (भा - घ) टो श्रृंघारीया कवी - कथन ॥</a>
+<li><a onclick="GetLila(242)" href="#lilaout" data-transition="slide" id="lila_242">२४३) वरवडाची क्रीया भितरा येइल म्हणणें ॥</a>
+<li><a onclick="GetLila(243)" href="#lilaout" data-transition="slide" id="lila_243">२४४) वीष्णुदास नामदेया पंडितमुखें वेधु - संक्रमण ॥</a>
+<li><a onclick="GetLila(244)" href="#lilaout" data-transition="slide" id="lila_244">२४५) मान्यता : संग्रहीया पुरुषा शास्त्र -संवादा बैसों नेदा म्हणणें ॥</a>
+<li><a onclick="GetLila(245)" href="#lilaout" data-transition="slide" id="lila_245">२४६) गंगातिर आजारनिष्ठें कन्यासून - दृष्टांन्तु - कथनीं सासुरें अनुवादु ॥</a>
+<li><a onclick="GetLila(246)" href="#lilaout" data-transition="slide" id="lila_246">२४७) म्हाइंभट - दास्या ‘होड घाली’ म्हणणें ॥</a>
+<li><a onclick="GetLila(247)" href="#lilaout" data-transition="slide" id="lila_247">२४८) आचरतेया पुरुषा शाब्दींचि अपरोक्ष म्हणणें ॥</a>
+<li><a onclick="GetLila(248)" href="#lilaout" data-transition="slide" id="lila_248">२४९) वीशेष चरीतार्थीं जीवु अवताराचा म्हणणें ॥</a>
+<li><a onclick="GetLila(249)" href="#lilaout" data-transition="slide" id="lila_249">२५०) वचनार्थ - अन्यथात्वीं वचन - प्रतीत (ति) म्हणणें ॥</a>
+<li><a onclick="GetLila(250)" href="#lilaout" data-transition="slide" id="lila_250">२५१) घटीकेचीया जिज्ञासा अटनचरीत म्हणणें ॥</a>
+<li><a onclick="GetLila(251)" href="#lilaout" data-transition="slide" id="lila_251">२५२) अनुसरण - निर्धारीं ईश्वरगति - निर्वचु ॥</a>
+<li><a onclick="GetLila(252)" href="#lilaout" data-transition="slide" id="lila_252">२५३) केशवादिकां अनुद्यमीं होड - अनुवादु ॥</a>
+<li><a onclick="GetLila(253)" href="#lilaout" data-transition="slide" id="lila_253">२५४) नौगावीं महादाइसा देहावसान ॥</a>
+<li><a onclick="GetLila(254)" href="#lilaout" data-transition="slide" id="lila_254">२५५) हीराइसां - सिक्षापणिं गौराइसां मार्गाभिमानु - कथन ॥</a>
+<li><a onclick="GetLila(255)" href="#lilaout" data-transition="slide" id="lila_255">२५६) भटोबासां ज्वरागमनिं पंडित - सया (शय्या - घ) - स्वीकारु ॥</a>
+<li><a onclick="GetLila(256)" href="#lilaout" data-transition="slide" id="lila_256">२५७) मार्ग - सिंहावलोकनें ज्वर - निवृति ॥</a>
+<li><a onclick="GetLila(257)" href="#lilaout" data-transition="slide" id="lila_257">२५८) पंडितीं स्वप्नश्रवण ॥</a>
+<li><a onclick="GetLila(258)" href="#lilaout" data-transition="slide" id="lila_258">२५९) ज्वरागमनिं भटिं गुरुकुळीं क्षेमानुवादु ॥</a>
+<li><a onclick="GetLila(259)" href="#lilaout" data-transition="slide" id="lila_259">२६०) भटोबासां ईश्वरदर्शन ॥</a>
+<li><a onclick="GetLila(260)" href="#lilaout" data-transition="slide" id="lila_260">२६१) भटां वियोगीं पंडिती धुवा करणें ॥</a>
+<p>वृध्दाचार</p>
+<li><a onclick="GetLila(261)" href="#lilaout" data-transition="slide" id="lila_261">१) भटोबासांचां वीयोगीं महेस्वरपंडिता व्यवहारीं माइदेवपंडिती जयेपत्र घेणें ॥</a>
+<li><a onclick="GetLila(262)" href="#lilaout" data-transition="slide" id="lila_262">२) तथा महेश्वरसुतां अनुसरण ॥</a>
+<li><a onclick="GetLila(263)" href="#lilaout" data-transition="slide" id="lila_263">३) भटोबासां जन्मप्रदायेनीं पंडितीं देमाइसां स्वप्नप्रतिभिज्ञा करणें ॥</a>
+<li><a onclick="GetLila(264)" href="#lilaout" data-transition="slide" id="lila_264">४) पंडिती ‘वत्साहरण’ करणें ॥</a>
+<li><a onclick="GetLila(265)" href="#lilaout" data-transition="slide" id="lila_265">५) भटोबास - निक्षेपस्थानीं गोपाळपंडितीं प्रसादकरणीं कविस्वरीं निराकरण ॥</a>
+<li><a onclick="GetLila(266)" href="#lilaout" data-transition="slide" id="lila_266">६) मार्गीं आनोबासीं उदक आणणें ॥</a>
+<li><a onclick="GetLila(267)" href="#lilaout" data-transition="slide" id="lila_267">७) बाइदेवोबायें ‘सुसु (शिशु) पाळ’ निषेधीं कविस्वरीं ‘एकादश’ करणें ॥</a>
+<li><a onclick="GetLila(268)" href="#lilaout" data-transition="slide" id="lila_268">८) रुजायुक्त कवीस्वरां दंतिगोपाळबायें साडेगावीं तीर्थवीधि करणें ॥</a>
+<li><a onclick="GetLila(269)" href="#lilaout" data-transition="slide" id="lila_269">९) कवीस्वरां उपचारी दंतिगोपाळबाये ईश्वरहेतु प्रकाशणें ॥</a>
+<li><a onclick="GetLila(270)" href="#lilaout" data-transition="slide" id="lila_270">१०) कवीस्वरां वासुदेवभटीं प्रश्न करणें ॥</a>
+<li><a onclick="GetLila(271)" href="#lilaout" data-transition="slide" id="lila_271">११) आनोबासीं वासुदेवभटां झाडातळि पाटा फुटला म्हणणें ॥</a>
+<li><a onclick="GetLila(272)" href="#lilaout" data-transition="slide" id="lila_272">१२) ब्राह्मणा स्वप्नश्रवणीं कवीस्वरीं सहश्र भोजन चुकवणें ॥</a>
+<li><a onclick="GetLila(273)" href="#lilaout" data-transition="slide" id="lila_273">१३) कुमरे रेमाइसें दंडवत वांछिती संन्यासी खंडणें ॥</a>
+<li><a onclick="GetLila(274)" href="#lilaout" data-transition="slide" id="lila_274">१४) तस्करोपद्रव - निराकरणी हिराइसुता अनुसरण ॥</a>
+<li><a onclick="GetLila(275)" href="#lilaout" data-transition="slide" id="lila_275">१५) राघवभटीं ‘द्वादशश्लोक पूजावसर’ करणे ॥</a>
+<li><a onclick="GetLila(276)" href="#lilaout" data-transition="slide" id="lila_276">१६) कवीस्वरां हरगर्वभटां उद्गहणिंकें कवीस्वरीं आनोबास प्रकाशणें ॥</a>
+<li><a onclick="GetLila(277)" href="#lilaout" data-transition="slide" id="lila_277">१७) पश्रा(रश)मबासां आनोबासां भेंटि - विधानीं बाइदेवोबायें वीधानज्ञान करणें ॥</a>
+<li><a onclick="GetLila(278)" href="#lilaout" data-transition="slide" id="lila_278">१८) परसरामबासा धर्मवार्ताकरणिं आनोबासीं गगना गवसणी अनुवादु ॥</a>
+<li><a onclick="GetLila(279)" href="#lilaout" data-transition="slide" id="lila_279">१९) आनोबासीं ‘अंताक्षरी’ करणें ॥</a>
+<li><a onclick="GetLila(280)" href="#lilaout" data-transition="slide" id="lila_280">२०) सर्पदष्ट महादेवोबा प्रसाद - ग्रंथिका कंठा अवग्रहणि वीषोतार ॥</a>
+<li><a onclick="GetLila(281)" href="#lilaout" data-transition="slide" id="lila_281">२१) दंतीगोपाळबासां देहावसान ॥</a>
+<li><a onclick="GetLila(282)" href="#lilaout" data-transition="slide" id="lila_282">२२) सत्रसींगीं१ नागाइ - देहावसान : शोधनिं कवीस्वरीं वाक्य करणें ॥</a>
+<li><a onclick="GetLila(283)" href="#lilaout" data-transition="slide" id="lila_283">२३) परसरामबास - देहावसानीं विनाएकबासीं धांवा करणें ॥</a>
+
+
+
+
+</ul>
+          
+</div>
+</div>
+	
+	
+    <div data-role="page" data-theme="a" id="lilaout">
+	<div data-role="header" data-position="fixed">
+                        <h1 style="color:Tomato;text-align: center">॥ स्मृतिस्थळ ॥ </h1>
+
+        </div>
+	<div id="set"></div>
+	
+	<div data-role="footer" data-position="fixed">
+        <div class="ui-grid-d center">
+            <div class="ui-block-a">
+                <a rel="external" class="ui-shadow ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext ui-btn-inline" href="https://galacticmaster.github.io/lilacharitra/main/">Button</a>
+            </div>
+            <div class="ui-block-b">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline" data-transition="slide" onclick="PreLila()">Button</a>
+            </div>
+            <div class="ui-block-c">
+                <!--<a class="ui-shadow ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-inline" type="hidden" href="#pageone">Button</a>-->
+            </div>
+            <div class="ui-block-d">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-notext ui-btn-inline" data-transition="slide" onclick="NextLila()">Button</a>
+            </div>
+            <div class="ui-block-e">
+                <a class="ui-shadow ui-btn ui-corner-all ui-icon-gear ui-btn-icon-notext ui-btn-inline">Button</a>
+            </div>
+        </div>
+	
+    </div>
+	
+
+    <div data-role="page" data-theme="a" id="pagethree">
+        <div data-role="header" data-position="fixed">
+            <h1>लीळाचरित्र Search</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <input type="search" name="search" id="searchlila" onchange="searchlila($(this).val())">
+        </div>
+    </div>
+
+
+    </div>
+	
+	
+</body>
+</html>
+
+<script>
+    /*Disable copy paste*/
+    (function ($) {
+
+        $.fn.blockCopy = function (options) {
+
+            var settings = $.extend({
+                blockPasteClass: null
+            }, options);
+
+
+            if (settings.blockPasteClass) {
+                $("." + settings.blockPasteClass).bind('copy paste cut drag drop', function (e) {
+                    e.preventDefault();
+                    return false;
+                });
+            }
+
+
+            function style_appender(rule) {
+                $('html > head').append($('<style>' + rule + '</style>'));
+            }
+
+            function html_appender(html) {
+                $("body").append(html);
+            }
+
+            function clearClipboard() {
+                var $temp = $("#bypasser");
+                $temp.val("You can't cheat !").select();
+                document.execCommand("copy");
+            }
+
+            function add_absolute_div(id) {
+                html_appender("<div id='noClick" + id + "' onclick='return false;' oncontextmenu='return false;'>&nbsp;</div>");
+            }
+
+
+            function absorbEvent_(event) {
+                var e = event || window.event;
+                e.preventDefault && e.preventDefault();
+                e.stopPropagation && e.stopPropagation();
+                e.cancelBubble = true;
+                e.returnValue = false;
+                return false;
+            }
+
+            function preventLongPressMenu(node) {
+                node.ontouchstart = absorbEvent_;
+                node.ontouchmove = absorbEvent_;
+                node.ontouchend = absorbEvent_;
+                node.ontouchcancel = absorbEvent_;
+            }
+
+            function set_absolute_div(element, id) {
+                var position = element.position();
+                var noclick = "#noClick" + id;
+
+                $(noclick).css({
+                    height: (element.height()),
+                    width: (element.width()),
+                    position: 'absolute',
+                    top: position.top,
+                    left: position.left,
+                    'z-index': 100
+                })
+            }
+
+
+            $("body").bind("contextmenu", function (e) {
+                e.preventDefault();
+            });
+
+
+
+            //Append needed rules to css
+            style_appender(
+                "* {-moz-user-select: none !important; -khtml-user-select: none !important;   -webkit-user-select: none !important; -ms-user-select: none !important;   user-select: none !important; }" +
+                ".content {position: relative !important; }" +
+                ".content .mask {position: absolute !important ; z-index: 1 !important; width: 100% !important; height: 100%!important;}" +
+                ".content a {position: relative !important; z-index: 3 !important;}" +
+                ".content, .content .mask{ pointer-events: none;}"
+            );
+
+
+            //Append an Input to clear clipboard
+            html_appender("<input id='bypasser' value='nothing' type='hidden'>");
+            //Clearing clipboard Intervali
+            setInterval(clearClipboard, 1000);
+
+
+
+            var id = 1;
+
+            return this.each(function () {
+
+                //Preventing using touch events
+                preventLongPressMenu($(this));
+
+                //Add CSS preventor rules to selected DOM & append mask to class
+                $(this).addClass("content").append("<div class='mask'></div>");
+
+                //Append an absolute div to body
+                add_absolute_div(id);
+                //Set position of the div to selected DOM
+                set_absolute_div($(this), id);
+
+
+                id++;
+
+            });
+
+        }
+
+    }(jQuery));
+
+    /*Disable copy paste action */
+    $(document).ready(function () {
+        $(this).blockCopy();
+    });
+
+    function scrollToView(id) {
+        if ($("#" + id).offset() != undefined) {
+            var toppadding = Math.floor($("#" + id).offset().top - 70);
+            $('html,body').animate({
+            scrollTop: toppadding
+        }, 0);
+        }
+    }
+</script>
